@@ -29,12 +29,10 @@ vim.opt.fillchars = {
   foldopen = "",
   foldclose = "",
   foldsep = " ",
-  -- foldinner = " ",
 }
 
 vim.opt.wrap = false
 vim.opt.termguicolors = true
-vim.opt.shortmess = "WltToOCF"
 
 vim.opt.showmode = false
 vim.opt.showcmd = false
