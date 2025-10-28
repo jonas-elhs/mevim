@@ -34,9 +34,6 @@ vim.opt.fillchars = {
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 
-vim.opt.showmode = false
-vim.opt.showcmd = false
-vim.opt.ruler = false
 vim.opt.laststatus = 3
 
 vim.g.loaded_netrw = 1
