@@ -34,3 +34,5 @@ end
 
 -- Custom highlights
 highlight("CursorLine", {})
+highlight("ColorColumn", { link = "IlzaynInactiveModeReverse" })
+highlight("WinSeparator", { link = "ilzaynInactiveModeReverse" })
