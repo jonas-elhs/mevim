@@ -1,5 +1,10 @@
 local M = {}
 
+M.flags = {
+  modified = "",
+  locked = "󰌾",
+}
+
 M.name_to_name = {
   [""] = "[No Name]",
 }
@@ -12,13 +17,13 @@ function M.path_to_name(path)
   return vim.fn.fnamemodify(path, ":t")
 end
 
-function M.get_flags()
-  return (vim.bo.buftype ~= "" and vim.bo.buftype ~= "acwrite")
-    and ""
-    or vim.bo.modified
-      and ""
-      or (vim.bo.modifiable == false or vim.bo.readonly == true)
-        and "󰌾"
+function M.get_flags(buffer)
+  buffer = buffer or 0
+
+  return vim.bo[buffer].modified
+      and M.flags.modified
+      or (vim.bo[buffer].modifiable == false or vim.bo[buffer].readonly == true)
+        and M.flags.locked
         or ""
 end
 

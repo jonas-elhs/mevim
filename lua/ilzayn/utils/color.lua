@@ -24,6 +24,7 @@ function M.get_mode_colors()
     replace = palette.replace,
     command = palette.command,
     terminal = palette.terminal,
+    inactive = palette.inactive,
   }
 end
 
