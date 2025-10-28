@@ -7,7 +7,7 @@ return {
     after = function()
       require("treesj").setup({
         use_default_keymaps = false,
-        max_join_length = 500,
+        max_join_length = 5000,
       })
 
       local map = require("ilzayn.utils").keymap.map
