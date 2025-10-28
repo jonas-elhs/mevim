@@ -58,6 +58,7 @@
         helpview-nvim
         snacks-nvim
         noice-nvim
+        virt-column-nvim
       ];
 
       sharedLibraries = {};
