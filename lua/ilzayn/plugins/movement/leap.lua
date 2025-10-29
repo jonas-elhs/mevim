@@ -9,6 +9,10 @@ return {
 
       vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 
+      vim.keymap.set({"n", "x", "o"}, "r", function ()
+        require("leap.remote").action()
+      end)
+
       vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#ff0000", bg = "NONE", bold = true })
     end
   },
