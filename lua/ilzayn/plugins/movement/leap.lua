@@ -9,7 +9,7 @@ return {
 
       vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 
-      vim.keymap.set({"n", "x", "o"}, "r", function ()
+      vim.keymap.set({ "x", "o"}, "r", function ()
         require("leap.remote").action()
       end)
 
