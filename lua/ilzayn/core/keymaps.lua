@@ -7,6 +7,7 @@ map("n",            "<leader>W",    "<CMD>w!<CR>",                    "Force wri
 map("n",            "<leader>q",    "<CMD>q<CR>",                     "Quit window")
 map("n",            "<leader>Q",    "<CMD>q!<CR>",                    "Force quit window")
 
+map("n",            "<ESC>",        "<CMD>nohl<CR>",                  "Remove search highlights")
 map("n",            "U",            "<C-r>",                          "Redo previously undone changes")
 map("v",            "p",            "\"_p",                           "Overpaste selection")
 map("n",            "x",            "\"_x",                           "Delete character under cursor")
