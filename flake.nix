@@ -116,8 +116,9 @@
         settings = {
           wrapRc = false;
           configDirName = "nixCats-nvim";
-
           aliases = [ ];
+
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
 
         extra = {
