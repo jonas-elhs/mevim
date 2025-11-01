@@ -107,3 +107,17 @@ vim.diagnostic.config({
     prefix = "●",
   },
 })
+
+require("ilzayn.utils").keymap.map("n", "<leader>d", function()
+  local config = vim.diagnostic.config()
+
+  if type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true then
+    config.virtual_lines = false
+    config.virtual_text.current_line = nil
+  else
+    config.virtual_lines = { current_line = true }
+    config.virtual_text.current_line = false
+  end
+
+  vim.diagnostic.config(config)
+end, "Toggle diagnostic lines")
