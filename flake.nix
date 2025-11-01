@@ -63,6 +63,7 @@
         nvim-surround
         treesj
         nvim-treesitter.withAllGrammars
+        render-markdown-nvim
 
         blink-cmp
         blink-ripgrep-nvim
