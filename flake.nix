@@ -27,6 +27,20 @@
         fd
         fzf
         stdenv.cc.cc
+
+        nixd
+        ruff
+        pyright
+        rust-analyzer
+        lua-language-server
+        bash-language-server
+        yaml-language-server
+        emmet-language-server
+        svelte-language-server
+        llvmPackages_latest.clang-tools
+        typescript-language-server
+        tailwindcss-language-server
+        vscode-langservers-extracted
       ];
 
       startupPlugins.packages = with pkgs.vimPlugins; [
@@ -34,6 +48,8 @@
         nvim-web-devicons
         plenary-nvim
         nui-nvim
+        SchemaStore-nvim
+        nvim-lspconfig
       ];
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
