@@ -108,6 +108,13 @@ vim.diagnostic.config({
   },
 })
 
+local virtual_lines_config = {
+  current_line = true,
+  format = function(diagnostic)
+    return diagnostic.message
+  end,
+}
+
 require("ilzayn.utils").keymap.map("n", "<leader>d", function()
   local config = vim.diagnostic.config()
 
@@ -115,7 +122,7 @@ require("ilzayn.utils").keymap.map("n", "<leader>d", function()
     config.virtual_lines = false
     config.virtual_text.current_line = nil
   else
-    config.virtual_lines = { current_line = true }
+    config.virtual_lines = virtual_lines_config
     config.virtual_text.current_line = false
   end
 
