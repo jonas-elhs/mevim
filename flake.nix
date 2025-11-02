@@ -23,9 +23,9 @@
 
     categoryDefinitions = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
       lspsAndRuntimeDeps.packages = with pkgs; [
-        ripgrep
         fd
         fzf
+        ripgrep
         stdenv.cc.cc
 
         nixd
@@ -45,48 +45,35 @@
 
       startupPlugins.packages = with pkgs.vimPlugins; [
         lze
-        nvim-web-devicons
-        plenary-nvim
         nui-nvim
-        SchemaStore-nvim
+        plenary-nvim
         nvim-lspconfig
+        SchemaStore-nvim
+        nvim-web-devicons
       ];
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
         oil-nvim
         leap-nvim
 
-        nvim-ufo
-        gitsigns-nvim
         neogit
+        treesj
+        nvim-ufo
+        blink-cmp
+        lazydev-nvim
+        gitsigns-nvim
         hardtime-nvim
         nvim-surround
-        treesj
-        nvim-treesitter.withAllGrammars
         render-markdown-nvim
-
-        blink-cmp
-        blink-ripgrep-nvim
-
-        lazydev-nvim
+        nvim-treesitter.withAllGrammars
 
         ccc-nvim
+        noice-nvim
+        snacks-nvim
         incline-nvim
         helpview-nvim
-        snacks-nvim
-        noice-nvim
         virt-column-nvim
       ];
-
-      sharedLibraries = {};
-      environmentVariables = {};
-      extraWrapperArgs = {};
-
-      extraLuaPackages = {
-        general = [ (_:[]) ];
-      };
-
-      extraCats = {};
     };
 
     packageDefinitions = {
@@ -122,7 +109,7 @@
         };
 
         extra = {
-          nixdExtras = { nixpkgs = nixpkgs; };
+          nixdExtras = { inherit nixpkgs; };
         };
       };
     };
