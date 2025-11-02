@@ -100,10 +100,6 @@ return {
 
         statuscolumn = {
           enabled = true,
-
-          folds = {
-            open = true,
-          },
         },
       })
 
