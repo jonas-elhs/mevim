@@ -87,7 +87,7 @@
           configDirName = "nixCats-nvim";
           aliases = [];
 
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
         };
 
         extra = {
@@ -105,7 +105,7 @@
           configDirName = "nixCats-nvim";
           aliases = [ ];
 
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
         };
 
         extra = {
