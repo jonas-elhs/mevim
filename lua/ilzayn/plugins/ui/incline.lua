@@ -26,8 +26,8 @@ return {
           local content_highlight = focused and utils.mode.get_highlight_group() or utils.highlight.get_inactive_group()
           local separator_highlight = utils.highlight.reverse_group(content_highlight)
           local modified = vim.bo[props.buf].modified
-          local icon = devicons.get_icon(filename)
           local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t") or "[No Name]"
+          local icon = devicons.get_icon(file_name)
 
           return {
             { utils.highlight.separators.left, group = separator_highlight },
