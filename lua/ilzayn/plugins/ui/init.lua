@@ -5,4 +5,5 @@ return {
   { import = "ilzayn.plugins.ui.devicons" },
   { import = "ilzayn.plugins.ui.helpview" },
   { import = "ilzayn.plugins.ui.virt-column" },
+  { import = "ilzayn.plugins.ui.colorful-winsep" },
 }

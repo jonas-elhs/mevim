@@ -6,6 +6,11 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    plugins-colorful-winsep = {
+      url = "github:nvim-zh/colorful-winsep.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
@@ -73,6 +78,7 @@
         incline-nvim
         helpview-nvim
         virt-column-nvim
+        pkgs.neovimPlugins.colorful-winsep
       ];
     };
 
