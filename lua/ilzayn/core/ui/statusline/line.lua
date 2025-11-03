@@ -1,6 +1,6 @@
 local utils = require("ilzayn.utils")
 
-function get_line_progress()
+local function get_line_progress()
   local current_line = vim.fn.line(".")
   local total_lines = vim.fn.line("$")
 
@@ -13,7 +13,7 @@ function get_line_progress()
   end
 end
 
-function get_line_location()
+local function get_line_location()
   return "%l:%c"
 end
 

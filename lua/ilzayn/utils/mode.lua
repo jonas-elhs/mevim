@@ -91,6 +91,10 @@ function M.get_name()
   return M.mode_name[mode]
 end
 
+function M.get_color()
+  return require("ilzayn.utils").color.get_colors()[M.get_type():lower()]
+end
+
 function M.get_highlight_group(reverse)
   return table.concat({
     "Ilzayn",

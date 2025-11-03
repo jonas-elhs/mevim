@@ -23,7 +23,7 @@ return {
           local devicons = require("nvim-web-devicons")
           local focused = props.focused
 
-          local content_highlight = focused and utils.mode.get_highlight_group() or utils.highlight.get_inactive_group()
+          local content_highlight = focused and "IlzaynMode" or "IlzaynInactive"
           local separator_highlight = utils.highlight.reverse_group(content_highlight)
           local modified = vim.bo[props.buf].modified
           local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t") or "[No Name]"

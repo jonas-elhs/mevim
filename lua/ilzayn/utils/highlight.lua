@@ -15,13 +15,6 @@ function highlight_utils.reset()
   return "%#Normal#"
 end
 
-function highlight_utils.get_inactive_group(reverse)
-  return table.concat({
-    "IlzaynInactiveMode",
-    reverse == true and "Reverse" or "",
-  })
-end
-
 function highlight_utils.reverse_group(highlight)
   local reverse = "Reverse"
 
@@ -31,12 +24,8 @@ function highlight_utils.reverse_group(highlight)
 end
 
 function highlight_utils.module(content, active)
-  local separator_highlight = active == false
-    and "%#IlzaynInactiveModeReversed#"
-    or M.get_highlight(true)
-  local content_highlight = active == false
-    and "%#IlzaynInactiveMode#"
-    or M.get_highlight()
+  local separator_highlight = "%#IlzaynModeReverse#"
+  local content_highlight = "%#IlzaynMode#"
 
   return table.concat({
     separator_highlight, highlight_utils.separators.left,

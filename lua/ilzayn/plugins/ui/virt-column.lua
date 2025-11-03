@@ -10,7 +10,7 @@ return {
         highlight = "ColorColumn",
       })
 
-      highlight("ColorColumn", color_column)
+      vim.api.nvim_set_hl(0, "ColorColumn", color_column)
     end,
   },
 }

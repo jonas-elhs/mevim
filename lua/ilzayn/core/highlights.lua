@@ -1,7 +1,7 @@
 local utils = require("ilzayn.utils")
 local colors = utils.color.get_colors()
 
-function highlight(name, value, namespace)
+local function highlight(name, value, namespace)
   vim.api.nvim_set_hl(namespace or 0, name, value)
 end
 
@@ -14,25 +14,33 @@ for _, group in ipairs(vim.fn.getcompletion('', 'highlight')) do
 end
 
 -- Mode highlights
-for mode, color in pairs(utils.color.get_mode_colors()) do
-  highlight(
-    table.concat({ "Ilzayn", mode:gsub("^%l", string.upper), "Mode" }),
-    {
+vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
+  group = vim.api.nvim_create_augroup("IlzaynModeHighlight", { clear = true }),
+  callback = function()
+    highlight("IlzaynMode", {
       fg = colors.background,
-      bg = color,
-    }
-  )
+      bg = utils.mode.get_color(),
+    })
 
-  highlight(
-    table.concat({ "Ilzayn", mode:gsub("^%l", string.upper), "ModeReverse" }),
-    {
-      fg = color,
+    highlight("IlzaynModeReverse", {
+      fg = utils.mode.get_color(),
       bg = "NONE",
-    }
-  )
+    })
+  end,
+})
+for color_name, color in pairs(colors) do
+  highlight(table.concat({ "Ilzayn", (color_name:gsub("^%l", string.upper)) }), {
+    fg = colors.background,
+    bg = color,
+  })
+  highlight(table.concat({ "Ilzayn", (color_name:gsub("^%l", string.upper)), "Reverse" }), {
+    fg = color,
+    bg = "NONE",
+  })
 end
+
 
 -- Custom highlights
 highlight("CursorLine", {})
-highlight("ColorColumn", { link = "IlzaynInactiveModeReverse" })
-highlight("WinSeparator", { link = "ilzaynInactiveModeReverse" })
+highlight("ColorColumn", { link = "IlzaynInactiveReverse" })
+highlight("WinSeparator", { link = "ilzaynInactiveReverse" })
