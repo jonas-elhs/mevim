@@ -100,6 +100,13 @@ return {
 
         statuscolumn = {
           enabled = true,
+
+          left = { "sign", "git" },
+          right = { "fold", "mark" },
+
+          folds = {
+            open = true,
+          },
         },
       })
 
