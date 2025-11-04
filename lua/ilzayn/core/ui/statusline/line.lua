@@ -18,17 +18,15 @@ local function get_line_location()
 end
 
 return function()
-  return utils.highlight.module(
-    table.concat({
-      utils.width.more_than(50) and "  " or " ",
+  return table.concat({
+    utils.width.more_than(50) and "  " or " ",
 
-      utils.width.more_than(70)
-        and table.concat({ get_line_progress(), "  |  " })
-        or "",
+    utils.width.more_than(70)
+      and table.concat({ get_line_progress(), "  |  " })
+      or "",
 
-      get_line_location(),
+    get_line_location(),
 
-      utils.width.more_than(50) and "  " or " ",
-    })
-  )
+    utils.width.more_than(50) and "  " or " ",
+  })
 end

@@ -19,18 +19,18 @@ return {
         },
 
         render = function(props)
-          local utils = require("ilzayn.utils")
           local devicons = require("nvim-web-devicons")
           local focused = props.focused
 
           local content_highlight = focused and "IlzaynMode" or "IlzaynInactive"
-          local separator_highlight = utils.highlight.reverse_group(content_highlight)
+          local separator_highlight = content_highlight .. "Reverse"
+
           local modified = vim.bo[props.buf].modified
           local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t") or "[No Name]"
           local icon = devicons.get_icon(file_name)
 
           return {
-            { utils.highlight.separators.left, group = separator_highlight },
+            { "", group = separator_highlight },
 
             {
               icon and { " ", icon } or "",
@@ -38,14 +38,14 @@ return {
               " ",
 
               file_name,
-              modified and table.concat({ " ", utils.file.flags.modified }) or "",
+              modified and " " or "",
 
               " ",
 
               group = content_highlight,
             },
 
-            { utils.highlight.separators.right, group = separator_highlight },
+            { "", group = separator_highlight },
           }
         end,
       })

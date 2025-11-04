@@ -2,11 +2,6 @@ local utils = require("ilzayn.utils")
 
 local M = {}
 
-M.flags = {
-  modified = "",
-  locked = "󰌾",
-}
-
 M.name_overrides = {
   ["help"] = "Help",
   ["oil"] = "Oil",
@@ -17,9 +12,9 @@ function M.get_flags(buffer)
   buffer = buffer or 0
 
   return vim.bo[buffer].modified
-      and M.flags.modified
+      and ""
       or (vim.bo[buffer].modifiable == false or vim.bo[buffer].readonly == true)
-        and M.flags.locked
+        and "󰌾"
         or ""
 end
 
