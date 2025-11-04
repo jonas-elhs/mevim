@@ -1,5 +1,9 @@
 local utils = require("ilzayn.utils")
 
+local mode_module = require("ilzayn.core.ui.statusline.mode")
+local file_module = require("ilzayn.core.ui.statusline.file")
+local line_module = require("ilzayn.core.ui.statusline.line")
+
 local function get_center_spacing(left_component, center_component)
   local left_width = vim.api.nvim_strwidth(left_component)
 
@@ -13,7 +17,6 @@ local function get_center_spacing(left_component, center_component)
 
   return string.rep(" ", space_count)
 end
-
 local function highlight_module(content)
   local separator_highlight = "%#IlzaynModeReverse#"
   local content_highlight = "%#IlzaynMode#"
@@ -30,21 +33,21 @@ local function highlight_module(content)
 end
 
 function Statusline()
-  local mode_module = require("ilzayn.core.ui.statusline.mode")()
-  local file_module = require("ilzayn.core.ui.statusline.file")()
-  local line_module = require("ilzayn.core.ui.statusline.line")()
+  local left_module = mode_module()
+  local center_module = file_module()
+  local right_module = line_module()
 
   return table.concat({
-    highlight_module(mode_module),
+    highlight_module(left_module),
 
     utils.width.more_than(35)
-      and get_center_spacing(mode_module, file_module)
+      and get_center_spacing(left_module, center_module)
       or "%=",
 
-    file_module,
+    center_module,
 
     utils.width.more_than(35)
-      and table.concat({ "%=", highlight_module(line_module) })
+      and table.concat({ "%=", highlight_module(right_module) })
       or "",
   })
 end

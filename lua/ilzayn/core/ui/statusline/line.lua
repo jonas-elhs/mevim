@@ -1,6 +1,8 @@
 local utils = require("ilzayn.utils")
 
-local function get_line_progress()
+local M = {}
+
+function M.get_line_progress()
   local current_line = vim.fn.line(".")
   local total_lines = vim.fn.line("$")
 
@@ -22,7 +24,7 @@ return function()
     utils.width.more_than(50) and "  " or " ",
 
     utils.width.more_than(70)
-      and table.concat({ get_line_progress(), "  |  " })
+      and table.concat({ M.get_line_progress(), "  |  " })
       or "",
 
     get_line_location(),
