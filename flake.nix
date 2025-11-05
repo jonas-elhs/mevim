@@ -35,6 +35,7 @@
 
         nixd
         ruff
+        hyprls
         pyright
         rust-analyzer
         lua-language-server
