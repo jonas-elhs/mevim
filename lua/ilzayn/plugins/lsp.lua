@@ -71,12 +71,6 @@ local servers = {
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
-capabilities.textDocument = {
-  foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
-}
 
 vim.lsp.config("*", {
   capabilities = capabilities,
@@ -141,3 +135,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Inlay Hints
 vim.lsp.inlay_hint.enable(true)
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 99
