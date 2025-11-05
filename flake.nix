@@ -63,7 +63,6 @@
         leap-nvim
 
         neogit
-        nvim-ufo
         blink-cmp
         lazydev-nvim
         gitsigns-nvim
