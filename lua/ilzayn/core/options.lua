@@ -22,7 +22,6 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
--- vim.opt.colorcolumn = "80"
 vim.opt.fillchars = {
   eob = " ",
   fold = " ",

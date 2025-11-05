@@ -72,7 +72,6 @@
         render-markdown-nvim
         nvim-treesitter.withAllGrammars
 
-        ccc-nvim
         noice-nvim
         snacks-nvim
         incline-nvim
