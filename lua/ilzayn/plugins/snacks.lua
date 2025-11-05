@@ -112,8 +112,7 @@ return {
 
       local map = require("ilzayn.utils").keymap.map
       map("n", "<leader>sf", function() Snacks.picker.files() end, "Search files")
-      map("n", "<leader>ss", function() Snacks.picker.grep() end, "Search text")
-      map("n", "<leader>sg", function() Snacks.picker.git_files() end, "Search git files")
+      map("n", "<leader>sg", function() Snacks.picker.grep() end, "Search text")
       map("n", "<leader>sc", function() Snacks.picker.grep_word() end, "Search word under cursor")
       map("n", "<leader>sb", function() Snacks.picker.buffers() end, "Search buffers")
       map("n", "<leader>sr", function() Snacks.picker.resume() end, "Resume search")
