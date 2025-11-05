@@ -63,7 +63,6 @@
         leap-nvim
 
         neogit
-        treesj
         nvim-ufo
         blink-cmp
         lazydev-nvim
@@ -74,12 +73,16 @@
         nvim-treesitter.withAllGrammars
 
         noice-nvim
-        snacks-nvim
         incline-nvim
         helpview-nvim
         virt-column-nvim
         nvim-colorizer-lua
         pkgs.neovimPlugins.colorful-winsep
+
+        snacks-nvim
+        mini-move
+        mini-splitjoin
+        mini-surround
       ];
     };
 
