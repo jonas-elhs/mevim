@@ -42,4 +42,4 @@ end
 
 -- Custom highlights
 highlight("CursorLine", {})
-highlight("WinSeparator", { link = "ilzaynInactiveReverse" })
+highlight("WinSeparator", { link = "IlzaynInactiveReverse" })
