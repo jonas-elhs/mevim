@@ -128,3 +128,13 @@ require("ilzayn.utils").keymap.map("n", "<leader>d", function()
 
   vim.diagnostic.config(config)
 end, "Toggle diagnostic lines")
+
+-- Disable Document Colors
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    vim.lsp.document_color.enable(false)
+  end
+})
+
+-- Inlay Hints
+vim.lsp.inlay_hint.enable(true)
