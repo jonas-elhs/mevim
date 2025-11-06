@@ -19,7 +19,7 @@ return {
         },
 
         render = function(props)
-          local devicons = require("nvim-web-devicons")
+          local icons = require("mini.icons")
           local focused = props.focused
 
           local content_highlight = focused and "IlzaynMode" or "IlzaynInactive"
@@ -27,7 +27,7 @@ return {
 
           local modified = vim.bo[props.buf].modified
           local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t") or "[No Name]"
-          local icon = devicons.get_icon(file_name)
+          local icon = icons.get("file", file_name)
 
           return {
             { "", group = separator_highlight },

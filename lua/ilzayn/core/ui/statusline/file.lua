@@ -30,13 +30,13 @@ function M.get_name()
 end
 
 function M.get_icon()
-  local success, devicons = pcall(require, "nvim-web-devicons")
+  local success, icons = pcall(require, "mini.icons")
 
   if not success then
     return ""
   end
 
-  return devicons.get_icon(M.get_name(), M.get_type()) or ""
+  return icons.get("file", M.get_name())
 end
 
 function M.get_type()

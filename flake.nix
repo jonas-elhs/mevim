@@ -54,7 +54,6 @@
         nui-nvim
         plenary-nvim
         nvim-lspconfig
-        nvim-web-devicons
       ];
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
@@ -77,10 +76,11 @@
         nvim-colorizer-lua
         pkgs.neovimPlugins.colorful-winsep
 
-        snacks-nvim
         mini-move
-        mini-splitjoin
+        mini-icons
+        snacks-nvim
         mini-surround
+        mini-splitjoin
       ];
     };
 
