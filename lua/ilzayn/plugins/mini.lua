@@ -2,6 +2,8 @@ return {
   {
     "mini.move",
 
+    event = "BufReadPre",
+
     after = function()
       require("mini.move").setup()
     end,
@@ -9,12 +11,16 @@ return {
   {
     "mini.surround",
 
+    event = "BufReadPre",
+
     after = function()
       -- require("mini.surround").setup()
     end,
   },
   {
     "mini.splitjoin",
+
+    event = "BufReadPre",
 
     after = function()
       require("mini.splitjoin").setup({
