@@ -70,7 +70,6 @@ local servers = {
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
 
 vim.lsp.config("*", {
   capabilities = capabilities,
@@ -113,7 +112,7 @@ local virtual_lines_config = {
 }
 
 require("ilzayn.utils").keymap.map("n", "<leader>d", function()
-  local config = vim.diagnostic.config()
+  local config = vim.diagnostic.config() or {}
 
   if type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true then
     config.virtual_lines = false

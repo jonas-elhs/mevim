@@ -1,3 +1,5 @@
+require("ilzayn.plugins.code.lsp")
+
 return {
   { import = "ilzayn.plugins.code.blink" },
   { import = "ilzayn.plugins.code.gitsigns" },

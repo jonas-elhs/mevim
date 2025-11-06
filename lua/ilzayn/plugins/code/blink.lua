@@ -76,8 +76,6 @@ return {
           },
         },
       })
-
-      require("ilzayn.plugins.code.lsp")
     end,
   },
 }
