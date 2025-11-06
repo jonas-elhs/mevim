@@ -2,9 +2,7 @@ return {
   {
     "lazydev.nvim",
 
-    -- With this lazy loading, blink throws an error in files other than lua
-    -- becuase it cannot find the 'lazydev.integrations.blink' source
-    -- ft = "lua",
+    dep_of = { "blink.cmp" },
 
     after = function()
       require("lazydev").setup({
