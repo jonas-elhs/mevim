@@ -34,7 +34,22 @@ return {
         },
 
         cmdline = {
-          enabled = false,
+          enabled = true,
+
+          keymap = {
+            preset = "inherit",
+          },
+
+          completion = {
+            ghost_text = {
+              enabled = false,
+            },
+            menu = {
+              auto_show = function(ctx)
+                return vim.fn.getcmdtype() == ":"
+              end,
+            },
+          },
         },
         completion = {
           menu = {

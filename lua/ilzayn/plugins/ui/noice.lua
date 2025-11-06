@@ -12,31 +12,6 @@ return {
               row = 18,
             },
           },
-          popupmenu = {
-            relative = "editor",
-            position = {
-              row = 20,
-              col = "50%",
-            },
-            size = {
-              width = 56,
-              height = "auto",
-            },
-            border = {
-              style = {
-                top_left    = "│", top    = " ",    top_right = "│",
-                left        = "│",                      right = "│",
-                bottom_left = "╰", bottom = "─", bottom_right = "╯",
-              },
-              padding = { 0, 3 },
-            },
-            win_options = {
-              winhighlight = {
-                Normal = "Normal",
-                FloatBorder = "DiagnosticInfo",
-              },
-            },
-          },
         },
         cmdline = {
           opts = {
