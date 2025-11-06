@@ -54,7 +54,6 @@
         nui-nvim
         plenary-nvim
         nvim-lspconfig
-        SchemaStore-nvim
         nvim-web-devicons
       ];
 

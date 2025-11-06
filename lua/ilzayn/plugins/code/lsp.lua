@@ -5,6 +5,8 @@ local servers = {
   cssls = {},
   bashls = {},
   hyprls = {},
+  yamlls = {},
+  jsonls = {},
   eslint = {},
   clangd = {},
   svelte = {},
@@ -30,26 +32,6 @@ local servers = {
         diagnostics = {
           globals = { "vim", "Snacks", "nixCats", },
         },
-      },
-    },
-  },
-
-  yamlls = {
-    settings = {
-      yaml = {
-        schemaStore = {
-          enabled = false,
-        },
-        schemas = require("schemastore").yaml.schemas(),
-      },
-    },
-  },
-
-  jsonls = {
-    settings = {
-      json = {
-        schemas = require("schemastore").json.schemas(),
-        validate = true,
       },
     },
   },
