@@ -2,7 +2,7 @@ return {
   {
     "gitsigns.nvim",
 
-    event = "DeferredUIEnter",
+    event = "BufReadPre",
 
     after = function()
       require("gitsigns").setup({

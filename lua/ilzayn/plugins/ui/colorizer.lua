@@ -2,6 +2,8 @@ return {
   {
     "nvim-colorizer.lua",
 
+    event = "BufReadPre",
+
     after = function()
       require("colorizer").setup({
         user_default_options = {

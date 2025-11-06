@@ -2,6 +2,12 @@ return {
   {
     "oil.nvim",
 
+    event = "DeferredUIEnter",
+    cmd = "Oil",
+    keys = {
+      { "<leader>e", "<CMD>Oil --float<CR>", desc = "Explore parent direcotry in Oil" },
+    },
+
     after = function()
       require("oil").setup({
         default_file_explorer = true,
@@ -39,11 +45,5 @@ return {
         },
       })
     end,
-
-    keys = {
-      { "<leader>e", "<CMD>Oil --float<CR>", desc = "Explore parent direcotry in Oil" },
-    },
-
-    cmd = "Oil",
   },
 }

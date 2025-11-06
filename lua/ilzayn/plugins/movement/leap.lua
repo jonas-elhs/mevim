@@ -1,6 +1,9 @@
 return {
   {
     "leap.nvim",
+
+    lazy = false,
+
     after = function()
       require("leap").setup({
         safe_labels = "",

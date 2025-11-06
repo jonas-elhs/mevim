@@ -2,7 +2,7 @@ return {
   {
     "incline.nvim",
 
-    lazy = false,
+    event = "DeferredUIEnter",
 
     after = function()
       require("incline").setup({
