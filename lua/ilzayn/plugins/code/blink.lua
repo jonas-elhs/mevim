@@ -41,6 +41,7 @@ return {
             scrollbar = false,
 
             draw = {
+              treesitter = { "lsp" },
               columns = {
                 { "kind_icon" },
                 { "label", "label_description", gap = 1 },
@@ -48,11 +49,6 @@ return {
               },
             },
           },
-          -- documentation = {
-          --   window = {
-          --     scrollbar = false,
-          --   },
-          -- },
         },
         signature = {
           enabled = true,
@@ -63,7 +59,7 @@ return {
         },
 
         sources = {
-          default = { "lazydev", "lsp", "path", "buffer" },
+          default = { "lsp", "lazydev", "path", "buffer" },
 
           providers = {
             lazydev = {
