@@ -5,4 +5,5 @@ return {
   { import = "ilzayn.plugins.code.gitsigns" },
   { import = "ilzayn.plugins.code.nvim-treesitter" },
   { import = "ilzayn.plugins.code.render-markdown" },
+  { import = "ilzayn.plugins.code.markdown-preview" },
 }

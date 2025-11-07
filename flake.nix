@@ -67,6 +67,7 @@
         hardtime-nvim
         nvim-surround
         render-markdown-nvim
+        markdown-preview-nvim
         nvim-treesitter.withAllGrammars
 
         noice-nvim
