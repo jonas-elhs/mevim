@@ -2,7 +2,7 @@ return {
   {
     "leap.nvim",
 
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("leap").setup({
