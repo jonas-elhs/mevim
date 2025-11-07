@@ -78,7 +78,6 @@
         # UI Plugins
         noice-nvim
         incline-nvim
-        helpview-nvim
         virt-column-nvim
         nvim-colorizer-lua
         pkgs.neovimPlugins.colorful-winsep
