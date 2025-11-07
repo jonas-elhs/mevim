@@ -2,7 +2,7 @@ return {
   {
     "nvim-colorizer.lua",
 
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("colorizer").setup({

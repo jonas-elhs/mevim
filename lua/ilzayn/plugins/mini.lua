@@ -2,7 +2,7 @@ return {
   {
     "mini.move",
 
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("mini.move").setup()
@@ -11,7 +11,7 @@ return {
   {
     "mini.surround",
 
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("mini.surround").setup({
@@ -31,7 +31,7 @@ return {
   {
     "mini.splitjoin",
 
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("mini.splitjoin").setup({
