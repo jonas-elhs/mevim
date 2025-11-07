@@ -1,6 +1,6 @@
 return {
   {
-    "oil.nvim",
+    "oil",
 
     event = "DeferredUIEnter",
     cmd = "Oil",

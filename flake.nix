@@ -7,6 +7,10 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    plugins-oil = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
     plugins-colorful-winsep = {
       url = "github:nvim-zh/colorful-winsep.nvim";
       flake = false;
@@ -61,7 +65,7 @@
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
         # Movement Plugins
-        oil-nvim
+        pkgs.neovimPlugins.oil
         leap-nvim
 
         # Code Plugins

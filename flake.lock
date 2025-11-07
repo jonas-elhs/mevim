@@ -120,12 +120,29 @@
         "type": "github"
       }
     },
+    "plugins-oil": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760913566,
+        "narHash": "sha256-ebRao8UU8UI1S6Lumkd5vUiYYSj9UAazcEzThKyl8Uk=",
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "rev": "7e1cd7703ff2924d7038476dcbc04b950203b902",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
-        "plugins-colorful-winsep": "plugins-colorful-winsep"
+        "plugins-colorful-winsep": "plugins-colorful-winsep",
+        "plugins-oil": "plugins-oil"
       }
     }
   },
