@@ -28,11 +28,13 @@
 
     categoryDefinitions = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
       lspsAndRuntimeDeps.packages = with pkgs; [
+        # Runtime Dependencys
         fd
         fzf
         ripgrep
         stdenv.cc.cc
 
+        # Language Servers
         nixd
         ruff
         hyprls
@@ -50,6 +52,7 @@
       ];
 
       startupPlugins.packages = with pkgs.vimPlugins; [
+        # Startup Plugins
         lze
         nui-nvim
         plenary-nvim
@@ -57,9 +60,11 @@
       ];
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
+        # Movement Plugins
         oil-nvim
         leap-nvim
 
+        # Code Plugins
         neogit
         blink-cmp
         lazydev-nvim
@@ -70,6 +75,7 @@
         markdown-preview-nvim
         nvim-treesitter.withAllGrammars
 
+        # UI Plugins
         noice-nvim
         incline-nvim
         helpview-nvim
@@ -77,6 +83,7 @@
         nvim-colorizer-lua
         pkgs.neovimPlugins.colorful-winsep
 
+        # Misc Plugins
         mini-move
         mini-icons
         snacks-nvim
