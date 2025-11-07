@@ -1,14 +1,3 @@
---x dashboard
---x indent
--- ?layout
--- ?lazygit
---x notifier
---x picker
---x quickfile
--- ?scratch
---x scroll
---x statuscolumn
-
 return {
   {
     "snacks.nvim",
