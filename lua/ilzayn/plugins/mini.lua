@@ -49,5 +49,5 @@ return {
     after = function()
       require("mini.icons").setup()
     end,
-  }
+  },
 }
