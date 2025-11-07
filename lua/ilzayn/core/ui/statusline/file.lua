@@ -26,7 +26,7 @@ function M.get_name()
     name = M.name_overrides[type]
   end
 
-  return name ~= "" and name or type
+  return name ~= "" and name or type ~= "" and type or "[No Name]"
 end
 
 function M.get_icon()
