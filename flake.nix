@@ -5,8 +5,20 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    tree-sitter = {
+      url = "github:tree-sitter/tree-sitter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nvim-treesitter-main = {
+      url = "github:iofq/nvim-treesitter-main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    # Plugins
     plugins-oil = {
       url = "github:stevearc/oil.nvim";
       flake = false;
@@ -22,12 +34,22 @@
     luaPath = ./.;
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
 
-    extra_pkg_config = {
-      # allowUnfree = true;
-    };
+    extra_pkg_config = {};
 
     dependencyOverlays = [
       (utils.standardPluginOverlay inputs)
+
+      # Use the nvim-treesitter main branch version
+      inputs.nvim-treesitter-main.overlays.default
+      # (final: previous: {
+      #   vimPlugins = previous.vimPlugins.extend (
+      #     f: p: {
+      #       nvim-treesitter-textobjects = p.nvim-treesitter-textobjects.overrideAttrs {
+      #         dependencies = [ f.nvim-treesitter ];
+      #       };
+      #     }
+      #   );
+      # })
     ];
 
     categoryDefinitions = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
@@ -37,6 +59,7 @@
         fzf
         ripgrep
         stdenv.cc.cc
+        inputs.tree-sitter.packages.${pkgs.stdenv.hostPlatform.system}.cli
 
         # Language Servers
         nixd
@@ -106,7 +129,7 @@
           configDirName = "nixCats-nvim";
           aliases = [];
 
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
 
         extra = {
@@ -124,7 +147,7 @@
           configDirName = "nixCats-nvim";
           aliases = [ ];
 
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
 
         extra = {

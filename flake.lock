@@ -25,7 +25,9 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "neovim-src": "neovim-src",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1762387511,
@@ -74,22 +76,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1762286042,
-        "narHash": "sha256-OD5HsZ+sN7VvNucbrjiCz7CHF5zf9gP51YVJvPwYIH8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "12c1f0253aa9a54fdf8ec8aecaafada64a111e24",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1762361079,
         "narHash": "sha256-lz718rr1BDpZBYk7+G8cE6wee3PiBUpn8aomG/vLLiY=",
         "owner": "nixos",
@@ -101,6 +87,62 @@
         "owner": "nixos",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761832759,
+        "narHash": "sha256-yER4ODJGWywRpW5jVvbPik1EONRf3p6/VomQjCR3BFk=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "64f4755b9d6ea9008265b09eb79fd91727311682",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter-main": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nvim-treesitter": "nvim-treesitter",
+        "nvim-treesitter-textobjects": "nvim-treesitter-textobjects"
+      },
+      "locked": {
+        "lastModified": 1762067596,
+        "narHash": "sha256-k6fFEAWox/Dztg61VTZTFA2LVUkqIbLZ4x5OO9jzqTw=",
+        "owner": "iofq",
+        "repo": "nvim-treesitter-main",
+        "rev": "0c5935fe575c40f5c7030e20da5e45f4c5968a8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iofq",
+        "repo": "nvim-treesitter-main",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter-textobjects": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761958090,
+        "narHash": "sha256-nMWdgymdnnuTm1JXJ8G81UVkrzZ7riLEEHn5XlWgDug=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-textobjects",
+        "rev": "1f29f2f788dbbf6573a0d968a6dfe75a0fa628d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter-textobjects",
         "type": "github"
       }
     },
@@ -140,9 +182,31 @@
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
+        "nvim-treesitter-main": "nvim-treesitter-main",
         "plugins-colorful-winsep": "plugins-colorful-winsep",
-        "plugins-oil": "plugins-oil"
+        "plugins-oil": "plugins-oil",
+        "tree-sitter": "tree-sitter"
+      }
+    },
+    "tree-sitter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762501884,
+        "narHash": "sha256-YATre7M5pp+bKUUvaqGgKbH04525YhCJ8YbT+G5b1tQ=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
+        "rev": "361287fb56bd9a649281f6d2cf27e4a3b745fb4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
+        "type": "github"
       }
     }
   },
