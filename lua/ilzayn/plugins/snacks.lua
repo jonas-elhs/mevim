@@ -110,7 +110,7 @@ return {
 
       -- BufDelete
       map("n", "<leader>bx", function() Snacks.bufdelete.delete() end, "Exit open buffer")
-      map("n", "<leader>bx", function() Snacks.bufdelete.delete({ force = true }) end, "Force exit open buffer")
+      map("n", "<leader>bx!", function() Snacks.bufdelete.delete({ force = true }) end, "Force exit open buffer")
     end,
   },
 }
