@@ -100,11 +100,17 @@ return {
       })
 
       local map = require("ilzayn.utils").keymap.map
+
+      -- Picker
       map("n", "<leader>sf", function() Snacks.picker.files() end, "Search files")
       map("n", "<leader>sg", function() Snacks.picker.grep() end, "Search text")
       map("n", "<leader>sc", function() Snacks.picker.grep_word() end, "Search word under cursor")
       map("n", "<leader>sb", function() Snacks.picker.buffers() end, "Search buffers")
       map("n", "<leader>sr", function() Snacks.picker.resume() end, "Resume search")
+
+      -- BufDelete
+      map("n", "<leader>bx", function() Snacks.bufdelete.delete() end, "Exit open buffer")
+      map("n", "<leader>bx", function() Snacks.bufdelete.delete({ force = true }) end, "Force exit open buffer")
     end,
   },
 }
