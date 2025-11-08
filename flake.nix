@@ -52,7 +52,7 @@
       # })
     ];
 
-    categoryDefinitions = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
+    categoryDefinitions = { pkgs, ... }: {
       lspsAndRuntimeDeps.packages = with pkgs; [
         # Runtime Dependencys
         fd
@@ -119,7 +119,7 @@
     };
 
     packageDefinitions = {
-      nvim = { pkgs, name, ... }@misc: {
+      nvim = { pkgs, ... }: {
         categories = {
           packages = true;
         };
@@ -137,7 +137,7 @@
         };
       };
 
-      regularCats = { pkgs, ... }@misc: {
+      regularCats = { pkgs, ... }: {
         categories = {
           packages = true;
         };
