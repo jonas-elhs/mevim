@@ -83,7 +83,8 @@ vim.diagnostic.config({
   virtual_text = {
     spacing = 2,
     source = "if_many",
-    prefix = "●",
+    prefix = "",
+    -- prefix = "●",
   },
 })
 
