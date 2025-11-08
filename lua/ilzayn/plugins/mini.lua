@@ -34,11 +34,13 @@ return {
     on_require = "mini.icons",
 
     beforeAll = function()
-      _G.MiniIcons = {
-        get = function(category, name)
-          require("mini.icons").get(category, name)
+      _G.MiniIcons = setmetatable({}, {
+        __index = function(_, key)
+          return function(...)
+            require("mini.icons")[key](...)
+          end
         end,
-      }
+      })
     end,
 
     after = function()
