@@ -16,7 +16,7 @@ return {
   {
     "blink.cmp",
 
-    event = "DeferredUIEnter",
+    event = { "BufReadPre", "BufNewFile" },
 
     after = function()
       require("blink.cmp").setup({
