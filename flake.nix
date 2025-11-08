@@ -9,10 +9,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tree-sitter = {
-      url = "github:tree-sitter/tree-sitter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nvim-treesitter-main = {
       url = "github:iofq/nvim-treesitter-main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +55,6 @@
         fzf
         ripgrep
         stdenv.cc.cc
-        inputs.tree-sitter.packages.${pkgs.stdenv.hostPlatform.system}.cli
 
         # Language Servers
         nixd

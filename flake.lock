@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762040540,
-        "narHash": "sha256-z5PlZ47j50VNF3R+IMS9LmzI5fYRGY/Z5O5tol1c9I4=",
+        "lastModified": 1762440070,
+        "narHash": "sha256-xxdepIcb39UJ94+YydGP221rjnpkDZUlykKuF54PsqI=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "0010412d62a25d959151790968765a70c436598b",
+        "rev": "26d05891e14c88eb4a5d5bee659c0db5afb609d8",
         "type": "github"
       },
       "original": {
@@ -30,11 +30,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762387511,
-        "narHash": "sha256-bTi/KZFGl88ZpZFTHbCXsONBp8TsjSQhymVmMpEvfQM=",
+        "lastModified": 1762560310,
+        "narHash": "sha256-xmXc/A187ItfvHQjaJUL1ciiunIsrRkWknZwcgl2s8I=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "e908e40b31632fc2bcda917dadee8c3ab8b46167",
+        "rev": "fbc6a67d4bdc7ef09a17e985109c5cb1ed287ed6",
         "type": "github"
       },
       "original": {
@@ -46,11 +46,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1762378742,
-        "narHash": "sha256-MSZ3hjsnQnrkG1LokD5wSH8S+5A7evMEP1Nx+iu8YZQ=",
+        "lastModified": 1762474970,
+        "narHash": "sha256-z2lLrDK3WRgGS9LA4KEQRgYxnZiVXh+bdg09puaBfk4=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "0472119fe61a50e56382ccdd42fb8324c1f0ab44",
+        "rev": "af5ac171bde3ae7f961a23e9464309cee7ef9c13",
         "type": "github"
       },
       "original": {
@@ -185,28 +185,7 @@
         "nixpkgs": "nixpkgs",
         "nvim-treesitter-main": "nvim-treesitter-main",
         "plugins-colorful-winsep": "plugins-colorful-winsep",
-        "plugins-oil": "plugins-oil",
-        "tree-sitter": "tree-sitter"
-      }
-    },
-    "tree-sitter": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762501884,
-        "narHash": "sha256-YATre7M5pp+bKUUvaqGgKbH04525YhCJ8YbT+G5b1tQ=",
-        "owner": "tree-sitter",
-        "repo": "tree-sitter",
-        "rev": "361287fb56bd9a649281f6d2cf27e4a3b745fb4d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tree-sitter",
-        "repo": "tree-sitter",
-        "type": "github"
+        "plugins-oil": "plugins-oil"
       }
     }
   },
