@@ -1,3 +1,4 @@
+-- Language Servers
 local servers = {
   ruff = {},
   html = {},
