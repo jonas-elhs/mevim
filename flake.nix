@@ -88,6 +88,7 @@
 
         # Code Plugins
         neogit
+        treesj
         blink-cmp
         lazydev-nvim
         gitsigns-nvim
@@ -109,7 +110,6 @@
         mini-icons
         snacks-nvim
         mini-surround
-        mini-splitjoin
       ];
     };
 

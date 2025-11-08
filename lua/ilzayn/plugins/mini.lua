@@ -29,19 +29,6 @@ return {
     end,
   },
   {
-    "mini.splitjoin",
-
-    event = { "BufReadPre", "BufNewFile" },
-
-    after = function()
-      require("mini.splitjoin").setup({
-        mappings = {
-          toggle = "<leader>m",
-        },
-      })
-    end,
-  },
-  {
     "mini.icons",
 
     lazy = false,
