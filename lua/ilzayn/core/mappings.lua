@@ -3,10 +3,10 @@ local map = require("ilzayn.utils").keymap.map
 map({ "n", "v" },   " ",            "<NOP>")
 
 -- Write and Quit
-map("n",            "<leader>w",    "<CMD>w<CR>",                     "Write buffer")
-map("n",            "<leader>W",    "<CMD>w!<CR>",                    "Force write buffer")
-map("n",            "<leader>q",    "<CMD>q<CR>",                     "Quit window")
-map("n",            "<leader>Q",    "<CMD>q!<CR>",                    "Force quit window")
+map("n",            "<leader>w",    "<CMD>write<CR>",                 "Write buffer")
+map("n",            "<leader>W",    "<CMD>write!<CR>",                "Force write buffer")
+map("n",            "<leader>q",    "<CMD>quitall<CR>",               "Quit neovim")
+map("n",            "<leader>Q",    "<CMD>quitall!<CR>",              "Force quit neovim")
 
 -- Utilities
 map("n",            "<ESC>",        "<CMD>nohl<CR>",                  "Remove search highlights")
