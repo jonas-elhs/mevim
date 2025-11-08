@@ -31,7 +31,15 @@ return {
   {
     "mini.icons",
 
-    lazy = false,
+    on_require = "mini.icons",
+
+    beforeAll = function()
+      _G.MiniIcons = {
+        get = function(category, name)
+          require("mini.icons").get(category, name)
+        end,
+      }
+    end,
 
     after = function()
       require("mini.icons").setup()
