@@ -53,6 +53,7 @@
         # Runtime Dependencys
         fd
         fzf
+        lazygit
         ripgrep
         stdenv.cc.cc
 
