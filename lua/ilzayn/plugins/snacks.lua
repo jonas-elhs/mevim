@@ -99,7 +99,7 @@ return {
         },
       })
 
-      local map = require("ilzayn.utils").keymap.map
+      local map = require("ilzayn.utils").keymap
 
       -- Picker
       map("n", "<leader>sf", function() Snacks.picker.files() end, "Search files")

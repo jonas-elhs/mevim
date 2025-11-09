@@ -1,3 +1,5 @@
+local colors = require("ilzayn.utils").get_colors()
+
 -- https://neovim.io/doc/user/syntax.html#_13.-highlight-command
 local highlights = {
   -- EDITOR

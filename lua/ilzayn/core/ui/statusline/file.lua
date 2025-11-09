@@ -49,13 +49,13 @@ return function()
   local flags = M.get_flags()
 
   return table.concat({
-    (utils.width.more_than(35) and icon ~= "")
+    (utils.width_more_than(35) and icon ~= "")
       and table.concat({ icon, "  ", })
       or "",
 
     name,
 
-    (utils.width.more_than(50) and flags ~= "")
+    (utils.width_more_than(50) and flags ~= "")
       and table.concat({ " ", flags, })
       or "",
   })

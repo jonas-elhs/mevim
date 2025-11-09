@@ -1,4 +1,4 @@
-local map = require("ilzayn.utils").keymap.map
+local map = require("ilzayn.utils").keymap
 
 map({ "n", "v" },   " ",            "<NOP>")
 

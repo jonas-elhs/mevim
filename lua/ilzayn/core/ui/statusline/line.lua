@@ -21,14 +21,14 @@ end
 
 return function()
   return table.concat({
-    utils.width.more_than(50) and "  " or " ",
+    utils.width_more_than(50) and "  " or " ",
 
-    utils.width.more_than(70)
+    utils.width_more_than(70)
       and table.concat({ M.get_line_progress(), "  |  " })
       or "",
 
     get_line_location(),
 
-    utils.width.more_than(50) and "  " or " ",
+    utils.width_more_than(50) and "  " or " ",
   })
 end

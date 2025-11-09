@@ -95,7 +95,7 @@ local virtual_lines_config = {
   end,
 }
 
-require("ilzayn.utils").keymap.map("n", "<leader>d", function()
+require("ilzayn.utils").keymap("n", "<leader>d", function()
   local config = vim.diagnostic.config() or {}
 
   if type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true then

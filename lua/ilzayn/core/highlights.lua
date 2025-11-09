@@ -1,5 +1,5 @@
 local utils = require("ilzayn.utils")
-local colors = utils.color.get_colors()
+local colors = utils.get_colors()
 
 local function highlight(name, value, namespace)
   vim.api.nvim_set_hl(namespace or 0, name, value)
@@ -19,11 +19,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   callback = function()
     highlight("IlzaynMode", {
       fg = colors.background,
-      bg = utils.mode.get_color(),
+      bg = utils.get_current_mode_color(),
     })
 
     highlight("IlzaynModeReverse", {
-      fg = utils.mode.get_color(),
+      fg = utils.get_current_mode_color(),
       bg = "NONE",
     })
   end,

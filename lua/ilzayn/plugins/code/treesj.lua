@@ -10,7 +10,7 @@ return {
         max_join_length = 5000,
       })
 
-      local map = require("ilzayn.utils").keymap.map
+      local map = require("ilzayn.utils").keymap
       map("n", "<leader>m", require("treesj").toggle, "Toggle node under cursor")
       map("n", "<leader>M", function()
         require("treesj").toggle({

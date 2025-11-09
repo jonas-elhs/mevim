@@ -40,13 +40,13 @@ function Statusline()
   return table.concat({
     highlight_module(left_module),
 
-    utils.width.more_than(35)
+    utils.width_more_than(35)
       and get_center_spacing(left_module, center_module)
       or "%=",
 
     center_module,
 
-    utils.width.more_than(35)
+    utils.width_more_than(35)
       and table.concat({ "%=", highlight_module(right_module) })
       or "",
   })
