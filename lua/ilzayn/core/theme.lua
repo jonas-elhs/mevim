@@ -161,15 +161,15 @@ local highlights = {
   DiagnosticVirtualLinesOk = { link = "DiagnosticOk" },
   --
   -- DiagnosticUnderlineError | Used to underline "Error" diagnostics.
-  DiagnosticUnderlineError = { link = "DiagnosticError" },
+  -- DiagnosticUnderlineError = { link = "DiagnosticError" },
   -- DiagnosticUnderlineWarn | Used to underline "Warn" diagnostics.
-  DiagnosticUnderlineWarn = { link = "DiagnosticWarn" },
+  -- DiagnosticUnderlineWarn = { link = "DiagnosticWarn" },
   -- DiagnosticUnderlineInfo | Used to underline "Info" diagnostics.
-  DiagnosticUnderlineInfo = { link = "DiagnosticInfo" },
+  -- DiagnosticUnderlineInfo = { link = "DiagnosticInfo" },
   -- DiagnosticUnderlineHint | Used to underline "Hint" diagnostics.
-  DiagnosticUnderlineHint = { link = "DiagnosticHint" },
+  -- DiagnosticUnderlineHint = { link = "DiagnosticHint" },
   -- DiagnosticUnderlineOk | Used to underline "Ok" diagnostics.
-  DiagnosticUnderlineOk = { link = "DiagnosticOk" },
+  -- DiagnosticUnderlineOk = { link = "DiagnosticOk" },
   --
   -- DiagnosticFloatingError | Used to color "Error" diagnostic messages in diagnostics float. See vim.diagnostic.open_float()
   DiagnosticFloatingError = { link = "DiagnosticError" },
@@ -352,6 +352,6 @@ local highlights = {
   -- @lsp.mod.static | Class members (static members) 
 }
 
-for name, highlight in pairs(highlights) do
-  vim.api.nvim_set_hl(0, name, highlights)
+for highlight, spec in pairs(highlights) do
+  vim.api.nvim_set_hl(0, highlight, spec)
 end
