@@ -120,7 +120,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.lsp.inlay_hint.enable(true)
 
 -- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
-vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 99
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldlevelstart = 99

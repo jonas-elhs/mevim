@@ -10,7 +10,7 @@ local function get_center_spacing(left_component, center_component)
   local center_width = vim.api.nvim_strwidth(center_component)
   local center_center = math.floor(center_width / 2)
 
-  local window_width = vim.opt.columns._value
+  local window_width = vim.o.columns
   local window_center = math.floor(window_width / 2)
 
   local space_count = window_center - center_center - left_width
@@ -52,4 +52,4 @@ function Statusline()
   })
 end
 
-vim.opt.statusline = "%!v:lua.Statusline()"
+vim.o.statusline = "%!v:lua.Statusline()"

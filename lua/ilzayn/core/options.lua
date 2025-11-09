@@ -1,44 +1,37 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.o.smartindent = true
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.virtualedit = "block"
+vim.o.virtualedit = "block"
 
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
-vim.opt.scrolloff = 999
-vim.opt.sidescrolloff = 8
+vim.o.scrolloff = 999
+vim.o.sidescrolloff = 8
 
-vim.opt.cursorline = true
-vim.opt.signcolumn = "yes"
-vim.opt.fillchars = {
-  eob = " ",
-  fold = " ",
-  foldopen = "",
-  foldclose = "",
-  foldsep = " ",
-  foldinner = " ",
-}
+vim.o.cursorline = true
+vim.o.signcolumn = "yes"
+vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
 
-vim.opt.wrap = false
-vim.opt.termguicolors = true
+vim.o.wrap = false
+vim.o.termguicolors = true
 
-vim.opt.laststatus = 3
+vim.o.laststatus = 3
 
-vim.opt.winborder = "rounded"
+vim.o.winborder = "rounded"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- vim.opt.updatetime = 50
+-- vim.o.updatetime = 50
