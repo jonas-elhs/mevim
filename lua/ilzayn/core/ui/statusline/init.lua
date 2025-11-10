@@ -1,8 +1,9 @@
 local utils = require("ilzayn.utils")
 
 local mode_module = require("ilzayn.core.ui.statusline.mode")
-local diagnostics_module = require("ilzayn.core.ui.statusline.diagnostics")
+local git_module = require("ilzayn.core.ui.statusline.git")
 local file_module = require("ilzayn.core.ui.statusline.file")
+local diagnostics_module = require("ilzayn.core.ui.statusline.diagnostics")
 local line_module = require("ilzayn.core.ui.statusline.line")
 
 local function get_center_spacing(left_components, center_component)
@@ -41,25 +42,26 @@ local function highlight_module(content)
 end
 
 function Statusline()
-  local mode = mode_module()
-  local diagnostics = diagnostics_module()
+  local mode = highlight_module(mode_module())
+  local git = utils.width_more_than(120)
+    and " " .. git_module()
+    or ""
   local file = file_module()
-  local line = line_module()
+  local diagnostics = utils.width_more_than(120)
+    and diagnostics_module() .. " "
+    or ""
+  local line = utils.width_more_than(60)
+    and highlight_module(line_module())
+    or ""
 
-  return table.concat({
-    highlight_module(mode),
-    " ", diagnostics,
+  local first_space = utils.width_more_than(60)
+    and get_center_spacing({ mode, git }, file)
+    or "%="
+  local second_space = utils.width_more_than(60)
+    and "%="
+    or ""
 
-    utils.width_more_than(35)
-      and get_center_spacing({ mode, diagnostics }, file)
-      or "%=",
-
-    file,
-
-    utils.width_more_than(35)
-      and "%=" .. highlight_module(line)
-      or "",
-  })
+  return mode .. git .. first_space .. file .. second_space .. diagnostics .. line
 end
 
 vim.o.statusline = "%!v:lua.Statusline()"
