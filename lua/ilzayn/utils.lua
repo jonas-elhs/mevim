@@ -35,6 +35,9 @@ function M.get_colors()
     inactive = "#7f7f7f",
   }
 end
+function M.remove_highlight_groups_from_string(str)
+  return str:gsub("%%%#[a-zA-Z_]+#", "")
+end
 
 M.mode_map = {
   ["n"]      = { "normal", "NORMAL" },
