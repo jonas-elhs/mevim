@@ -24,7 +24,7 @@ return function()
     utils.width_more_than(50) and "  " or " ",
 
     utils.width_more_than(70)
-      and table.concat({ M.get_line_progress(), "  |  " })
+      and M.get_line_progress() .. "  |  "
       or "",
 
     get_line_location(),

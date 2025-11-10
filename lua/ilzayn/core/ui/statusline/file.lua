@@ -30,13 +30,11 @@ function M.get_name()
 end
 
 function M.get_icon()
-  local success, icons = pcall(require, "mini.icons")
-
-  if not success then
+  if MiniIcons == nil then
     return ""
   end
 
-  return icons.get("file", M.get_name())
+  return MiniIcons.get("file", M.get_name())
 end
 
 function M.get_type()
@@ -50,13 +48,13 @@ return function()
 
   return table.concat({
     (utils.width_more_than(35) and icon ~= "")
-      and table.concat({ icon, "  ", })
+      and icon .. "  "
       or "",
 
     name,
 
     (utils.width_more_than(50) and flags ~= "")
-      and table.concat({ " ", flags, })
+      and " " .. flags
       or "",
   })
 end

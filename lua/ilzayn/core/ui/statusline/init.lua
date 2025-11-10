@@ -47,7 +47,7 @@ function Statusline()
     center_module,
 
     utils.width_more_than(35)
-      and table.concat({ "%=", highlight_module(right_module) })
+      and "%=" .. highlight_module(right_module)
       or "",
   })
 end

@@ -29,11 +29,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   end,
 })
 for color_name, color in pairs(colors) do
-  highlight(table.concat({ "Ilzayn", (color_name:gsub("^%l", string.upper)) }), {
+  highlight("Ilzayn" .. color_name:gsub("^%l", string.upper), {
     fg = colors.background,
     bg = color,
   })
-  highlight(table.concat({ "Ilzayn", (color_name:gsub("^%l", string.upper)), "Reverse" }), {
+  highlight("Ilzayn" .. color_name:gsub("^%l", string.upper) .. "Reverse", {
     fg = color,
     bg = "NONE",
   })
