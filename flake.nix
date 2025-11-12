@@ -91,6 +91,7 @@
         neogit
         treesj
         blink-cmp
+        blink-pairs
         lazydev-nvim
         gitsigns-nvim
         hardtime-nvim
