@@ -103,7 +103,6 @@
         nvim-colorizer-lua
 
         # Misc Plugins
-        mini-move
         mini-icons
         snacks-nvim
         mini-surround

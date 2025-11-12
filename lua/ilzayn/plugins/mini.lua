@@ -1,14 +1,5 @@
 return {
   {
-    "mini.move",
-
-    event = { "BufReadPre", "BufNewFile" },
-
-    after = function()
-      require("mini.move").setup()
-    end,
-  },
-  {
     "mini.surround",
 
     event = { "BufReadPre", "BufNewFile" },
