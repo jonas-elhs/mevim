@@ -19,10 +19,6 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
-    plugins-colorful-winsep = {
-      url = "github:nvim-zh/colorful-winsep.nvim";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
@@ -105,7 +101,6 @@
         incline-nvim
         virt-column-nvim
         nvim-colorizer-lua
-        pkgs.neovimPlugins.colorful-winsep
 
         # Misc Plugins
         mini-move
