@@ -41,5 +41,6 @@ end
 
 
 -- Custom highlights
+highlight("Folded", { bg = "#4e4e4e" })
 highlight("CursorLine", {})
 highlight("WinSeparator", { link = "IlzaynInactiveReverse" })
