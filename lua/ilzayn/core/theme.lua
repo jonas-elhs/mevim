@@ -352,6 +352,18 @@ local highlights = {
   -- @lsp.mod.modification | Variable references where the variable is assigned to
   -- @lsp.mod.readonly | Readonly variables and member fields (constants)
   -- @lsp.mod.static | Class members (static members) 
+
+
+  -- PLUGINS
+  -- Blink Cmp
+  -- Blink Pairs
+  -- Gitsigns
+  -- Leap
+  -- Colorful Winsep
+  -- Noice?
+  -- Snacks Dashboard
+  -- Snacks Indent
+  -- Snacks Notifier
 }
 
 for highlight, spec in pairs(highlights) do
