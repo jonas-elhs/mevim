@@ -1,4 +1,5 @@
 require("ilzayn.core.ui")
+require("ilzayn.core.lsp")
 require("ilzayn.core.theme")
 require("ilzayn.core.options")
 require("ilzayn.core.mappings")
