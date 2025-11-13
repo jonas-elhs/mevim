@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("ilzayn.core.ui")
 require("ilzayn.core.lsp")
 require("ilzayn.core.theme")
