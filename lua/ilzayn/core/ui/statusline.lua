@@ -84,16 +84,15 @@ local function file_module()
   local icon = MiniIcons.get("file", name)
   local flags = vim.bo[0].modified and ""
     or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
-    or ""
 
   return table.concat({
-    (utils.width_more_than(35) and icon ~= "")
+    (utils.width_more_than(35) and icon)
       and icon .. "  "
       or "",
 
     name,
 
-    (utils.width_more_than(50) and flags ~= "")
+    (utils.width_more_than(50) and flags)
       and " " .. flags
       or "",
   })
