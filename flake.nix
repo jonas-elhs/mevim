@@ -89,6 +89,7 @@
         blink-cmp
         blink-pairs
         lazydev-nvim
+        trouble-nvim
         gitsigns-nvim
         hardtime-nvim
         nvim-surround
