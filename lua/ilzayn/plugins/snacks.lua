@@ -99,21 +99,19 @@ return {
         },
       })
 
-      local map = require("ilzayn.utils").keymap
-
       -- Picker
-      map("n", "<leader>sf", function() Snacks.picker.files() end, "Search files")
-      map("n", "<leader>sg", function() Snacks.picker.grep() end, "Search text")
-      map("n", "<leader>sc", function() Snacks.picker.grep_word() end, "Search word under cursor")
-      map("n", "<leader>sb", function() Snacks.picker.buffers() end, "Search buffers")
-      map("n", "<leader>sr", function() Snacks.picker.resume() end, "Resume search")
+      vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Search files" })
+      vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Search text" })
+      vim.keymap.set("n", "<leader>sc", function() Snacks.picker.grep_word() end, { desc = "Search word under cursor" })
+      vim.keymap.set("n", "<leader>sb", function() Snacks.picker.buffers() end, { desc = "Search buffers" })
+      vim.keymap.set("n", "<leader>sr", function() Snacks.picker.resume() end, { desc = "Resume search" })
 
       -- BufDelete
-      map("n", "<leader>bx", function() Snacks.bufdelete.delete() end, "Exit open buffer")
-      map("n", "<leader>bX", function() Snacks.bufdelete.delete({ force = true }) end, "Force exit open buffer")
+      vim.keymap.set("n", "<leader>bx", function() Snacks.bufdelete.delete() end, { desc = "Exit open buffer" })
+      vim.keymap.set("n", "<leader>bX", function() Snacks.bufdelete.delete({ force = true }) end, { desc = "Force exit open buffer" })
 
       -- LazyGit
-      map("n", "<leader>g", function() Snacks.lazygit.open() end, "Open LazyGit")
+      vim.keymap.set("n", "<leader>g", function() Snacks.lazygit.open() end, { desc = "Open LazyGit" })
     end,
   },
 }

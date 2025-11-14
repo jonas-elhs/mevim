@@ -95,7 +95,7 @@ local virtual_lines_config = {
   end,
 }
 
-require("ilzayn.utils").keymap("n", "<leader>d", function()
+vim.keymap.set("n", "<leader>d", function()
   local config = vim.diagnostic.config() or {}
 
   if type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true then
@@ -107,7 +107,7 @@ require("ilzayn.utils").keymap("n", "<leader>d", function()
   end
 
   vim.diagnostic.config(config)
-end, "Toggle diagnostic lines")
+end, { desc = "Toggle diagnostic lines" })
 
 -- Disable Document Colors
 vim.api.nvim_create_autocmd("LspAttach", {

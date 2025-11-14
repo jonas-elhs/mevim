@@ -1,46 +1,46 @@
-local map = require("ilzayn.utils").keymap
+local map = vim.keymap.set
 
 map({ "n", "v" },   " ",            "<NOP>")
 
 -- Write and Quit
-map("n",            "<leader>w",    "<CMD>write<CR>",                 "Write buffer")
-map("n",            "<leader>W",    "<CMD>write!<CR>",                "Force write buffer")
-map("n",            "<leader>q",    "<CMD>quitall<CR>",               "Quit neovim")
-map("n",            "<leader>Q",    "<CMD>quitall!<CR>",              "Force quit neovim")
+map("n",            "<leader>w",    "<CMD>write<CR>",                 { desc = "Write buffer" })
+map("n",            "<leader>W",    "<CMD>write!<CR>",                { desc = "Force write buffer" })
+map("n",            "<leader>q",    "<CMD>quitall<CR>",               { desc = "Quit neovim" })
+map("n",            "<leader>Q",    "<CMD>quitall!<CR>",              { desc = "Force quit neovim" })
 
 -- Utilities
-map("n",            "<ESC>",        "<CMD>nohl<CR>",                  "Remove search highlights")
-map("n",            "U",            "<C-r>",                          "Redo previously undone changes")
-map("v",            "p",            "\"_p",                           "Overpaste selection")
-map("n",            "x",            "\"_x",                           "Delete character under cursor")
+map("n",            "<ESC>",        "<CMD>nohl<CR>",                  { desc = "Remove search highlights" })
+map("n",            "U",            "<C-r>",                          { desc = "Redo previously undone changes" })
+map("v",            "p",            "\"_p",                           { desc = "Overpaste selection" })
+map("n",            "x",            "\"_x",                           { desc = "Delete character under cursor" })
 
 -- Insert Mode Cursor Movement
-map("i",            "<C-h>",        "<Left>",                         "Move cursor left (Insert Mode)")
-map("i",            "<C-j>",        "<Down>",                         "Move cursor down (Insert Mode)")
-map("i",            "<C-k>",        "<Up>",                           "Move cursor up (Insert Mode)")
-map("i",            "<C-l>",        "<Right>",                        "Move cursor right (Insert Mode)")
+map("i",            "<C-h>",        "<Left>",                         { desc = "Move cursor left (Insert Mode)" })
+map("i",            "<C-j>",        "<Down>",                         { desc = "Move cursor down (Insert Mode)" })
+map("i",            "<C-k>",        "<Up>",                           { desc = "Move cursor up (Insert Mode)" })
+map("i",            "<C-l>",        "<Right>",                        { desc = "Move cursor right (Insert Mode)" })
 
 -- Buffer Management
-map("n",            "<leader>bn",   "<CMD>bnext<CR>",                 "Open next buffer")
-map("n",            "<leader>bp",   "<CMD>bprev<CR>",                 "Open previous buffer")
-map("n",            "<leader>bx",   "<CMD>bdelete<CR>",               "Exit open buffer")
-map("n",            "<leader>bX",   "<CMD>bdelete!<CR>",              "Force exit open buffer")
+map("n",            "<leader>bn",   "<CMD>bnext<CR>",                 { desc = "Open next buffer" })
+map("n",            "<leader>bp",   "<CMD>bprev<CR>",                 { desc = "Open previous buffer" })
+map("n",            "<leader>bx",   "<CMD>bdelete<CR>",               { desc = "Exit open buffer" })
+map("n",            "<leader>bX",   "<CMD>bdelete!<CR>",              { desc = "Force exit open buffer" })
 
 -- Split Creation
-map("n",            "<leader>sh",   "<CMD>wincmd v<CR>",              "Split left")
-map("n",            "<leader>sj",   "<CMD>wincmd s | wincmd j<CR>",   "Split down")
-map("n",            "<leader>sk",   "<CMD>wincmd s<CR>",              "Split up")
-map("n",            "<leader>sl",   "<CMD>wincmd v | wincmd l<CR>",   "Split right")
-map("n",            "<leader>sx",   "<CMD>close<CR>",                 "Exit split")
+map("n",            "<leader>sh",   "<CMD>wincmd v<CR>",              { desc = "Split left" })
+map("n",            "<leader>sj",   "<CMD>wincmd s | wincmd j<CR>",   { desc = "Split down" })
+map("n",            "<leader>sk",   "<CMD>wincmd s<CR>",              { desc = "Split up" })
+map("n",            "<leader>sl",   "<CMD>wincmd v | wincmd l<CR>",   { desc = "Split right" })
+map("n",            "<leader>sx",   "<CMD>close<CR>",                 { desc = "Exit split" })
 
 -- Split Movement
-map("n",            "<C-h>",        "<CMD>wincmd h<CR>",              "Focus split left")
-map("n",            "<C-j>",        "<CMD>wincmd j<CR>",              "Focus split below")
-map("n",            "<C-k>",        "<CMD>wincmd k<CR>",              "Focus split above")
-map("n",            "<C-l>",        "<CMD>wincmd l<CR>",              "Focus split right")
+map("n",            "<C-h>",        "<CMD>wincmd h<CR>",              { desc = "Focus split left" })
+map("n",            "<C-j>",        "<CMD>wincmd j<CR>",              { desc = "Focus split below" })
+map("n",            "<C-k>",        "<CMD>wincmd k<CR>",              { desc = "Focus split above" })
+map("n",            "<C-l>",        "<CMD>wincmd l<CR>",              { desc = "Focus split right" })
 
 -- Split Sizing
-map("n",            "<C-Left>",     "<CMD>wincmd <<CR>",              "Decrease split width")
-map("n",            "<C-Down>",     "<CMD>wincmd -<CR>",              "Decrease split heigth")
-map("n",            "<C-Up>",       "<CMD>wincmd +<CR>",              "Increase split height")
-map("n",            "<C-Right>",    "<CMD>wincmd ><CR>",              "Increase split width")
+map("n",            "<C-Left>",     "<CMD>wincmd <<CR>",              { desc = "Decrease split width" })
+map("n",            "<C-Down>",     "<CMD>wincmd -<CR>",              { desc = "Decrease split heigth" })
+map("n",            "<C-Up>",       "<CMD>wincmd +<CR>",              { desc = "Increase split height" })
+map("n",            "<C-Right>",    "<CMD>wincmd ><CR>",              { desc = "Increase split width" })

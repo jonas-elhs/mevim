@@ -10,13 +10,12 @@ return {
         max_join_length = 5000,
       })
 
-      local map = require("ilzayn.utils").keymap
-      map("n", "<leader>m", require("treesj").toggle, "Toggle node under cursor")
-      map("n", "<leader>M", function()
+      vim.keymap.set("n", "<leader>m", require("treesj").toggle, { desc = "Toggle node under cursor" })
+      vim.keymap.set("n", "<leader>M", function()
         require("treesj").toggle({
           split = { recursive = true },
         })
-      end, "Toggle node under cursor recursively")
+      end, { desc = "Toggle node under cursor recursively" })
     end,
   },
 }

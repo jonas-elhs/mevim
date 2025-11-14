@@ -1,20 +1,5 @@
 local M = {}
 
-function M.keymap(modes, lhs, rhs, description, options)
-  local default_options = {
-    noremap = true,
-    silent = true,
-    desc = description or ""
-  }
-
-  vim.keymap.set(
-    modes,
-    lhs,
-    rhs,
-    vim.tbl_extend("keep", options or {}, default_options)
-  )
-end
-
 function M.width_less_than(target)
   return vim.o.columns <= target
 end
