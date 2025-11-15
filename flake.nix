@@ -21,7 +21,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     inherit (inputs.nixCats) utils;
     luaPath = ./.;
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
@@ -44,7 +48,7 @@
       # })
     ];
 
-    categoryDefinitions = { pkgs, ... }: {
+    categoryDefinitions = {pkgs, ...}: {
       lspsAndRuntimeDeps.packages = with pkgs; [
         # Runtime Dependencys
         fd
@@ -117,7 +121,7 @@
     };
 
     packageDefinitions = {
-      nvim = { pkgs, ... }: {
+      nvim = {pkgs, ...}: {
         categories = {
           packages = true;
         };
@@ -131,11 +135,11 @@
         };
 
         extra = {
-          nixdExtras = { inherit nixpkgs; };
+          nixdExtras = {inherit nixpkgs;};
         };
       };
 
-      regularCats = { pkgs, ... }: {
+      regularCats = {pkgs, ...}: {
         categories = {
           packages = true;
         };
@@ -143,59 +147,80 @@
         settings = {
           wrapRc = false;
           configDirName = "nixCats-nvim";
-          aliases = [ ];
+          aliases = [];
 
           neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
 
         extra = {
-          nixdExtras = { inherit nixpkgs; };
+          nixdExtras = {inherit nixpkgs;};
         };
       };
     };
 
     defaultPackageName = "nvim";
   in
-  forEachSystem (system: let
-    nixCatsBuilder = utils.baseBuilder luaPath {
-      inherit nixpkgs system dependencyOverlays extra_pkg_config;
-    } categoryDefinitions packageDefinitions;
-    defaultPackage = nixCatsBuilder defaultPackageName;
+    forEachSystem (system: let
+      nixCatsBuilder =
+        utils.baseBuilder luaPath {
+          inherit nixpkgs system dependencyOverlays extra_pkg_config;
+        }
+        categoryDefinitions
+        packageDefinitions;
+      defaultPackage = nixCatsBuilder defaultPackageName;
 
-    pkgs = import nixpkgs { inherit system; };
-  in {
-    packages = utils.mkAllWithDefault defaultPackage;
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      packages = utils.mkAllWithDefault defaultPackage;
 
-    devShells = {
-      default = pkgs.mkShell {
-        name = defaultPackageName;
-        packages = [ defaultPackage ];
-        inputsFrom = [ ];
-        shellHook = ''
-        '';
+      devShells = {
+        default = pkgs.mkShell {
+          name = defaultPackageName;
+          packages = [defaultPackage];
+          inputsFrom = [];
+          shellHook = ''
+          '';
+        };
       };
-    };
+    })
+    // (let
+      nixosModule = utils.mkNixosModules {
+        moduleNamespace = [defaultPackageName];
+        inherit
+          defaultPackageName
+          dependencyOverlays
+          luaPath
+          categoryDefinitions
+          packageDefinitions
+          extra_pkg_config
+          nixpkgs
+          ;
+      };
+      homeModule = utils.mkHomeModules {
+        moduleNamespace = [defaultPackageName];
+        inherit
+          defaultPackageName
+          dependencyOverlays
+          luaPath
+          categoryDefinitions
+          packageDefinitions
+          extra_pkg_config
+          nixpkgs
+          ;
+      };
+    in {
+      overlays =
+        utils.makeOverlays luaPath {
+          inherit nixpkgs dependencyOverlays extra_pkg_config;
+        }
+        categoryDefinitions
+        packageDefinitions
+        defaultPackageName;
 
-  }) // (let
-    nixosModule = utils.mkNixosModules {
-      moduleNamespace = [ defaultPackageName ];
-      inherit defaultPackageName dependencyOverlays luaPath
-        categoryDefinitions packageDefinitions extra_pkg_config nixpkgs;
-    };
-    homeModule = utils.mkHomeModules {
-      moduleNamespace = [ defaultPackageName ];
-      inherit defaultPackageName dependencyOverlays luaPath
-        categoryDefinitions packageDefinitions extra_pkg_config nixpkgs;
-    };
-  in {
-    overlays = utils.makeOverlays luaPath {
-      inherit nixpkgs dependencyOverlays extra_pkg_config;
-    } categoryDefinitions packageDefinitions defaultPackageName;
+      nixosModules.default = nixosModule;
+      homeModules.default = homeModule;
 
-    nixosModules.default = nixosModule;
-    homeModules.default = homeModule;
-
-    inherit utils nixosModule homeModule;
-    inherit (utils) templates;
-  });
+      inherit utils nixosModule homeModule;
+      inherit (utils) templates;
+    });
 }
