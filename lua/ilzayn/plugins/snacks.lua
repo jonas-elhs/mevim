@@ -3,6 +3,21 @@ return {
     "snacks.nvim",
 
     lazy = false,
+    keys = {
+      -- Picker
+      { "<leader>sf", function() Snacks.picker.files() end, desc = "Search files" },
+      { "<leader>sg", function() Snacks.picker.grep() end, desc = "Search text" },
+      { "<leader>sc", function() Snacks.picker.grep_word() end, desc = "Search word under cursor" },
+      { "<leader>sb", function() Snacks.picker.buffers() end, desc = "Search buffers" },
+      { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume search" },
+
+      -- BufDelete
+      { "<leader>bx", function() Snacks.bufdelete.delete() end, desc = "Exit open buffer" },
+      { "<leader>bX", function() Snacks.bufdelete.delete({ force = true }) end, desc = "Force exit open buffer" },
+
+      -- LazyGit
+      { "<leader>g", function() Snacks.lazygit.open() end, desc = "Open LazyGit" },
+    },
 
     after = function()
       require("snacks").setup({
@@ -98,20 +113,6 @@ return {
           },
         },
       })
-
-      -- Picker
-      vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Search files" })
-      vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Search text" })
-      vim.keymap.set("n", "<leader>sc", function() Snacks.picker.grep_word() end, { desc = "Search word under cursor" })
-      vim.keymap.set("n", "<leader>sb", function() Snacks.picker.buffers() end, { desc = "Search buffers" })
-      vim.keymap.set("n", "<leader>sr", function() Snacks.picker.resume() end, { desc = "Resume search" })
-
-      -- BufDelete
-      vim.keymap.set("n", "<leader>bx", function() Snacks.bufdelete.delete() end, { desc = "Exit open buffer" })
-      vim.keymap.set("n", "<leader>bX", function() Snacks.bufdelete.delete({ force = true }) end, { desc = "Force exit open buffer" })
-
-      -- LazyGit
-      vim.keymap.set("n", "<leader>g", function() Snacks.lazygit.open() end, { desc = "Open LazyGit" })
     end,
   },
 }
