@@ -2,6 +2,7 @@ return {
   {
     "conform.nvim",
 
+    cmd = { "ConformInfo" },
     keys = {
       {
         "<leader>f",
@@ -9,6 +10,14 @@ return {
           require("conform").format()
         end,
         desc = "Format buffer",
+      },
+      {
+        "<leader>F",
+        function()
+          require("conform").format({ formatters = { "injected" } })
+        end,
+        mode = { "n", "x" },
+        desc = "Format injected languages",
       },
     },
 
