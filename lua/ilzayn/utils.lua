@@ -72,5 +72,4 @@ function M.get_current_mode_color()
   return require("ilzayn.utils").get_colors()[M.get_current_mode_type():lower()]
 end
 
-
 return M
