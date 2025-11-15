@@ -13,11 +13,12 @@ vim.o.smartcase = true
 vim.o.virtualedit = "block"
 
 vim.o.clipboard = "unnamedplus"
+vim.o.undofile = true
 
 vim.o.scrolloff = 999
 vim.o.sidescrolloff = 8
 
-vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
 vim.o.signcolumn = "yes"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
 
