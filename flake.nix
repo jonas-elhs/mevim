@@ -68,6 +68,11 @@
         typescript-language-server
         tailwindcss-language-server
         vscode-langservers-extracted
+
+        # Formatters
+        stylua
+        alejandra
+        rustfmt
       ];
 
       startupPlugins.packages = with pkgs.vimPlugins; [
@@ -90,6 +95,7 @@
         blink-pairs
         lazydev-nvim
         trouble-nvim
+        conform-nvim
         gitsigns-nvim
         hardtime-nvim
         nvim-surround
