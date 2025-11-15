@@ -61,7 +61,7 @@ local function mode_module()
   })
 end
 local function git_module()
-  if not vim.b[0].gitsigns_head then
+  if not vim.b[0].gitsigns_head or vim.b[0].gitsigns_head == "" then
     return ""
   end
 
