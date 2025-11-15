@@ -115,6 +115,7 @@
 
         # Misc Plugins
         mini-icons
+        mini-files
         snacks-nvim
         mini-surround
       ];

@@ -5,18 +5,66 @@ return {
     lazy = false,
     keys = {
       -- Picker
-      { "<leader>sf", function() Snacks.picker.files() end, desc = "Search files" },
-      { "<leader>sg", function() Snacks.picker.grep() end, desc = "Search text" },
-      { "<leader>sc", function() Snacks.picker.grep_word() end, desc = "Search word under cursor" },
-      { "<leader>sb", function() Snacks.picker.buffers() end, desc = "Search buffers" },
-      { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume search" },
+      {
+        "<leader>sf",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "Search files",
+      },
+      {
+        "<leader>sg",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "Search text",
+      },
+      {
+        "<leader>sc",
+        function()
+          Snacks.picker.grep_word()
+        end,
+        desc = "Search word under cursor",
+      },
+      {
+        "<leader>sb",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Search buffers",
+      },
+      {
+        "<leader>sr",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume search",
+      },
 
       -- BufDelete
-      { "<leader>bx", function() Snacks.bufdelete.delete() end, desc = "Exit open buffer" },
-      { "<leader>bX", function() Snacks.bufdelete.delete({ force = true }) end, desc = "Force exit open buffer" },
+      {
+        "<leader>bx",
+        function()
+          Snacks.bufdelete.delete()
+        end,
+        desc = "Exit open buffer",
+      },
+      {
+        "<leader>bX",
+        function()
+          Snacks.bufdelete.delete({ force = true })
+        end,
+        desc = "Force exit open buffer",
+      },
 
       -- LazyGit
-      { "<leader>g", function() Snacks.lazygit.open() end, desc = "Open LazyGit" },
+      {
+        "<leader>g",
+        function()
+          Snacks.lazygit.open()
+        end,
+        desc = "Open LazyGit",
+      },
     },
 
     after = function()
@@ -57,7 +105,8 @@ return {
                 icon = "",
                 desc = "Explore Files",
                 key = "e",
-                action = "<CMD>Oil --float<CR>",
+                action = "<CMD>lua MiniFiles.open()<CR>",
+                -- action = "<CMD>Oil --float<CR>",
               },
               {
                 icon = "",

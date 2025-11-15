@@ -5,7 +5,7 @@ return {
     event = "DeferredUIEnter",
     cmd = "Oil",
     keys = {
-      { "<leader>e", "<CMD>Oil --float<CR>", desc = "Explore parent direcotry in Oil" },
+      { "<leader>o", "<CMD>Oil --float<CR>", desc = "Explore parent direcotry in Oil" },
     },
 
     after = function()
