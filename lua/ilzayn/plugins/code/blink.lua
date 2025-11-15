@@ -3,6 +3,7 @@ return {
     "blink.pairs",
 
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
 
     after = function()
       require("blink.pairs").setup({})
@@ -49,6 +50,7 @@ return {
         completion = {
           menu = {
             scrollbar = false,
+            auto_show = false,
 
             draw = {
               treesitter = { "lsp" },
