@@ -22,7 +22,7 @@ vim.o.cursorlineopt = "number"
 vim.o.signcolumn = "yes"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
 vim.o.list = true
-vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…"
+vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…,nbsp:␣"
 
 vim.o.wrap = false
 vim.o.termguicolors = true
