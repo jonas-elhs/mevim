@@ -66,11 +66,11 @@ local function git_module()
     return ""
   end
 
-  local status = vim.b[0].minidiff_summary
+  local summary = vim.b[0].minidiff_summary
 
-  local added = (status.add > 0) and ("%#Added#  " .. status.add) or ""
-  local changed = (status.change > 0) and ("%#Changed#  " .. status.change) or ""
-  local removed = (status.delete > 0) and ("%#Removed#  " .. status.delete) or ""
+  local added = (summary.add and summary.add > 0) and ("%#Added#  " .. summary.add) or ""
+  local changed = (summary.change and summary.change > 0) and ("%#Changed#  " .. summary.change) or ""
+  local removed = (summary.delete and summary.delete > 0) and ("%#Removed#  " .. summary.delete) or ""
 
   return added .. changed .. removed .. "%#Normal#"
 end
