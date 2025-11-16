@@ -68,8 +68,8 @@ return {
           reveal_cwd = "@",
           show_help = "g?",
           synchronize = "=",
-          trim_left = "H",
-          trim_right = "L",
+          trim_left = "",
+          trim_right = "",
         },
       })
     end,
