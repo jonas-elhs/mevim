@@ -3,22 +3,9 @@ return {
     "conform.nvim",
 
     cmd = { "ConformInfo" },
+    -- stylua: ignore
     keys = {
-      {
-        "<leader>f",
-        function()
-          require("conform").format()
-        end,
-        desc = "Format buffer",
-      },
-      {
-        "<leader>F",
-        function()
-          require("conform").format({ formatters = { "injected" } })
-        end,
-        mode = { "n", "x" },
-        desc = "Format injected languages",
-      },
+      { "<leader>f", function() require("conform").format() end, desc = "Format buffer" },
     },
 
     after = function()
