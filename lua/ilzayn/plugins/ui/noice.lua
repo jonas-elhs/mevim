@@ -9,7 +9,7 @@ return {
         views = {
           cmdline_popup = {
             position = {
-              row = 18,
+              row = 0.2,
             },
           },
         },
@@ -19,14 +19,6 @@ return {
               text = {
                 top = " Command Line ",
               },
-            },
-          },
-          format = {
-            search_down = {
-              view = "cmdline",
-            },
-            search_up = {
-              view = "cmdline",
             },
           },
         },
@@ -49,6 +41,9 @@ return {
           messages = {
             enabled = false,
           },
+        },
+        presets = {
+          bottom_search = true,
         },
       })
     end,
