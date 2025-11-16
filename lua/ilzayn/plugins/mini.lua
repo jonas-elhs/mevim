@@ -91,6 +91,8 @@ return {
           vim.keymap.set("n", "<C-L>", "<Right>", { buffer = buffer })
         end,
       })
+
+      require("ilzayn.plugins.mini-files-git").setup()
     end,
   },
   {
