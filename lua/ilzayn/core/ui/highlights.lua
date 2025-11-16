@@ -7,7 +7,7 @@ end
 
 -- Transparent Highlights
 for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
-  highlight(group, vim.tbl_extend("keep", { bg = "NONE" }, vim.api.nvim_get_hl(0, { name = group })))
+  highlight(group, utils.extend_highlight(group, { bg = "NONE" }))
 end
 
 -- Mode highlights

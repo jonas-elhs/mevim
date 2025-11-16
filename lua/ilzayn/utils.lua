@@ -23,6 +23,9 @@ end
 function M.remove_highlight_groups_from_string(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")
 end
+function M.extend_highlight(highlight_group, values)
+  return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
+end
 
 -- stylua: ignore
 M.mode_map = {
