@@ -3,6 +3,7 @@ return {
     "gitsigns.nvim",
 
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
 
     after = function()
       require("gitsigns").setup({

@@ -1,5 +1,12 @@
 return {
   {
+    "mini.diff",
+
+    after = function()
+      require("mini.diff").setup({})
+    end,
+  },
+  {
     "mini.icons",
 
     on_require = { "mini.icons" },

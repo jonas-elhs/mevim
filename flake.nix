@@ -114,6 +114,7 @@
         nvim-colorizer-lua
 
         # Misc Plugins
+        mini-diff
         mini-icons
         mini-files
         snacks-nvim
