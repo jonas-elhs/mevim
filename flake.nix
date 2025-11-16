@@ -98,7 +98,6 @@
         blink-cmp
         blink-pairs
         lazydev-nvim
-        trouble-nvim
         conform-nvim
         gitsigns-nvim
         hardtime-nvim
