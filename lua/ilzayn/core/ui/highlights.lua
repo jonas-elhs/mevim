@@ -18,10 +18,20 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
       fg = colors.background,
       bg = utils.get_current_mode_color(),
     })
+    highlight("IlzaynModeBold", {
+      fg = colors.background,
+      bg = utils.get_current_mode_color(),
+      bold = true,
+    })
 
     highlight("IlzaynModeReverse", {
       fg = utils.get_current_mode_color(),
       bg = "NONE",
+    })
+    highlight("IlzaynModeBoldReverse", {
+      fg = utils.get_current_mode_color(),
+      bg = "NONE",
+      bold = true,
     })
   end,
 })
@@ -38,5 +48,5 @@ end
 
 -- Custom highlights
 highlight("Folded", { bg = "grey" })
-highlight("CursorLineNr", { link = "IlzaynModeReverse" })
+highlight("CursorLineNr", { link = "IlzaynModeBoldReverse" })
 highlight("WinSeparator", { link = "IlzaynInactiveReverse" })
