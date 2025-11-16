@@ -72,6 +72,18 @@ return {
           trim_right = "",
         },
       })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buffer = args.data.buf_id
+
+          vim.keymap.set("n", "<C-H>", "<Left>", { buffer = buffer })
+          vim.keymap.set("n", "<C-J>", "<Down>", { buffer = buffer })
+          vim.keymap.set("n", "<C-K>", "<Up>", { buffer = buffer })
+          vim.keymap.set("n", "<C-L>", "<Right>", { buffer = buffer })
+        end,
+      })
     end,
   },
   {
