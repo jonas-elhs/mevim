@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+-- stylua: ignore start
+
 map({ "n", "v" },   " ",            "<NOP>")
 
 -- Write and Quit
@@ -44,3 +46,5 @@ map("n",            "<C-Left>",     "<CMD>wincmd <<CR>",              { desc = "
 map("n",            "<C-Down>",     "<CMD>wincmd -<CR>",              { desc = "Decrease split heigth" })
 map("n",            "<C-Up>",       "<CMD>wincmd +<CR>",              { desc = "Increase split height" })
 map("n",            "<C-Right>",    "<CMD>wincmd ><CR>",              { desc = "Increase split width" })
+
+-- stylua: ignore end

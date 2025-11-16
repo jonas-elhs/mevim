@@ -4,7 +4,7 @@ local filename_overrides = {
   ["help"] = "Help",
   ["oil"] = "Oil",
   ["snacks_picker_input"] = "Snacks Picker",
-  ["trouble"] = "Trouble"
+  ["trouble"] = "Trouble",
 }
 
 -- UTILS
@@ -36,11 +36,14 @@ local function highlight_module(content)
   local content_highlight = "%#IlzaynMode#"
 
   return table.concat({
-    separator_highlight, "",
+    separator_highlight,
+    "",
 
-    content_highlight, content,
+    content_highlight,
+    content,
 
-    separator_highlight, "",
+    separator_highlight,
+    "",
 
     "%#Normal#",
   })
@@ -53,15 +56,13 @@ local function mode_module()
   return table.concat({
     " ",
 
-    utils.width_more_than(50)
-      and mode
-      or mode:sub(1, 1),
+    utils.width_more_than(50) and mode or mode:sub(1, 1),
 
     " ",
   })
 end
 local function git_module()
-  if not vim.b[0].gitsigns_head or vim.b[0].gitsigns_head == "" then
+  if not vim.b[0].gitsigns_head then
     return ""
   end
 
@@ -77,25 +78,17 @@ end
 local function file_module()
   local name = vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
   local filetype = vim.bo.filetype
-  name = filename_overrides[filetype]
-    or name ~= "" and name
-    or filetype ~= "" and filetype
-    or "[No Name]"
+  name = filename_overrides[filetype] or name ~= "" and name or filetype ~= "" and filetype or "[No Name]"
 
   local icon = MiniIcons.get("file", name)
-  local flags = vim.bo[0].modified and ""
-    or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
+  local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
 
   return table.concat({
-    (utils.width_more_than(35) and icon)
-      and icon .. "  "
-      or "",
+    (utils.width_more_than(35) and icon) and icon .. "  " or "",
 
     name,
 
-    (utils.width_more_than(50) and flags)
-      and " " .. flags
-      or "",
+    (utils.width_more_than(50) and flags) and " " .. flags or "",
   })
 end
 local function diagnostics_module()
@@ -107,16 +100,16 @@ local function diagnostics_module()
   local hint_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
 
   local error = error_count > 0
-    and ("%#DiagnosticError#" .. signs[vim.diagnostic.severity.ERROR] .. " " .. error_count .. " ")
+      and ("%#DiagnosticError#" .. signs[vim.diagnostic.severity.ERROR] .. " " .. error_count .. " ")
     or ""
   local warn = warn_count > 0
-    and ("%#DiagnosticWarn#" .. signs[vim.diagnostic.severity.WARN] .. " " .. warn_count .. " ")
+      and ("%#DiagnosticWarn#" .. signs[vim.diagnostic.severity.WARN] .. " " .. warn_count .. " ")
     or ""
   local info = info_count > 0
-    and ("%#DiagnosticInfo#" .. signs[vim.diagnostic.severity.INFO] .. " " .. info_count .. " ")
+      and ("%#DiagnosticInfo#" .. signs[vim.diagnostic.severity.INFO] .. " " .. info_count .. " ")
     or ""
   local hint = hint_count > 0
-    and ("%#DiagnosticHint#" .. signs[vim.diagnostic.severity.HINT] .. " " .. hint_count .. " ")
+      and ("%#DiagnosticHint#" .. signs[vim.diagnostic.severity.HINT] .. " " .. hint_count .. " ")
     or ""
 
   return error .. warn .. info .. hint .. "%#Normal#"
@@ -130,9 +123,7 @@ local function line_module()
   return table.concat({
     utils.width_more_than(50) and "  " or " ",
 
-    utils.width_more_than(70)
-      and progress .. "  |  "
-      or "",
+    utils.width_more_than(70) and progress .. "  |  " or "",
 
     "%l:%c",
 
@@ -142,23 +133,13 @@ end
 
 function Statusline()
   local mode = highlight_module(mode_module())
-  local git = utils.width_more_than(120)
-    and " " .. git_module()
-    or ""
+  local git = utils.width_more_than(120) and " " .. git_module() or ""
   local file = file_module()
-  local diagnostics = utils.width_more_than(120)
-    and diagnostics_module() .. " "
-    or ""
-  local line = utils.width_more_than(60)
-    and highlight_module(line_module())
-    or ""
+  local diagnostics = utils.width_more_than(120) and diagnostics_module() .. " " or ""
+  local line = utils.width_more_than(60) and highlight_module(line_module()) or ""
 
-  local first_space = utils.width_more_than(60)
-    and get_center_spacing({ mode, git }, file)
-    or "%="
-  local second_space = utils.width_more_than(60)
-    and "%="
-    or ""
+  local first_space = utils.width_more_than(60) and get_center_spacing({ mode, git }, file) or "%="
+  local second_space = utils.width_more_than(60) and "%=" or ""
 
   return mode .. git .. first_space .. file .. second_space .. diagnostics .. line
 end

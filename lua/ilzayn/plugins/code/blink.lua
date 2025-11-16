@@ -16,6 +16,7 @@ return {
 
     after = function()
       require("blink.cmp").setup({
+        -- stylua: ignore
         keymap = {
           ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
           ["<Enter>" ]  = { "accept", "fallback" },
@@ -41,7 +42,7 @@ return {
               enabled = false,
             },
             menu = {
-              auto_show = function(ctx)
+              auto_show = function()
                 return vim.fn.getcmdtype() == ":"
               end,
             },

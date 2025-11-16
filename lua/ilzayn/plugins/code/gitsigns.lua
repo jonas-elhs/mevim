@@ -6,6 +6,7 @@ return {
 
     after = function()
       require("gitsigns").setup({
+        -- stylua: ignore
         signs = {
           add          = { text = '┃' },
           change       = { text = '┃' },
@@ -14,6 +15,7 @@ return {
           changedelete = { text = '~' },
           untracked    = { text = '┆' },
         },
+        -- stylua: ignore
         signs_staged = {
           add          = { text = '┃' },
           change       = { text = '┃' },
@@ -31,31 +33,31 @@ return {
           end
 
           -- Navigation
-          map('n', ']c', function()
+          map("n", "]c", function()
             if vim.wo.diff then
-              vim.cmd.normal({']c', bang = true})
+              vim.cmd.normal({ "]c", bang = true })
             else
-              gitsigns.nav_hunk('next')
+              gitsigns.nav_hunk("next")
             end
           end)
 
-          map('n', '[c', function()
+          map("n", "[c", function()
             if vim.wo.diff then
-              vim.cmd.normal({'[c', bang = true})
+              vim.cmd.normal({ "[c", bang = true })
             else
-              gitsigns.nav_hunk('prev')
+              gitsigns.nav_hunk("prev")
             end
           end)
 
           -- Actions
-          map('n', '<leader>hs', gitsigns.stage_hunk)
-          map('n', '<leader>hr', gitsigns.reset_hunk)
+          map("n", "<leader>hs", gitsigns.stage_hunk)
+          map("n", "<leader>hr", gitsigns.reset_hunk)
 
-          map('n', '<leader>hS', gitsigns.stage_buffer)
-          map('n', '<leader>hR', gitsigns.reset_buffer)
+          map("n", "<leader>hS", gitsigns.stage_buffer)
+          map("n", "<leader>hR", gitsigns.reset_buffer)
 
-          map('n', '<leader>hp', gitsigns.preview_hunk)
-          map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+          map("n", "<leader>hp", gitsigns.preview_hunk)
+          map("n", "<leader>hi", gitsigns.preview_hunk_inline)
         end,
       })
     end,

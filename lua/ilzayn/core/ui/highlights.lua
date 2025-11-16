@@ -6,11 +6,8 @@ local function highlight(name, value, namespace)
 end
 
 -- Transparent Highlights
-for _, group in ipairs(vim.fn.getcompletion('', 'highlight')) do
-  highlight(
-    group,
-    vim.tbl_extend("keep", { bg = "NONE" }, vim.api.nvim_get_hl(0, { name = group } ))
-  )
+for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
+  highlight(group, vim.tbl_extend("keep", { bg = "NONE" }, vim.api.nvim_get_hl(0, { name = group })))
 end
 
 -- Mode highlights
@@ -39,8 +36,7 @@ for color_name, color in pairs(colors) do
   })
 end
 
-
 -- Custom highlights
-highlight("Folded", { bg = "grey"})
+highlight("Folded", { bg = "grey" })
 highlight("CursorLineNr", { link = "IlzaynModeReverse" })
 highlight("WinSeparator", { link = "IlzaynInactiveReverse" })

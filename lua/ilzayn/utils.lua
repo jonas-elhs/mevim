@@ -24,6 +24,7 @@ function M.remove_highlight_groups_from_string(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")
 end
 
+-- stylua: ignore
 M.mode_map = {
   ["n"]      = { "normal", "NORMAL" },
   ["no"]     = { "normal", "O-PENDING" },

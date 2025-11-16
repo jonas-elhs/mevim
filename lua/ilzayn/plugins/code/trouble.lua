@@ -6,7 +6,7 @@ return {
     keys = {
       { "<leader>x", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer Diagnostics (Trouble)" },
       { "<leader>X", "<CMD>Trouble diagnostics toggle<CR>", desc = "Project Diagnostics (Trouble)" },
-      { "<leader>cs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Document Symbols (Trouble)"}
+      { "<leader>cs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Document Symbols (Trouble)" },
     },
 
     after = function()
@@ -24,5 +24,5 @@ return {
         },
       })
     end,
-  }
+  },
 }

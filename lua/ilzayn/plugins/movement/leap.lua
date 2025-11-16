@@ -3,8 +3,19 @@ return {
     "leap.nvim",
 
     keys = {
-      { mode = { "n", "x", "o" }, "s", "<Plug>(leap)", desc = "Leap" },
-      { mode = { "x", "o" }, "r", function() require("leap.remote").action() end },
+      {
+        mode = { "n", "x", "o" },
+        "s",
+        "<Plug>(leap)",
+        desc = "Leap",
+      },
+      {
+        mode = { "x", "o" },
+        "r",
+        function()
+          require("leap.remote").action()
+        end,
+      },
     },
 
     after = function()
@@ -14,6 +25,6 @@ return {
       })
 
       vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#ff0000", bg = "NONE", bold = true })
-    end
+    end,
   },
 }

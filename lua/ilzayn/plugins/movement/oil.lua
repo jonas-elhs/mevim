@@ -41,7 +41,7 @@ return {
             config.height = config.height - bottom_padding - top_padding
 
             return config
-          end
+          end,
         },
       })
     end,
