@@ -31,7 +31,7 @@ local servers = {
         runtime = { version = "LuaJIT" },
         format = { enable = true },
         diagnostics = {
-          globals = { "vim", "Snacks", "nixCats", },
+          globals = { "vim", "Snacks", "nixCats" },
         },
       },
     },
@@ -113,7 +113,7 @@ end, { desc = "Toggle diagnostic lines" })
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
     vim.lsp.document_color.enable(false)
-  end
+  end,
 })
 
 -- Inlay Hints
