@@ -18,6 +18,9 @@ return {
 
       -- LazyGit
       { "<leader>g", function() Snacks.lazygit.open() end, desc = "Open LazyGit" },
+
+      -- Notifier
+      { "<leader>m", function() Snacks.notifier.show_history() end, desc = "Show notification history" },
     },
 
     after = function()

@@ -1,6 +1,7 @@
 return {
   {
     "treesj",
+    enabled = false,
 
     keys = {
       {
