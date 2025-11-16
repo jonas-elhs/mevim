@@ -59,7 +59,6 @@ return {
                 desc = "Explore Files",
                 key = "e",
                 action = "<CMD>lua MiniFiles.open()<CR>",
-                -- action = "<CMD>Oil --float<CR>",
               },
               {
                 icon = "",
