@@ -80,18 +80,6 @@ return {
           },
         },
 
-        indent = {
-          enabled = true,
-        },
-
-        notifier = {
-          enabled = true,
-        },
-
-        quickfile = {
-          enabled = true,
-        },
-
         scroll = {
           enabled = true,
 
@@ -106,12 +94,40 @@ return {
         statuscolumn = {
           enabled = true,
 
-          left = { },
+          left = {},
           right = { "mark", "sign", "fold" },
 
           folds = {
             open = true,
           },
+        },
+
+        image = {
+          enabled = true,
+        },
+
+        input = {
+          enabled = true,
+        },
+
+        picker = {
+          enabled = true,
+        },
+
+        indent = {
+          enabled = true,
+        },
+
+        bigfile = {
+          enabled = true,
+        },
+
+        notifier = {
+          enabled = true,
+        },
+
+        quickfile = {
+          enabled = true,
         },
       })
     end,
