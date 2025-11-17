@@ -27,7 +27,7 @@ vim.o.cursorlineopt = "number"
 -- Editor
 vim.o.list = true
 vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…,nbsp:␣"
-vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
+vim.o.fillchars = "eob: ,foldopen:,foldclose:"
 vim.o.laststatus = 3
 vim.o.updatetime = 50
 
