@@ -1,37 +1,41 @@
+-- Columns
 vim.o.number = true
+vim.o.signcolumn = "yes"
 vim.o.relativenumber = true
 
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
-vim.o.smartindent = true
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
-vim.o.virtualedit = "block"
-
-vim.o.clipboard = "unnamedplus"
-vim.o.undofile = true
-
+-- Scrolling
 vim.o.scrolloff = 999
 vim.o.sidescrolloff = 8
 
+-- Searching
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Indenting
+vim.o.tabstop = 2
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.smartindent = true
+
+-- Editing
+vim.o.undofile = true
+vim.o.clipboard = "unnamedplus"
+vim.o.virtualedit = "block"
 vim.o.cursorlineopt = "number"
-vim.o.signcolumn = "yes"
-vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
+
+-- Editor
 vim.o.list = true
 vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…,nbsp:␣"
+vim.o.fillchars = "eob: ,fold: ,foldopen:,foldclose:,foldsep: ,foldinner: "
+vim.o.laststatus = 3
+vim.o.updatetime = 50
 
+-- UI
 vim.o.wrap = false
+vim.o.winborder = "rounded"
 vim.o.termguicolors = true
 
-vim.o.laststatus = 3
-
-vim.o.winborder = "rounded"
-
+-- Disable Netrw (by faking it is already loaded)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
--- vim.o.updatetime = 50
