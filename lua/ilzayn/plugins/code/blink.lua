@@ -13,6 +13,7 @@ return {
     "blink.cmp",
 
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
 
     after = function()
       require("blink.cmp").setup({
