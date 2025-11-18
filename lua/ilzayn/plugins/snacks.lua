@@ -98,7 +98,7 @@ return {
           enabled = true,
 
           left = {},
-          right = { "mark", "sign", "fold" },
+          right = { "sign", "mark", "fold" },
 
           folds = {
             open = true,
