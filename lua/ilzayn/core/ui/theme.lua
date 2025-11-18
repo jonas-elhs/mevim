@@ -3,254 +3,254 @@ local colors = require("ilzayn.utils").get_colors()
 -- https://neovim.io/doc/user/syntax.html#_13.-highlight-command
 local highlights = {
   -- EDITOR
-  -- ColorColumn | Used for the columns set with 'colorcolumn'.
-  -- Conceal | Placeholder characters substituted for concealed text (see 'conceallevel').
-  -- CurSearch | Current match for the last search pattern (see 'hlsearch').
-  -- Cursor | Character under the cursor.
-  -- lCursor | Character under the cursor when language-mapping is used (see 'guicursor').
-  -- CursorIM | Like Cursor, but used when in IME mode. CursorIM
-  -- CursorColumn | Screen-column at the cursor, when 'cursorcolumn' is set.
-  -- CursorLine | Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-  -- Directory | Directory names (and other special names in listings).
-  -- DiffAdd | Diff mode: Added line. diff.txt
-  -- DiffChange | Diff mode: Changed line. diff.txt
-  -- DiffDelete | Diff mode: Deleted line. diff.txt
-  -- DiffText | Diff mode: Changed text within a changed line. diff.txt
-  -- DiffTextAdd | Diff mode: Added text within a changed line. Linked to hl-DiffText by default. diff.txt
-  -- EndOfBuffer | Filler lines (~) after the last line in the buffer. By default, this is highlighted like hl-NonText.
-  -- TermCursor | Cursor in a focused terminal.
-  -- OkMsg | Success messages.
-  -- WarningMsg | Warning messages.
-  -- ErrorMsg | Error messages.
-  -- StderrMsg | Messages in stderr from shell commands.
-  -- StdoutMsg | Messages in stdout from shell commands.
-  -- WinSeparator | Separators between window splits.
-  -- Folded | Line used for closed folds.
-  -- FoldColumn | 'foldcolumn'
-  -- SignColumn | Column where signs are displayed.
-  -- IncSearch | 'incsearch' highlighting; also used for the text replaced with ":s///c".
-  -- Substitute | :substitute replacement text highlighting.
-  -- LineNr | Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-  -- LineNrAbove | Line number for when the 'relativenumber' option is set, above the cursor line.
-  -- LineNrBelow | Line number for when the 'relativenumber' option is set, below the cursor line.
-  -- CursorLineNr | Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
-  -- CursorLineFold | Like FoldColumn when 'cursorline' is set for the cursor line.
-  -- CursorLineSign | Like SignColumn when 'cursorline' is set for the cursor line.
-  -- MatchParen | Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
-  -- ModeMsg | 'showmode' message (e.g., "-- INSERT --").
-  -- MsgArea | Area for messages and command-line, see also 'cmdheight'.
-  -- MsgSeparator | Separator for scrolled messages msgsep.
-  -- MoreMsg | more-prompt
-  -- NonText | '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer. Normal Normal text.
-  -- NormalFloat | Normal text in floating windows.
-  -- FloatBorder | Border of floating windows.
-  -- FloatShadow | Blended areas when border is "shadow".
-  -- FloatShadowThrough | Shadow corners when border is "shadow".
-  -- FloatTitle | Title of floating windows.
-  -- FloatFooter | Footer of floating windows.
-  -- NormalNC | Normal text in non-current windows.
-  -- Pmenu | Popup menu: Normal item.
-  -- PmenuSel | Popup menu: Selected item. Combined with hl-Pmenu.
-  -- PmenuKind | Popup menu: Normal item "kind".
-  -- PmenuKindSel | Popup menu: Selected item "kind".
-  -- PmenuExtra | Popup menu: Normal item "extra text".
-  -- PmenuExtraSel | Popup menu: Selected item "extra text".
-  -- PmenuSbar | Popup menu: Scrollbar.
-  -- PmenuThumb | Popup menu: Thumb of the scrollbar.
-  -- PmenuMatch | Popup menu: Matched text in normal item. Combined with hl-Pmenu.
-  -- PmenuMatchSel | Popup menu: Matched text in selected item. Combined with hl-PmenuMatch and hl-PmenuSel.
-  -- PmenuBorder | Popup menu: border of popup menu.
-  -- PmenuShadow | Popup menu: blended areas when 'pumborder' is "shadow".
-  -- PmenuShadowThrough | Popup menu: shadow corners when 'pumborder' is "shadow".
-  -- ComplMatchIns | Matched text of the currently inserted completion.
-  -- PreInsert | Text inserted when "preinsert" is in 'completeopt'.
-  -- ComplHint | Virtual text of the currently selected completion.
-  -- ComplHintMore | The additional information of the virtual text.
-  -- Question | hit-enter prompt and yes/no questions.
-  -- QuickFixLine | Current quickfix item in the quickfix window. Combined with hl-CursorLine when the cursor is there.
-  -- Search | Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-  -- SnippetTabstop | Tabstops in snippets. vim.snippet
-  -- SnippetTabstopActive | The currently active tabstop. vim.snippet
-  -- SpecialKey | Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. hl-Whitespace
-  -- SpellBad | Word that is not recognized by the spellchecker. spell Combined with the highlighting used otherwise.
-  -- SpellCap | Word that should start with a capital. spell Combined with the highlighting used otherwise.
-  -- SpellLocal | Word that is recognized by the spellchecker as one that is used in another region. spell Combined with the highlighting used otherwise.
-  -- SpellRare | Word that is recognized by the spellchecker as one that is hardly ever used. spell Combined with the highlighting used otherwise.
-  -- StatusLine | Status line of current window.
-  -- StatusLineNC | Status lines of not-current windows.
-  -- StatusLineTerm | Status line of terminal window.
-  -- StatusLineTermNC | Status line of non-current terminal windows.
-  -- TabLine | Tab pages line, not active tab page label.
-  -- TabLineFill | Tab pages line, where there are no labels.
-  -- TabLineSel | Tab pages line, active tab page label.
-  -- Title | Titles for output from ":set all", ":autocmd" etc.
-  -- Visual | Visual mode selection.
-  -- VisualNOS | Visual mode selection when vim is "Not Owning the Selection".
-  -- Whitespace | "nbsp", "space", "tab", "multispace", "lead" and "trail" in 'listchars'.
-  -- WildMenu | Current match in 'wildmenu' completion.
-  -- WinBar | Window bar of current window.
-  -- WinBarNC | Window bar of not-current windows.
-
+  -- ColorColumn | Used for the columns set with 'colorcolumn'. | cterm=reverse guibg=NvimDarkGrey4
+  -- Conceal | Placeholder characters substituted for concealed text (see 'conceallevel'). | guifg=NvimDarkGrey4
+  -- CurSearch | Current match for the last search pattern (see 'hlsearch'). | ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow
+  -- Cursor | Character under the cursor. | guifg=bg guibg=fg
+  -- lCursor | Character under the cursor when language-mapping is used (see 'guicursor'). | guifg=bg guibg=fg
+  -- CursorIM | Like Cursor, but used when in IME mode. | links to Cursor
+  -- CursorColumn | Screen-column at the cursor, when 'cursorcolumn' is set. | guibg=NvimDarkGrey3
+  -- CursorLine | Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set. | guibg=NvimDarkGrey3
+  -- Directory | Directory names (and other special names in listings). | ctermfg=14 guifg=NvimLightCyan
+  -- DiffAdd | Diff mode: Added line. diff.txt | ctermfg=0 ctermbg=10 guifg=NvimLightGrey1 guibg=NvimDarkGreen
+  -- DiffChange | Diff mode: Changed line. diff.txt | guifg=NvimLightGrey1 guibg=NvimDarkGrey4
+  -- DiffDelete | Diff mode: Deleted line. diff.txt | cterm=bold ctermfg=9 gui=bold guifg=NvimLightRed
+  -- DiffText | Diff mode: Changed text within a changed line. diff.txt | ctermfg=0 ctermbg=14 guifg=NvimLightGrey1 guibg=NvimDarkCyan
+  -- DiffTextAdd | Diff mode: Added text within a changed line. Linked to hl-DiffText by default. diff.txt | links to DiffText
+  -- EndOfBuffer | Filler lines (~) after the last line in the buffer. By default, this is highlighted like hl-NonText. | links to NonText
+  -- TermCursor | Cursor in a focused terminal. | cterm=reverse gui=reverse
+  -- OkMsg | Success messages. | ctermfg=10 guifg=NvimLightGreen
+  -- WarningMsg | Warning messages. | ctermfg=11 guifg=NvimLightYellow
+  -- ErrorMsg | Error messages. | ctermfg=9 guifg=NvimLightRed
+  -- StderrMsg | Messages in stderr from shell commands. | links to ErrorMsg
+  -- StdoutMsg | Messages in stdout from shell commands. | cleared
+  -- WinSeparator | Separators between window splits. | links to Normal
+  -- Folded | Line used for closed folds. | guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+  -- FoldColumn | 'foldcolumn' | links to SignColumn
+  -- SignColumn | Column where signs are displayed. | guifg=NvimDarkGrey4
+  -- IncSearch | 'incsearch' highlighting; also used for the text replaced with ":s///c". | links to CurSearch
+  -- Substitute | :substitute replacement text highlighting. | links to Search
+  -- LineNr | Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set. | guifg=NvimDarkGrey4
+  -- LineNrAbove | Line number for when the 'relativenumber' option is set, above the cursor line. | links to LineNr
+  -- LineNrBelow | Line number for when the 'relativenumber' option is set, below the cursor line. | links to LineNr
+  -- CursorLineNr | Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line. | cterm=bold gui=bold
+  -- CursorLineFold | Like FoldColumn when 'cursorline' is set for the cursor line. | links to FoldColumn
+  -- CursorLineSign | Like SignColumn when 'cursorline' is set for the cursor line. | links to SignColumn
+  -- MatchParen | Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt | cterm=bold,underline gui=bold guibg=NvimDarkGrey4
+  -- ModeMsg | 'showmode' message (e.g., "-- INSERT --"). | ctermfg=10 guifg=NvimLightGreen
+  -- MsgArea | Area for messages and command-line, see also 'cmdheight'. | cleared
+  -- MsgSeparator | Separator for scrolled messages msgsep. | links to StatusLine
+  -- MoreMsg | more-prompt | ctermfg=14 guifg=NvimLightCyan
+  -- NonText | '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer. Normal Normal text. | guifg=NvimDarkGrey4
+  -- NormalFloat | Normal text in floating windows. | guibg=NvimDarkGrey1
+  -- FloatBorder | Border of floating windows. | links to NormalFloat
+  -- FloatShadow | Blended areas when border is "shadow". | ctermbg=0 guibg=NvimDarkGrey4 blend=80
+  -- FloatShadowThrough | Shadow corners when border is "shadow". | ctermbg=0 guibg=NvimDarkGrey4 blend=100
+  -- FloatTitle | Title of floating windows. | links to Title
+  -- FloatFooter | Footer of floating windows. | links to FloatTitle
+  -- NormalNC | Normal text in non-current windows. | cleared
+  -- Pmenu | Popup menu: Normal item. | cterm=reverse guibg=NvimDarkGrey3
+  -- PmenuSel | Popup menu: Selected item. Combined with hl-Pmenu. | cterm=underline,reverse gui=reverse blend=0
+  -- PmenuKind | Popup menu: Normal item "kind". | links to Pmenu
+  -- PmenuKindSel | Popup menu: Selected item "kind". | links to PmenuSel
+  -- PmenuExtra | Popup menu: Normal item "extra text". | links to Pmenu
+  -- PmenuExtraSel | Popup menu: Selected item "extra text". | links to PmenuSel
+  -- PmenuSbar | Popup menu: Scrollbar. | links to Pmenu
+  -- PmenuThumb | Popup menu: Thumb of the scrollbar. | guibg=NvimDarkGrey4
+  -- PmenuMatch | Popup menu: Matched text in normal item. Combined with hl-Pmenu. | cterm=bold gui=bold
+  -- PmenuMatchSel | Popup menu: Matched text in selected item. Combined with hl-PmenuMatch and hl-PmenuSel. | cterm=bold gui=bold
+  -- PmenuBorder | Popup menu: border of popup menu. | links to Pmenu
+  -- PmenuShadow | Popup menu: blended areas when 'pumborder' is "shadow". | ctermbg=0 guibg=NvimDarkGrey4 blend=100
+  -- PmenuShadowThrough | Popup menu: shadow corners when 'pumborder' is "shadow". | links to FloatShadowThrough
+  -- ComplMatchIns | Matched text of the currently inserted completion. | cleared
+  -- PreInsert | Text inserted when "preinsert" is in 'completeopt'. | links to Added
+  -- ComplHint | Virtual text of the currently selected completion. | links to NonText
+  -- ComplHintMore | The additional information of the virtual text. | links to MoreMsg
+  -- Question | hit-enter prompt and yes/no questions. | ctermfg=14 guifg=NvimLightCyan
+  -- QuickFixLine | Current quickfix item in the quickfix window. Combined with hl-CursorLine when the cursor is there. | ctermfg=14 guifg=NvimLightCyan
+  -- Search | Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out. | ctermfg=0 ctermbg=11 guifg=NvimLightGrey1 guibg=NvimDarkYellow
+  -- SnippetTabstop | Tabstops in snippets. vim.snippet | links to Visual
+  -- SnippetTabstopActive | The currently active tabstop. vim.snippet | links to SnippetTabstop
+  -- SpecialKey | Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. hl-Whitespace | guifg=NvimDarkGrey4
+  -- SpellBad | Word that is not recognized by the spellchecker. spell Combined with the highlighting used otherwise. | cterm=undercurl gui=undercurl guisp=NvimLightRed
+  -- SpellCap | Word that should start with a capital. spell Combined with the highlighting used otherwise. | cterm=undercurl gui=undercurl guisp=NvimLightYellow
+  -- SpellLocal | Word that is recognized by the spellchecker as one that is used in another region. spell Combined with the highlighting used otherwise. | cterm=undercurl gui=undercurl guisp=NvimLightGreen
+  -- SpellRare | Word that is recognized by the spellchecker as one that is hardly ever used. spell Combined with the highlighting used otherwise. | cterm=undercurl gui=undercurl guisp=NvimLightCyan
+  -- StatusLine | Status line of current window. | cterm=reverse guifg=NvimDarkGrey3 guibg=NvimLightGrey3
+  -- StatusLineNC | Status lines of not-current windows. | cterm=bold,underline guifg=NvimLightGrey2 guibg=NvimDarkGrey4
+  -- StatusLineTerm | Status line of terminal window. | links to StatusLine
+  -- StatusLineTermNC | Status line of non-current terminal windows. | links to StatusLineNC
+  -- TabLine | Tab pages line, not active tab page label. | links to StatusLineNC
+  -- TabLineFill | Tab pages line, where there are no labels. | links to TabLine
+  -- TabLineSel | Tab pages line, active tab page label. | gui=bold
+  -- Title | Titles for output from ":set all", ":autocmd" etc. | cterm=bold gui=bold guifg=NvimLightGrey2
+  -- Visual | Visual mode selection. | ctermfg=0 ctermbg=15 guibg=NvimDarkGrey4
+  -- VisualNOS | Visual mode selection when vim is "Not Owning the Selection". | links to Visual
+  -- Whitespace | "nbsp", "space", "tab", "multispace", "lead" and "trail" in 'listchars'. | links to NonText
+  -- WildMenu | Current match in 'wildmenu' completion. | links to PmenuSel
+  -- WinBar | Window bar of current window. | cterm=bold gui=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+  -- WinBarNC | Window bar of not-current windows. | cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
 
   -- SYNTAX
-  -- Comment | any comment
-  -- Constant | any constant
-  -- String | a string constant: "this is a string"
-  -- Character | a character constant: 'c', '\n'
-  -- Number | a number constant: 234, 0xff
-  -- Boolean | a boolean constant: TRUE, false
-  -- Float | a floating point constant: 2.3e10
-  -- Identifier | any variable name
-  -- Function | function name (also: methods for classes)
-  -- Statement | any statement
-  -- Conditional | if, then, else, endif, switch, etc.
-  -- Repeat | for, do, while, etc.
-  -- Label | case, default, etc.
-  -- Operator | "sizeof", "+", "*", etc.
-  -- Keyword | any other keyword
-  -- Exception | try, catch, throw
-  -- PreProc | generic Preprocessor
-  -- Include | preprocessor #include
-  -- Define | preprocessor #define
-  -- Macro | same as Define
-  -- PreCondit | preprocessor #if, #else, #endif, etc.
-  -- Type | int, long, char, etc.
-  -- StorageClass | static, register, volatile, etc.
-  -- Structure | struct, union, enum, etc.
-  -- Typedef | a typedef
-  -- Special | any special symbol
-  -- SpecialChar | special character in a constant
-  -- Tag | you can use CTRL-] on this
-  -- Delimiter | character that needs attention
-  -- SpecialComment | special things inside a comment
-  -- Debug | debugging statements
-  -- Underlined | text that stands out, HTML links
-  -- Ignore | left blank, hidden
-  -- Error | any erroneous construct
-  -- Todo | anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-  -- Added | added line in a diff
-  -- Changed | changed line in a diff
-  -- Removed | removed line in a diff
-
+  -- Comment | any comment | guifg=NvimLightGrey4
+  -- Constant | any constant | guifg=NvimLightGrey2
+  -- String | a string constant: "this is a string" | ctermfg=10 guifg=NvimLightGreen
+  -- Character | a character constant: 'c', '\n' | links to Constant
+  -- Number | a number constant: 234, 0xff | links to Constant
+  -- Boolean | a boolean constant: TRUE, false | links to Constant
+  -- Float | a floating point constant: 2.3e10 | links to Number
+  -- Identifier | any variable name | ctermfg=12 guifg=NvimLightBlue
+  -- Function | function name (also: methods for classes) | ctermfg=14 guifg=NvimLightCyan
+  -- Statement | any statement | cterm=bold gui=bold guifg=NvimLightGrey2
+  -- Conditional | if, then, else, endif, switch, etc. | links to Statement
+  -- Repeat | for, do, while, etc. | links to Statement
+  -- Label | case, default, etc. | links to Statement
+  -- Operator | "sizeof", "+", "*", etc. | guifg=NvimLightGrey2
+  -- Keyword | any other keyword | links to Statement
+  -- Exception | try, catch, throw | links to Statement
+  -- PreProc | generic Preprocessor | guifg=NvimLightGrey2
+  -- Include | preprocessor #include | links to PreProc
+  -- Define | preprocessor #define | links to PreProc
+  -- Macro | same as Define | links to PreProc
+  -- PreCondit | preprocessor #if, #else, #endif, etc. | links to PreProc
+  -- Type | int, long, char, etc. | guifg=NvimLightGrey2
+  -- StorageClass | static, register, volatile, etc. | links to Type
+  -- Structure | struct, union, enum, etc. | links to Type
+  -- Typedef | a typedef | links to Type
+  -- Special | any special symbol | ctermfg=14 guifg=NvimLightCyan
+  -- SpecialChar | special character in a constant | links to Special
+  -- Tag | you can use CTRL-] on this | links to Special
+  -- Delimiter | character that needs attention | guifg=NvimLightGrey2
+  -- SpecialComment | special things inside a comment | links to Special
+  -- Debug | debugging statements | links to Special
+  -- Underlined | text that stands out, HTML links | cterm=underline gui=underline
+  -- Ignore | left blank, hidden | links to Normal
+  -- Error | any erroneous construct | ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed
+  -- Todo | anything that needs extra attention; mostly the keywords TODO FIXME and XXX | cterm=bold gui=bold guifg=NvimLightGrey2
+  -- Added | added line in a diff | ctermfg=10 guifg=NvimLightGreen
+  -- Changed | changed line in a diff | ctermfg=14 guifg=NvimLightCyan
+  -- Removed | removed line in a diff | ctermfg=9 guifg=NvimLightRed
 
   -- DIAGNOSTIC
-  -- DiagnosticError | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-  -- DiagnosticWarn | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-  -- DiagnosticInfo | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-  -- DiagnosticHint | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-  -- DiagnosticOk | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  -- DiagnosticError | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline) | ctermfg=9 guifg=NvimLightRed
+  -- DiagnosticWarn | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline) | ctermfg=11 guifg=NvimLightYellow
+  -- DiagnosticInfo | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline) | ctermfg=14 guifg=NvimLightCyan
+  -- DiagnosticHint | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline) | ctermfg=12 guifg=NvimLightBlue
+  -- DiagnosticOk | Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline) | ctermfg=10 guifg=NvimLightGreen
   --
-  -- DiagnosticVirtualTextError | Used for "Error" diagnostic virtual text.
+  -- DiagnosticVirtualTextError | Used for "Error" diagnostic virtual text. | links to DiagnosticError
   DiagnosticVirtualTextError = { link = "DiagnosticError" },
-  -- DiagnosticVirtualTextWarn | Used for "Warn" diagnostic virtual text.
+  -- DiagnosticVirtualTextWarn | Used for "Warn" diagnostic virtual text. | links to DiagnosticWarn
   DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
-  -- DiagnosticVirtualTextInfo | Used for "Info" diagnostic virtual text.
+  -- DiagnosticVirtualTextInfo | Used for "Info" diagnostic virtual text. | links to DiagnosticInfo
   DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
-  -- DiagnosticVirtualTextHint | Used for "Hint" diagnostic virtual text.
+  -- DiagnosticVirtualTextHint | Used for "Hint" diagnostic virtual text. | links to DiagnosticHint
   DiagnosticVirtualTextHint = { link = "DiagnosticHint" },
-  -- DiagnosticVirtualTextOk | Used for "Ok" diagnostic virtual text.
+  -- DiagnosticVirtualTextOk | Used for "Ok" diagnostic virtual text. | links to DiagnosticOk
   DiagnosticVirtualTextOk = { link = "DiagnosticOk" },
   --
-  -- DiagnosticVirtualLinesError | Used for "Error" diagnostic virtual lines.
+  -- DiagnosticVirtualLinesError | Used for "Error" diagnostic virtual lines. | links to DiagnosticError
   DiagnosticVirtualLinesError = { link = "DiagnosticError" },
-  -- DiagnosticVirtualLinesWarn | Used for "Warn" diagnostic virtual lines.
+  -- DiagnosticVirtualLinesWarn | Used for "Warn" diagnostic virtual lines. | links to DiagnosticWarn
   DiagnosticVirtualLinesWarn = { link = "DiagnosticWarn" },
-  -- DiagnosticVirtualLinesInfo | Used for "Info" diagnostic virtual lines.
+  -- DiagnosticVirtualLinesInfo | Used for "Info" diagnostic virtual lines. | links to DiagnosticInfo
   DiagnosticVirtualLinesInfo = { link = "DiagnosticInfo" },
-  -- DiagnosticVirtualLinesHint | Used for "Hint" diagnostic virtual lines.
+  -- DiagnosticVirtualLinesHint | Used for "Hint" diagnostic virtual lines. | links to DiagnosticHint
   DiagnosticVirtualLinesHint = { link = "DiagnosticHint" },
-  -- DiagnosticVirtualLinesOk | Used for "Ok" diagnostic virtual lines.
+  -- DiagnosticVirtualLinesOk | Used for "Ok" diagnostic virtual lines. | links to DiagnosticOk
   DiagnosticVirtualLinesOk = { link = "DiagnosticOk" },
   --
-  -- DiagnosticUnderlineError | Used to underline "Error" diagnostics.
+  -- DiagnosticUnderlineError | Used to underline "Error" diagnostics. | cterm=underline gui=underline guisp=NvimLightRed
   -- DiagnosticUnderlineError = { link = "DiagnosticError" },
-  -- DiagnosticUnderlineWarn | Used to underline "Warn" diagnostics.
+  -- DiagnosticUnderlineWarn | Used to underline "Warn" diagnostics. | cterm=underline gui=underline guisp=NvimLightYellow
   -- DiagnosticUnderlineWarn = { link = "DiagnosticWarn" },
-  -- DiagnosticUnderlineInfo | Used to underline "Info" diagnostics.
+  -- DiagnosticUnderlineInfo | Used to underline "Info" diagnostics. | cterm=underline gui=underline guisp=NvimLightCyan
   -- DiagnosticUnderlineInfo = { link = "DiagnosticInfo" },
-  -- DiagnosticUnderlineHint | Used to underline "Hint" diagnostics.
+  -- DiagnosticUnderlineHint | Used to underline "Hint" diagnostics. | cterm=underline gui=underline guisp=NvimLightBlue
   -- DiagnosticUnderlineHint = { link = "DiagnosticHint" },
-  -- DiagnosticUnderlineOk | Used to underline "Ok" diagnostics.
+  -- DiagnosticUnderlineOk | Used to underline "Ok" diagnostics. | cterm=underline gui=underline guisp=NvimLightGreen
   -- DiagnosticUnderlineOk = { link = "DiagnosticOk" },
   --
-  -- DiagnosticFloatingError | Used to color "Error" diagnostic messages in diagnostics float. See vim.diagnostic.open_float()
+  -- DiagnosticFloatingError | Used to color "Error" diagnostic messages in diagnostics float. See vim.diagnostic.open_float() | links to DiagnosticError
   DiagnosticFloatingError = { link = "DiagnosticError" },
-  -- DiagnosticFloatingWarn | Used to color "Warn" diagnostic messages in diagnostics float.
+  -- DiagnosticFloatingWarn | Used to color "Warn" diagnostic messages in diagnostics float. | links to DiagnosticWarn
   DiagnosticFloatingWarn = { link = "DiagnosticWarn" },
-  -- DiagnosticFloatingInfo | Used to color "Info" diagnostic messages in diagnostics float.
+  -- DiagnosticFloatingInfo | Used to color "Info" diagnostic messages in diagnostics float. | links to DiagnosticInfo
   DiagnosticFloatingInfo = { link = "DiagnosticInfo" },
-  -- DiagnosticFloatingHint | Used to color "Hint" diagnostic messages in diagnostics float.
+  -- DiagnosticFloatingHint | Used to color "Hint" diagnostic messages in diagnostics float. | links to DiagnosticHint
   DiagnosticFloatingHint = { link = "DiagnosticHint" },
-  -- DiagnosticFloatingOk | Used to color "Ok" diagnostic messages in diagnostics float.
+  -- DiagnosticFloatingOk | Used to color "Ok" diagnostic messages in diagnostics float. | links to DiagnosticOk
   DiagnosticFloatingOk = { link = "DiagnosticOk" },
   --
-  -- DiagnosticSignError | Used for "Error" signs in sign column.
+  -- DiagnosticSignError | Used for "Error" signs in sign column. | links to DiagnosticError
   DiagnosticSignError = { link = "DiagnosticError" },
-  -- DiagnosticSignWarn | Used for "Warn" signs in sign column.
+  -- DiagnosticSignWarn | Used for "Warn" signs in sign column. | links to DiagnosticWarn
   DiagnosticSignWarn = { link = "DiagnosticWarn" },
-  -- DiagnosticSignInfo | Used for "Info" signs in sign column.
+  -- DiagnosticSignInfo | Used for "Info" signs in sign column. | links to DiagnosticInfo
   DiagnosticSignInfo = { link = "DiagnosticInfo" },
-  -- DiagnosticSignHint | Used for "Hint" signs in sign column.
+  -- DiagnosticSignHint | Used for "Hint" signs in sign column. | links to DiagnosticHint
   DiagnosticSignHint = { link = "DiagnosticHint" },
-  -- DiagnosticSignOk | Used for "Ok" signs in sign column.
+  -- DiagnosticSignOk | Used for "Ok" signs in sign column. | links to DiagnosticOk
   DiagnosticSignOk = { link = "DiagnosticOk" },
   --
-  -- DiagnosticDeprecated | Used for deprecated or obsolete code.
-  -- DiagnosticUnnecessary | Used for unnecessary or unused code.
+  -- DiagnosticDeprecated | Used for deprecated or obsolete code. | cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+  -- DiagnosticUnnecessary | Used for unnecessary or unused code. | links to Comment
   DiagnosticUnnecessary = { link = "Comment" },
 
-
   -- TREESITTER
-  -- @variable | various variable names
-  -- @variable.builtin | built-in variable names (e.g. this, self)
-  -- @variable.parameter | parameters of a function
+  -- @variable | various variable names | guifg=NvimLightGrey2
+  -- @variable.builtin | built-in variable names (e.g. this, self) | links to Special
+  -- @variable.parameter | parameters of a function | links to Special
   -- @variable.parameter.builtin | special parameters (e.g. _, it)
   -- @variable.member | object and struct fields
   --
-  -- @constant | constant identifiers
-  -- @constant.builtin | built-in constant values
+  -- @constant | constant identifiers | links to Constant
+  -- @constant.builtin | built-in constant values | links to Special
   -- @constant.macro | constants defined by the preprocessor
   --
-  -- @module | modules or namespaces
-  -- @module.builtin | built-in modules or namespaces
-  -- @label | GOTO and other labels (e.g. label: in C), including heredoc labels
+  -- @module | modules or namespaces | links to Structure
+  -- @module.builtin | built-in modules or namespaces | links to Special
   --
-  -- @string | string literals
+  -- @label | GOTO and other labels (e.g. label: in C), including heredoc labels | links to Label
+  --
+  -- @string | string literals | links to String
   -- @string.documentation | string documenting code (e.g. Python docstrings)
-  -- @string.regexp | regular expressions
-  -- @string.escape | escape sequences
-  -- @string.special | other special strings (e.g. dates)
+  -- @string.regexp | regular expressions | @string.regexp xxx links to
+  -- @string.escape | escape sequences | links to @string.special
+  -- @string.special | other special strings (e.g. dates) | links to SpecialChar
   -- @string.special.symbol  symbols or atoms
   -- @string.special.path | filenames
-  -- @string.special.url | URIs (e.g. hyperlinks)
+  -- @string.special.url | URIs (e.g. hyperlinks) | links to Underlined
   --
-  -- @character | character literals
-  -- @character.special | special characters (e.g. wildcards)
+  -- @character | character literals | links to Character
+  -- @character.special | special characters (e.g. wildcards) | links to Character
   --
-  -- @boolean | boolean literals
-  -- @number | numeric literals
-  -- @number.float | floating-point number literals
+  -- @boolean | boolean literals | links to Boolean
   --
-  -- @type | type or class definitions and annotations
-  -- @type.builtin | built-in types
+  -- @number | numeric literals | links to Number
+  -- @number.float | floating-point number literals | links to Float
+  --
+  -- @type | type or class definitions and annotations | links to Type
+  -- @type.builtin | built-in types | links to Special
   -- @type.definition | identifiers in type definitions (e.g. typedef <type> <identifier> in C)
   --
-  -- @attribute | attribute annotations (e.g. Python decorators, Rust lifetimes)
-  -- @attribute.builtin | builtin annotations (e.g. @property in Python)
-  -- @property | the key in key/value pairs
-  -- 
-  -- @function | function definitions
-  -- @function.builtin | built-in functions
+  -- @attribute | attribute annotations (e.g. Python decorators, Rust lifetimes) | links to Macro
+  -- @attribute.builtin | builtin annotations (e.g. Python) | @attribute.builtin xxx links to Special
+  --
+  -- @property | the key in key/value pairs | links to Identifier
+  --
+  -- @function | function definitions | links to Function
+  -- @function.builtin | built-in functions | links to Special
   -- @function.call | function calls
   -- @function.macro | preprocessor macros
-  --
   -- @function.method | method definitions
   -- @function.method.call | method calls
   --
-  -- @constructor | constructor calls and definitions
-  -- @operator | symbolic operators (e.g. +, *)
+  -- @constructor | constructor calls and definitions | links to Special
   --
-  -- @keyword | keywords not fitting into specific categories
+  -- @operator | symbolic operators (e.g. +, *) | links to Operator
+  --
+  -- @keyword | keywords not fitting into specific categories | links to Keyword
   -- @keyword.coroutine | keywords related to coroutines (e.g. go in Go, async/await in Python)
   -- @keyword.function | keywords that define a function (e.g. func in Go, def in Python)
   -- @keyword.operator | operators that are English words (e.g. and, or)
@@ -261,98 +261,91 @@ local highlights = {
   -- @keyword.return | keywords like return and yield
   -- @keyword.debug | keywords related to debugging
   -- @keyword.exception | keywords related to exceptions (e.g. throw, catch)
-  --
   -- @keyword.conditional | keywords related to conditionals (e.g. if, else)
   -- @keyword.conditional.ternary ternary operator (e.g. ?, :)
-  --
   -- @keyword.directive | various preprocessor directives and shebangs
   -- @keyword.directive.define | preprocessor definition directives
   --
-  -- @punctuation.delimiter  delimiters (e.g. ;, ., ,)
+  -- @punctuation.delimiter  delimiters (e.g. ;, ., ,) | links to Delimiter
   -- @punctuation.bracket | brackets (e.g. (), {}, [])
-  -- @punctuation.special | special symbols (e.g. {} in string interpolation)
+  -- @punctuation.special | special symbols (e.g. {} in string interpolation) | links to Special
   --
-  -- @comment | line and block comments
+  -- @comment | line and block comments | links to Comment
   -- @comment.documentation  comments documenting code
+  -- @comment.error | error-type comments (e.g. ERROR, FIXME, DEPRECATED) | links to DiagnosticError
+  -- @comment.warning | warning-type comments (e.g. WARNING, FIX, HACK) | links to DiagnosticWarn
+  -- @comment.todo | todo-type comments (e.g. TODO, WIP) | links to Todo
+  -- @comment.note | note-type comments (e.g. NOTE, INFO, XXX) | links to DiagnosticInfo
   --
-  -- @comment.error | error-type comments (e.g. ERROR, FIXME, DEPRECATED)
-  -- @comment.warning | warning-type comments (e.g. WARNING, FIX, HACK)
-  -- @comment.todo | todo-type comments (e.g. TODO, WIP)
-  -- @comment.note | note-type comments (e.g. NOTE, INFO, XXX)
-  --
-  -- @markup.strong | bold text
-  -- @markup.italic | italic text
-  -- @markup.strikethrough | struck-through text
-  -- @markup.underline | underlined text (only for literal underline markup!)
-  --
-  -- @markup.heading | headings, titles (including markers)
+  -- @markup | | links to Special
+  -- @markup.strong | bold text | cterm=bold gui=bold
+  -- @markup.italic | italic text | cterm=italic gui=italic
+  -- @markup.strikethrough | struck-through text | cterm=strikethrough gui=strikethrough
+  -- @markup.underline | underlined text (only for literal underline markup!) | cterm=underline gui=underline
+  -- @markup.heading | headings, titles (including markers) | links to Title
   -- @markup.heading.1 | top-level heading
   -- @markup.heading.2 | section heading
   -- @markup.heading.3 | subsection heading
   -- @markup.heading.4 | and so on
   -- @markup.heading.5 | and so forth
   -- @markup.heading.6 | six levels ought to be enough for anybody
-  --
   -- @markup.quote | block quotes
   -- @markup.math | math environments (e.g. $ ... $ in LaTeX)
-  --
-  -- @markup.link | text references, footnotes, citations, etc.
+  -- @markup.link | text references, footnotes, citations, etc. | links to Underlined
   -- @markup.link.label | link, reference descriptions
   -- @markup.link.url | URL-style links
-  --
   -- @markup.raw | literal or verbatim text (e.g. inline code)
   -- @markup.raw.block | literal or verbatim text as a stand-alone block
-  --
   -- @markup.list | list markers
   -- @markup.list.checked | checked todo-style list markers
   -- @markup.list.unchecked | unchecked todo-style list markers
   --
-  -- @diff.plus | added text (for diff files)
-  -- @diff.minus | deleted text (for diff files)
-  -- @diff.delta | changed text (for diff files)
+  -- @diff | | cleared
+  -- @diff.plus | added text (for diff files) | links to Added
+  -- @diff.minus | deleted text (for diff files) | links to Removed
+  -- @diff.delta | changed text (for diff files) | links to Changed
   --
-  -- @tag | XML-style tag names (e.g. in XML, HTML, etc.)
-  -- @tag.builtin | builtin tag names (e.g. HTML5 tags)
+  -- @tag | XML-style tag names (e.g. in XML, HTML, etc.) | links to Tag
+  -- @tag.builtin | builtin tag names (e.g. HTML5 tags) | links to Special
   -- @tag.attribute | XML-style tag attributes
   -- @tag.delimiter | XML-style tag delimiters
 
-
   -- LSP
-  -- @lsp.type.class | Identifiers that declare or reference a class type
-  -- @lsp.type.comment | Tokens that represent a comment
-  -- @lsp.type.decorator | Identifiers that declare or reference decorators and annotations
-  -- @lsp.type.enum | Identifiers that declare or reference an enumeration type
-  -- @lsp.type.enumMember | Identifiers that declare or reference an enumeration property, constant, or member
-  -- @lsp.type.event | Identifiers that declare an event property
-  -- @lsp.type.function | Identifiers that declare a function
-  -- @lsp.type.interface | Identifiers that declare or reference an interface type
-  -- @lsp.type.keyword | Tokens that represent a language keyword
-  -- @lsp.type.macro | Identifiers that declare a macro
-  -- @lsp.type.method | Identifiers that declare a member function or method
-  -- @lsp.type.modifier | Tokens that represent a modifier
-  -- @lsp.type.namespace | Identifiers that declare or reference a namespace, module, or package
-  -- @lsp.type.number | Tokens that represent a number literal
-  -- @lsp.type.operator | Tokens that represent an operator
-  -- @lsp.type.parameter | Identifiers that declare or reference a function or method parameters
-  -- @lsp.type.property | Identifiers that declare or reference a member property, member field, or member variable
-  -- @lsp.type.regexp | Tokens that represent a regular expression literal
-  -- @lsp.type.string | Tokens that represent a string literal
-  -- @lsp.type.struct | Identifiers that declare or reference a struct type
-  -- @lsp.type.type | Identifiers that declare or reference a type that is not covered above
-  -- @lsp.type.typeParameter | Identifiers that declare or reference a type parameter
-  -- @lsp.type.variable | Identifiers that declare or reference a local or global variable
+  -- @lsp | | @lsp           xxx cleared
+  -- @lsp.type.class | Identifiers that declare or reference a class type | links to @type
+  -- @lsp.type.comment | Tokens that represent a comment | links to @comment
+  -- @lsp.type.decorator | Identifiers that declare or reference decorators and annotations | links to @attribute
+  -- @lsp.type.enum | Identifiers that declare or reference an enumeration type | links to @type
+  -- @lsp.type.enumMember | Identifiers that declare or reference an enumeration property, constant, or member | links to @constant
+  -- @lsp.type.event | Identifiers that declare an event property | links to @type
+  -- @lsp.type.function | Identifiers that declare a function | links to @function
+  -- @lsp.type.interface | Identifiers that declare or reference an interface type | links to @type
+  -- @lsp.type.keyword | Tokens that represent a language keyword | links to @keyword
+  -- @lsp.type.macro | Identifiers that declare a macro | links to @constant.macro
+  -- @lsp.type.method | Identifiers that declare a member function or method | links to @function.method
+  -- @lsp.type.modifier | Tokens that represent a modifier | links to @type.qualifier
+  -- @lsp.type.namespace | Identifiers that declare or reference a namespace, module, or package | links to @module
+  -- @lsp.type.number | Tokens that represent a number literal | links to @number
+  -- @lsp.type.operator | Tokens that represent an operator | links to @operator
+  -- @lsp.type.parameter | Identifiers that declare or reference a function or method parameters | links to @variable.parameter
+  -- @lsp.type.property | Identifiers that declare or reference a member property, member field, or member variable | links to @property
+  -- @lsp.type.regexp | Tokens that represent a regular expression literal | links to @string.regexp
+  -- @lsp.type.string | Tokens that represent a string literal | links to @string
+  -- @lsp.type.struct | Identifiers that declare or reference a struct type | links to @type
+  -- @lsp.type.type | Identifiers that declare or reference a type that is not covered above | links to @type
+  -- @lsp.type.typeParameter | Identifiers that declare or reference a type parameter | links to @type.definition
+  -- @lsp.type.variable | Identifiers that declare or reference a local or global variable | links to @variable
   --
   -- @lsp.mod.abstract | Types and member functions that are abstract
   -- @lsp.mod.async | Functions that are marked async
   -- @lsp.mod.declaration | Declarations of symbols
   -- @lsp.mod.defaultLibrary | Symbols that are part of the standard library
   -- @lsp.mod.definition | Definitions of symbols, for example, in header files
-  -- @lsp.mod.deprecated | Symbols that should no longer be used
+  -- @lsp.mod.deprecated | Symbols that should no longer be used | links to DiagnosticDeprecated
   -- @lsp.mod.documentation | Occurrences of symbols in documentation
   -- @lsp.mod.modification | Variable references where the variable is assigned to
   -- @lsp.mod.readonly | Readonly variables and member fields (constants)
-  -- @lsp.mod.static | Class members (static members) 
-
+  -- @lsp.mod.static | Class members (static members)
 
   -- PLUGINS
   -- Blink Cmp

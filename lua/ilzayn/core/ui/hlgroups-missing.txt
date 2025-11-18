@@ -1,0 +1,528 @@
+VertSplit      xxx links to WinSeparator
+VisualNC       xxx cleared
+RedrawDebugNormal xxx cterm=reverse gui=reverse
+Normal         xxx guifg=NvimLightGrey2 guibg=NvimDarkGrey2
+Italic         xxx cleared
+Bold           xxx cleared
+None           xxx cleared
+
+@spell         xxx cleared
+@namespace     xxx cleared
+@nospell       xxx cleared
+
+LspCodeLens    xxx links to NonText
+LspCodeLensSeparator xxx links to LspCodeLens
+LspInlayHint   xxx links to NonText
+LspReferenceRead xxx links to LspReferenceText
+LspReferenceText xxx links to Visual
+LspReferenceWrite xxx links to LspReferenceText
+LspReferenceTarget xxx links to LspReferenceText
+LspSignatureActiveParameter xxx links to Visual
+
+@markup.heading.1.delimiter.vimdoc xxx cterm=underdouble,nocombine gui=underdouble,nocombine guifg=bg guibg=bg guisp=fg
+@markup.heading.2.delimiter.vimdoc xxx cterm=underline,nocombine gui=underline,nocombine guifg=bg guibg=bg guisp=fg
+
+RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
+RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
+RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
+
+NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
+NvimAssignment xxx links to Operator
+NvimPlainAssignment xxx links to NvimAssignment
+NvimAugmentedAssignment xxx links to NvimAssignment
+NvimAssignmentWithAddition xxx links to NvimAugmentedAssignment
+NvimAssignmentWithSubtraction xxx links to NvimAugmentedAssignment
+NvimAssignmentWithConcatenation xxx links to NvimAugmentedAssignment
+NvimOperator   xxx links to Operator
+NvimUnaryOperator xxx links to NvimOperator
+NvimUnaryPlus  xxx links to NvimUnaryOperator
+NvimUnaryMinus xxx links to NvimUnaryOperator
+NvimNot        xxx links to NvimUnaryOperator
+NvimBinaryOperator xxx links to NvimOperator
+NvimComparison xxx links to NvimBinaryOperator
+NvimComparisonModifier xxx links to NvimComparison
+NvimBinaryPlus xxx links to NvimBinaryOperator
+NvimBinaryMinus xxx links to NvimBinaryOperator
+NvimConcat     xxx links to NvimBinaryOperator
+NvimConcatOrSubscript xxx links to NvimConcat
+NvimOr         xxx links to NvimBinaryOperator
+NvimAnd        xxx links to NvimBinaryOperator
+NvimMultiplication xxx links to NvimBinaryOperator
+NvimDivision   xxx links to NvimBinaryOperator
+NvimMod        xxx links to NvimBinaryOperator
+NvimTernary    xxx links to NvimOperator
+NvimTernaryColon xxx links to NvimTernary
+NvimParenthesis xxx links to Delimiter
+NvimLambda     xxx links to NvimParenthesis
+NvimNestingParenthesis xxx links to NvimParenthesis
+NvimCallingParenthesis xxx links to NvimParenthesis
+NvimSubscript  xxx links to NvimParenthesis
+NvimSubscriptBracket xxx links to NvimSubscript
+NvimSubscriptColon xxx links to NvimSubscript
+NvimCurly      xxx links to NvimSubscript
+NvimContainer  xxx links to NvimParenthesis
+NvimDict       xxx links to NvimContainer
+NvimList       xxx links to NvimContainer
+NvimIdentifier xxx links to Identifier
+NvimIdentifierScope xxx links to NvimIdentifier
+NvimIdentifierScopeDelimiter xxx links to NvimIdentifier
+NvimIdentifierName xxx links to NvimIdentifier
+NvimIdentifierKey xxx links to NvimIdentifier
+NvimColon      xxx links to Delimiter
+NvimComma      xxx links to Delimiter
+NvimArrow      xxx links to Delimiter
+NvimRegister   xxx links to SpecialChar
+NvimNumber     xxx links to Number
+NvimFloat      xxx links to NvimNumber
+NvimNumberPrefix xxx links to Type
+NvimOptionSigil xxx links to Type
+NvimOptionName xxx links to NvimIdentifier
+NvimOptionScope xxx links to NvimIdentifierScope
+NvimOptionScopeDelimiter xxx links to NvimIdentifierScopeDelimiter
+NvimEnvironmentSigil xxx links to NvimOptionSigil
+NvimEnvironmentName xxx links to NvimIdentifier
+NvimString     xxx links to String
+NvimStringBody xxx links to NvimString
+NvimStringQuote xxx links to NvimString
+NvimStringSpecial xxx links to SpecialChar
+NvimSingleQuote xxx links to NvimStringQuote
+NvimSingleQuotedBody xxx links to NvimStringBody
+NvimSingleQuotedQuote xxx links to NvimStringSpecial
+NvimDoubleQuote xxx links to NvimStringQuote
+NvimDoubleQuotedBody xxx links to NvimStringBody
+NvimDoubleQuotedEscape xxx links to NvimStringSpecial
+NvimFigureBrace xxx links to NvimInternalError
+NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
+NvimSpacing    xxx links to Normal
+NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
+NvimInvalid    xxx links to Error
+NvimInvalidAssignment xxx links to NvimInvalid
+NvimInvalidPlainAssignment xxx links to NvimInvalidAssignment
+NvimInvalidAugmentedAssignment xxx links to NvimInvalidAssignment
+NvimInvalidAssignmentWithAddition xxx links to NvimInvalidAugmentedAssignment
+NvimInvalidAssignmentWithSubtraction xxx links to NvimInvalidAugmentedAssignment
+NvimInvalidAssignmentWithConcatenation xxx links to NvimInvalidAugmentedAssignment
+NvimInvalidOperator xxx links to NvimInvalid
+NvimInvalidUnaryOperator xxx links to NvimInvalidOperator
+NvimInvalidUnaryPlus xxx links to NvimInvalidUnaryOperator
+NvimInvalidUnaryMinus xxx links to NvimInvalidUnaryOperator
+NvimInvalidNot xxx links to NvimInvalidUnaryOperator
+NvimInvalidBinaryOperator xxx links to NvimInvalidOperator
+NvimInvalidComparison xxx links to NvimInvalidBinaryOperator
+NvimInvalidComparisonModifier xxx links to NvimInvalidComparison
+NvimInvalidBinaryPlus xxx links to NvimInvalidBinaryOperator
+NvimInvalidBinaryMinus xxx links to NvimInvalidBinaryOperator
+NvimInvalidConcat xxx links to NvimInvalidBinaryOperator
+NvimInvalidConcatOrSubscript xxx links to NvimInvalidConcat
+NvimInvalidOr  xxx links to NvimInvalidBinaryOperator
+NvimInvalidAnd xxx links to NvimInvalidBinaryOperator
+NvimInvalidMultiplication xxx links to NvimInvalidBinaryOperator
+NvimInvalidDivision xxx links to NvimInvalidBinaryOperator
+NvimInvalidMod xxx links to NvimInvalidBinaryOperator
+NvimInvalidTernary xxx links to NvimInvalidOperator
+NvimInvalidTernaryColon xxx links to NvimInvalidTernary
+NvimInvalidDelimiter xxx links to NvimInvalid
+NvimInvalidParenthesis xxx links to NvimInvalidDelimiter
+NvimInvalidLambda xxx links to NvimInvalidParenthesis
+NvimInvalidNestingParenthesis xxx links to NvimInvalidParenthesis
+NvimInvalidCallingParenthesis xxx links to NvimInvalidParenthesis
+NvimInvalidSubscript xxx links to NvimInvalidParenthesis
+NvimInvalidSubscriptBracket xxx links to NvimInvalidSubscript
+NvimInvalidSubscriptColon xxx links to NvimInvalidSubscript
+NvimInvalidCurly xxx links to NvimInvalidSubscript
+NvimInvalidContainer xxx links to NvimInvalidParenthesis
+NvimInvalidDict xxx links to NvimInvalidContainer
+NvimInvalidList xxx links to NvimInvalidContainer
+NvimInvalidValue xxx links to NvimInvalid
+NvimInvalidIdentifier xxx links to NvimInvalidValue
+NvimInvalidIdentifierScope xxx links to NvimInvalidIdentifier
+NvimInvalidIdentifierScopeDelimiter xxx links to NvimInvalidIdentifier
+NvimInvalidIdentifierName xxx links to NvimInvalidIdentifier
+NvimInvalidIdentifierKey xxx links to NvimInvalidIdentifier
+NvimInvalidColon xxx links to NvimInvalidDelimiter
+NvimInvalidComma xxx links to NvimInvalidDelimiter
+NvimInvalidArrow xxx links to NvimInvalidDelimiter
+NvimInvalidRegister xxx links to NvimInvalidValue
+NvimInvalidNumber xxx links to NvimInvalidValue
+NvimInvalidFloat xxx links to NvimInvalidNumber
+NvimInvalidNumberPrefix xxx links to NvimInvalidNumber
+NvimInvalidOptionSigil xxx links to NvimInvalidIdentifier
+NvimInvalidOptionName xxx links to NvimInvalidIdentifier
+NvimInvalidOptionScope xxx links to NvimInvalidIdentifierScope
+NvimInvalidOptionScopeDelimiter xxx links to NvimInvalidIdentifierScopeDelimiter
+NvimInvalidEnvironmentSigil xxx links to NvimInvalidOptionSigil
+NvimInvalidEnvironmentName xxx links to NvimInvalidIdentifier
+NvimInvalidString xxx links to NvimInvalidValue
+NvimInvalidStringBody xxx links to NvimStringBody
+NvimInvalidStringQuote xxx links to NvimInvalidString
+NvimInvalidStringSpecial xxx links to NvimStringSpecial
+NvimInvalidSingleQuote xxx links to NvimInvalidStringQuote
+NvimInvalidSingleQuotedBody xxx links to NvimInvalidStringBody
+NvimInvalidSingleQuotedQuote xxx links to NvimInvalidStringSpecial
+NvimInvalidDoubleQuote xxx links to NvimInvalidStringQuote
+NvimInvalidDoubleQuotedBody xxx links to NvimInvalidStringBody
+NvimInvalidDoubleQuotedEscape xxx links to NvimInvalidStringSpecial
+NvimInvalidDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
+NvimInvalidFigureBrace xxx links to NvimInvalidDelimiter
+NvimInvalidSpacing xxx links to ErrorMsg
+NvimDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
+
+IlzaynReplace  xxx guifg=#000000 guibg=#ff0000
+IlzaynReplaceReverse xxx guifg=#ff0000
+IlzaynVisual   xxx guifg=#000000 guibg=#0000ff
+IlzaynVisualReverse xxx guifg=#0000ff
+IlzaynNormal   xxx guifg=#000000 guibg=#00ffff
+IlzaynNormalReverse xxx guifg=#00ffff
+IlzaynForeground xxx guifg=#000000 guibg=#ffffff
+IlzaynForegroundReverse xxx guifg=#ffffff
+IlzaynBackground xxx guifg=#000000 guibg=#000000
+IlzaynBackgroundReverse xxx guifg=#000000
+IlzaynInactive xxx guifg=#000000 guibg=#7f7f7f
+IlzaynInactiveReverse xxx guifg=#7f7f7f
+IlzaynInsert   xxx guifg=#000000 guibg=#00ff00
+IlzaynInsertReverse xxx guifg=#00ff00
+IlzaynTerminal xxx guifg=#000000 guibg=#ff00ff
+IlzaynTerminalReverse xxx guifg=#ff00ff
+IlzaynCommand  xxx guifg=#000000 guibg=#ffff00
+IlzaynCommandReverse xxx guifg=#ffff00
+IlzaynModeBoldReverse xxx cterm=bold gui=bold guifg=#00ffff
+IlzaynMode     xxx guifg=#000000 guibg=#00ffff
+IlzaynModeBold xxx cterm=bold gui=bold guifg=#000000 guibg=#00ffff
+IlzaynModeReverse xxx guifg=#00ffff
+
+MiniDiffSignAdd xxx links to Added
+MiniDiffSignChange xxx links to Changed
+MiniDiffSignDelete xxx links to Removed
+MiniDiffOverAdd xxx links to DiffAdd
+MiniDiffOverChange xxx links to DiffText
+MiniDiffOverChangeBuf xxx links to MiniDiffOverChange
+MiniDiffOverContext xxx links to DiffChange
+MiniDiffOverContextBuf xxx cleared
+MiniDiffOverDelete xxx links to DiffDelete
+
+SnacksDashboardHeader xxx links to Title
+SnacksDashboardFooter xxx links to Title
+SnacksDashboardTitle xxx links to Title
+SnacksDashboardFile xxx links to Special
+SnacksDashboardDir xxx links to NonText
+SnacksDashboardSpecial xxx links to Special
+SnacksDashboardNormal xxx links to Normal
+SnacksDashboardDesc xxx links to Special
+SnacksDashboardTerminal xxx links to SnacksDashboardNormal
+SnacksDashboardKey xxx links to Number
+SnacksDashboardIcon xxx links to Special
+
+SnacksInputNormal xxx links to Normal
+SnacksInputTitle xxx links to DiagnosticInfo
+SnacksInputPrompt xxx links to SnacksInputTitle
+SnacksInputBorder xxx links to DiagnosticInfo
+SnacksInputIcon xxx links to DiagnosticHint
+
+SnacksPicker   xxx links to NormalFloat
+SnacksPickerList xxx links to SnacksPicker
+SnacksPickerListCursorLine xxx links to Visual
+SnacksPickerFooter xxx links to FloatFooter
+SnacksPickerListFooter xxx links to SnacksPickerFooter
+SnacksPickerTitle xxx links to FloatTitle
+SnacksPickerListTitle xxx links to SnacksPickerTitle
+SnacksPickerBorder xxx links to FloatBorder
+SnacksPickerListBorder xxx links to SnacksPickerBorder
+SnacksPickerInput xxx links to SnacksPicker
+SnacksPickerCursorLine xxx links to CursorLine
+SnacksPickerInputCursorLine xxx links to SnacksPickerCursorLine
+SnacksPickerInputFooter xxx links to SnacksPickerFooter
+SnacksPickerInputTitle xxx links to SnacksPickerTitle
+SnacksPickerInputBorder xxx links to SnacksPickerBorder
+SnacksPickerPreview xxx links to SnacksPicker
+SnacksPickerPreviewCursorLine xxx links to Visual
+SnacksPickerPreviewFooter xxx links to SnacksPickerFooter
+SnacksPickerPreviewTitle xxx links to SnacksPickerTitle
+SnacksPickerPreviewBorder xxx links to SnacksPickerBorder
+SnacksPickerBox xxx links to SnacksPicker
+SnacksPickerBoxCursorLine xxx links to SnacksPickerCursorLine
+SnacksPickerBoxFooter xxx links to SnacksPickerFooter
+SnacksPickerBoxTitle xxx links to SnacksPickerTitle
+SnacksPickerBoxBorder xxx links to SnacksPickerBorder
+SnacksPickerIdx xxx links to Number
+SnacksPickerUnselected xxx links to NonText
+SnacksPickerCmdBuiltin xxx links to @constructor
+SnacksPickerCmd xxx links to Function
+SnacksPickerSelected xxx links to Number
+SnacksPickerSpinner xxx links to Special
+SnacksPickerIconTypeParameter xxx links to @lsp.type.typeParameter
+SnacksPickerDelim xxx links to Delimiter
+SnacksPickerIconStruct xxx links to @lsp.type.struct
+SnacksPickerCol xxx links to LineNr
+SnacksPickerRow xxx links to String
+SnacksPickerDimmed xxx links to Conceal
+SnacksPickerToggle xxx links to DiagnosticVirtualTextInfo
+SnacksPickerPathHidden xxx links to NonText
+SnacksPickerPathIgnored xxx links to NonText
+SnacksPickerIconObject xxx links to @constant
+SnacksPickerLinkBroken xxx links to DiagnosticError
+SnacksPickerLink xxx links to Comment
+SnacksPickerTotals xxx links to NonText
+SnacksPickerIconNamespace xxx links to @module
+SnacksPickerSpecial xxx links to Special
+SnacksPickerLabel xxx links to SnacksPickerSpecial
+SnacksPickerInputSearch xxx links to @keyword
+SnacksPickerPrompt xxx links to Special
+SnacksPickerIconInterface xxx links to @lsp.type.interface
+SnacksPickerIconFunction xxx links to @function
+SnacksPickerIconField xxx links to @variable.member
+SnacksPickerIconConstant xxx links to @constant
+SnacksPickerIconEvent xxx links to Special
+SnacksPickerSearch xxx links to Search
+SnacksPickerIconClass xxx links to @type
+SnacksPickerIconEnum xxx links to @lsp.type.enum
+SnacksPickerAuEvent xxx links to Constant
+SnacksPickerIconBoolean xxx links to @boolean
+SnacksPickerDir xxx links to NonText
+SnacksPickerIconCategory xxx links to @module
+SnacksPickerIconArray xxx links to @punctuation.bracket
+SnacksPickerIconName xxx links to @keyword
+SnacksPickerIcon xxx links to Special
+SnacksPickerAuPattern xxx links to String
+SnacksPickerGitDate xxx links to Special
+SnacksPickerIconFile xxx links to Normal
+SnacksPickerIconKey xxx links to @lsp.type.keyword
+SnacksPickerIconMethod xxx links to @function.method
+SnacksPickerIconModule xxx links to @module
+SnacksPickerIconNull xxx links to @constant.builtin
+SnacksPickerIconNumber xxx links to @number
+SnacksPickerIconOperator xxx links to @operator
+SnacksPickerIconPackage xxx links to @module
+SnacksPickerIconProperty xxx links to @property
+SnacksPickerIconString xxx links to @string
+SnacksPickerIconVariable xxx links to @variable
+SnacksPickerRule xxx links to @punctuation.special.markdown
+SnacksPickerIconSource xxx links to @constant
+SnacksPickerManPage xxx links to Special
+SnacksPickerLspUnavailable xxx links to DiagnosticError
+SnacksPickerFileType xxx links to DiagnosticHint
+SnacksPickerLspAttachedBuf xxx links to DiagnosticInfo
+SnacksPickerLspAttached xxx links to DiagnosticWarn
+SnacksPickerIconConstructor xxx links to @constructor
+SnacksPickerLspEnabled xxx links to Special
+SnacksPickerLspDisabled xxx links to DiagnosticWarn
+SnacksPickerPickWinCurrent xxx links to CurSearch
+SnacksPickerIconEnumMember xxx links to @lsp.type.enumMember
+SnacksPickerPickWin xxx links to Search
+SnacksPickerManSection xxx links to Number
+SnacksPickerGitStatusStaged xxx links to DiagnosticHint
+SnacksPickerGitStatusUnmerged xxx links to DiagnosticError
+SnacksPickerGitStatusIgnored xxx links to NonText
+SnacksPickerGitStatusUntracked xxx links to NonText
+SnacksPickerGitStatus xxx links to Special
+SnacksPickerGitStatusCopied xxx links to SnacksPickerGitStatus
+SnacksPickerDirectory xxx links to Directory
+SnacksPickerGitStatusRenamed xxx links to SnacksPickerGitStatus
+SnacksPickerGitStatusDeleted xxx links to Removed
+SnacksPickerGitStatusModified xxx links to DiagnosticWarn
+SnacksPickerGitStatusAdded xxx links to Added
+SnacksPickerGitScope xxx links to Italic
+SnacksPickerItalic xxx links to Italic
+SnacksPickerGitType xxx links to Title
+SnacksPickerGitAuthor xxx links to Constant
+SnacksPickerGitIssue xxx links to Number
+SnacksPickerGitBranchCurrent xxx links to Number
+SnacksPickerGitBranch xxx links to Title
+SnacksPickerGitDetached xxx links to DiagnosticWarn
+SnacksPickerGitBreaking xxx links to Error
+SnacksPickerGitCommit xxx links to @variable.builtin
+SnacksPickerMatch xxx links to Special
+SnacksPickerUndoSaved xxx links to Special
+SnacksPickerUndoCurrent xxx links to @variable.builtin
+SnacksPickerUndoRemoved xxx links to Removed
+SnacksPickerUndoAdded xxx links to Added
+SnacksPickerTime xxx links to Special
+SnacksPickerKeymapRhs xxx links to NonText
+SnacksPickerBufType xxx links to Function
+SnacksPickerBufFlags xxx links to NonText
+SnacksPickerBufNr xxx links to Number
+SnacksPickerKeymapNowait xxx links to @variable.builtin
+SnacksPickerKeymapLhs xxx links to Special
+SnacksPickerKeymapMode xxx links to Number
+SnacksPickerRegister xxx links to Number
+SnacksPickerDiagnosticSource xxx links to Comment
+SnacksPickerComment xxx links to Comment
+SnacksPickerDiagnosticCode xxx links to Special
+SnacksPickerAuGroup xxx links to Type
+SnacksPickerFile xxx cleared
+SnacksPickerCode xxx links to @markup.raw.markdown_inline
+SnacksPickerDesc xxx links to Comment
+SnacksPickerTree xxx links to LineNr
+SnacksPickerBold xxx links to Bold
+SnacksPickerToggleRegex xxx links to SnacksPickerToggle
+SnacksPickerToggleFollow xxx links to SnacksPickerToggle
+SnacksPickerToggleIgnored xxx links to SnacksPickerToggle
+SnacksPickerToggleModified xxx links to SnacksPickerToggle
+SnacksPickerToggleHidden xxx links to SnacksPickerToggle
+
+SnacksBackdrop xxx guibg=#000000
+SnacksBackdrop_000000 xxx guibg=#000000
+SnacksWinKey   xxx links to Keyword
+SnacksWinKeyDesc xxx links to Function
+SnacksWinKeySep xxx links to NonText
+SnacksWinBar   xxx links to Title
+SnacksWinBarNC xxx links to SnacksWinBar
+SnacksNormalNC xxx links to NormalFloat
+SnacksFooterKey xxx links to DiagnosticVirtualTextInfo
+SnacksFooterDesc xxx links to DiagnosticInfo
+SnacksNormal   xxx links to NormalFloat
+SnacksWinSeparator
+SnacksFooter   xxx links to FloatFooter
+SnacksTitle    xxx links to FloatTitle
+
+SnacksStatusColumnMark xxx links to DiagnosticHint
+SnacksImageLoading xxx links to NonText
+SnacksImageAnchor xxx links to Special
+SnacksImageMath xxx guifg=#8cf8f7
+SnacksImageSpinner xxx links to Special
+
+SnacksIndent   xxx links to NonText
+SnacksIndentScope xxx links to Special
+SnacksIndent8  xxx links to DiagnosticError
+SnacksIndent7  xxx links to DiagnosticWarn
+SnacksIndent6  xxx links to DiagnosticHint
+SnacksIndent5  xxx links to DiagnosticInfo
+SnacksIndent3  xxx links to DiagnosticWarn
+SnacksIndent2  xxx links to DiagnosticHint
+SnacksIndentBlank xxx links to SnacksIndent
+SnacksIndent4  xxx links to DiagnosticError
+SnacksIndent1  xxx links to DiagnosticInfo
+SnacksIndentChunk xxx links to SnacksIndentScope
+
+OilHidden      xxx links to Comment
+OilDir         xxx links to Directory
+OilDirHidden   xxx links to OilHidden
+OilDirIcon     xxx links to OilDir
+OilSocket      xxx links to Keyword
+OilSocketHidden xxx links to OilHidden
+OilLinkHidden  xxx links to OilHidden
+OilOrphanLinkHidden xxx links to OilLinkHidden
+OilLinkTarget  xxx links to Comment
+OilOrphanLinkTarget xxx links to DiagnosticError
+OilLinkTargetHidden xxx links to OilHidden
+OilOrphanLinkTargetHidden xxx links to OilOrphanLinkTarget
+OilFileHidden  xxx links to OilHidden
+OilCreate      xxx links to DiagnosticInfo
+OilDelete      xxx links to DiagnosticError
+OilMove        xxx links to DiagnosticWarn
+OilCopy        xxx links to DiagnosticHint
+OilChange      xxx links to Special
+OilRestore     xxx links to OilCreate
+OilPurge       xxx links to OilDelete
+OilTrash       xxx links to OilDelete
+OilTrashSourcePath xxx links to Comment
+
+InclineNormalNC xxx links to NormalFloat
+InclineNormal  xxx links to NormalFloat
+
+NoiceCompletionItemKindDefault xxx links to Special
+NoiceCompletionItemKindStruct xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindInterface xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindConstructor xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindMethod xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindClass xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindFunction xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindText xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindColor xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindEnumMember xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindUnit xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindField xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindFile xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindVariable xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindEnum xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindModule xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindValue xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindConstant xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindFolder xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindSnippet xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindProperty xxx links to NoiceCompletionItemKindDefault
+NoiceCompletionItemKindKeyword xxx links to NoiceCompletionItemKindDefault
+
+NoiceLspProgressClient xxx links to Title
+NoiceLspProgressTitle xxx links to NonText
+NoiceLspProgressSpinner xxx links to Constant
+
+NoiceFormatLevelError xxx links to DiagnosticVirtualTextError
+NoiceFormatLevelWarn xxx links to DiagnosticVirtualTextWarn
+NoiceFormatLevelInfo xxx links to DiagnosticVirtualTextInfo
+NoiceFormatLevelOff xxx links to NonText
+NoiceFormatLevelTrace xxx links to NonText
+NoiceFormatLevelDebug xxx links to NonText
+NoiceFormatTitle xxx links to Title
+NoiceFormatConfirmDefault xxx links to Visual
+NoiceFormatConfirm xxx links to CursorLine
+NoiceFormatDate xxx links to Special
+NoiceFormatKind xxx links to NonText
+NoiceFormatEvent xxx links to NonText
+NoiceFormatProgressTodo xxx links to CursorLine
+NoiceFormatProgressDone xxx guifg=#eef1f8 guibg=#6b5300
+
+NoicePopupmenu xxx links to Pmenu
+NoiceSplitBorder xxx links to FloatBorder
+NoicePopup     xxx links to NormalFloat
+NoiceMini      xxx links to MsgArea
+NoiceCursor    xxx links to Cursor
+NoiceConfirmBorder xxx links to DiagnosticSignInfo
+NoiceConfirm   xxx links to Normal
+
+NoiceCmdlinePopupBorderSearch xxx links to DiagnosticSignWarn
+NoiceCmdlinePopup xxx links to Normal
+NoiceCmdlinePrompt xxx links to Title
+NoiceCmdlinePopupBorder xxx links to DiagnosticSignInfo
+NoiceCmdlinePopupBorderCalculator xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleCalculator xxx links to NoiceCmdlinePopupBorderCalculator
+
+NoiceCmdlineIcon xxx links to DiagnosticSignInfo
+NoiceCmdlineIconHelp xxx links to NoiceCmdlineIcon
+NoiceCmdlinePopupBorderHelp xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleHelp xxx links to NoiceCmdlinePopupBorderHelp
+NoiceCmdlineIconCmdline xxx links to NoiceCmdlineIcon
+NoiceCmdlinePopupBorderCmdline xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleCmdline xxx links to NoiceCmdlinePopupBorderCmdline
+NoiceCmdlinePopupTitle xxx links to DiagnosticSignInfo
+NoiceCmdlinePopupBorderFilter xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleFilter xxx links to NoiceCmdlinePopupBorderFilter
+NoiceCmdlineIconCalculator xxx links to NoiceCmdlineIcon
+NoiceCmdlinePopupTitleSearch xxx links to NoiceCmdlinePopupBorderSearch
+NoiceCmdlineIconLua xxx links to NoiceCmdlineIcon
+NoiceCmdlinePopupBorderLua xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleLua xxx links to NoiceCmdlinePopupBorderLua
+NoiceCmdlineIconInput xxx links to NoiceCmdlineIcon
+NoiceCmdlinePopupBorderInput xxx links to NoiceCmdlinePopupBorder
+NoiceCmdlinePopupTitleInput xxx links to NoiceCmdlinePopupBorderInput
+NoicePopupBorder xxx links to FloatBorder
+NoicePopupmenuMatch xxx links to Special
+NoiceVirtualText xxx links to DiagnosticVirtualTextInfo
+NoiceSplit     xxx links to NormalFloat
+NoiceScrollbarThumb xxx links to PmenuThumb
+NoiceScrollbar xxx links to PmenuSbar
+NoicePopupmenuSelected xxx links to PmenuSel
+NoicePopupmenuBorder xxx links to FloatBorder
+NoiceCmdlineIconSearch xxx links to DiagnosticSignWarn
+NoiceCmdline   xxx links to MsgArea
+NoiceCmdlineIconFilter xxx links to NoiceCmdlineIcon
+NoiceHiddenCursor xxx cterm=nocombine gui=nocombine blend=100
+
+MiniIconsAzure xxx links to Function
+MiniIconsBlue  xxx links to DiagnosticInfo
+MiniIconsCyan  xxx links to DiagnosticHint
+MiniIconsGreen xxx links to DiagnosticOk
+MiniIconsGrey  xxx cleared
+MiniIconsOrange xxx links to DiagnosticWarn
+MiniIconsPurple xxx links to Constant
+MiniIconsRed   xxx links to DiagnosticError
+MiniIconsYellow xxx links to DiagnosticWarn
+
+MiniFilesBorder xxx links to FloatBorder
+MiniFilesBorderModified xxx links to DiagnosticFloatingWarn
+MiniFilesCursorLine xxx links to CursorLine
+MiniFilesDirectory xxx links to Directory
+MiniFilesFile  xxx cleared
+MiniFilesNormal xxx links to NormalFloat
+MiniFilesTitle xxx links to FloatTitle
+MiniFilesTitleFocused xxx links to FloatTitle
+colorizer_mf_808080 xxx guifg=#808080
