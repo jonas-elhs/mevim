@@ -41,7 +41,8 @@ local highlights = {
   -- MsgArea                |   cleared                                                              |   Area for messages and command-line, see also 'cmdheight'.
   -- MsgSeparator           |   links to StatusLine                                                  |   Separator for scrolled messages msgsep.
   -- MoreMsg                |   ctermfg=14 guifg=NvimLightCyan                                     |   more-prompt
-  -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer. Normal Normal text.
+  -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer.
+  -- Normal                 |   guifg=#e0e2ea                                                      |   Normal text.
   -- NormalFloat            |   guibg=NvimDarkGrey1                                                |   Normal text in floating windows.
   -- FloatBorder            |   links to NormalFloat                                                 |   Border of floating windows.
   -- FloatShadow            |   ctermbg=0 guibg=NvimDarkGrey4 blend=80                             |   Blended areas when border is "shadow".
