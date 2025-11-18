@@ -1,35 +1,5 @@
 return {
   {
-    "mini.diff",
-
-    after = function()
-      require("mini.diff").setup({
-        view = {
-          priority = 0,
-        },
-      })
-    end,
-  },
-  {
-    "mini.icons",
-
-    on_require = { "mini.icons" },
-    beforeAll = function()
-      _G.MiniIcons = setmetatable({}, {
-        __index = function(_, key)
-          return function(...)
-            require("mini.icons")[key](...)
-          end
-        end,
-      })
-    end,
-
-    after = function()
-      require("mini.icons").setup()
-      require("mini.icons").mock_nvim_web_devicons()
-    end,
-  },
-  {
     "mini.files",
 
     on_require = { "mini.files" },
@@ -96,27 +66,7 @@ return {
         end,
       })
 
-      require("ilzayn.plugins.mini-files-git").setup()
-    end,
-  },
-  {
-    "mini.surround",
-
-    keys = { "gsa", "gsd", "gsr" },
-
-    after = function()
-      require("mini.surround").setup({
-        mappings = {
-          add = "gsa",
-          delete = "gsd",
-          replace = "gsr",
-          find = "",
-          find_left = "",
-          highlight = "",
-        },
-
-        silent = true,
-      })
+      require("ilzayn.plugins.mini.mini-files-git").setup()
     end,
   },
 }
