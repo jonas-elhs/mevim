@@ -1,4 +1,21 @@
-local colors = require("ilzayn.utils").get_colors()
+local colors = {
+  foreground = "#ffffff",
+
+  background = "#4e4e4e",
+  normal = "#00ffff",
+  visual = "#0000ff",
+  insert = "#00ff00",
+  replace = "#ff0000",
+  command = "#ffff00",
+  terminal = "#ff00ff",
+  inactive = "#7f7f7f",
+
+  error = "#ff0000",
+  warn = "#ffa500",
+  success = "#00ff00",
+  info = "#00ffff",
+  hint = "#0000ff",
+}
 
 -- https://neovim.io/doc/user/syntax.html#_13.-highlight-command
 local highlights = {
@@ -20,17 +37,22 @@ local highlights = {
   -- EndOfBuffer            |   links to NonText                                                     |   Filler lines (~) after the last line in the buffer. By default, this is highlighted like hl-NonText.
   -- TermCursor             |   cterm=reverse gui=reverse                                            |   Cursor in a focused terminal.
   -- OkMsg                  |   ctermfg=10 guifg=NvimLightGreen                                    |   Success messages.
+  OkMsg = { fg = colors.success },
   -- WarningMsg             |   ctermfg=11 guifg=NvimLightYellow                                   |   Warning messages.
+  WarningMsg = { fg = colors.warn },
   -- ErrorMsg               |   ctermfg=9 guifg=NvimLightRed                                       |   Error messages.
+  ErrorMsg = { fg = colors.error },
   -- StderrMsg              |   links to ErrorMsg                                                    |   Messages in stderr from shell commands.
   -- StdoutMsg              |   cleared                                                              |   Messages in stdout from shell commands.
   -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
+  WinSeparator = { fg = colors.inactive },
   -- Folded                 |   guifg=NvimLightGrey4 guibg=NvimDarkGrey1                         |   Line used for closed folds.
   -- FoldColumn             |   links to SignColumn                                                  |   'foldcolumn'
   -- SignColumn             |   guifg=NvimDarkGrey4                                                |   Column where signs are displayed.
   -- IncSearch              |   links to CurSearch                                                   |   'incsearch' highlighting; also used for the text replaced with ":s///c".
   -- Substitute             |   links to Search                                                      |   :substitute replacement text highlighting.
   -- LineNr                 |   guifg=NvimDarkGrey4                                                |   Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+  LineNr = { fg = colors.background },
   -- LineNrAbove            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, above the cursor line.
   -- LineNrBelow            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, below the cursor line.
   -- CursorLineNr           |   cterm=bold gui=bold                                                  |   Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
@@ -43,6 +65,7 @@ local highlights = {
   -- MoreMsg                |   ctermfg=14 guifg=NvimLightCyan                                     |   more-prompt
   -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer.
   -- Normal                 |   guifg=#e0e2ea                                                      |   Normal text.
+  Normal = { fg = colors.foreground },
   -- NormalFloat            |   guibg=NvimDarkGrey1                                                |   Normal text in floating windows.
   -- FloatBorder            |   links to NormalFloat                                                 |   Border of floating windows.
   -- FloatShadow            |   ctermbg=0 guibg=NvimDarkGrey4 blend=80                             |   Blended areas when border is "shadow".
@@ -51,7 +74,9 @@ local highlights = {
   -- FloatFooter            |   links to FloatTitle                                                  |   Footer of floating windows.
   -- NormalNC               |   cleared                                                              |   Normal text in non-current windows.
   -- Pmenu                  |   cterm=reverse guibg=NvimDarkGrey3                                  |   Popup menu: Normal item.
+  Pmenu = { fg = colors.foreground },
   -- PmenuSel               |   cterm=underline,reverse gui=reverse blend=0                          |   Popup menu: Selected item. Combined with hl-Pmenu.
+  PmenuSel = { reverse = true, italic = true },
   -- PmenuKind              |   links to Pmenu                                                       |   Popup menu: Normal item "kind".
   -- PmenuKindSel           |   links to PmenuSel                                                    |   Popup menu: Selected item "kind".
   -- PmenuExtra             |   links to Pmenu                                                       |   Popup menu: Normal item "extra text".
@@ -86,6 +111,7 @@ local highlights = {
   -- TabLineSel             |   gui=bold                                                             |   Tab pages line, active tab page label.
   -- Title                  |   cterm=bold gui=bold guifg=NvimLightGrey2                           |   Titles for output from ":set all", ":autocmd" etc.
   -- Visual                 |   ctermfg=0 ctermbg=15 guibg=NvimDarkGrey4                           |   Visual mode selection.
+  Visual = { fg = colors.background, bg = colors.foreground },
   -- VisualNOS              |   links to Visual                                                      |   Visual mode selection when vim is "Not Owning the Selection".
   -- Whitespace             |   links to NonText                                                     |   "nbsp", "space", "tab", "multispace", "lead" and "trail" in 'listchars'.
   -- WildMenu               |   links to PmenuSel                                                    |   Current match in 'wildmenu' completion.
@@ -134,10 +160,15 @@ local highlights = {
 
   -- DIAGNOSTIC
   -- DiagnosticError   |   ctermfg=9 guifg=NvimLightRed       |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  DiagnosticError = { fg = colors.error },
   -- DiagnosticWarn    |   ctermfg=11 guifg=NvimLightYellow   |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  DiagnosticWarn = { fg = colors.warn },
   -- DiagnosticInfo    |   ctermfg=14 guifg=NvimLightCyan     |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  DiagnosticInfo = { fg = colors.info },
   -- DiagnosticHint    |   ctermfg=12 guifg=NvimLightBlue     |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  DiagnosticHint = { fg = colors.hint },
   -- DiagnosticOk      |   ctermfg=10 guifg=NvimLightGreen    |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+  DiagnosticOk = { fg = colors.success },
   --
   -- DiagnosticVirtualTextError   |   links to DiagnosticError   |   Used for "Error" diagnostic virtual text.
   -- DiagnosticVirtualTextWarn    |   links to DiagnosticWarn    |   Used for "Warn" diagnostic virtual text.
@@ -170,6 +201,7 @@ local highlights = {
   -- DiagnosticSignOk      |   links to DiagnosticOk      |   Used for "Ok" signs in sign column.
   --
   -- DiagnosticDeprecated    |   cterm=strikethrough gui=strikethrough guisp=NvimLightRed   |   Used for deprecated or obsolete code.
+  DiagnosticDeprecated = { strikethrough = true },
   -- DiagnosticUnnecessary   |   links to Comment                                             |   Used for unnecessary or unused code.
 
   -- TREESITTER

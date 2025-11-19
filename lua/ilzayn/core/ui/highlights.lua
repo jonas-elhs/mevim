@@ -49,4 +49,3 @@ end
 -- Custom highlights
 highlight("Folded", { bg = "grey" })
 highlight("CursorLineNr", { link = "IlzaynModeBoldReverse" })
-highlight("WinSeparator", { link = "IlzaynInactiveReverse" })
