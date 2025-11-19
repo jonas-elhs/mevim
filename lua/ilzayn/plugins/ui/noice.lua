@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "noice.nvim",
 
     event = "DeferredUIEnter",

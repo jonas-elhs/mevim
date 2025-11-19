@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "mini.surround",
 
     keys = { "gsa", "gsd", "gsr" },

@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "mini.diff",
 
     after = function()

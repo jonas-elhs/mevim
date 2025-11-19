@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "leap.nvim",
 
     keys = {

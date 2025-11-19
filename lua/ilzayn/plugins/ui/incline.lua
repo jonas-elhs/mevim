@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "incline.nvim",
 
     event = "DeferredUIEnter",

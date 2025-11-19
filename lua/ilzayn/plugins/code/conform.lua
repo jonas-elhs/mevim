@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "conform.nvim",
 
     cmd = { "ConformInfo", "FormatToggle", "FormatEnable", "FormatDisable" },

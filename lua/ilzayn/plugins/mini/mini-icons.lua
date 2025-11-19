@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "mini.icons",
 
     on_require = { "mini.icons" },

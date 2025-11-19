@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "nvim-colorizer.lua",
 
     event = { "BufReadPre", "BufNewFile" },

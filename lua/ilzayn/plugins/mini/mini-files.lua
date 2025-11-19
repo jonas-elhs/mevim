@@ -1,5 +1,6 @@
 return {
   {
+    lazy = false,
     "mini.files",
 
     on_require = { "mini.files" },
