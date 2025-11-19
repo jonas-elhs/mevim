@@ -89,7 +89,6 @@
 
       optionalPlugins.packages = with pkgs.vimPlugins; [
         # Movement Plugins
-        pkgs.neovimPlugins.oil
         leap-nvim
 
         # Code Plugins
@@ -99,9 +98,6 @@
         blink-pairs
         lazydev-nvim
         conform-nvim
-        gitsigns-nvim
-        hardtime-nvim
-        nvim-surround
         render-markdown-nvim
         markdown-preview-nvim
         nvim-treesitter.withAllGrammars
@@ -109,7 +105,6 @@
         # UI Plugins
         noice-nvim
         incline-nvim
-        virt-column-nvim
         nvim-colorizer-lua
 
         # Misc Plugins
