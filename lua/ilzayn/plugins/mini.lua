@@ -1,3 +1,11 @@
+-- mini.diff
+require("mini.diff").setup({
+  view = {
+    priority = 0,
+  },
+})
+
+-- mini.files
 require("mini.files").setup({
   windows = {
     preview = true,
@@ -20,6 +28,7 @@ require("mini.files").setup({
     trim_right = "",
   },
 })
+require("ilzayn.plugins.mini-files-git")
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",
@@ -33,11 +42,27 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-require("ilzayn.plugins.mini.mini-files-git").setup()
-
 vim.keymap.set("n", "<leader>e", function()
   require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
 end, { desc = "Open current directory in mini.files" })
 vim.keymap.set("n", "<leader>E", function()
   require("mini.files").open(vim.uv.cwd(), true)
 end, { desc = "Open current working directory in mini.files" })
+
+-- mini.icons
+require("mini.icons").setup()
+require("mini.icons").mock_nvim_web_devicons()
+
+-- mini.surround
+require("mini.surround").setup({
+  mappings = {
+    add = "gsa",
+    delete = "gsd",
+    replace = "gsr",
+    find = "",
+    find_left = "",
+    highlight = "",
+  },
+
+  silent = true,
+})
