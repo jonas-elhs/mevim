@@ -1,6 +1,7 @@
 return {
   {
     "lazydev.nvim",
+    enabled = false,
 
     dep_of = { "blink.cmp" },
 
