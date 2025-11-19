@@ -79,7 +79,7 @@ local function file_module()
   local filetype = vim.bo.filetype
   name = filename_overrides[filetype] or name ~= "" and name or filetype ~= "" and filetype or "[No Name]"
 
-  local icon = MiniIcons.get("file", name)
+  local icon = MiniIcons and MiniIcons.get("file", name) or ""
   local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
 
   return table.concat({

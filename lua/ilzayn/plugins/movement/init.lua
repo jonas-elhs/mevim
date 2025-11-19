@@ -1,3 +1,1 @@
-return {
-  { import = "ilzayn.plugins.movement.leap" },
-}
+require("ilzayn.plugins.movement.leap")

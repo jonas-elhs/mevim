@@ -80,19 +80,16 @@
       ];
 
       startupPlugins.packages = with pkgs.vimPlugins; [
-        # Startup Plugins
-        lze
+        # Libraries
         nui-nvim
         plenary-nvim
         nvim-lspconfig
-      ];
 
-      optionalPlugins.packages = with pkgs.vimPlugins; [
         # Movement Plugins
         leap-nvim
 
         # Code Plugins
-        neogit
+        # neogit
         treesj
         blink-cmp
         blink-pairs

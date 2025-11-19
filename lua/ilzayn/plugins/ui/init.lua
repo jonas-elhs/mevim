@@ -1,5 +1,3 @@
-return {
-  { import = "ilzayn.plugins.ui.noice" },
-  { import = "ilzayn.plugins.ui.incline" },
-  { import = "ilzayn.plugins.ui.nvim-colorizer" },
-}
+require("ilzayn.plugins.ui.noice")
+require("ilzayn.plugins.ui.incline")
+require("ilzayn.plugins.ui.nvim-colorizer")

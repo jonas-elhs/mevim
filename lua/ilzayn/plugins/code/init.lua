@@ -1,9 +1,6 @@
-return {
-  { import = "ilzayn.plugins.code.blink" },
-  { import = "ilzayn.plugins.code.treesj" },
-  { import = "ilzayn.plugins.code.lazydev" },
-  { import = "ilzayn.plugins.code.conform" },
-  { import = "ilzayn.plugins.code.nvim-treesitter" },
-  { import = "ilzayn.plugins.code.render-markdown" },
-  { import = "ilzayn.plugins.code.markdown-preview" },
-}
+-- require("ilzayn.plugins.code.blink")
+-- require("ilzayn.plugins.code.treesj")
+-- require("ilzayn.plugins.code.lazydev")
+require("ilzayn.plugins.code.conform")
+require("ilzayn.plugins.code.nvim-treesitter")
+require("ilzayn.plugins.code.render-markdown")

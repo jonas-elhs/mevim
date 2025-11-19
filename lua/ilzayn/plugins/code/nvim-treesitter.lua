@@ -1,21 +1,11 @@
-return {
-  {
-    "nvim-treesitter",
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    local started = pcall(vim.treesitter.start)
 
-    lazy = false,
+    if not started then
+      return
+    end
 
-    beforeAll = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        callback = function()
-          local started = pcall(vim.treesitter.start)
-
-          if not started then
-            return
-          end
-
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
-    end,
-  },
-}
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
