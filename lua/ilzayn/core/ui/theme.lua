@@ -23,6 +23,7 @@ local highlights = {
   -- ColorColumn            |   cterm=reverse guibg=NvimDarkGrey4                                  |   Used for the columns set with 'colorcolumn'.
   -- Conceal                |   guifg=NvimDarkGrey4                                                |   Placeholder characters substituted for concealed text (see 'conceallevel').
   -- CurSearch              |   ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow   |   Current match for the last search pattern (see 'hlsearch').
+  CurSearch = {},
   -- Cursor                 |   guifg=bg guibg=fg                                                    |   Character under the cursor.
   -- lCursor                |   guifg=bg guibg=fg                                                    |   Character under the cursor when language-mapping is used (see 'guicursor').
   -- CursorIM               |   links to Cursor                                                      |   Like Cursor, but used when in IME mode.
@@ -56,6 +57,7 @@ local highlights = {
   -- LineNrAbove            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, above the cursor line.
   -- LineNrBelow            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, below the cursor line.
   -- CursorLineNr           |   cterm=bold gui=bold                                                  |   Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
+  CursorLineNr = { link = "IlzaynModeBoldReverse" },
   -- CursorLineFold         |   links to FoldColumn                                                  |   Like FoldColumn when 'cursorline' is set for the cursor line.
   -- CursorLineSign         |   links to SignColumn                                                  |   Like SignColumn when 'cursorline' is set for the cursor line.
   -- MatchParen             |   cterm=bold,underline gui=bold guibg=NvimDarkGrey4                  |   Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
@@ -155,8 +157,11 @@ local highlights = {
   -- Error            |   ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed   |   any erroneous construct
   -- Todo             |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   anything that needs extra attention; mostly the keywords TODO FIXME and XXX
   -- Added            |   ctermfg=10 guifg=NvimLightGreen                                |   added line in a diff
+  Added = { fg = colors.success },
   -- Changed          |   ctermfg=14 guifg=NvimLightCyan                                 |   changed line in a diff
+  Changed = { fg = colors.info },
   -- Removed          |   ctermfg=9 guifg=NvimLightRed                                   |   removed line in a diff
+  Removed = { fg = colors.error },
 
   -- DIAGNOSTIC
   -- DiagnosticError   |   ctermfg=9 guifg=NvimLightRed       |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
