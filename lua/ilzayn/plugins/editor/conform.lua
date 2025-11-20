@@ -9,7 +9,7 @@ require("conform").setup({
       return
     end
 
-    return { timeout_ms = 500 }
+    return { timeout_ms = 1000 }
   end,
 })
 
