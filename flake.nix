@@ -90,9 +90,8 @@
 
         # Code Plugins
         # neogit
-        treesj
-        blink-cmp
-        blink-pairs
+        # blink-cmp
+        # blink-pairs
         lazydev-nvim
         conform-nvim
         render-markdown-nvim

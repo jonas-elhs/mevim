@@ -1,5 +1,4 @@
 -- require("ilzayn.plugins.code.blink")
--- require("ilzayn.plugins.code.treesj")
 -- require("ilzayn.plugins.code.lazydev")
 require("ilzayn.plugins.code.conform")
 require("ilzayn.plugins.code.nvim-treesitter")
