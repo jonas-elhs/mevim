@@ -11,6 +11,11 @@ require("incline").setup({
     only_win = "count_ignored",
   },
 
+  ignore = {
+    unlisted_buffers = false,
+    buftypes = { "acwrite", "nofile", "nowrite", "prompt" },
+  },
+
   render = function(props)
     local icons = require("mini.icons")
     local focused = props.focused
