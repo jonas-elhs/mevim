@@ -23,7 +23,6 @@ local highlights = {
   -- ColorColumn            |   cterm=reverse guibg=NvimDarkGrey4                                  |   Used for the columns set with 'colorcolumn'.
   -- Conceal                |   guifg=NvimDarkGrey4                                                |   Placeholder characters substituted for concealed text (see 'conceallevel').
   -- CurSearch              |   ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow   |   Current match for the last search pattern (see 'hlsearch').
-  CurSearch = {},
   -- Cursor                 |   guifg=bg guibg=fg                                                    |   Character under the cursor.
   -- lCursor                |   guifg=bg guibg=fg                                                    |   Character under the cursor when language-mapping is used (see 'guicursor').
   -- CursorIM               |   links to Cursor                                                      |   Like Cursor, but used when in IME mode.
@@ -61,6 +60,7 @@ local highlights = {
   -- CursorLineFold         |   links to FoldColumn                                                  |   Like FoldColumn when 'cursorline' is set for the cursor line.
   -- CursorLineSign         |   links to SignColumn                                                  |   Like SignColumn when 'cursorline' is set for the cursor line.
   -- MatchParen             |   cterm=bold,underline gui=bold guibg=NvimDarkGrey4                  |   Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
+  MatchParen = { bold = true },
   -- ModeMsg                |   ctermfg=10 guifg=NvimLightGreen                                    |   'showmode' message (e.g., "-- INSERT --").
   -- MsgArea                |   cleared                                                              |   Area for messages and command-line, see also 'cmdheight'.
   -- MsgSeparator           |   links to StatusLine                                                  |   Separator for scrolled messages msgsep.
