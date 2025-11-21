@@ -1,5 +1,7 @@
+-- blink.pairs
 require("blink.pairs").setup({})
 
+-- blink.cmp
 require("blink.cmp").setup({
   keymap = {
     ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -26,9 +28,7 @@ require("blink.cmp").setup({
         enabled = false,
       },
       menu = {
-        auto_show = function()
-          return vim.fn.getcmdtype() == ":"
-        end,
+        auto_show = false,
       },
     },
   },

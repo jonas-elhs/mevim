@@ -90,8 +90,8 @@
 
         # Code Plugins
         # neogit
-        # blink-cmp
-        # blink-pairs
+        blink-cmp
+        blink-pairs
         lazydev-nvim
         conform-nvim
         render-markdown-nvim
