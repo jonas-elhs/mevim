@@ -1,5 +1,9 @@
 -- blink.pairs
-require("blink.pairs").setup({})
+require("blink.pairs").setup({
+  highlights = {
+    enabled = false,
+  },
+})
 
 -- blink.cmp
 require("blink.cmp").setup({
