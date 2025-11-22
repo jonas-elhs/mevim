@@ -13,7 +13,7 @@ Utils.width_more_than = function(min)
   return vim.o.columns > min
 end
 
-function Utils.get_colors()
+Utils.get_colors = function()
   return {
     background = "#000000",
     foreground = "#ffffff",
@@ -83,6 +83,41 @@ Utils.get_current_mode_name = function()
 end
 Utils.get_current_mode_color = function()
   return Utils.get_colors()[Utils.get_current_mode_type():lower()]
+end
+
+---@class ToggleOptions
+---@field name string The name of the toggle option
+---@field enable function The callback to enable the option
+---@field disable function The callback to disable the option
+---@field enabled fun(): boolean The callback to check if the option is enabled
+---@field command string The prefix of the created commands
+---@field toggle_keymap? string The keymap to toggle the option
+
+---@param options ToggleOptions
+Utils.toggle = function(options)
+  vim.api.nvim_create_user_command(options.command .. "Toggle", function()
+    if options.enabled() then
+      options.disable()
+    else
+      options.enable()
+    end
+
+    vim.notify(options.name .. ": " .. (options.enabled() and "enabled" or "disabled"))
+  end, { desc = "Toggle " .. options.name })
+  vim.api.nvim_create_user_command(options.command .. "Enable", function()
+    options.enable()
+
+    vim.notify(options.name .. ": enabled")
+  end, { desc = "Enable " .. options.name })
+  vim.api.nvim_create_user_command(options.command .. "Disable", function()
+    options.disable()
+
+    vim.notify(options.name .. ": disabled")
+  end, { desc = "Disable " .. options.name })
+
+  if options.toggle_keymap then
+    vim.keymap.set("n", options.toggle_keymap, "<CMD>" .. options.command .. "Toggle<CR>")
+  end
 end
 
 return Utils
