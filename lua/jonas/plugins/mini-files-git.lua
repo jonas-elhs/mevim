@@ -1,4 +1,5 @@
 -- Thanks to https://gist.github.com/bassamsdata/eec0a3065152226581f8d4244cce9051
+-- edit: I removed the symlink handling
 
 local nsMiniFiles = vim.api.nvim_create_namespace("mini_files_git")
 local autocmd = vim.api.nvim_create_autocmd
@@ -7,17 +8,17 @@ local _, MiniFiles = pcall(require, "mini.files")
 -- Cache for git status
 local gitStatusCache = {}
 local cacheTimeout = 2000 -- in milliseconds
-local uv = vim.uv or vim.loop
-
-local function isSymlink(path)
-  local stat = uv.fs_lstat(path)
-  return stat and stat.type == "link"
-end
+-- local uv = vim.uv or vim.loop
+--
+-- local function isSymlink(path)
+--   local stat = uv.fs_lstat(path)
+--   return stat and stat.type == "link"
+-- end
 
 ---@type table<string, {symbol: string, hlGroup: string}>
 ---@param status string
 ---@return string symbol, string hlGroup
-local function mapSymbols(status, is_symlink)
+local function mapSymbols(status)
   local statusMap = {
     -- stylua: ignore start 
     [" M"] = { symbol = "•", hlGroup  = "MiniDiffSignChange"}, -- Modified in the working directory
@@ -38,17 +39,15 @@ local function mapSymbols(status, is_symlink)
   }
 
   local result = statusMap[status] or { symbol = "?", hlGroup = "NonText" }
-  local gitSymbol = result.symbol
-  local gitHlGroup = result.hlGroup
-
-  local symlinkSymbol = is_symlink and "↩" or ""
-
+  -- local gitSymbol = result.symbol
+  -- local gitHlGroup = result.hlGroup
+  --
   -- Combine symlink symbol with Git status if both exist
-  local combinedSymbol = (symlinkSymbol .. gitSymbol):gsub("^%s+", ""):gsub("%s+$", "")
+  -- local combinedSymbol = (symlinkSymbol .. gitSymbol):gsub("^%s+", ""):gsub("%s+$", "")
   -- Change the color of the symlink icon from "MiniDiffSignDelete" to something else
-  local combinedHlGroup = is_symlink and "MiniDiffSignDelete" or gitHlGroup
+  -- local combinedHlGroup = is_symlink and "MiniDiffSignDelete" or gitHlGroup
 
-  return combinedSymbol, combinedHlGroup
+  return result.symbol, result.hlGroup
 end
 
 ---@param cwd string
@@ -86,7 +85,8 @@ local function updateMiniWithGit(buf_id, gitStatusMap)
       local status = gitStatusMap[relativePath]
 
       if status then
-        local symbol, hlGroup = mapSymbols(status, isSymlink(entry.path))
+        local symbol, hlGroup = mapSymbols(status)
+        -- local symbol, hlGroup = mapSymbols(status, isSymlink(entry.path))
         vim.api.nvim_buf_set_extmark(buf_id, nsMiniFiles, i - 1, 0, {
           sign_text = symbol,
           sign_hl_group = hlGroup,
