@@ -1,5 +1,6 @@
 local filename_overrides = {
   ["snacks_picker_input"] = "Snacks Picker",
+  ["snacks_notif_history"] = "Snacks Notification History",
 }
 
 -- UTILS
