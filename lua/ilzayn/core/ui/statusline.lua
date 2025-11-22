@@ -1,5 +1,3 @@
-local utils = require("ilzayn.utils")
-
 local filename_overrides = {
   ["help"] = "Help",
   ["oil"] = "Oil",
@@ -12,12 +10,12 @@ local function get_center_spacing(left_components, center_component)
   -- Get visible width (without highlight groups) of left componenents
   local left_width = 0
   for _, left_component in ipairs(left_components) do
-    left_component = utils.remove_highlight_groups_from_string(left_component)
+    left_component = Utils.remove_highlight_groups_from_string(left_component)
     left_width = left_width + vim.api.nvim_strwidth(left_component)
   end
 
   -- Get visible width (without highlight groups) of center component
-  center_component = utils.remove_highlight_groups_from_string(center_component)
+  center_component = Utils.remove_highlight_groups_from_string(center_component)
   local center_width = vim.api.nvim_strwidth(center_component)
 
   -- Get center of center component
@@ -51,12 +49,12 @@ end
 
 -- MODULES
 local function mode_module()
-  local mode = utils.get_current_mode_name()
+  local mode = Utils.get_current_mode_name()
 
   return table.concat({
     " ",
 
-    utils.width_more_than(50) and mode or mode:sub(1, 1),
+    Utils.width_more_than(50) and mode or mode:sub(1, 1),
 
     " ",
   })
@@ -83,11 +81,11 @@ local function file_module()
   local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
 
   return table.concat({
-    (utils.width_more_than(35) and icon) and icon .. "  " or "",
+    (Utils.width_more_than(35) and icon) and icon .. "  " or "",
 
     name,
 
-    (utils.width_more_than(50) and flags) and " " .. flags or "",
+    (Utils.width_more_than(50) and flags) and " " .. flags or "",
   })
 end
 local function diagnostics_module()
@@ -120,25 +118,25 @@ local function line_module()
     or string.format("%d%%%%", current / total * 100)
 
   return table.concat({
-    utils.width_more_than(50) and "  " or " ",
+    Utils.width_more_than(50) and "  " or " ",
 
-    utils.width_more_than(70) and progress .. "  |  " or "",
+    Utils.width_more_than(70) and progress .. "  |  " or "",
 
     "%l:%c",
 
-    utils.width_more_than(50) and "  " or " ",
+    Utils.width_more_than(50) and "  " or " ",
   })
 end
 
 function Statusline()
   local mode = highlight_module(mode_module())
-  local git = utils.width_more_than(120) and " " .. git_module() or ""
+  local git = Utils.width_more_than(120) and " " .. git_module() or ""
   local file = file_module()
-  local diagnostics = utils.width_more_than(120) and diagnostics_module() .. " " or ""
-  local line = utils.width_more_than(60) and highlight_module(line_module()) or ""
+  local diagnostics = Utils.width_more_than(120) and diagnostics_module() .. " " or ""
+  local line = Utils.width_more_than(60) and highlight_module(line_module()) or ""
 
-  local first_space = utils.width_more_than(60) and get_center_spacing({ mode, git }, file) or "%="
-  local second_space = utils.width_more_than(60) and "%=" or ""
+  local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, git }, file) or "%="
+  local second_space = Utils.width_more_than(60) and "%=" or ""
 
   return mode .. git .. first_space .. file .. second_space .. diagnostics .. line
 end

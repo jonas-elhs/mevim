@@ -1,13 +1,17 @@
-local M = {}
+local Utils = {}
 
-function M.width_less_than(target)
+Utils.setup = function()
+  _G.Utils = Utils
+end
+
+Utils.width_less_than = function(target)
   return vim.o.columns <= target
 end
-function M.width_more_than(target)
+Utils.width_more_than = function(target)
   return vim.o.columns > target
 end
 
-function M.get_colors()
+function Utils.get_colors()
   return {
     background = "#000000",
     foreground = "#ffffff",
@@ -20,15 +24,15 @@ function M.get_colors()
     inactive = "#7f7f7f",
   }
 end
-function M.remove_highlight_groups_from_string(str)
+Utils.remove_highlight_groups_from_string = function(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")
 end
-function M.extend_highlight(highlight_group, values)
+Utils.extend_highlight = function(highlight_group, values)
   return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
 end
 
 -- stylua: ignore
-M.mode_map = {
+Utils.mode_map = {
   ["n"]      = { "normal", "NORMAL" },
   ["no"]     = { "normal", "O-PENDING" },
   ["nov"]    = { "normal", "O-PENDING" },
@@ -66,14 +70,14 @@ M.mode_map = {
   ["!"]      = { "normal", "SHELL" },
   ["t"]      = { "terminal", "TERMINAL" },
 }
-function M.get_current_mode_type()
-  return M.mode_map[vim.api.nvim_get_mode().mode][1]
+Utils.get_current_mode_type = function()
+  return Utils.mode_map[vim.api.nvim_get_mode().mode][1]
 end
-function M.get_current_mode_name()
-  return M.mode_map[vim.api.nvim_get_mode().mode][2]
+Utils.get_current_mode_name = function()
+  return Utils.mode_map[vim.api.nvim_get_mode().mode][2]
 end
-function M.get_current_mode_color()
-  return require("ilzayn.utils").get_colors()[M.get_current_mode_type():lower()]
+Utils.get_current_mode_color = function()
+  return Utils.get_colors()[Utils.get_current_mode_type():lower()]
 end
 
-return M
+return Utils
