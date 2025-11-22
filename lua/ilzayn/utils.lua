@@ -4,11 +4,13 @@ Utils.setup = function()
   _G.Utils = Utils
 end
 
-Utils.width_less_than = function(target)
-  return vim.o.columns <= target
+---@param max number The maximum width to check against
+Utils.width_less_than = function(max)
+  return vim.o.columns <= max
 end
-Utils.width_more_than = function(target)
-  return vim.o.columns > target
+---@param min number The minimum width to check against
+Utils.width_more_than = function(min)
+  return vim.o.columns > min
 end
 
 function Utils.get_colors()
@@ -24,9 +26,12 @@ function Utils.get_colors()
     inactive = "#7f7f7f",
   }
 end
+---@param str string The string to remove the highlight groups from
 Utils.remove_highlight_groups_from_string = function(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")
 end
+---@param highlight_group string The name of the highlight group to extend
+---@param values table The highlight values to extend the group with
 Utils.extend_highlight = function(highlight_group, values)
   return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
 end
