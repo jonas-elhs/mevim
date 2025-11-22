@@ -1,8 +1,5 @@
 local filename_overrides = {
-  ["help"] = "Help",
-  ["oil"] = "Oil",
   ["snacks_picker_input"] = "Snacks Picker",
-  ["trouble"] = "Trouble",
 }
 
 -- UTILS
