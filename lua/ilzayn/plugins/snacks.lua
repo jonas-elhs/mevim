@@ -1,4 +1,43 @@
 require("snacks").setup({
+  image = {
+    enabled = true,
+  },
+
+  input = {
+    enabled = true,
+  },
+
+  scroll = {
+    enabled = true,
+
+    animate = {
+      duration = {
+        step = 10,
+        total = 100,
+      },
+    },
+  },
+
+  picker = {
+    enabled = true,
+  },
+
+  indent = {
+    enabled = true,
+
+    scope = {
+      only_current = true,
+    },
+  },
+
+  bigfile = {
+    enabled = true,
+  },
+
+  notifier = {
+    enabled = true,
+  },
+
   dashboard = {
     enabled = true,
     preset = {
@@ -57,17 +96,6 @@ require("snacks").setup({
     },
   },
 
-  scroll = {
-    enabled = true,
-
-    animate = {
-      duration = {
-        step = 10,
-        total = 100,
-      },
-    },
-  },
-
   statuscolumn = {
     enabled = true,
 
@@ -77,38 +105,6 @@ require("snacks").setup({
     folds = {
       open = true,
     },
-  },
-
-  image = {
-    enabled = true,
-  },
-
-  input = {
-    enabled = true,
-  },
-
-  picker = {
-    enabled = true,
-  },
-
-  indent = {
-    enabled = true,
-
-    scope = {
-      only_current = true,
-    },
-  },
-
-  bigfile = {
-    enabled = true,
-  },
-
-  notifier = {
-    enabled = true,
-  },
-
-  quickfile = {
-    enabled = true,
   },
 })
 
