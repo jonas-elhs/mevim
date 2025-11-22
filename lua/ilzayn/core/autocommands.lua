@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- Show Cursorline Only In Current Window
 local cursorline_group = group("IlzaynCursorline", {})
-autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursorline_group,
   callback = function()
     vim.wo.cursorline = true
