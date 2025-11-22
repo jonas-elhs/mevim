@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+    # Flakes
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,11 +22,7 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     inherit (inputs.nixCats) utils;
     luaPath = ./.;
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
@@ -37,15 +34,6 @@
 
       # Use the nvim-treesitter main branch version
       inputs.nvim-treesitter-main.overlays.default
-      # (final: previous: {
-      #   vimPlugins = previous.vimPlugins.extend (
-      #     f: p: {
-      #       nvim-treesitter-textobjects = p.nvim-treesitter-textobjects.overrideAttrs {
-      #         dependencies = [ f.nvim-treesitter ];
-      #       };
-      #     }
-      #   );
-      # })
     ];
 
     categoryDefinitions = {pkgs, ...}: {
