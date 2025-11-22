@@ -93,7 +93,7 @@
         lazydev-nvim
         conform-nvim
         render-markdown-nvim
-        markdown-preview-nvim
+        markdown-preview-nvim # https://github.com/brianhuster/live-preview.nvim
         nvim-treesitter.withAllGrammars
 
         # UI Plugins
