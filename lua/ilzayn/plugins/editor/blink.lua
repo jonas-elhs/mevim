@@ -32,14 +32,18 @@ require("blink.cmp").setup({
         enabled = false,
       },
       menu = {
-        auto_show = false,
+        auto_show = function()
+          return vim.fn.getcmdtype() == ":" and vim.g.autoshow_autocomplete
+        end,
       },
     },
   },
   completion = {
     menu = {
       scrollbar = false,
-      auto_show = false,
+      auto_show = function()
+        return vim.g.autoshow_autocomplete
+      end,
 
       draw = {
         treesitter = { "lsp" },
@@ -70,4 +74,20 @@ require("blink.cmp").setup({
       },
     },
   },
+})
+
+Utils.toggle({
+  name = "Autoshow Auto Complete",
+  command = "Autocomplete",
+  toggle_keymap = "<leader>a",
+
+  enable = function()
+    vim.g.autoshow_autocomplete = true
+  end,
+  disable = function()
+    vim.g.autoshow_autocomplete = false
+  end,
+  enabled = function()
+    return vim.g.autoshow_autocomplete == true
+  end,
 })
