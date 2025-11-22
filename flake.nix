@@ -85,11 +85,9 @@
         plenary-nvim
         nvim-lspconfig
 
-        # Movement Plugins
+        # Editor Plugins
+        neogit
         leap-nvim
-
-        # Code Plugins
-        # neogit
         blink-cmp
         blink-pairs
         lazydev-nvim
