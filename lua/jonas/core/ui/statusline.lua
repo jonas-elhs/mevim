@@ -58,15 +58,15 @@ local function mode_module()
   })
 end
 local function git_module()
-  if not vim.b[0].minidiff_summary then
+  local status = vim.b[0].gitsigns_status_dict
+
+  if not status then
     return ""
   end
 
-  local summary = vim.b[0].minidiff_summary
-
-  local added = (summary.add and summary.add > 0) and ("%#Added#  " .. summary.add) or ""
-  local changed = (summary.change and summary.change > 0) and ("%#Changed#  " .. summary.change) or ""
-  local removed = (summary.delete and summary.delete > 0) and ("%#Removed#  " .. summary.delete) or ""
+  local added = (status.added and status.added > 0) and ("%#Added#  " .. status.added) or ""
+  local changed = (status.changed and status.changed > 0) and ("%#Changed#  " .. status.changed) or ""
+  local removed = (status.removed and status.removed > 0) and ("%#Removed#  " .. status.removed) or ""
 
   return added .. changed .. removed .. "%#Normal#"
 end

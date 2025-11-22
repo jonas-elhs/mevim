@@ -1,10 +1,3 @@
--- mini.diff
-require("mini.diff").setup({
-  view = {
-    priority = 0,
-  },
-})
-
 -- mini.files
 require("mini.files").setup({
   windows = {

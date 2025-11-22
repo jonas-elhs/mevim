@@ -80,6 +80,7 @@
         blink-pairs
         lazydev-nvim
         conform-nvim
+        gitsigns-nvim
         render-markdown-nvim
         markdown-preview-nvim # https://github.com/brianhuster/live-preview.nvim
         nvim-treesitter.withAllGrammars
