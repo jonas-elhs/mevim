@@ -95,19 +95,33 @@ local virtual_lines_config = {
   end,
 }
 
-vim.keymap.set("n", "<leader>d", function()
-  local config = vim.diagnostic.config() or {}
+Utils.toggle({
+  name = "Detailed Diagnostics",
+  command = "DetailedDiagnostics",
+  toggle_keymap = "<leader>d",
 
-  if type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true then
-    config.virtual_lines = false
-    config.virtual_text.current_line = nil
-  else
+  enable = function()
+    local config = vim.diagnostic.config() or {}
+
     config.virtual_lines = virtual_lines_config
     config.virtual_text.current_line = false
-  end
 
-  vim.diagnostic.config(config)
-end, { desc = "Toggle diagnostic lines" })
+    vim.diagnostic.config(config)
+  end,
+  disable = function()
+    local config = vim.diagnostic.config() or {}
+
+    config.virtual_lines = false
+    config.virtual_text.current_line = nil
+
+    vim.diagnostic.config(config)
+  end,
+  enabled = function()
+    local config = vim.diagnostic.config() or {}
+
+    return type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true
+  end,
+})
 
 -- Disable Document Colors
 vim.api.nvim_create_autocmd("LspAttach", {
