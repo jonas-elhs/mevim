@@ -11,23 +11,23 @@ end
 
 -- Mode highlights
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
-  group = vim.api.nvim_create_augroup("IlzaynModeHighlight", { clear = true }),
+  group = vim.api.nvim_create_augroup("JonasCurrentModeHighlight", { clear = true }),
   callback = function()
-    highlight("IlzaynMode", {
+    highlight("JonasCurrentMode", {
       fg = colors.background,
       bg = Utils.get_current_mode_color(),
     })
-    highlight("IlzaynModeBold", {
+    highlight("JonasCurrentModeBold", {
       fg = colors.background,
       bg = Utils.get_current_mode_color(),
       bold = true,
     })
 
-    highlight("IlzaynModeReverse", {
+    highlight("JonasCurrentModeReverse", {
       fg = Utils.get_current_mode_color(),
       bg = "NONE",
     })
-    highlight("IlzaynModeBoldReverse", {
+    highlight("JonasCurrentModeBoldReverse", {
       fg = Utils.get_current_mode_color(),
       bg = "NONE",
       bold = true,
@@ -35,11 +35,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   end,
 })
 for color_name, color in pairs(colors) do
-  highlight("Ilzayn" .. color_name:gsub("^%l", string.upper), {
+  highlight("Jonas" .. color_name:gsub("^%l", string.upper), {
     fg = colors.background,
     bg = color,
   })
-  highlight("Ilzayn" .. color_name:gsub("^%l", string.upper) .. "Reverse", {
+  highlight("Jonas" .. color_name:gsub("^%l", string.upper) .. "Reverse", {
     fg = color,
     bg = "NONE",
   })

@@ -28,7 +28,7 @@ require("mini.files").setup({
     trim_right = "",
   },
 })
-require("ilzayn.plugins.mini-files-git")
+require("jonas.plugins.mini-files-git")
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",

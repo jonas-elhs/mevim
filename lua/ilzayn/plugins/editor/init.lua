@@ -1,6 +1,0 @@
-require("ilzayn.plugins.editor.leap")
-require("ilzayn.plugins.editor.blink")
-require("ilzayn.plugins.editor.lazydev")
-require("ilzayn.plugins.editor.conform")
-require("ilzayn.plugins.editor.nvim-treesitter")
-require("ilzayn.plugins.editor.render-markdown")

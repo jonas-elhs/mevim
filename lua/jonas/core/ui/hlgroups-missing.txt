@@ -167,28 +167,28 @@ NvimInvalidFigureBrace xxx links to NvimInvalidDelimiter
 NvimInvalidSpacing xxx links to ErrorMsg
 NvimDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
 
-IlzaynReplace  xxx guifg=#000000 guibg=#ff0000
-IlzaynReplaceReverse xxx guifg=#ff0000
-IlzaynVisual   xxx guifg=#000000 guibg=#0000ff
-IlzaynVisualReverse xxx guifg=#0000ff
-IlzaynNormal   xxx guifg=#000000 guibg=#00ffff
-IlzaynNormalReverse xxx guifg=#00ffff
-IlzaynForeground xxx guifg=#000000 guibg=#ffffff
-IlzaynForegroundReverse xxx guifg=#ffffff
-IlzaynBackground xxx guifg=#000000 guibg=#000000
-IlzaynBackgroundReverse xxx guifg=#000000
-IlzaynInactive xxx guifg=#000000 guibg=#7f7f7f
-IlzaynInactiveReverse xxx guifg=#7f7f7f
-IlzaynInsert   xxx guifg=#000000 guibg=#00ff00
-IlzaynInsertReverse xxx guifg=#00ff00
-IlzaynTerminal xxx guifg=#000000 guibg=#ff00ff
-IlzaynTerminalReverse xxx guifg=#ff00ff
-IlzaynCommand  xxx guifg=#000000 guibg=#ffff00
-IlzaynCommandReverse xxx guifg=#ffff00
-IlzaynModeBoldReverse xxx cterm=bold gui=bold guifg=#00ffff
-IlzaynMode     xxx guifg=#000000 guibg=#00ffff
-IlzaynModeBold xxx cterm=bold gui=bold guifg=#000000 guibg=#00ffff
-IlzaynModeReverse xxx guifg=#00ffff
+JonasReplace  xxx guifg=#000000 guibg=#ff0000
+JonasReplaceReverse xxx guifg=#ff0000
+JonasVisual   xxx guifg=#000000 guibg=#0000ff
+JonasVisualReverse xxx guifg=#0000ff
+JonasNormal   xxx guifg=#000000 guibg=#00ffff
+JonasNormalReverse xxx guifg=#00ffff
+JonasForeground xxx guifg=#000000 guibg=#ffffff
+JonasForegroundReverse xxx guifg=#ffffff
+JonasBackground xxx guifg=#000000 guibg=#000000
+JonasBackgroundReverse xxx guifg=#000000
+JonasInactive xxx guifg=#000000 guibg=#7f7f7f
+JonasInactiveReverse xxx guifg=#7f7f7f
+JonasInsert   xxx guifg=#000000 guibg=#00ff00
+JonasInsertReverse xxx guifg=#00ff00
+JonasTerminal xxx guifg=#000000 guibg=#ff00ff
+JonasTerminalReverse xxx guifg=#ff00ff
+JonasCommand  xxx guifg=#000000 guibg=#ffff00
+JonasCommandReverse xxx guifg=#ffff00
+JonasCurrentModeBoldReverse xxx cterm=bold gui=bold guifg=#00ffff
+JonasCurrentMode     xxx guifg=#000000 guibg=#00ffff
+JonasCurrentModeBold xxx cterm=bold gui=bold guifg=#000000 guibg=#00ffff
+JonasCurrentModeReverse xxx guifg=#00ffff
 
 MiniDiffSignAdd xxx links to Added
 MiniDiffSignChange xxx links to Changed

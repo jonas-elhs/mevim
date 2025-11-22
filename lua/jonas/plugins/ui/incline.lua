@@ -20,7 +20,7 @@ require("incline").setup({
     local icons = require("mini.icons")
     local focused = props.focused
 
-    local content_highlight = focused and "IlzaynMode" or "IlzaynInactive"
+    local content_highlight = focused and "JonasCurrentMode" or "JonasInactive"
     local separator_highlight = content_highlight .. "Reverse"
 
     local modified = vim.bo[props.buf].modified
