@@ -105,9 +105,9 @@ vim.keymap.set("n", "<leader>bX", function()
 end, { desc = "Force exit open buffer" })
 
 -- LazyGit
--- vim.keymap.set("n", "<leader>g", function()
---   Snacks.lazygit.open()
--- end, { desc = "Open LazyGit" })
+vim.keymap.set("n", "<leader>g", function()
+  Snacks.lazygit.open()
+end, { desc = "Open LazyGit" })
 
 -- Notifier
 vim.keymap.set("n", "<leader>m", function()

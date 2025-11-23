@@ -74,7 +74,6 @@
         nvim-lspconfig
 
         # Editor Plugins
-        neogit
         leap-nvim
         blink-cmp
         blink-pairs
