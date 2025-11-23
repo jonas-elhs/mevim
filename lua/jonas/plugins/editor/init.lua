@@ -1,5 +1,6 @@
 require("jonas.plugins.editor.leap")
 require("jonas.plugins.editor.blink")
+require("jonas.plugins.editor.neogit")
 require("jonas.plugins.editor.lazydev")
 require("jonas.plugins.editor.conform")
 require("jonas.plugins.editor.gitsigns")
