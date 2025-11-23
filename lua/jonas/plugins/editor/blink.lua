@@ -79,7 +79,7 @@ require("blink.cmp").setup({
 Utils.toggle({
   name = "Autoshow Auto Complete",
   command = "Autocomplete",
-  toggle_keymap = "<leader>a",
+  toggle_keymap = "<leader>ta",
 
   enable = function()
     vim.g.autoshow_autocomplete = true

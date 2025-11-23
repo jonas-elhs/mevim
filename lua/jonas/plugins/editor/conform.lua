@@ -20,7 +20,7 @@ end, { desc = "Format buffer" })
 Utils.toggle({
   name = "Auto Format",
   command = "Format",
-  toggle_keymap = "<leader>F",
+  toggle_keymap = "<leader>tf",
 
   enable = function()
     vim.g.disable_autoformat = false

@@ -98,7 +98,7 @@ local virtual_lines_config = {
 Utils.toggle({
   name = "Detailed Diagnostics",
   command = "DetailedDiagnostics",
-  toggle_keymap = "<leader>d",
+  toggle_keymap = "<leader>td",
 
   enable = function()
     local config = vim.diagnostic.config() or {}
