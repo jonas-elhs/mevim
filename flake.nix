@@ -16,8 +16,8 @@
     };
 
     # Plugins
-    plugins-oil = {
-      url = "github:stevearc/oil.nvim";
+    plugins-live-preview-nvim = {
+      url = "github:brianhuster/live-preview.nvim";
       flake = false;
     };
   };
@@ -81,8 +81,8 @@
         conform-nvim
         gitsigns-nvim
         render-markdown-nvim
-        markdown-preview-nvim # https://github.com/brianhuster/live-preview.nvim
         nvim-treesitter.withAllGrammars
+        pkgs.neovimPlugins.live-preview-nvim
 
         # UI Plugins
         noice-nvim
