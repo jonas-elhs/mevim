@@ -1,23 +1,4 @@
 require("gitsigns").setup({
-  -- stylua: ignore
-  signs = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '┃' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
-  },
-  -- stylua: ignore
-  signs_staged = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '┃' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
-  },
-
   signcolumn = false,
   numhl = true,
 
@@ -45,20 +26,19 @@ require("gitsigns").setup({
     end)
 
     -- Actions
-    map("n", "<leader>hs", gitsigns.stage_hunk)
-    map("n", "<leader>hr", gitsigns.reset_hunk)
+    map("n", "<leader>hs", gitsigns.stage_hunk, "Stage hunk")
+    map("n", "<leader>hr", gitsigns.reset_hunk, "Reset hunk")
 
     map("v", "<leader>hs", function()
       gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-    end)
+    end, "Stage selected hunks")
     map("v", "<leader>hr", function()
       gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-    end)
+    end, "Reset selected hunks")
 
-    map("n", "<leader>hS", gitsigns.stage_buffer)
-    map("n", "<leader>hR", gitsigns.reset_buffer)
+    map("n", "<leader>hS", gitsigns.stage_buffer, "Stage buffer")
+    map("n", "<leader>hR", gitsigns.reset_buffer, "Reset buffer")
 
-    map("n", "<leader>hp", gitsigns.preview_hunk)
-    map("n", "<leader>hi", gitsigns.preview_hunk_inline)
+    map("n", "<leader>hp", gitsigns.preview_hunk, "Preview hunk")
   end,
 })
