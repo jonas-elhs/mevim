@@ -9,8 +9,8 @@ require("mini.files").setup({
     close = "q",
     go_in = "",
     go_in_plus = "l",
-    go_out = "",
-    go_out_plus = "h",
+    go_out = "h",
+    go_out_plus = "",
     mark_goto = "",
     mark_set = "",
     reset = "",
@@ -22,6 +22,7 @@ require("mini.files").setup({
   },
 })
 require("jonas.plugins.mini-files-git")
+require("jonas.plugins.mini-files-fullscreen")
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",
