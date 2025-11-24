@@ -6,6 +6,3 @@ require("leap").setup({
 vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#ff0000", bg = "NONE", bold = true })
 
 vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Leap" })
-vim.keymap.set({ "x", "o" }, "r", function()
-  require("leap.remote").action()
-end, { desc = "Leap Remote" })
