@@ -64,15 +64,7 @@ require("blink.cmp").setup({
   },
 
   sources = {
-    default = { "lsp", "lazydev", "path", "buffer" },
-
-    providers = {
-      lazydev = {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        score_offset = 100,
-      },
-    },
+    default = { "lsp", "path" },
   },
 })
 
