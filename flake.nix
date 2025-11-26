@@ -16,8 +16,65 @@
     };
 
     # Plugins
+    # Libraries
+    plugins-nui-nvim = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
+    plugins-plenary-nvim = {
+      url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    plugins-nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+
+    # Editor Plugins
+    plugins-leap-nvim = {
+      url = "github:ggandor/leap.nvim";
+      flake = false;
+    };
+    # blink-cmp
+    # blink-pairs
+    plugins-conform-nvim = {
+      url = "github:stevearc/conform.nvim";
+      flake = false;
+    };
+    plugins-gitsigns-nvim = {
+      url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+    plugins-render-markdown-nvim = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
+      flake = false;
+    };
     plugins-live-preview-nvim = {
       url = "github:brianhuster/live-preview.nvim";
+      flake = false;
+    };
+
+    # UI Plugins
+    plugins-noice-nvim = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+    plugins-incline-nvim = {
+      url = "github:b0o/incline.nvim";
+      flake = false;
+    };
+    plugins-nvim-colorizer-lua = {
+      url = "github:catgoose/nvim-colorizer.lua";
+      flake = false;
+    };
+
+    # Misc Plugins
+    plugins-mini-nvim = {
+      url = "github:echasnovski/mini.nvim";
+      flake = false;
+    };
+    plugins-snacks-nvim = {
+      url = "github:folke/snacks.nvim";
       flake = false;
     };
   };
@@ -31,9 +88,6 @@
 
     dependencyOverlays = [
       (utils.standardPluginOverlay inputs)
-
-      # Use the nvim-treesitter main branch version
-      inputs.nvim-treesitter-main.overlays.default
     ];
 
     categoryDefinitions = {pkgs, ...}: {
@@ -67,7 +121,7 @@
         rustfmt
       ];
 
-      startupPlugins.packages = with pkgs.vimPlugins; [
+      startupPlugins.packages = with pkgs.neovimPlugins; [
         # Libraries
         nui-nvim
         plenary-nvim
@@ -75,14 +129,13 @@
 
         # Editor Plugins
         leap-nvim
-        blink-cmp
-        blink-pairs
-        lazydev-nvim
         conform-nvim
         gitsigns-nvim
+        live-preview-nvim
         render-markdown-nvim
-        nvim-treesitter.withAllGrammars
-        pkgs.neovimPlugins.live-preview-nvim
+        pkgs.vimPlugins.blink-cmp
+        pkgs.vimPlugins.blink-pairs
+        inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
 
         # UI Plugins
         noice-nvim
