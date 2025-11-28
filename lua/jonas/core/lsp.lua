@@ -70,14 +70,11 @@ local servers = {
   },
 }
 
--- Capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
+-- LSP Setup
 vim.lsp.config("*", {
-  capabilities = capabilities,
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
 })
 
--- LSP Setup
 for server, config in pairs(servers) do
   if config ~= {} then
     vim.lsp.config(server, config)
