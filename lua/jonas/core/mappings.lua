@@ -15,6 +15,8 @@ map("n",            "<ESC>",        "<CMD>nohl<CR>",                  { desc = "
 map("n",            "U",            "<C-r>",                          { desc = "Redo previously undone changes" })
 map("v",            "p",            "\"_p",                           { desc = "Overpaste selection" })
 map("n",            "x",            "\"_x",                           { desc = "Delete character under cursor" })
+map("v",            "<",            "<gv",                            { desc = "Indent staying in visual mode" })
+map("v",            ">",            ">gv",                            { desc = "De-indent staying in visual mode" })
 
 -- Insert Mode Cursor Movement
 map("i",            "<C-h>",        "<Left>",                         { desc = "Move cursor left (Insert Mode)" })
