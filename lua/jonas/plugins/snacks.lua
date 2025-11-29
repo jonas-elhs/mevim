@@ -97,10 +97,10 @@ vim.keymap.set("n", "<leader>sr", function()
 end, { desc = "Resume search" })
 
 -- BufDelete
-vim.keymap.set("n", "<leader>bx", function()
+vim.keymap.set("n", "<leader>x", function()
   Snacks.bufdelete.delete()
 end, { desc = "Exit open buffer" })
-vim.keymap.set("n", "<leader>bX", function()
+vim.keymap.set("n", "<leader>X", function()
   Snacks.bufdelete.delete({ force = true })
 end, { desc = "Force exit open buffer" })
 

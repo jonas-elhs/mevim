@@ -23,10 +23,10 @@ map("i",            "<C-k>",        "<Up>",                           { desc = "
 map("i",            "<C-l>",        "<Right>",                        { desc = "Move cursor right (Insert Mode)" })
 
 -- Buffer Management
-map("n",            "<leader>bn",   "<CMD>bnext<CR>",                 { desc = "Open next buffer" })
-map("n",            "<leader>bp",   "<CMD>bprev<CR>",                 { desc = "Open previous buffer" })
-map("n",            "<leader>bx",   "<CMD>bdelete<CR>",               { desc = "Exit open buffer" })
-map("n",            "<leader>bX",   "<CMD>bdelete!<CR>",              { desc = "Force exit open buffer" })
+map("n",            "]b",           "<CMD>bnext<CR>",                 { desc = "Open next buffer" })
+map("n",            "[b",           "<CMD>bprev<CR>",                 { desc = "Open previous buffer" })
+map("n",            "<leader>x",    "<CMD>bdelete<CR>",               { desc = "Exit open buffer" })
+map("n",            "<leader>X",    "<CMD>bdelete!<CR>",              { desc = "Force exit open buffer" })
 
 -- Split Creation
 map("n",            "<leader>sh",   "<CMD>wincmd v<CR>",              { desc = "Split left" })
