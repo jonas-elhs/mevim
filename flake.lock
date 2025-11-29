@@ -290,6 +290,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-lint": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763729870,
+        "narHash": "sha256-9fIZPUZhnQEHJtvboCs+A2QXo4UMTFejuHNagDkfkRk=",
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "rev": "d1118791070d090777398792a73032a0ca5c79ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "type": "github"
+      }
+    },
     "plugins-nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -369,6 +385,7 @@
         "plugins-noice-nvim": "plugins-noice-nvim",
         "plugins-nui-nvim": "plugins-nui-nvim",
         "plugins-nvim-colorizer-lua": "plugins-nvim-colorizer-lua",
+        "plugins-nvim-lint": "plugins-nvim-lint",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-render-markdown-nvim": "plugins-render-markdown-nvim",

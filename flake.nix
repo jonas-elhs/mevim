@@ -35,8 +35,10 @@
       url = "github:ggandor/leap.nvim";
       flake = false;
     };
-    # blink-cmp
-    # blink-pairs
+    plugins-nvim-lint = {
+      url = "github:mfussenegger/nvim-lint";
+      flake = false;
+    };
     plugins-conform-nvim = {
       url = "github:stevearc/conform.nvim";
       flake = false;
@@ -45,12 +47,12 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    plugins-render-markdown-nvim = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
     plugins-live-preview-nvim = {
       url = "github:brianhuster/live-preview.nvim";
+      flake = false;
+    };
+    plugins-render-markdown-nvim = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
 
@@ -119,6 +121,9 @@
         stylua
         alejandra
         rustfmt
+
+        # Linters
+        selene
       ];
 
       startupPlugins.packages = with pkgs.neovimPlugins; [
@@ -129,6 +134,7 @@
 
         # Editor Plugins
         leap-nvim
+        nvim-lint
         conform-nvim
         gitsigns-nvim
         live-preview-nvim
