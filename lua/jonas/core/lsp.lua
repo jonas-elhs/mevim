@@ -26,27 +26,6 @@ local servers = {
   },
 
   lua_ls = {
-    on_init = function(client)
-      -- if not client.workspace_folders or client.workspace_folders[1].name ~= vim.fn.stdpath("config") then
-      --   return
-      -- end
-
-      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-        runtime = {
-          version = "LuaJIT",
-          path = {
-            "lua/?.lua",
-            "lua/?/init.lua",
-          },
-        },
-        workspace = {
-          library = {
-            vim.env.VIMRUNTIME,
-            "${3rd}/luv/library",
-          },
-        },
-      })
-    end,
     settings = {
       Lua = {
         diagnostics = {
@@ -100,7 +79,6 @@ vim.diagnostic.config({
     spacing = 2,
     source = "if_many",
     prefix = "",
-    -- prefix = "●",
   },
 })
 
