@@ -139,7 +139,6 @@
         gitsigns-nvim
         live-preview-nvim
         render-markdown-nvim
-        pkgs.vimPlugins.blink-cmp
         pkgs.vimPlugins.blink-pairs
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
 

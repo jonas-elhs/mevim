@@ -62,6 +62,58 @@ for server, config in pairs(servers) do
   vim.lsp.enable(server)
 end
 
+-- Completion
+vim.o.complete = "o"
+vim.o.pumheight = 8
+vim.o.pumborder = "rounded"
+vim.o.completeopt = "fuzzy,menuone,noinsert"
+
+vim.keymap.set("i", "<C-Space>", function()
+  vim.lsp.completion.get()
+end)
+
+-- if completing accept selection else execute blink.pairs enter mapping
+require("blink.pairs.mappings").enable()
+vim.keymap.set("i", "<CR>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<C-Y>"
+  else
+    local rule_lib = require("blink.pairs.rule")
+    return require("blink.pairs.mappings").enter(
+      rule_lib.get_all(rule_lib.parse(require("blink.pairs.config").mappings.pairs))
+    )()
+  end
+end, { expr = true })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(event)
+    vim.lsp.completion.enable(true, event.data.client_id, event.buf, {
+      convert = function(item)
+        vim.print(item)
+        return {
+          abbr = MiniIcons.get("lsp", vim.lsp.protocol.CompletionItemKind[item.kind]) .. " " .. item.label,
+        }
+      end,
+    })
+  end,
+})
+
+Utils.toggle({
+  name = "Auto Complete",
+  command = "Autocomplete",
+  toggle_keymap = "<leader>ta",
+
+  enable = function()
+    vim.o.autocomplete = true
+  end,
+  disable = function()
+    vim.o.autocomplete = false
+  end,
+  enabled = function()
+    return vim.o.autocomplete
+  end,
+})
+
 -- Diagnostics
 vim.diagnostic.config({
   severity_sort = true,
@@ -117,6 +169,12 @@ Utils.toggle({
   end,
 })
 
+-- Folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldlevelstart = 99
+
 -- Disable Document Colors
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
@@ -126,9 +184,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Inlay Hints
 vim.lsp.inlay_hint.enable(true)
-
--- Folding
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
-vim.o.foldtext = ""
-vim.o.foldlevelstart = 99
