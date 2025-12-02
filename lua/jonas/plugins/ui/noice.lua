@@ -1,4 +1,8 @@
 require("noice").setup({
+  popupmenu = {
+    enabled = false, -- overwrites builtin completion menu
+  },
+
   views = {
     cmdline_popup = {
       position = {
@@ -22,17 +26,9 @@ require("noice").setup({
     enabled = false,
   },
   lsp = {
-    progress = {
-      enabled = false,
-    },
-    hover = {
-      enabled = false,
-    },
-    signature = {
-      enabled = false,
-    },
-    messages = {
-      enabled = false,
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
     },
   },
   presets = {
