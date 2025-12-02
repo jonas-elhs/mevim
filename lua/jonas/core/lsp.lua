@@ -55,10 +55,7 @@ vim.lsp.config("*", {
 })
 
 for server, config in pairs(servers) do
-  if config ~= {} then
-    vim.lsp.config(server, config)
-  end
-
+  vim.lsp.config(server, config)
   vim.lsp.enable(server)
 end
 
