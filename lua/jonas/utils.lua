@@ -87,36 +87,23 @@ end
 
 ---@class ToggleOptions
 ---@field name string The name of the toggle option
----@field enable function The callback to enable the option
----@field disable function The callback to disable the option
+---@field toggle fun(enabled: boolean) The callback to toggle the option
 ---@field enabled fun(): boolean The callback to check if the option is enabled
----@field command string The prefix of the created commands
----@field toggle_keymap? string The keymap to toggle the option
+---@field command string The postfix of the created commands
+---@field keymap? string The keymap to toggle the option
 
 ---@param options ToggleOptions
 Utils.toggle = function(options)
-  vim.api.nvim_create_user_command(options.command .. "Toggle", function()
-    if options.enabled() then
-      options.disable()
-    else
-      options.enable()
-    end
+  vim.api.nvim_create_user_command("Toggle" .. options.command, function()
+    local enabled = options.enabled()
 
-    vim.notify(options.name .. ": " .. (options.enabled() and "enabled" or "disabled"))
+    options.toggle(enabled)
+
+    vim.notify(options.name .. ": " .. (not enabled and "enabled" or "disabled"))
   end, { desc = "Toggle " .. options.name })
-  vim.api.nvim_create_user_command(options.command .. "Enable", function()
-    options.enable()
 
-    vim.notify(options.name .. ": enabled")
-  end, { desc = "Enable " .. options.name })
-  vim.api.nvim_create_user_command(options.command .. "Disable", function()
-    options.disable()
-
-    vim.notify(options.name .. ": disabled")
-  end, { desc = "Disable " .. options.name })
-
-  if options.toggle_keymap then
-    vim.keymap.set("n", options.toggle_keymap, "<CMD>" .. options.command .. "Toggle<CR>")
+  if options.keymap then
+    vim.keymap.set("n", options.keymap, "<CMD>Toggle" .. options.command .. "<CR>")
   end
 end
 

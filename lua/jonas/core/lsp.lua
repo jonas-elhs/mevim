@@ -89,7 +89,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     vim.lsp.completion.enable(true, event.data.client_id, event.buf, {
       convert = function(item)
-        vim.print(item)
         return {
           abbr = MiniIcons.get("lsp", vim.lsp.protocol.CompletionItemKind[item.kind]) .. " " .. item.label,
         }
@@ -101,13 +100,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 Utils.toggle({
   name = "Auto Complete",
   command = "Autocomplete",
-  toggle_keymap = "<leader>ta",
+  keymap = "<leader>ta",
 
-  enable = function()
-    vim.o.autocomplete = true
-  end,
-  disable = function()
-    vim.o.autocomplete = false
+  toggle = function()
+    vim.o.autocomplete = not vim.o.autocomplete
   end,
   enabled = function()
     return vim.o.autocomplete
@@ -143,22 +139,19 @@ local virtual_lines_config = {
 
 Utils.toggle({
   name = "Detailed Diagnostics",
-  command = "DetailedDiagnostics",
-  toggle_keymap = "<leader>td",
+  command = "Diagnostics",
+  keymap = "<leader>td",
 
-  enable = function()
+  toggle = function(enabled)
     local config = vim.diagnostic.config() or {}
 
-    config.virtual_lines = virtual_lines_config
-    config.virtual_text.current_line = false
-
-    vim.diagnostic.config(config)
-  end,
-  disable = function()
-    local config = vim.diagnostic.config() or {}
-
-    config.virtual_lines = false
-    config.virtual_text.current_line = nil
+    if enabled then
+      config.virtual_lines = false
+      config.virtual_text.current_line = nil
+    else
+      config.virtual_lines = virtual_lines_config
+      config.virtual_text.current_line = false
+    end
 
     vim.diagnostic.config(config)
   end,
