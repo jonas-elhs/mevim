@@ -4,7 +4,6 @@ local servers = {
   html = {},
   ts_ls = {},
   cssls = {},
-  lua_ls = {},
   bashls = {},
   hyprls = {},
   yamlls = {},
@@ -21,6 +20,16 @@ local servers = {
       nixd = {
         nixpkgs = {
           expr = [[import (builtins.getFlake "]] .. nixCats.extra("nixdExtras.nixpkgs") .. [[") { }]],
+        },
+      },
+    },
+  },
+
+  lua_ls = {
+    settings = {
+      Lua = {
+        completion = {
+          keywordSnippet = "Disable",
         },
       },
     },
