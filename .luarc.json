@@ -1,6 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
 
+  "diagnostics.globals": [
+    "Snacks",
+    "MiniIcons",
+    "MiniFiles",
+    "nixCats"
+  ],
   "runtime.version": "LuaJIT",
   "runtime.path": [
     "lua/?.lua",
@@ -8,11 +14,5 @@
   ],
   "workspace.library": [
     "$VIMRUNTIME"
-  ],
-  "diagnostics.globals": [
-    "Snacks",
-    "MiniIcons",
-    "MiniFiles",
-    "nixCats"
   ]
 }
