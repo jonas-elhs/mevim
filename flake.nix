@@ -201,7 +201,6 @@
         categoryDefinitions
         packageDefinitions;
       defaultPackage = nixCatsBuilder defaultPackageName;
-
       pkgs = import nixpkgs {inherit system;};
     in {
       packages = utils.mkAllWithDefault defaultPackage;
