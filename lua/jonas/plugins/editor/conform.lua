@@ -2,14 +2,26 @@ require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
     nix = { "alejandra" },
+    qml = { "qmlformat" },
     rust = { "rustfmt" },
-  },
-  format_on_save = function(buffer)
-    if vim.g.disable_autoformat then
-      return
-    end
+    bash = { "shfmt" },
+    python = { "ruff_organize_imports", "ruff_format" },
 
-    return { timeout_ms = 1000 }
+    c = { "clang-format" },
+    cpp = { "clang-format" },
+
+    css = { "prettierd" },
+    html = { "prettierd" },
+    scss = { "prettierd" },
+    yaml = { "prettierd" },
+    json = { "prettierd" },
+    javascript = { "prettierd" },
+    typescript = { "prettierd" },
+    -- svelte = { "prettierd" },
+  },
+
+  format_on_save = function()
+    return not vim.g.disable_autoformat and { timeout_ms = 1000 }
   end,
 })
 

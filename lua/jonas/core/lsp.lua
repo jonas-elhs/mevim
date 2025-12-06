@@ -4,6 +4,7 @@ local servers = {
   html = {},
   ts_ls = {},
   cssls = {},
+  qmlls = {},
   bashls = {},
   hyprls = {},
   yamlls = {},

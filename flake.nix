@@ -101,6 +101,10 @@
         ripgrep
         stdenv.cc.cc
 
+        # Bundles
+        kdePackages.qtdeclarative
+        llvmPackages_latest.clang-tools
+
         # Language Servers
         nixd
         ruff
@@ -112,15 +116,17 @@
         yaml-language-server
         emmet-language-server
         svelte-language-server
-        llvmPackages_latest.clang-tools
         typescript-language-server
         tailwindcss-language-server
         vscode-langservers-extracted
 
         # Formatters
+        shfmt
+        black
         stylua
-        alejandra
         rustfmt
+        alejandra
+        prettierd
 
         # Linters
         selene
