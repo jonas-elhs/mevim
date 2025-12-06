@@ -1,4 +1,2 @@
-require("jonas.core.ui.highlights")
-require("jonas.core.ui.statusline")
-
-require("jonas.core.ui.theme")
+require("jonas.core.theme")
+require("jonas.core.statusline")

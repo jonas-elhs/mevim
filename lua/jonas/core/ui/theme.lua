@@ -17,7 +17,49 @@ local colors = {
   hint = "#0000ff",
 }
 
--- https://neovim.io/doc/user/syntax.html#_13.-highlight-command
+-- Transparent Background
+for group, value in pairs(vim.api.nvim_get_hl(0, {})) do
+  value.bg = "NONE"
+  vim.api.nvim_set_hl(0, group, value)
+end
+
+-- Mode highlights
+vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
+  group = vim.api.nvim_create_augroup("JonasCurrentModeHighlight", { clear = true }),
+  callback = function()
+    vim.api.nvim_set_hl(0, "JonasCurrentMode", {
+      fg = colors.background,
+      bg = Utils.get_current_mode_color(),
+    })
+    vim.api.nvim_set_hl(0, "JonasCurrentModeBold", {
+      fg = colors.background,
+      bg = Utils.get_current_mode_color(),
+      bold = true,
+    })
+
+    vim.api.nvim_set_hl(0, "JonasCurrentModeReverse", {
+      fg = Utils.get_current_mode_color(),
+      bg = "NONE",
+    })
+    vim.api.nvim_set_hl(0, "JonasCurrentModeBoldReverse", {
+      fg = Utils.get_current_mode_color(),
+      bg = "NONE",
+      bold = true,
+    })
+  end,
+})
+for color_name, color in pairs(colors) do
+  vim.api.nvim_set_hl(0, "Jonas" .. color_name:gsub("^%l", string.upper), {
+    fg = colors.background,
+    bg = color,
+  })
+  vim.api.nvim_set_hl(0, "Jonas" .. color_name:gsub("^%l", string.upper) .. "Reverse", {
+    fg = color,
+    bg = "NONE",
+  })
+end
+
+-- Highlight Groups (https://neovim.io/doc/user/syntax.html#_13.-highlight-command)
 local highlights = {
   -- EDITOR
   -- ColorColumn            |   cterm=reverse guibg=NvimDarkGrey4                                  |   Used for the columns set with 'colorcolumn'.
@@ -47,6 +89,7 @@ local highlights = {
   -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
   WinSeparator = { fg = colors.inactive },
   -- Folded                 |   guifg=NvimLightGrey4 guibg=NvimDarkGrey1                         |   Line used for closed folds.
+  Folded = { bg = colors.inactive },
   -- FoldColumn             |   links to SignColumn                                                  |   'foldcolumn'
   -- SignColumn             |   guifg=NvimDarkGrey4                                                |   Column where signs are displayed.
   -- IncSearch              |   links to CurSearch                                                   |   'incsearch' highlighting; also used for the text replaced with ":s///c".
