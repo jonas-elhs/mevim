@@ -198,20 +198,22 @@ vim.lsp.config("path-completion-ls", {
 
           local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.charachter)
 
-          if line_to_cursor:match("/$") then
-            local match = line_to_cursor:match("([~%./][%w_%-/%.]*/)$")
+          local match = line_to_cursor:match("([~%./][%w_%-/%.]*)$")
 
-            if match ~= nil then
-              local path = vim.fs.normalize(match)
+          if match ~= nil then
+            local path = vim.fs.normalize(match)
 
-              if vim.uv.fs_stat(path) then
-                for name, type in vim.fs.dir(path) do
-                  candidates[#candidates + 1] = {
-                    label = name,
-                    kind = type == "file" and vim.lsp.protocol.CompletionItemKind["File"]
-                      or vim.lsp.protocol.CompletionItemKind["Folder"],
-                  }
-                end
+            if not vim.uv.fs_stat(path) then
+              path = vim.fs.dirname(path)
+            end
+
+            if vim.uv.fs_stat(path) then
+              for name, type in vim.fs.dir(path) do
+                candidates[#candidates + 1] = {
+                  label = name,
+                  kind = type == "file" and vim.lsp.protocol.CompletionItemKind["File"]
+                    or vim.lsp.protocol.CompletionItemKind["Folder"],
+                }
               end
             end
           end
