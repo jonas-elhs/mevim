@@ -367,3 +367,173 @@ local highlights = {
 for highlight, spec in pairs(highlights) do
   vim.api.nvim_set_hl(0, highlight, spec)
 end
+
+-- MISSING
+-- VertSplit      xxx links to WinSeparator
+-- VisualNC       xxx cleared
+-- RedrawDebugNormal xxx cterm=reverse gui=reverse
+-- Normal         xxx guifg=NvimLightGrey2 guibg=NvimDarkGrey2
+-- Italic         xxx cleared
+-- Bold           xxx cleared
+-- None           xxx cleared
+--
+-- @spell         xxx cleared
+-- @namespace     xxx cleared
+-- @nospell       xxx cleared
+--
+-- LspCodeLens    xxx links to NonText
+-- LspCodeLensSeparator xxx links to LspCodeLens
+-- LspInlayHint   xxx links to NonText
+-- LspReferenceRead xxx links to LspReferenceText
+-- LspReferenceText xxx links to Visual
+-- LspReferenceWrite xxx links to LspReferenceText
+-- LspReferenceTarget xxx links to LspReferenceText
+-- LspSignatureActiveParameter xxx links to Visual
+--
+-- @markup.heading.1.delimiter.vimdoc xxx cterm=underdouble,nocombine gui=underdouble,nocombine guifg=bg guibg=bg guisp=fg
+-- @markup.heading.2.delimiter.vimdoc xxx cterm=underline,nocombine gui=underline,nocombine guifg=bg guibg=bg guisp=fg
+--
+-- RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
+-- RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
+-- RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
+--
+-- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
+-- NvimAssignment xxx links to Operator
+-- NvimPlainAssignment xxx links to NvimAssignment
+-- NvimAugmentedAssignment xxx links to NvimAssignment
+-- NvimAssignmentWithAddition xxx links to NvimAugmentedAssignment
+-- NvimAssignmentWithSubtraction xxx links to NvimAugmentedAssignment
+-- NvimAssignmentWithConcatenation xxx links to NvimAugmentedAssignment
+-- NvimOperator   xxx links to Operator
+-- NvimUnaryOperator xxx links to NvimOperator
+-- NvimUnaryPlus  xxx links to NvimUnaryOperator
+-- NvimUnaryMinus xxx links to NvimUnaryOperator
+-- NvimNot        xxx links to NvimUnaryOperator
+-- NvimBinaryOperator xxx links to NvimOperator
+-- NvimComparison xxx links to NvimBinaryOperator
+-- NvimComparisonModifier xxx links to NvimComparison
+-- NvimBinaryPlus xxx links to NvimBinaryOperator
+-- NvimBinaryMinus xxx links to NvimBinaryOperator
+-- NvimConcat     xxx links to NvimBinaryOperator
+-- NvimConcatOrSubscript xxx links to NvimConcat
+-- NvimOr         xxx links to NvimBinaryOperator
+-- NvimAnd        xxx links to NvimBinaryOperator
+-- NvimMultiplication xxx links to NvimBinaryOperator
+-- NvimDivision   xxx links to NvimBinaryOperator
+-- NvimMod        xxx links to NvimBinaryOperator
+-- NvimTernary    xxx links to NvimOperator
+-- NvimTernaryColon xxx links to NvimTernary
+-- NvimParenthesis xxx links to Delimiter
+-- NvimLambda     xxx links to NvimParenthesis
+-- NvimNestingParenthesis xxx links to NvimParenthesis
+-- NvimCallingParenthesis xxx links to NvimParenthesis
+-- NvimSubscript  xxx links to NvimParenthesis
+-- NvimSubscriptBracket xxx links to NvimSubscript
+-- NvimSubscriptColon xxx links to NvimSubscript
+-- NvimCurly      xxx links to NvimSubscript
+-- NvimContainer  xxx links to NvimParenthesis
+-- NvimDict       xxx links to NvimContainer
+-- NvimList       xxx links to NvimContainer
+-- NvimIdentifier xxx links to Identifier
+-- NvimIdentifierScope xxx links to NvimIdentifier
+-- NvimIdentifierScopeDelimiter xxx links to NvimIdentifier
+-- NvimIdentifierName xxx links to NvimIdentifier
+-- NvimIdentifierKey xxx links to NvimIdentifier
+-- NvimColon      xxx links to Delimiter
+-- NvimComma      xxx links to Delimiter
+-- NvimArrow      xxx links to Delimiter
+-- NvimRegister   xxx links to SpecialChar
+-- NvimNumber     xxx links to Number
+-- NvimFloat      xxx links to NvimNumber
+-- NvimNumberPrefix xxx links to Type
+-- NvimOptionSigil xxx links to Type
+-- NvimOptionName xxx links to NvimIdentifier
+-- NvimOptionScope xxx links to NvimIdentifierScope
+-- NvimOptionScopeDelimiter xxx links to NvimIdentifierScopeDelimiter
+-- NvimEnvironmentSigil xxx links to NvimOptionSigil
+-- NvimEnvironmentName xxx links to NvimIdentifier
+-- NvimString     xxx links to String
+-- NvimStringBody xxx links to NvimString
+-- NvimStringQuote xxx links to NvimString
+-- NvimStringSpecial xxx links to SpecialChar
+-- NvimSingleQuote xxx links to NvimStringQuote
+-- NvimSingleQuotedBody xxx links to NvimStringBody
+-- NvimSingleQuotedQuote xxx links to NvimStringSpecial
+-- NvimDoubleQuote xxx links to NvimStringQuote
+-- NvimDoubleQuotedBody xxx links to NvimStringBody
+-- NvimDoubleQuotedEscape xxx links to NvimStringSpecial
+-- NvimFigureBrace xxx links to NvimInternalError
+-- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
+-- NvimSpacing    xxx links to Normal
+-- NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
+-- NvimInvalid    xxx links to Error
+-- NvimInvalidAssignment xxx links to NvimInvalid
+-- NvimInvalidPlainAssignment xxx links to NvimInvalidAssignment
+-- NvimInvalidAugmentedAssignment xxx links to NvimInvalidAssignment
+-- NvimInvalidAssignmentWithAddition xxx links to NvimInvalidAugmentedAssignment
+-- NvimInvalidAssignmentWithSubtraction xxx links to NvimInvalidAugmentedAssignment
+-- NvimInvalidAssignmentWithConcatenation xxx links to NvimInvalidAugmentedAssignment
+-- NvimInvalidOperator xxx links to NvimInvalid
+-- NvimInvalidUnaryOperator xxx links to NvimInvalidOperator
+-- NvimInvalidUnaryPlus xxx links to NvimInvalidUnaryOperator
+-- NvimInvalidUnaryMinus xxx links to NvimInvalidUnaryOperator
+-- NvimInvalidNot xxx links to NvimInvalidUnaryOperator
+-- NvimInvalidBinaryOperator xxx links to NvimInvalidOperator
+-- NvimInvalidComparison xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidComparisonModifier xxx links to NvimInvalidComparison
+-- NvimInvalidBinaryPlus xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidBinaryMinus xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidConcat xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidConcatOrSubscript xxx links to NvimInvalidConcat
+-- NvimInvalidOr  xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidAnd xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidMultiplication xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidDivision xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidMod xxx links to NvimInvalidBinaryOperator
+-- NvimInvalidTernary xxx links to NvimInvalidOperator
+-- NvimInvalidTernaryColon xxx links to NvimInvalidTernary
+-- NvimInvalidDelimiter xxx links to NvimInvalid
+-- NvimInvalidParenthesis xxx links to NvimInvalidDelimiter
+-- NvimInvalidLambda xxx links to NvimInvalidParenthesis
+-- NvimInvalidNestingParenthesis xxx links to NvimInvalidParenthesis
+-- NvimInvalidCallingParenthesis xxx links to NvimInvalidParenthesis
+-- NvimInvalidSubscript xxx links to NvimInvalidParenthesis
+-- NvimInvalidSubscriptBracket xxx links to NvimInvalidSubscript
+-- NvimInvalidSubscriptColon xxx links to NvimInvalidSubscript
+-- NvimInvalidCurly xxx links to NvimInvalidSubscript
+-- NvimInvalidContainer xxx links to NvimInvalidParenthesis
+-- NvimInvalidDict xxx links to NvimInvalidContainer
+-- NvimInvalidList xxx links to NvimInvalidContainer
+-- NvimInvalidValue xxx links to NvimInvalid
+-- NvimInvalidIdentifier xxx links to NvimInvalidValue
+-- NvimInvalidIdentifierScope xxx links to NvimInvalidIdentifier
+-- NvimInvalidIdentifierScopeDelimiter xxx links to NvimInvalidIdentifier
+-- NvimInvalidIdentifierName xxx links to NvimInvalidIdentifier
+-- NvimInvalidIdentifierKey xxx links to NvimInvalidIdentifier
+-- NvimInvalidColon xxx links to NvimInvalidDelimiter
+-- NvimInvalidComma xxx links to NvimInvalidDelimiter
+-- NvimInvalidArrow xxx links to NvimInvalidDelimiter
+-- NvimInvalidRegister xxx links to NvimInvalidValue
+-- NvimInvalidNumber xxx links to NvimInvalidValue
+-- NvimInvalidFloat xxx links to NvimInvalidNumber
+-- NvimInvalidNumberPrefix xxx links to NvimInvalidNumber
+-- NvimInvalidOptionSigil xxx links to NvimInvalidIdentifier
+-- NvimInvalidOptionName xxx links to NvimInvalidIdentifier
+-- NvimInvalidOptionScope xxx links to NvimInvalidIdentifierScope
+-- NvimInvalidOptionScopeDelimiter xxx links to NvimInvalidIdentifierScopeDelimiter
+-- NvimInvalidEnvironmentSigil xxx links to NvimInvalidOptionSigil
+-- NvimInvalidEnvironmentName xxx links to NvimInvalidIdentifier
+-- NvimInvalidString xxx links to NvimInvalidValue
+-- NvimInvalidStringBody xxx links to NvimStringBody
+-- NvimInvalidStringQuote xxx links to NvimInvalidString
+-- NvimInvalidStringSpecial xxx links to NvimStringSpecial
+-- NvimInvalidSingleQuote xxx links to NvimInvalidStringQuote
+-- NvimInvalidSingleQuotedBody xxx links to NvimInvalidStringBody
+-- NvimInvalidSingleQuotedQuote xxx links to NvimInvalidStringSpecial
+-- NvimInvalidDoubleQuote xxx links to NvimInvalidStringQuote
+-- NvimInvalidDoubleQuotedBody xxx links to NvimInvalidStringBody
+-- NvimInvalidDoubleQuotedEscape xxx links to NvimInvalidStringSpecial
+-- NvimInvalidDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
+-- NvimInvalidFigureBrace xxx links to NvimInvalidDelimiter
+-- NvimInvalidSpacing xxx links to ErrorMsg
+-- NvimDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
