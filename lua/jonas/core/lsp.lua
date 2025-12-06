@@ -1,6 +1,5 @@
 -- LSP Setup
 local servers = {
-  ruff = {},
   html = {},
   ts_ls = {},
   cssls = {},
