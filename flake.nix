@@ -128,7 +128,13 @@
         prettierd
 
         # Linters
+        # ruff
         selene
+        clippy
+        cppcheck
+        eslint_d
+        stylelint
+        shellcheck
       ];
 
       startupPlugins.packages = with pkgs.neovimPlugins; [
