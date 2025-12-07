@@ -175,15 +175,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.lsp.inlay_hint.enable(true)
 
 -- Path Completion
-local ms = vim.lsp.protocol.Methods
-
 vim.lsp.config("path-completion-ls", {
   cmd = function(dispatchers)
     local closing = false
 
     return {
       request = function(method, params, callback)
-        if method == ms.initialize then
+        if method == vim.lsp.protocol.Methods.initialize then
           callback(nil, {
             capabilities = {
               completionProvider = {},
@@ -193,7 +191,7 @@ vim.lsp.config("path-completion-ls", {
               version = "1.0.0",
             },
           })
-        elseif method == ms.textDocument_completion then
+        elseif method == vim.lsp.protocol.Methods.textDocument_completion then
           local candidates = {}
 
           local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.charachter)
