@@ -1,10 +1,10 @@
 require("conform").setup({
   formatters_by_ft = {
+    sh = { "shfmt" },
     lua = { "stylua" },
     nix = { "alejandra" },
     qml = { "qmlformat" },
     rust = { "rustfmt" },
-    bash = { "shfmt" },
     python = { "ruff_organize_imports", "ruff_format" },
 
     c = { "clang-format" },
@@ -17,7 +17,7 @@ require("conform").setup({
     json = { "prettierd" },
     javascript = { "prettierd" },
     typescript = { "prettierd" },
-    -- svelte = { "prettierd" },
+    -- svelte = { "prettierd" }, -- https://github.com/sveltejs/prettier-plugin-svelte
   },
 
   format_on_save = function()
