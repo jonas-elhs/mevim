@@ -107,7 +107,6 @@
 
         # Language Servers
         nixd
-        ruff
         hyprls
         pyright
         rust-analyzer
@@ -121,8 +120,8 @@
         vscode-langservers-extracted
 
         # Formatters
+        ruff
         shfmt
-        black
         stylua
         rustfmt
         alejandra
