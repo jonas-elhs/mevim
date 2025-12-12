@@ -32,7 +32,7 @@
 
     # Editor Plugins
     plugins-leap-nvim = {
-      url = "github:ggandor/leap.nvim";
+      url = "git+https://codeberg.org/andyg/leap.nvim";
       flake = false;
     };
     plugins-nvim-lint = {
