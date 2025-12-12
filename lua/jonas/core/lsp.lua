@@ -135,7 +135,7 @@ local virtual_lines_config = {
 
 Utils.toggle({
   name = "Detailed Diagnostics",
-  command = "Diagnostics",
+  command = "DetailedDiagnostics",
   keymap = "<leader>td",
 
   toggle = function(enabled)
@@ -155,6 +155,18 @@ Utils.toggle({
     local config = vim.diagnostic.config() or {}
 
     return type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true
+  end,
+})
+Utils.toggle({
+  name = "Diagnostics",
+  command = "Diagnostics",
+  keymap = "<leader>tD",
+
+  toggle = function(enabled)
+    vim.diagnostic.enable(not enabled)
+  end,
+  enabled = function()
+    return vim.diagnostic.is_enabled()
   end,
 })
 
