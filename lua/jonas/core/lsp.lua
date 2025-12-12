@@ -62,7 +62,7 @@ end
 vim.o.complete = "o"
 vim.o.pumheight = 8
 vim.o.pumborder = "rounded"
-vim.o.completeopt = "fuzzy,menuone,noinsert"
+vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
 
 vim.keymap.set("i", "<C-Space>", function()
   vim.lsp.completion.get()
