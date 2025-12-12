@@ -17,7 +17,7 @@ require("conform").setup({
     json = { "prettierd" },
     javascript = { "prettierd" },
     typescript = { "prettierd" },
-    -- svelte = { "prettierd" }, -- https://github.com/sveltejs/prettier-plugin-svelte
+    svelte = { "prettierd" },
   },
 
   format_on_save = function()
