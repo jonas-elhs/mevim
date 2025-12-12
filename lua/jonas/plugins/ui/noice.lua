@@ -27,13 +27,10 @@ require("noice").setup({
   },
   lsp = {
     hover = {
-      -- enabled = false,
+      enabled = false,
     },
     signature = {
-      -- enabled = false,
-      auto_open = {
-        enabled = false,
-      },
+      enabled = false,
     },
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
