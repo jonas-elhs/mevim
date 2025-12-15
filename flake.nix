@@ -31,6 +31,9 @@
     };
 
     # Editor Plugins
+    blink-pairs = {
+      url = "github:saghen/blink.pairs";
+    };
     plugins-leap-nvim = {
       url = "git+https://codeberg.org/andyg/leap.nvim";
       flake = false;
@@ -150,7 +153,7 @@
         gitsigns-nvim
         live-preview-nvim
         render-markdown-nvim
-        pkgs.vimPlugins.blink-pairs
+        inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.blink-pairs
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
 
         # UI Plugins
