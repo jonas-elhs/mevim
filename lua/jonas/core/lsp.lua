@@ -167,17 +167,14 @@ Utils.toggle({
 })
 
 -- Folding
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.o.foldtext = ""
-vim.o.foldlevelstart = 99
-
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
     if client:supports_method("textDocument/foldingRange") then
-      vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+      vim.wo.foldexpr = "v:lua.vim.lsp.foldexpr()"
+    else
+      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end
   end,
 })

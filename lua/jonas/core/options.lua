@@ -19,11 +19,17 @@ vim.o.softtabstop = 2
 vim.o.smartindent = true
 
 -- Editing
-vim.o.foldopen = "mark,quickfix,search,tag,undo"
 vim.o.undofile = true
 vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
 vim.o.cursorlineopt = "number"
+
+-- Folding
+vim.o.foldopen = "mark,quickfix,search,tag,undo"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldmethod = "expr"
+vim.o.foldlevelstart = 99
 
 -- Editor
 vim.o.list = true
