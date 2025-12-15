@@ -19,6 +19,7 @@ vim.o.softtabstop = 2
 vim.o.smartindent = true
 
 -- Editing
+vim.o.foldopen = "mark,quickfix,search,tag,undo"
 vim.o.undofile = true
 vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
