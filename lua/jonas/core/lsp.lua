@@ -64,7 +64,7 @@ vim.keymap.set("i", "<C-Space>", function()
   vim.lsp.completion.get()
 end)
 
--- if completing accept selection else execute blink.pairs enter mapping
+-- either accept completion or trigger blink.pairs enter mapping
 require("blink.pairs.mappings").enable()
 vim.keymap.set("i", "<CR>", function()
   if vim.fn.pumvisible() == 1 then
