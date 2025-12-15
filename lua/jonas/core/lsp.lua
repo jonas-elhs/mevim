@@ -214,7 +214,7 @@ vim.lsp.config("path-completion-ls", {
 
           local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.charachter)
           local word_to_cursor = line_to_cursor:match("(%S+)$") or ""
-          local match = word_to_cursor:match("^([~%.]?/[%w_%-/%.]*)$")
+          local match = word_to_cursor:match("^([~%.]?[%.]?/[%w_%-/%.]*)$")
 
           if match ~= nil then
             local path = vim.fs.normalize(match)
