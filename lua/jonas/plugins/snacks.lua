@@ -20,6 +20,14 @@ require("snacks").setup({
 
   picker = {
     enabled = true,
+
+    sources = {
+      explorer = {
+        layout = {
+          auto_hide = { "input" },
+        },
+      },
+    },
   },
 
   indent = {
@@ -32,6 +40,10 @@ require("snacks").setup({
 
   bigfile = {
     enabled = true,
+  },
+
+  explorer = {
+    replace_netrw = false,
   },
 
   notifier = {
@@ -113,3 +125,8 @@ end, { desc = "Open LazyGit" })
 vim.keymap.set("n", "<leader>m", function()
   Snacks.notifier.show_history()
 end, { desc = "Show notification history" })
+
+-- Explorer
+vim.keymap.set("n", "<leader><leader>", function()
+  Snacks.explorer.open()
+end)
