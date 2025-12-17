@@ -11,6 +11,7 @@ local servers = {
   eslint = {},
   clangd = {},
   svelte = {},
+  emmylua_ls = {}, -- TODO: disable keywordCompletions
   tailwindcss = {},
   rust_analyzer = {},
   emmet_language_server = {},
@@ -20,16 +21,6 @@ local servers = {
       nixd = {
         nixpkgs = {
           expr = [[import (builtins.getFlake "]] .. nixCats.extra("nixdExtras.nixpkgs") .. [[") { }]],
-        },
-      },
-    },
-  },
-
-  lua_ls = {
-    settings = {
-      Lua = {
-        completion = {
-          keywordSnippet = "Disable",
         },
       },
     },

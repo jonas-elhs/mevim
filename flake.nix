@@ -112,6 +112,7 @@
         nixd
         hyprls
         pyright
+        emmylua-ls
         rust-analyzer
         lua-language-server
         bash-language-server
