@@ -47,20 +47,47 @@ vim.o.pumborder = "rounded"
 vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
 
 vim.keymap.set("i", "<C-Space>", function()
+  vim.o.autocomplete = true
+  vim.g.insert_completing = true
+
   vim.lsp.completion.get()
 end)
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    if vim.g.insert_completing and not vim.g.auto_completing then
+      vim.o.autocomplete = false
+    end
+
+    vim.g.insert_completing = false
+  end,
+})
+
+require("blink.pairs.mappings").enable()
+--- Trigger a mapping from blink.pairs
+function blinkPairsMapping(mapping)
+  local rule_lib = require("blink.pairs.rule")
+  return require("blink.pairs.mappings")[mapping](
+    rule_lib.get_all(rule_lib.parse(require("blink.pairs.config").mappings.pairs))
+  )()
+end
 
 -- either accept completion or trigger blink.pairs enter mapping
-require("blink.pairs.mappings").enable()
 vim.keymap.set("i", "<CR>", function()
   if vim.fn.pumvisible() == 1 then
     return "<C-Y>"
   else
-    local rule_lib = require("blink.pairs.rule")
-    return require("blink.pairs.mappings").enter(
-      rule_lib.get_all(rule_lib.parse(require("blink.pairs.config").mappings.pairs))
-    )()
+    return blinkPairsMapping("enter")
   end
+end, { expr = true })
+
+vim.keymap.set("i", "<Space>", function()
+  if vim.g.insert_completing and not vim.g.auto_completing then
+    vim.o.autocomplete = false
+  end
+
+  vim.g.insert_completing = false
+
+  return blinkPairsMapping("space")
 end, { expr = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -82,6 +109,7 @@ Utils.toggle({
 
   toggle = function()
     vim.o.autocomplete = not vim.o.autocomplete
+    vim.g.auto_completing = not vim.g.auto_completing
   end,
   enabled = function()
     return vim.o.autocomplete
