@@ -111,8 +111,8 @@
         # Language Servers
         nixd
         hyprls
-        pyright
         emmylua-ls
+        basedpyright
         rust-analyzer
         lua-language-server
         bash-language-server
