@@ -75,7 +75,7 @@
 
     # Misc Plugins
     plugins-mini-nvim = {
-      url = "github:echasnovski/mini.nvim";
+      url = "github:nvim-mini/mini.nvim";
       flake = false;
     };
     plugins-snacks-nvim = {

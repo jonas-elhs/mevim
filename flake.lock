@@ -336,15 +336,15 @@
     "plugins-mini-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1765644162,
-        "narHash": "sha256-0Gvl6rKW+z64Rpd6DL0vX23QJPsnVRSTRwVu3xse5xE=",
-        "owner": "echasnovski",
+        "lastModified": 1766071746,
+        "narHash": "sha256-xmNZrQDptaNcECHSGtjownFyR1qxsP7lge8OAIFe8BU=",
+        "owner": "nvim-mini",
         "repo": "mini.nvim",
-        "rev": "6bd3a01aaf7d248aea1b78aacdd5d44bffa002c1",
+        "rev": "a995fe9cd4193fb492b5df69175a351a74b3d36b",
         "type": "github"
       },
       "original": {
-        "owner": "echasnovski",
+        "owner": "nvim-mini",
         "repo": "mini.nvim",
         "type": "github"
       }
