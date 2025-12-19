@@ -25,6 +25,7 @@ require("snacks").setup({
       explorer = {
         layout = {
           auto_hide = { "input" },
+          layout = { width = vim.o.columns / 5, position = "right" },
         },
       },
     },
@@ -44,6 +45,7 @@ require("snacks").setup({
 
   explorer = {
     replace_netrw = false,
+    trash = false,
   },
 
   notifier = {
