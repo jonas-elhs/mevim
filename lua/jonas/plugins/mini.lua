@@ -22,7 +22,6 @@ require("mini.files").setup({
   },
 })
 require("jonas.plugins.mini-files-git")
-require("jonas.plugins.mini-files-fullscreen")
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",

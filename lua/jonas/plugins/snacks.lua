@@ -68,7 +68,7 @@ require("snacks").setup({
         { icon = "󰍉",   desc = "Find Files",      key = "f",   action = "<CMD>lua Snacks.picker.files()<CR>", },
         { icon = "",   desc = "New File",        key = "n",   action = "<CMD>ene | startinsert<CR>", },
         { icon = "󰦨",   desc = "Find Text",       key = "g",   action = "<CMD>lua Snacks.picker.grep()<CR>", },
-        { icon = "",   desc = "Explore Files",   key = "e",   action = "<CMD>MiniFilesFullscreen 0<CR>" },
+        { icon = "",   desc = "Explore Files",   key = "e",   action = "<CMD>lua MiniFiles.open()<CR>" },
         { icon = "",   desc = "Config",          key = "c",   action = "<CMD>lua vim.cmd.cd(vim.fn.stdpath('config')); Snacks.picker.files()<CR>", },
         { icon = "󰈆",   desc = "Quit",            key = "q",   action = "<CMD>qa<CR>" },
       },
