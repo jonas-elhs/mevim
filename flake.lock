@@ -317,6 +317,22 @@
         "type": "github"
       }
     },
+    "plugins-markview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1764958741,
+        "narHash": "sha256-yVUHrnqWWeHiMNKDxQnsCyTo/cgiPxTbpfZRAWAhw6w=",
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "rev": "0a5033326f703d99a8788e2d47753d6298195e8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "type": "github"
+      }
+    },
     "plugins-mini-nvim": {
       "flake": false,
       "locked": {
@@ -429,22 +445,6 @@
         "type": "github"
       }
     },
-    "plugins-render-markdown-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1765914395,
-        "narHash": "sha256-A7pm8sBQWsZl3Kc7JBh3gBUyKb6GfJ5J0zfn3mSGjKs=",
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "rev": "07d088bf8bdadd159eb807b90eaee86a4778383f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "type": "github"
-      }
-    },
     "plugins-snacks-nvim": {
       "flake": false,
       "locked": {
@@ -473,6 +473,7 @@
         "plugins-incline-nvim": "plugins-incline-nvim",
         "plugins-leap-nvim": "plugins-leap-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
+        "plugins-markview-nvim": "plugins-markview-nvim",
         "plugins-mini-nvim": "plugins-mini-nvim",
         "plugins-noice-nvim": "plugins-noice-nvim",
         "plugins-nui-nvim": "plugins-nui-nvim",
@@ -480,7 +481,6 @@
         "plugins-nvim-lint": "plugins-nvim-lint",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
-        "plugins-render-markdown-nvim": "plugins-render-markdown-nvim",
         "plugins-snacks-nvim": "plugins-snacks-nvim"
       }
     },

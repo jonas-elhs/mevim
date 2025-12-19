@@ -50,12 +50,12 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    plugins-live-preview-nvim = {
-      url = "github:brianhuster/live-preview.nvim";
+    plugins-markview-nvim = {
+      url = "github:OXY2DEV/markview.nvim";
       flake = false;
     };
-    plugins-render-markdown-nvim = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
+    plugins-live-preview-nvim = {
+      url = "github:brianhuster/live-preview.nvim";
       flake = false;
     };
 
@@ -152,8 +152,8 @@
         nvim-lint
         conform-nvim
         gitsigns-nvim
+        markview-nvim
         live-preview-nvim
-        render-markdown-nvim
         inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.blink-pairs
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
 
