@@ -4,7 +4,6 @@ require("colorizer").setup({
     tailwind = true,
     sass = {
       enable = true,
-      parsers = { "css" },
     },
     mode = "virtualtext",
     virtualtext = "󱓻",
