@@ -1,8 +1,0 @@
-require("jonas.plugins.editor.leap")
-require("jonas.plugins.editor.conform")
-require("jonas.plugins.editor.gitsigns")
-require("jonas.plugins.editor.markview")
-require("jonas.plugins.editor.nvim-lint")
-require("jonas.plugins.editor.blink-pairs")
-require("jonas.plugins.editor.live-preview")
-require("jonas.plugins.editor.nvim-treesitter")
