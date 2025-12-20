@@ -24,19 +24,16 @@ map("i",   "<C-j>",        "<Down>",                         { desc = "Move curs
 map("i",   "<C-k>",        "<Up>",                           { desc = "Move cursor up (Insert Mode)" })
 map("i",   "<C-l>",        "<Right>",                        { desc = "Move cursor right (Insert Mode)" })
 
--- Buffer Management
-map("n",   "[b",           "<CMD>bprev<CR>",                 { desc = "Open previous buffer" })
+-- Brackets
+map("n",   "[b",           "<CMD>bprevious<CR>",             { desc = "Open previous buffer" })
 map("n",   "]b",           "<CMD>bnext<CR>",                 { desc = "Open next buffer" })
-map("n",   "<leader>x",    "<CMD>bdelete<CR>",               { desc = "Exit open buffer" })
-map("n",   "<leader>X",    "<CMD>bdelete!<CR>",              { desc = "Force exit open buffer" })
 
--- Traverse Code
 map("n",   "[e",           function()
   vim.diagnostic.jump({count = -1, severity = vim.diagnostic.severity.ERROR })
-end,                                                                                  { desc = "Go to previous error" })
+end,                                                                         { desc = "Go to previous error" })
 map("n",   "]e",           function()
   vim.diagnostic.jump({count = 1, severity = vim.diagnostic.severity.ERROR })
-end,                                                                                  { desc = "Go to next error" })
+end,                                                                         { desc = "Go to next error" })
 
 -- Split Creation
 map("n",   "<leader>sh",   "<CMD>wincmd v<CR>",              { desc = "Split left" })
