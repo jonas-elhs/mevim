@@ -16,7 +16,6 @@
     };
 
     # Plugins
-    # Libraries
     plugins-nui-nvim = {
       url = "github:MunifTanjim/nui.nvim";
       flake = false;
@@ -30,7 +29,6 @@
       flake = false;
     };
 
-    # Editor Plugins
     blink-pairs = {
       url = "github:saghen/blink.pairs";
     };
@@ -38,8 +36,24 @@
       url = "git+https://codeberg.org/andyg/leap.nvim";
       flake = false;
     };
+    plugins-mini-nvim = {
+      url = "github:nvim-mini/mini.nvim";
+      flake = false;
+    };
     plugins-nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
+      flake = false;
+    };
+    plugins-noice-nvim = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+    plugins-snacks-nvim = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
+    plugins-incline-nvim = {
+      url = "github:b0o/incline.nvim";
       flake = false;
     };
     plugins-conform-nvim = {
@@ -58,28 +72,8 @@
       url = "github:brianhuster/live-preview.nvim";
       flake = false;
     };
-
-    # UI Plugins
-    plugins-noice-nvim = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
-    plugins-incline-nvim = {
-      url = "github:b0o/incline.nvim";
-      flake = false;
-    };
     plugins-nvim-colorizer-lua = {
       url = "github:catgoose/nvim-colorizer.lua";
-      flake = false;
-    };
-
-    # Misc Plugins
-    plugins-mini-nvim = {
-      url = "github:nvim-mini/mini.nvim";
-      flake = false;
-    };
-    plugins-snacks-nvim = {
-      url = "github:folke/snacks.nvim";
       flake = false;
     };
   };
