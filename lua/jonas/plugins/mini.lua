@@ -45,14 +45,15 @@ end, { desc = "Explore current working directory" })
 
 -- mini.icons
 require("mini.icons").setup()
+
 MiniIcons.mock_nvim_web_devicons()
 
 -- mini.surround
 require("mini.surround").setup({
   mappings = {
-    add = "gsa",
-    delete = "gsd",
-    replace = "gsr",
+    add = "sa",
+    delete = "sd",
+    replace = "sr",
     find = "",
     find_left = "",
     highlight = "",
