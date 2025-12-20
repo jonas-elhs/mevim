@@ -94,7 +94,7 @@
     ];
 
     categoryDefinitions = {pkgs, ...}: {
-      lspsAndRuntimeDeps.packages = with pkgs; [
+      lspsAndRuntimeDeps.all = with pkgs; [
         # Runtime Dependencys
         fd
         fzf
@@ -140,38 +140,32 @@
         shellcheck
       ];
 
-      startupPlugins.packages = with pkgs.neovimPlugins; [
-        # Libraries
+      startupPlugins.all = with pkgs.neovimPlugins; [
         nui-nvim
         plenary-nvim
         nvim-lspconfig
 
-        # Editor Plugins
         leap-nvim
         nvim-lint
+        mini-nvim
         snap-nvim
+        noice-nvim
+        snacks-nvim
+        incline-nvim
         conform-nvim
         gitsigns-nvim
         markview-nvim
+        nvim-colorizer-lua
         live-preview-nvim
         inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.blink-pairs
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
-
-        # UI Plugins
-        noice-nvim
-        incline-nvim
-        nvim-colorizer-lua
-
-        # Misc Plugins
-        mini-nvim
-        snacks-nvim
       ];
     };
 
     packageDefinitions = {
       nvim = {pkgs, ...}: {
         categories = {
-          packages = true;
+          all = true;
         };
 
         settings = {
@@ -189,7 +183,7 @@
 
       regularCats = {pkgs, ...}: {
         categories = {
-          packages = true;
+          all = true;
         };
 
         settings = {
