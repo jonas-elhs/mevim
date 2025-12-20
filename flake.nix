@@ -131,6 +131,7 @@
 
         # Linters
         # ruff
+        statix
         selene
         clippy
         cppcheck
