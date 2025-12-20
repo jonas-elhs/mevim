@@ -461,6 +461,22 @@
         "type": "github"
       }
     },
+    "plugins-snap-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766079827,
+        "narHash": "sha256-LI+2S1rCFQ6RPTgK8ToqzoAyZhJu0JSsS+jF54xmFT8=",
+        "owner": "mistweaverco",
+        "repo": "snap.nvim",
+        "rev": "00d28b476978ffa32e04cdd85ed1eb39189168a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mistweaverco",
+        "repo": "snap.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blink-pairs": "blink-pairs",
@@ -481,7 +497,8 @@
         "plugins-nvim-lint": "plugins-nvim-lint",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
-        "plugins-snacks-nvim": "plugins-snacks-nvim"
+        "plugins-snacks-nvim": "plugins-snacks-nvim",
+        "plugins-snap-nvim": "plugins-snap-nvim"
       }
     },
     "rust-analyzer-src": {

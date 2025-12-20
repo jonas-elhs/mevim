@@ -44,6 +44,10 @@
       url = "github:mfussenegger/nvim-lint";
       flake = false;
     };
+    plugins-snap-nvim = {
+      url = "github:mistweaverco/snap.nvim";
+      flake = false;
+    };
     plugins-noice-nvim = {
       url = "github:folke/noice.nvim";
       flake = false;
@@ -144,6 +148,7 @@
         # Editor Plugins
         leap-nvim
         nvim-lint
+        snap-nvim
         conform-nvim
         gitsigns-nvim
         markview-nvim
