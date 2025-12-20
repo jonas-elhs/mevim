@@ -15,12 +15,13 @@ require("mini.files").setup({
     mark_set = "",
     reset = "",
     reveal_cwd = "@",
-    show_help = "g?",
+    show_help = "?",
     synchronize = "=",
     trim_left = "",
     trim_right = "",
   },
 })
+
 require("jonas.plugins.mini-files-git")
 
 vim.api.nvim_create_autocmd("User", {
@@ -37,10 +38,10 @@ vim.api.nvim_create_autocmd("User", {
 
 vim.keymap.set("n", "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
-end, { desc = "Open current directory in mini.files" })
+end, { desc = "Explore current directory" })
 vim.keymap.set("n", "<leader>E", function()
   MiniFiles.open(vim.uv.cwd(), true)
-end, { desc = "Open current working directory in mini.files" })
+end, { desc = "Explore current working directory" })
 
 -- mini.icons
 require("mini.icons").setup()
