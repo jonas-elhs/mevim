@@ -32,6 +32,7 @@ vim.o.foldlevelstart = 99
 
 -- Editor
 vim.o.list = true
+vim.o.confirm = true
 vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…,nbsp:␣"
 vim.o.fillchars = "eob: ,foldopen:,foldclose:,fold: ,"
 vim.o.laststatus = 3
