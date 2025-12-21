@@ -33,22 +33,22 @@ map("n",   "]e",           function()
 end,                                                                         { desc = "Go to next error" })
 
 -- Split Creation
-map("n",   "<leader>sh",   "<CMD>wincmd v<CR>",              { desc = "Split left" })
-map("n",   "<leader>sj",   "<CMD>wincmd s | wincmd j<CR>",   { desc = "Split down" })
-map("n",   "<leader>sk",   "<CMD>wincmd s<CR>",              { desc = "Split up" })
-map("n",   "<leader>sl",   "<CMD>wincmd v | wincmd l<CR>",   { desc = "Split right" })
-map("n",   "<leader>sx",   "<CMD>close<CR>",                 { desc = "Exit split" })
+map("n",   "<leader>sh",   "<C-w>v",                         { desc = "Split left" })
+map("n",   "<leader>sj",   "<C-w>s<C-w>j",                   { desc = "Split down" })
+map("n",   "<leader>sk",   "<C-w>s<CR>",                     { desc = "Split up" })
+map("n",   "<leader>sl",   "<C-w>v<C-w>l",                   { desc = "Split right" })
+map("n",   "<leader>sx",   "<C-w>c",                         { desc = "Exit split" })
 
 -- Split Movement
-map("n",   "<C-h>",        "<CMD>wincmd h<CR>",              { desc = "Focus split left" })
-map("n",   "<C-j>",        "<CMD>wincmd j<CR>",              { desc = "Focus split below" })
-map("n",   "<C-k>",        "<CMD>wincmd k<CR>",              { desc = "Focus split above" })
-map("n",   "<C-l>",        "<CMD>wincmd l<CR>",              { desc = "Focus split right" })
+map("n",   "<C-h>",        "<C-w>h",                         { desc = "Focus split left" })
+map("n",   "<C-j>",        "<C-w>j",                         { desc = "Focus split below" })
+map("n",   "<C-k>",        "<C-w>k",                         { desc = "Focus split above" })
+map("n",   "<C-l>",        "<C-w>l",                         { desc = "Focus split right" })
 
 -- Split Sizing
-map("n",   "<C-Left>",     "<CMD>wincmd <<CR>",              { desc = "Decrease split width" })
-map("n",   "<C-Down>",     "<CMD>wincmd -<CR>",              { desc = "Decrease split heigth" })
-map("n",   "<C-Up>",       "<CMD>wincmd +<CR>",              { desc = "Increase split height" })
-map("n",   "<C-Right>",    "<CMD>wincmd ><CR>",              { desc = "Increase split width" })
+map("n",   "<C-Left>",     "<C-w><",                         { desc = "Decrease split width" })
+map("n",   "<C-Down>",     "<C-w>-",                         { desc = "Decrease split heigth" })
+map("n",   "<C-Up>",       "<C-w>+",                         { desc = "Increase split height" })
+map("n",   "<C-Right>",    "<C-w>>",                         { desc = "Increase split width" })
 
 -- stylua: ignore end
