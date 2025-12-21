@@ -22,7 +22,6 @@ vim.o.smartindent = true
 vim.o.undofile = true
 vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
-vim.o.cursorlineopt = "number"
 
 -- Folding
 vim.o.foldopen = "mark,quickfix,search,tag,undo"
@@ -42,7 +41,8 @@ vim.o.updatetime = 50
 vim.o.wrap = false
 vim.o.winborder = "rounded"
 vim.o.termguicolors = true
+vim.o.cursorlineopt = "number"
 
--- Disable Netrw (by faking it is already loaded)
+-- Disable Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
