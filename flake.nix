@@ -155,8 +155,8 @@
         conform-nvim
         gitsigns-nvim
         markview-nvim
-        nvim-colorizer-lua
         live-preview-nvim
+        nvim-colorizer-lua
         inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.blink-pairs
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
       ];
