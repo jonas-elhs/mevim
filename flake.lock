@@ -477,6 +477,22 @@
         "type": "github"
       }
     },
+    "plugins-treesj-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765194442,
+        "narHash": "sha256-Vkt7ympm2STblNd0zGu9LB2XuLbno3PirAPIABKKCOc=",
+        "owner": "Wansmer",
+        "repo": "treesj",
+        "rev": "186084dee5e9c8eec40f6e39481c723dd567cb05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Wansmer",
+        "repo": "treesj",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blink-pairs": "blink-pairs",
@@ -498,7 +514,8 @@
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-snacks-nvim": "plugins-snacks-nvim",
-        "plugins-snap-nvim": "plugins-snap-nvim"
+        "plugins-snap-nvim": "plugins-snap-nvim",
+        "plugins-treesj-nvim": "plugins-treesj-nvim"
       }
     },
     "rust-analyzer-src": {

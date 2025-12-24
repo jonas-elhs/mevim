@@ -52,6 +52,10 @@
       url = "github:folke/noice.nvim";
       flake = false;
     };
+    plugins-treesj-nvim = {
+      url = "github:Wansmer/treesj";
+      flake = false;
+    };
     plugins-snacks-nvim = {
       url = "github:folke/snacks.nvim";
       flake = false;
@@ -148,8 +152,9 @@
         leap-nvim
         nvim-lint
         mini-nvim
-        snap-nvim
+        # snap-nvim
         noice-nvim
+        # treesj-nvim
         snacks-nvim
         incline-nvim
         conform-nvim
