@@ -116,12 +116,12 @@
         emmylua-ls
         basedpyright
         rust-analyzer
+        typescript-go
         lua-language-server
         bash-language-server
         yaml-language-server
         emmet-language-server
         svelte-language-server
-        typescript-language-server
         tailwindcss-language-server
         vscode-langservers-extracted
 

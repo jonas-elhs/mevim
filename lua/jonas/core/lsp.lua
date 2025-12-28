@@ -1,7 +1,7 @@
 -- LSP Setup
 local servers = {
   html = {},
-  ts_ls = {},
+  tsgo = {},
   cssls = {},
   qmlls = {},
   bashls = {},
