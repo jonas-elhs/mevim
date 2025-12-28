@@ -13,3 +13,10 @@ require("jonas.plugins.nvim-lint")
 require("jonas.plugins.live-preview")
 require("jonas.plugins.nvim-colorizer")
 require("jonas.plugins.nvim-treesitter")
+
+-- DAP
+--
+-- nvim-dap
+-- nvim-dap-view
+-- nvim-dap-virtual-text
+-- (nvim-dap-repl-highlights)
