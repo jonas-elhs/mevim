@@ -31,14 +31,6 @@ require("snacks").setup({
     },
   },
 
-  -- indent = {
-  --   enabled = true,
-  --
-  --   scope = {
-  --     only_current = true,
-  --   },
-  -- },
-
   bigfile = {
     enabled = true,
   },

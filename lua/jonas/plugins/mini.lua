@@ -71,3 +71,12 @@ require("mini.hipatterns").setup({
     note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
   },
 })
+
+-- mini.indentscope
+require("mini.indentscope").setup({
+  options = {
+    try_as_border = true,
+  },
+
+  symbol = "│",
+})
