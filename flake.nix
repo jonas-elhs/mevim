@@ -32,10 +32,6 @@
     blink-pairs = {
       url = "github:saghen/blink.pairs";
     };
-    plugins-leap-nvim = {
-      url = "git+https://codeberg.org/andyg/leap.nvim";
-      flake = false;
-    };
     plugins-mini-nvim = {
       url = "github:nvim-mini/mini.nvim";
       flake = false;
@@ -149,7 +145,6 @@
         plenary-nvim
         nvim-lspconfig
 
-        leap-nvim
         nvim-lint
         mini-nvim
         # snap-nvim
