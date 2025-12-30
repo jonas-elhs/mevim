@@ -62,23 +62,8 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   end,
 })
 
--- require("blink.pairs.mappings").enable()
---- Trigger a mapping from blink.pairs
--- function blinkPairsMapping(mapping)
---   local rule_lib = require("blink.pairs.rule")
---   return require("blink.pairs.mappings")[mapping](
---     rule_lib.get_all(rule_lib.parse(require("blink.pairs.config").mappings.pairs))
---   )()
--- end
-
--- either accept completion or trigger blink.pairs enter mapping
 vim.keymap.set("i", "<CR>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-Y>"
-  else
-    return "<CR>"
-    -- return blinkPairsMapping("enter")
-  end
+  return vim.fn.pumvisible() == 1 and "<C-Y>" or "<CR>"
 end, { expr = true })
 
 vim.keymap.set("i", "<Space>", function()
@@ -88,7 +73,6 @@ vim.keymap.set("i", "<Space>", function()
 
   vim.g.insert_completing = false
 
-  -- return blinkPairsMapping("space")
   return "<Space>"
 end, { expr = true })
 
