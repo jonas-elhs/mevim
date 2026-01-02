@@ -1,3 +1,6 @@
+-- mini.move
+require("mini.move").setup()
+
 -- mini.files
 require("mini.files").setup({
   windows = {
