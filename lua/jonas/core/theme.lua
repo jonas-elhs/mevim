@@ -260,7 +260,7 @@ local highlights = {
   -- SpecialChar      |   links to Special                                                 |   special character in a constant
   -- Tag              |   links to Special                                                 |   you can use CTRL-] on this
   -- Delimiter        |   guifg=NvimLightGrey2                                           |   character that needs attention
-  Delimiter = { fg = colors.puctuation },
+  Delimiter = { fg = colors.punctuation },
   -- SpecialComment   |   links to Special                                                 |   special things inside a comment
   -- Debug            |   links to Special                                                 |   debugging statements
   -- Underlined       |   cterm=underline gui=underline                                    |   text that stands out, HTML links
@@ -368,6 +368,7 @@ local highlights = {
   -- @function.method        |                       |   method definitions
   -- @function.method.call   |                       |   method calls
   -- @constructor            |   links to Special    |   constructor calls and definitions
+  ["@constructor.lua"] = { fg = colors.punctuation },
   --
   -- @operator                     |   links to Operator   |   symbolic operators (e.g. +, *)
   -- @keyword                      |   links to Keyword    |   keywords not fitting into specific categories
