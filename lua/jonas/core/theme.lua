@@ -1,8 +1,11 @@
 local colors = {
+  -- Basics
+  accent = "#00ffff",
   foreground = "#ffffff",
-
   background = "#4e4e4e",
-  normal = "#00ffff",
+
+  -- Modes
+  normal = "#00ffff", -- highlight
   visual = "#0000ff",
   insert = "#00ff00",
   replace = "#ff0000",
@@ -10,11 +13,28 @@ local colors = {
   terminal = "#ff00ff",
   inactive = "#7f7f7f",
 
+  -- State
   error = "#ff0000",
   warn = "#ffa500",
   success = "#00ff00",
   info = "#00ffff",
   hint = "#0000ff",
+
+  -- Syntax
+  fun = "#92d3d3",
+  type = "#347f7f",
+  string = "#5c945c",
+  comment = "#7f7f7f", -- inactive
+  literal = "#2c6d6d",
+  keyword = "#43a3a3",
+  variable = "#b7e1e1",
+  parameter = "#5b4bfb",
+  identifier = "#4fb8b8",
+  punctuation = "#ffbbbb", -- foreground?
+
+  -- special1
+  -- special2
+  -- special3
 }
 
 -- Transparent Background
@@ -59,39 +79,52 @@ for color_name, color in pairs(colors) do
   })
 end
 
+-- stylua: ignore
 -- Highlight Groups (https://neovim.io/doc/user/syntax.html#_13.-highlight-command)
 local highlights = {
   -- EDITOR
   -- ColorColumn            |   cterm=reverse guibg=NvimDarkGrey4                                  |   Used for the columns set with 'colorcolumn'.
+  ColorColumn = {},
   -- Conceal                |   guifg=NvimDarkGrey4                                                |   Placeholder characters substituted for concealed text (see 'conceallevel').
+    Conceal = { link = "Normal" },
   -- CurSearch              |   ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow   |   Current match for the last search pattern (see 'hlsearch').
+  CurSearch = { fg = colors.background, bg = colors.accent, italic = true },
   -- Cursor                 |   guifg=bg guibg=fg                                                    |   Character under the cursor.
   -- lCursor                |   guifg=bg guibg=fg                                                    |   Character under the cursor when language-mapping is used (see 'guicursor').
   -- CursorIM               |   links to Cursor                                                      |   Like Cursor, but used when in IME mode.
   -- CursorColumn           |   guibg=NvimDarkGrey3                                                |   Screen-column at the cursor, when 'cursorcolumn' is set.
+  CursorColumn = {},
   -- CursorLine             |   guibg=NvimDarkGrey3                                                |   Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+  CursorLine = {},
   -- Directory              |   ctermfg=14 guifg=NvimLightCyan                                     |   Directory names (and other special names in listings).
+  Directory = { fg = colors.accent },
   -- DiffAdd                |   ctermfg=0 ctermbg=10 guifg=NvimLightGrey1 guibg=NvimDarkGreen    |   Diff mode: Added line. diff.txt
+    DiffAdd = { link = "Normal" },
   -- DiffChange             |   guifg=NvimLightGrey1 guibg=NvimDarkGrey4                         |   Diff mode: Changed line. diff.txt
+    DiffChange = { link = "Normal" },
   -- DiffDelete             |   cterm=bold ctermfg=9 gui=bold guifg=NvimLightRed                   |   Diff mode: Deleted line. diff.txt
+    DiffDelete = { link = "Normal" },
   -- DiffText               |   ctermfg=0 ctermbg=14 guifg=NvimLightGrey1 guibg=NvimDarkCyan     |   Diff mode: Changed text within a changed line. diff.txt
+    DiffText = { link = "Normal" },
   -- DiffTextAdd            |   links to DiffText                                                    |   Diff mode: Added text within a changed line. Linked to hl-DiffText by default. diff.txt
   -- EndOfBuffer            |   links to NonText                                                     |   Filler lines (~) after the last line in the buffer. By default, this is highlighted like hl-NonText.
   -- TermCursor             |   cterm=reverse gui=reverse                                            |   Cursor in a focused terminal.
+    TermCursor = { link = "Normal" },
   -- OkMsg                  |   ctermfg=10 guifg=NvimLightGreen                                    |   Success messages.
-  OkMsg = { fg = colors.success },
+    OkMsg = { fg = colors.success },
   -- WarningMsg             |   ctermfg=11 guifg=NvimLightYellow                                   |   Warning messages.
-  WarningMsg = { fg = colors.warn },
+    WarningMsg = { fg = colors.warn },
   -- ErrorMsg               |   ctermfg=9 guifg=NvimLightRed                                       |   Error messages.
-  ErrorMsg = { fg = colors.error },
+    ErrorMsg = { fg = colors.error },
   -- StderrMsg              |   links to ErrorMsg                                                    |   Messages in stderr from shell commands.
   -- StdoutMsg              |   cleared                                                              |   Messages in stdout from shell commands.
   -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
-  WinSeparator = { fg = colors.inactive },
+  -- WinSeparator = { fg = colors.inactive },
   -- Folded                 |   guifg=NvimLightGrey4 guibg=NvimDarkGrey1                         |   Line used for closed folds.
   Folded = { bg = colors.inactive },
   -- FoldColumn             |   links to SignColumn                                                  |   'foldcolumn'
   -- SignColumn             |   guifg=NvimDarkGrey4                                                |   Column where signs are displayed.
+  SignColumn = {},
   -- IncSearch              |   links to CurSearch                                                   |   'incsearch' highlighting; also used for the text replaced with ":s///c".
   -- Substitute             |   links to Search                                                      |   :substitute replacement text highlighting.
   -- LineNr                 |   guifg=NvimDarkGrey4                                                |   Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -105,21 +138,27 @@ local highlights = {
   -- MatchParen             |   cterm=bold,underline gui=bold guibg=NvimDarkGrey4                  |   Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
   MatchParen = { bold = true },
   -- ModeMsg                |   ctermfg=10 guifg=NvimLightGreen                                    |   'showmode' message (e.g., "-- INSERT --").
+  ModeMsg = {},
   -- MsgArea                |   cleared                                                              |   Area for messages and command-line, see also 'cmdheight'.
   -- MsgSeparator           |   links to StatusLine                                                  |   Separator for scrolled messages msgsep.
   -- MoreMsg                |   ctermfg=14 guifg=NvimLightCyan                                     |   more-prompt
+  MoreMsg = { fg = colors.accent },
   -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer.
+  NonText = { fg = colors.background, italic = true },
   -- Normal                 |   guifg=#e0e2ea                                                      |   Normal text.
   Normal = { fg = colors.foreground },
   -- NormalFloat            |   guibg=NvimDarkGrey1                                                |   Normal text in floating windows.
+  NormalFloat = { link = "Normal" },
   -- FloatBorder            |   links to NormalFloat                                                 |   Border of floating windows.
   -- FloatShadow            |   ctermbg=0 guibg=NvimDarkGrey4 blend=80                             |   Blended areas when border is "shadow".
+  FloatShadow = {},
   -- FloatShadowThrough     |   ctermbg=0 guibg=NvimDarkGrey4 blend=100                            |   Shadow corners when border is "shadow".
+  FloatShadowThrough = {},
   -- FloatTitle             |   links to Title                                                       |   Title of floating windows.
   -- FloatFooter            |   links to FloatTitle                                                  |   Footer of floating windows.
   -- NormalNC               |   cleared                                                              |   Normal text in non-current windows.
   -- Pmenu                  |   cterm=reverse guibg=NvimDarkGrey3                                  |   Popup menu: Normal item.
-  Pmenu = { fg = colors.foreground },
+  Pmenu = { link = "Normal" },
   -- PmenuSel               |   cterm=underline,reverse gui=reverse blend=0                          |   Popup menu: Selected item. Combined with hl-Pmenu.
   PmenuSel = { reverse = true, italic = true },
   -- PmenuKind              |   links to Pmenu                                                       |   Popup menu: Normal item "kind".
@@ -128,83 +167,114 @@ local highlights = {
   -- PmenuExtraSel          |   links to PmenuSel                                                    |   Popup menu: Selected item "extra text".
   -- PmenuSbar              |   links to Pmenu                                                       |   Popup menu: Scrollbar.
   -- PmenuThumb             |   guibg=NvimDarkGrey4                                                |   Popup menu: Thumb of the scrollbar.
+  PmenuThumb = { bg = colors.foreground },
   -- PmenuMatch             |   cterm=bold gui=bold                                                  |   Popup menu: Matched text in normal item. Combined with hl-Pmenu.
+  PmenuMatch = { fg = colors.accent, italic = true },
   -- PmenuMatchSel          |   cterm=bold gui=bold                                                  |   Popup menu: Matched text in selected item. Combined with hl-PmenuMatch and hl-PmenuSel.
+  PmenuMatchSel = { link = "PmenuMatch" },
   -- PmenuBorder            |   links to Pmenu                                                       |   Popup menu: border of popup menu.
   -- PmenuShadow            |   ctermbg=0 guibg=NvimDarkGrey4 blend=100                            |   Popup menu: blended areas when 'pumborder' is "shadow".
+  PmenuShadow = {},
   -- PmenuShadowThrough     |   links to FloatShadowThrough                                          |   Popup menu: shadow corners when 'pumborder' is "shadow".
   -- ComplMatchIns          |   cleared                                                              |   Matched text of the currently inserted completion.
   -- PreInsert              |   links to Added                                                       |   Text inserted when "preinsert" is in 'completeopt'.
   -- ComplHint              |   links to NonText                                                     |   Virtual text of the currently selected completion.
   -- ComplHintMore          |   links to MoreMsg                                                     |   The additional information of the virtual text.
   -- Question               |   ctermfg=14 guifg=NvimLightCyan                                     |   hit-enter prompt and yes/no questions.
+    Question = { link = "Normal" },
   -- QuickFixLine           |   ctermfg=14 guifg=NvimLightCyan                                     |   Current quickfix item in the quickfix window. Combined with hl-CursorLine when the cursor is there.
+    QuickFixLine = { link = "Normal" },
   -- Search                 |   ctermfg=0 ctermbg=11 guifg=NvimLightGrey1 guibg=NvimDarkYellow   |   Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+  Search = { fg = colors.accent, italic = true },
   -- SnippetTabstop         |   links to Visual                                                      |   Tabstops in snippets. vim.snippet
   -- SnippetTabstopActive   |   links to SnippetTabstop                                              |   The currently active tabstop. vim.snippet
   -- SpecialKey             |   guifg=NvimDarkGrey4                                                |   Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. hl-Whitespace
+    SpecialKey = { link = "Normal" },
   -- SpellBad               |   cterm=undercurl gui=undercurl guisp=NvimLightRed                   |   Word that is not recognized by the spellchecker. spell Combined with the highlighting used otherwise.
+    SpellBad = { link = "Normal" },
   -- SpellCap               |   cterm=undercurl gui=undercurl guisp=NvimLightYellow                |   Word that should start with a capital. spell Combined with the highlighting used otherwise.
+    SpellCap = { link = "Normal" },
   -- SpellLocal             |   cterm=undercurl gui=undercurl guisp=NvimLightGreen                 |   Word that is recognized by the spellchecker as one that is used in another region. spell Combined with the highlighting used otherwise.
+    SpellLocal = { link = "Normal" },
   -- SpellRare              |   cterm=undercurl gui=undercurl guisp=NvimLightCyan                  |   Word that is recognized by the spellchecker as one that is hardly ever used. spell Combined with the highlighting used otherwise.
+    SpellRare = { link = "Normal" },
   -- StatusLine             |   cterm=reverse guifg=NvimDarkGrey3 guibg=NvimLightGrey3           |   Status line of current window.
+    StatusLine = { link = "Normal" },
   -- StatusLineNC           |   cterm=bold,underline guifg=NvimLightGrey2 guibg=NvimDarkGrey4    |   Status lines of not-current windows.
+    StatusLineNC = { link = "Normal" },
   -- StatusLineTerm         |   links to StatusLine                                                  |   Status line of terminal window.
   -- StatusLineTermNC       |   links to StatusLineNC                                                |   Status line of non-current terminal windows.
   -- TabLine                |   links to StatusLineNC                                                |   Tab pages line, not active tab page label.
   -- TabLineFill            |   links to TabLine                                                     |   Tab pages line, where there are no labels.
   -- TabLineSel             |   gui=bold                                                             |   Tab pages line, active tab page label.
   -- Title                  |   cterm=bold gui=bold guifg=NvimLightGrey2                           |   Titles for output from ":set all", ":autocmd" etc.
+  Title = { fg = colors.accent },
   -- Visual                 |   ctermfg=0 ctermbg=15 guibg=NvimDarkGrey4                           |   Visual mode selection.
   Visual = { fg = colors.background, bg = colors.foreground },
   -- VisualNOS              |   links to Visual                                                      |   Visual mode selection when vim is "Not Owning the Selection".
   -- Whitespace             |   links to NonText                                                     |   "nbsp", "space", "tab", "multispace", "lead" and "trail" in 'listchars'.
   -- WildMenu               |   links to PmenuSel                                                    |   Current match in 'wildmenu' completion.
   -- WinBar                 |   cterm=bold gui=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1     |   Window bar of current window.
+  WinBar = {},
   -- WinBarNC               |   cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1              |   Window bar of not-current windows.
+  WinBarNC = {},
 
   -- SYNTAX
   -- Comment          |   guifg=NvimLightGrey4                                           |   any comment
+  Comment = { fg = colors.comment },
   -- Constant         |   guifg=NvimLightGrey2                                           |   any constant
+  Constant = { fg = colors.literal },
   -- String           |   ctermfg=10 guifg=NvimLightGreen                                |   a string constant: "this is a string"
+  String = { fg = colors.string },
   -- Character        |   links to Constant                                                |   a character constant: 'c', '\n'
+  Character = { link = "String" },
   -- Number           |   links to Constant                                                |   a number constant: 234, 0xff
   -- Boolean          |   links to Constant                                                |   a boolean constant: TRUE, false
   -- Float            |   links to Number                                                  |   a floating point constant: 2.3e10
   -- Identifier       |   ctermfg=12 guifg=NvimLightBlue                                 |   any variable name
+  Identifier = { fg = colors.identifier },
   -- Function         |   ctermfg=14 guifg=NvimLightCyan                                 |   function name (also: methods for classes)
+  Function = { fg = colors.fun },
   -- Statement        |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   any statement
+  Statement = { fg = colors.keyword },
   -- Conditional      |   links to Statement                                               |   if, then, else, endif, switch, etc.
   -- Repeat           |   links to Statement                                               |   for, do, while, etc.
   -- Label            |   links to Statement                                               |   case, default, etc.
   -- Operator         |   guifg=NvimLightGrey2                                           |   "sizeof", "+", "*", etc.
+  Operator = { fg = colors.punctuation },
   -- Keyword          |   links to Statement                                               |   any other keyword
   -- Exception        |   links to Statement                                               |   try, catch, throw
   -- PreProc          |   guifg=NvimLightGrey2                                           |   generic Preprocessor
+  PreProc = { link = "Statement" },
   -- Include          |   links to PreProc                                                 |   preprocessor #include
   -- Define           |   links to PreProc                                                 |   preprocessor #define
   -- Macro            |   links to PreProc                                                 |   same as Define
   -- PreCondit        |   links to PreProc                                                 |   preprocessor #if, #else, #endif, etc.
   -- Type             |   guifg=NvimLightGrey2                                           |   int, long, char, etc.
+  Type = { fg = colors.type },
   -- StorageClass     |   links to Type                                                    |   static, register, volatile, etc.
   -- Structure        |   links to Type                                                    |   struct, union, enum, etc.
   -- Typedef          |   links to Type                                                    |   a typedef
   -- Special          |   ctermfg=14 guifg=NvimLightCyan                                 |   any special symbol
+    Special = { link = "Normal" },
   -- SpecialChar      |   links to Special                                                 |   special character in a constant
   -- Tag              |   links to Special                                                 |   you can use CTRL-] on this
   -- Delimiter        |   guifg=NvimLightGrey2                                           |   character that needs attention
+  Delimiter = { fg = colors.puctuation },
   -- SpecialComment   |   links to Special                                                 |   special things inside a comment
   -- Debug            |   links to Special                                                 |   debugging statements
   -- Underlined       |   cterm=underline gui=underline                                    |   text that stands out, HTML links
   -- Ignore           |   links to Normal                                                  |   left blank, hidden
   -- Error            |   ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed   |   any erroneous construct
+    Error = { link = "Normal" },
   -- Todo             |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { link = "Normal" },
   -- Added            |   ctermfg=10 guifg=NvimLightGreen                                |   added line in a diff
-  Added = { fg = colors.success },
+    Added = { fg = colors.success },
   -- Changed          |   ctermfg=14 guifg=NvimLightCyan                                 |   changed line in a diff
-  Changed = { fg = colors.info },
+    Changed = { fg = colors.info },
   -- Removed          |   ctermfg=9 guifg=NvimLightRed                                   |   removed line in a diff
-  Removed = { fg = colors.error },
+    Removed = { fg = colors.error },
 
   -- DIAGNOSTIC
   -- DiagnosticError   |   ctermfg=9 guifg=NvimLightRed       |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -249,13 +319,14 @@ local highlights = {
   -- DiagnosticSignOk      |   links to DiagnosticOk      |   Used for "Ok" signs in sign column.
   --
   -- DiagnosticDeprecated    |   cterm=strikethrough gui=strikethrough guisp=NvimLightRed   |   Used for deprecated or obsolete code.
-  DiagnosticDeprecated = { strikethrough = true },
   -- DiagnosticUnnecessary   |   links to Comment                                             |   Used for unnecessary or unused code.
 
   -- TREESITTER
   -- @variable                     |   guifg=NvimLightGrey2   |   various variable names
+  ["@variable"] = { fg = colors.variable },
   -- @variable.builtin             |   links to Special         |   built-in variable names (e.g. this, self)
   -- @variable.parameter           |   links to Special         |   parameters of a function
+  ["@variable.parameter"] = { fg = colors.parameter },
   -- @variable.parameter.builtin   |                            |   special parameters (e.g. _, it)
   -- @variable.member              |                            |   object and struct fields
   -- @constant                     |   links to Constant        |   constant identifiers
@@ -286,6 +357,7 @@ local highlights = {
   -- @type.definition   |                      |   identifiers in type definitions (e.g. typedef <type> <identifier> in C)
   --
   -- @attribute           |   links to Macro        |   attribute annotations (e.g. Python decorators, Rust lifetimes)
+  ["@attribute"] = { link = "Constant" },
   -- @attribute.builtin   |   links to Special      |   builtin annotations (e.g. Python)
   -- @property            |   links to Identifier   |   the key in key/value pairs
   --
@@ -316,6 +388,7 @@ local highlights = {
   --
   -- @punctuation.delimiter   |   links to Delimiter   |   delimiters (e.g. ;, ., ,)
   -- @punctuation.bracket     |                        |   brackets (e.g. (), {}, [])
+  ["@punctuation.bracket"] = { fg = colors.punctuation },
   -- @punctuation.special     |   links to Special     |   special symbols (e.g. {} in string interpolation)
   --
   -- @comment                 |   links to Comment           |   line and block comments
@@ -432,151 +505,3 @@ end
 -- LspReferenceWrite xxx links to LspReferenceText
 -- LspReferenceTarget xxx links to LspReferenceText
 -- LspSignatureActiveParameter xxx links to Visual
---
--- @markup.heading.1.delimiter.vimdoc xxx cterm=underdouble,nocombine gui=underdouble,nocombine guifg=bg guibg=bg guisp=fg
--- @markup.heading.2.delimiter.vimdoc xxx cterm=underline,nocombine gui=underline,nocombine guifg=bg guibg=bg guisp=fg
---
--- RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
--- RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
--- RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
---
--- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
--- NvimAssignment xxx links to Operator
--- NvimPlainAssignment xxx links to NvimAssignment
--- NvimAugmentedAssignment xxx links to NvimAssignment
--- NvimAssignmentWithAddition xxx links to NvimAugmentedAssignment
--- NvimAssignmentWithSubtraction xxx links to NvimAugmentedAssignment
--- NvimAssignmentWithConcatenation xxx links to NvimAugmentedAssignment
--- NvimOperator   xxx links to Operator
--- NvimUnaryOperator xxx links to NvimOperator
--- NvimUnaryPlus  xxx links to NvimUnaryOperator
--- NvimUnaryMinus xxx links to NvimUnaryOperator
--- NvimNot        xxx links to NvimUnaryOperator
--- NvimBinaryOperator xxx links to NvimOperator
--- NvimComparison xxx links to NvimBinaryOperator
--- NvimComparisonModifier xxx links to NvimComparison
--- NvimBinaryPlus xxx links to NvimBinaryOperator
--- NvimBinaryMinus xxx links to NvimBinaryOperator
--- NvimConcat     xxx links to NvimBinaryOperator
--- NvimConcatOrSubscript xxx links to NvimConcat
--- NvimOr         xxx links to NvimBinaryOperator
--- NvimAnd        xxx links to NvimBinaryOperator
--- NvimMultiplication xxx links to NvimBinaryOperator
--- NvimDivision   xxx links to NvimBinaryOperator
--- NvimMod        xxx links to NvimBinaryOperator
--- NvimTernary    xxx links to NvimOperator
--- NvimTernaryColon xxx links to NvimTernary
--- NvimParenthesis xxx links to Delimiter
--- NvimLambda     xxx links to NvimParenthesis
--- NvimNestingParenthesis xxx links to NvimParenthesis
--- NvimCallingParenthesis xxx links to NvimParenthesis
--- NvimSubscript  xxx links to NvimParenthesis
--- NvimSubscriptBracket xxx links to NvimSubscript
--- NvimSubscriptColon xxx links to NvimSubscript
--- NvimCurly      xxx links to NvimSubscript
--- NvimContainer  xxx links to NvimParenthesis
--- NvimDict       xxx links to NvimContainer
--- NvimList       xxx links to NvimContainer
--- NvimIdentifier xxx links to Identifier
--- NvimIdentifierScope xxx links to NvimIdentifier
--- NvimIdentifierScopeDelimiter xxx links to NvimIdentifier
--- NvimIdentifierName xxx links to NvimIdentifier
--- NvimIdentifierKey xxx links to NvimIdentifier
--- NvimColon      xxx links to Delimiter
--- NvimComma      xxx links to Delimiter
--- NvimArrow      xxx links to Delimiter
--- NvimRegister   xxx links to SpecialChar
--- NvimNumber     xxx links to Number
--- NvimFloat      xxx links to NvimNumber
--- NvimNumberPrefix xxx links to Type
--- NvimOptionSigil xxx links to Type
--- NvimOptionName xxx links to NvimIdentifier
--- NvimOptionScope xxx links to NvimIdentifierScope
--- NvimOptionScopeDelimiter xxx links to NvimIdentifierScopeDelimiter
--- NvimEnvironmentSigil xxx links to NvimOptionSigil
--- NvimEnvironmentName xxx links to NvimIdentifier
--- NvimString     xxx links to String
--- NvimStringBody xxx links to NvimString
--- NvimStringQuote xxx links to NvimString
--- NvimStringSpecial xxx links to SpecialChar
--- NvimSingleQuote xxx links to NvimStringQuote
--- NvimSingleQuotedBody xxx links to NvimStringBody
--- NvimSingleQuotedQuote xxx links to NvimStringSpecial
--- NvimDoubleQuote xxx links to NvimStringQuote
--- NvimDoubleQuotedBody xxx links to NvimStringBody
--- NvimDoubleQuotedEscape xxx links to NvimStringSpecial
--- NvimFigureBrace xxx links to NvimInternalError
--- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
--- NvimSpacing    xxx links to Normal
--- NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
--- NvimInvalid    xxx links to Error
--- NvimInvalidAssignment xxx links to NvimInvalid
--- NvimInvalidPlainAssignment xxx links to NvimInvalidAssignment
--- NvimInvalidAugmentedAssignment xxx links to NvimInvalidAssignment
--- NvimInvalidAssignmentWithAddition xxx links to NvimInvalidAugmentedAssignment
--- NvimInvalidAssignmentWithSubtraction xxx links to NvimInvalidAugmentedAssignment
--- NvimInvalidAssignmentWithConcatenation xxx links to NvimInvalidAugmentedAssignment
--- NvimInvalidOperator xxx links to NvimInvalid
--- NvimInvalidUnaryOperator xxx links to NvimInvalidOperator
--- NvimInvalidUnaryPlus xxx links to NvimInvalidUnaryOperator
--- NvimInvalidUnaryMinus xxx links to NvimInvalidUnaryOperator
--- NvimInvalidNot xxx links to NvimInvalidUnaryOperator
--- NvimInvalidBinaryOperator xxx links to NvimInvalidOperator
--- NvimInvalidComparison xxx links to NvimInvalidBinaryOperator
--- NvimInvalidComparisonModifier xxx links to NvimInvalidComparison
--- NvimInvalidBinaryPlus xxx links to NvimInvalidBinaryOperator
--- NvimInvalidBinaryMinus xxx links to NvimInvalidBinaryOperator
--- NvimInvalidConcat xxx links to NvimInvalidBinaryOperator
--- NvimInvalidConcatOrSubscript xxx links to NvimInvalidConcat
--- NvimInvalidOr  xxx links to NvimInvalidBinaryOperator
--- NvimInvalidAnd xxx links to NvimInvalidBinaryOperator
--- NvimInvalidMultiplication xxx links to NvimInvalidBinaryOperator
--- NvimInvalidDivision xxx links to NvimInvalidBinaryOperator
--- NvimInvalidMod xxx links to NvimInvalidBinaryOperator
--- NvimInvalidTernary xxx links to NvimInvalidOperator
--- NvimInvalidTernaryColon xxx links to NvimInvalidTernary
--- NvimInvalidDelimiter xxx links to NvimInvalid
--- NvimInvalidParenthesis xxx links to NvimInvalidDelimiter
--- NvimInvalidLambda xxx links to NvimInvalidParenthesis
--- NvimInvalidNestingParenthesis xxx links to NvimInvalidParenthesis
--- NvimInvalidCallingParenthesis xxx links to NvimInvalidParenthesis
--- NvimInvalidSubscript xxx links to NvimInvalidParenthesis
--- NvimInvalidSubscriptBracket xxx links to NvimInvalidSubscript
--- NvimInvalidSubscriptColon xxx links to NvimInvalidSubscript
--- NvimInvalidCurly xxx links to NvimInvalidSubscript
--- NvimInvalidContainer xxx links to NvimInvalidParenthesis
--- NvimInvalidDict xxx links to NvimInvalidContainer
--- NvimInvalidList xxx links to NvimInvalidContainer
--- NvimInvalidValue xxx links to NvimInvalid
--- NvimInvalidIdentifier xxx links to NvimInvalidValue
--- NvimInvalidIdentifierScope xxx links to NvimInvalidIdentifier
--- NvimInvalidIdentifierScopeDelimiter xxx links to NvimInvalidIdentifier
--- NvimInvalidIdentifierName xxx links to NvimInvalidIdentifier
--- NvimInvalidIdentifierKey xxx links to NvimInvalidIdentifier
--- NvimInvalidColon xxx links to NvimInvalidDelimiter
--- NvimInvalidComma xxx links to NvimInvalidDelimiter
--- NvimInvalidArrow xxx links to NvimInvalidDelimiter
--- NvimInvalidRegister xxx links to NvimInvalidValue
--- NvimInvalidNumber xxx links to NvimInvalidValue
--- NvimInvalidFloat xxx links to NvimInvalidNumber
--- NvimInvalidNumberPrefix xxx links to NvimInvalidNumber
--- NvimInvalidOptionSigil xxx links to NvimInvalidIdentifier
--- NvimInvalidOptionName xxx links to NvimInvalidIdentifier
--- NvimInvalidOptionScope xxx links to NvimInvalidIdentifierScope
--- NvimInvalidOptionScopeDelimiter xxx links to NvimInvalidIdentifierScopeDelimiter
--- NvimInvalidEnvironmentSigil xxx links to NvimInvalidOptionSigil
--- NvimInvalidEnvironmentName xxx links to NvimInvalidIdentifier
--- NvimInvalidString xxx links to NvimInvalidValue
--- NvimInvalidStringBody xxx links to NvimStringBody
--- NvimInvalidStringQuote xxx links to NvimInvalidString
--- NvimInvalidStringSpecial xxx links to NvimStringSpecial
--- NvimInvalidSingleQuote xxx links to NvimInvalidStringQuote
--- NvimInvalidSingleQuotedBody xxx links to NvimInvalidStringBody
--- NvimInvalidSingleQuotedQuote xxx links to NvimInvalidStringSpecial
--- NvimInvalidDoubleQuote xxx links to NvimInvalidStringQuote
--- NvimInvalidDoubleQuotedBody xxx links to NvimInvalidStringBody
--- NvimInvalidDoubleQuotedEscape xxx links to NvimInvalidStringSpecial
--- NvimInvalidDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
--- NvimInvalidFigureBrace xxx links to NvimInvalidDelimiter
--- NvimInvalidSpacing xxx links to ErrorMsg
--- NvimDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
