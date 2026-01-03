@@ -472,15 +472,11 @@ local highlights = {
   -- @lsp.mod.static           |                                   |   Class members (static members)
 
   -- PLUGINS
-  -- Blink Cmp
-  -- Blink Pairs
-  -- Gitsigns
-  -- Leap
-  -- Colorful Winsep
-  -- Noice
-  -- Snacks Dashboard
-  -- Snacks Indent
-  -- Snacks Notifier
+  -- gitsigns
+  -- markview
+  -- mini (files, icons, hipatterns, indentscope)
+  -- noice
+  -- snacks (picker, notifier, dashboard, statuscolumn)
 }
 
 for highlight, spec in pairs(highlights) do
