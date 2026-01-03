@@ -1,38 +1,38 @@
 local colors = {
   -- Basics
-  accent = "#00ffff",
-  foreground = "#ffffff",
-  background = "#4e4e4e",
+  accent = "#80B3B2",
+  foreground = "#C0C8D8",
+  background = "#242933",
 
   -- Modes
-  normal = "#00ffff", -- highlight
-  visual = "#0000ff",
-  insert = "#00ff00",
-  replace = "#ff0000",
-  command = "#ffff00",
-  terminal = "#ff00ff",
-  inactive = "#7f7f7f",
+  normal = "#80B3B2", -- accent
+  visual = "#5E81AC",
+  insert = "#A3BE8C",
+  replace = "#BF616A",
+  command = "#EBCB8B",
+  terminal = "#B48EAD",
+  inactive = "#4C566A",
 
   -- State
-  error = "#ff0000",
-  warn = "#ffa500",
-  success = "#00ff00",
-  info = "#00ffff",
-  hint = "#0000ff",
+  error = "#B74E58",
+  warn = "#E7C173",
+  success = "#97B67C",
+  info = "#8FBCBB",
+  hint = "#5E81AC",
 
   -- Syntax
-  fun = "#92d3d3",
-  type = "#347f7f",
-  string = "#5c945c",
-  comment = "#7f7f7f", -- inactive
-  literal = "#2c6d6d",
-  keyword = "#43a3a3",
-  variable = "#b7e1e1",
-  parameter = "#5b4bfb",
-  identifier = "#4fb8b8",
-  punctuation = "#ffbbbb", -- foreground?
+  fun = "#88C0D0",
+  type = "#EBCB8B",
+  string = "#A3BE8C",
+  comment = "#4C566A", -- inactive
+  literal = "#BE9DB8",
+  keyword = "#D08770",
+  variable = "#9FC6C5",
+  parameter = "#BE9DB8",
+  identifier = "#9FC6C5",
+  preprocessor = "#BF616A",
 
-  -- special1
+  special1 = "#81A1C1",
   -- special2
   -- special3
 }
