@@ -3,10 +3,10 @@ require("treesj").setup({
   use_default_keymaps = false,
 })
 
-vim.keymap.set("n", "<leader>t", function()
+vim.keymap.set("n", "gs", function()
   require("treesj").toggle()
 end, { desc = "Toggle node under cursor" })
 
-vim.keymap.set("n", "<leader>T", function()
+vim.keymap.set("n", "gS", function()
   require("treesj").toggle({ split = { recursive = true } })
 end, { desc = "Toggle node under cursor recursively" })

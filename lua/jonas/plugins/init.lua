@@ -1,7 +1,7 @@
 require("jonas.plugins.mini")
 -- require("jonas.plugins.snap") -- TODO: flake
 require("jonas.plugins.noice")
--- require("jonas.plugins.treesj") -- TODO: reconsider keymaps
+require("jonas.plugins.treesj")
 require("jonas.plugins.snacks")
 require("jonas.plugins.incline")
 require("jonas.plugins.conform")

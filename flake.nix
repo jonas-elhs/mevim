@@ -146,7 +146,7 @@
         mini-nvim
         # snap-nvim
         noice-nvim
-        # treesj-nvim
+        treesj-nvim
         snacks-nvim
         incline-nvim
         conform-nvim
