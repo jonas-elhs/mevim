@@ -472,11 +472,22 @@ local highlights = {
   -- @lsp.mod.static           |                                   |   Class members (static members)
 
   -- PLUGINS
-  -- gitsigns
   -- markview
-  -- mini (files, icons, hipatterns, indentscope)
-  -- noice
-  -- snacks (picker, notifier, dashboard, statuscolumn)
+  --
+  -- mini.hipatterns
+  MiniHipatternsFixme = { fg = colors.background, bg = colors.error, bold = true },
+  MiniHipatternsHack = { fg = colors.background, bg = colors.warn, bold = true },
+  MiniHipatternsTodo = { fg = colors.background, bg = colors.info, bold = true },
+  MiniHipatternsNote = { fg = colors.background, bg = colors.hint, bold = true },
+  --
+  -- mini.indentscope
+  MiniIndentScopeSymbol = { fg = colors.inactive },
+  --
+  -- snacks.dashboard
+  SnacksDashboardKey = { fg = colors.accent },
+  SnacksDashboardIcon = { fg = colors.accent },
+  SnacksDashboardDesc = { link = "Normal" },
+  SnacksDashboardHeader = { fg = colors.accent },
 }
 
 for highlight, spec in pairs(highlights) do
