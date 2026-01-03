@@ -47,22 +47,24 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   group = vim.api.nvim_create_augroup("JonasCurrentModeHighlight", { clear = true }),
   callback = function()
+    local mode_color = colors[Utils.get_current_mode_type()]
+
     vim.api.nvim_set_hl(0, "JonasCurrentMode", {
       fg = colors.background,
-      bg = Utils.get_current_mode_color(),
+      bg = mode_color,
     })
     vim.api.nvim_set_hl(0, "JonasCurrentModeBold", {
       fg = colors.background,
-      bg = Utils.get_current_mode_color(),
+      bg = mode_color,
       bold = true,
     })
 
     vim.api.nvim_set_hl(0, "JonasCurrentModeReverse", {
-      fg = Utils.get_current_mode_color(),
+      fg = mode_color,
       bg = "NONE",
     })
     vim.api.nvim_set_hl(0, "JonasCurrentModeBoldReverse", {
-      fg = Utils.get_current_mode_color(),
+      fg = mode_color,
       bg = "NONE",
       bold = true,
     })

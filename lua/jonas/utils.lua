@@ -13,19 +13,6 @@ Utils.width_more_than = function(min)
   return vim.o.columns > min
 end
 
-Utils.get_colors = function()
-  return {
-    background = "#000000",
-    foreground = "#ffffff",
-    normal = "#00ffff",
-    visual = "#0000ff",
-    insert = "#00ff00",
-    replace = "#ff0000",
-    command = "#ffff00",
-    terminal = "#ff00ff",
-    inactive = "#7f7f7f",
-  }
-end
 ---@param str string The string to remove the highlight groups from
 Utils.remove_highlight_groups_from_string = function(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")
@@ -80,9 +67,6 @@ Utils.get_current_mode_type = function()
 end
 Utils.get_current_mode_name = function()
   return Utils.mode_map[vim.api.nvim_get_mode().mode][2]
-end
-Utils.get_current_mode_color = function()
-  return Utils.get_colors()[Utils.get_current_mode_type():lower()]
 end
 
 ---@class ToggleOptions
