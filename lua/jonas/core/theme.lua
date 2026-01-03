@@ -121,7 +121,7 @@ local highlights = {
   -- StderrMsg              |   links to ErrorMsg                                                    |   Messages in stderr from shell commands.
   -- StdoutMsg              |   cleared                                                              |   Messages in stdout from shell commands.
   -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
-  -- WinSeparator = { fg = colors.inactive },
+  WinSeparator = { fg = colors.inactive },
   -- Folded                 |   guifg=NvimLightGrey4 guibg=NvimDarkGrey1                         |   Line used for closed folds.
   Folded = { bg = colors.inactive },
   -- FoldColumn             |   links to SignColumn                                                  |   'foldcolumn'
@@ -130,7 +130,7 @@ local highlights = {
   -- IncSearch              |   links to CurSearch                                                   |   'incsearch' highlighting; also used for the text replaced with ":s///c".
   -- Substitute             |   links to Search                                                      |   :substitute replacement text highlighting.
   -- LineNr                 |   guifg=NvimDarkGrey4                                                |   Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-  LineNr = { fg = colors.dark },
+  LineNr = { fg = colors.inactive },
   -- LineNrAbove            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, above the cursor line.
   -- LineNrBelow            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, below the cursor line.
   -- CursorLineNr           |   cterm=bold gui=bold                                                  |   Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
@@ -146,7 +146,7 @@ local highlights = {
   -- MoreMsg                |   ctermfg=14 guifg=NvimLightCyan                                     |   more-prompt
   MoreMsg = { fg = colors.accent },
   -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer.
-  NonText = { fg = colors.dark, italic = true },
+  NonText = { fg = colors.inactive, italic = true },
   -- Normal                 |   guifg=#e0e2ea                                                      |   Normal text.
   Normal = { fg = colors.foreground },
   -- NormalFloat            |   guibg=NvimDarkGrey1                                                |   Normal text in floating windows.
@@ -243,7 +243,7 @@ local highlights = {
   -- Repeat           |   links to Statement                                               |   for, do, while, etc.
   -- Label            |   links to Statement                                               |   case, default, etc.
   -- Operator         |   guifg=NvimLightGrey2                                           |   "sizeof", "+", "*", etc.
-  Operator = { fg = colors.foreground },
+  Operator = { link = "Normal" },
   -- Keyword          |   links to Statement                                               |   any other keyword
   -- Exception        |   links to Statement                                               |   try, catch, throw
   -- PreProc          |   guifg=NvimLightGrey2                                           |   generic Preprocessor
@@ -262,7 +262,7 @@ local highlights = {
   -- SpecialChar      |   links to Special                                                 |   special character in a constant
   -- Tag              |   links to Special                                                 |   you can use CTRL-] on this
   -- Delimiter        |   guifg=NvimLightGrey2                                           |   character that needs attention
-  Delimiter = { fg = colors.foreground },
+  Delimiter = { link = "Normal" },
   -- SpecialComment   |   links to Special                                                 |   special things inside a comment
   -- Debug            |   links to Special                                                 |   debugging statements
   -- Underlined       |   cterm=underline gui=underline                                    |   text that stands out, HTML links
@@ -370,7 +370,7 @@ local highlights = {
   -- @function.method        |                       |   method definitions
   -- @function.method.call   |                       |   method calls
   -- @constructor            |   links to Special    |   constructor calls and definitions
-  ["@constructor.lua"] = { fg = colors.foreground },
+  ["@constructor.lua"] = { link = "Normal" },
   --
   -- @operator                     |   links to Operator   |   symbolic operators (e.g. +, *)
   -- @keyword                      |   links to Keyword    |   keywords not fitting into specific categories
@@ -391,7 +391,7 @@ local highlights = {
   --
   -- @punctuation.delimiter   |   links to Delimiter   |   delimiters (e.g. ;, ., ,)
   -- @punctuation.bracket     |                        |   brackets (e.g. (), {}, [])
-  ["@punctuation.bracket"] = { fg = colors.foreground },
+  ["@punctuation.bracket"] = { link = "Normal" },
   -- @punctuation.special     |   links to Special     |   special symbols (e.g. {} in string interpolation)
   --
   -- @comment                 |   links to Comment           |   line and block comments
