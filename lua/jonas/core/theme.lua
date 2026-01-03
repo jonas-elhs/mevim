@@ -111,11 +111,11 @@ local highlights = {
   -- TermCursor             |   cterm=reverse gui=reverse                                            |   Cursor in a focused terminal.
     TermCursor = { link = "Normal" },
   -- OkMsg                  |   ctermfg=10 guifg=NvimLightGreen                                    |   Success messages.
-    OkMsg = { fg = colors.success },
+  OkMsg = { fg = colors.success },
   -- WarningMsg             |   ctermfg=11 guifg=NvimLightYellow                                   |   Warning messages.
-    WarningMsg = { fg = colors.warn },
+  WarningMsg = { fg = colors.warn },
   -- ErrorMsg               |   ctermfg=9 guifg=NvimLightRed                                       |   Error messages.
-    ErrorMsg = { fg = colors.error },
+  ErrorMsg = { fg = colors.error },
   -- StderrMsg              |   links to ErrorMsg                                                    |   Messages in stderr from shell commands.
   -- StdoutMsg              |   cleared                                                              |   Messages in stdout from shell commands.
   -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
@@ -128,7 +128,7 @@ local highlights = {
   -- IncSearch              |   links to CurSearch                                                   |   'incsearch' highlighting; also used for the text replaced with ":s///c".
   -- Substitute             |   links to Search                                                      |   :substitute replacement text highlighting.
   -- LineNr                 |   guifg=NvimDarkGrey4                                                |   Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-  LineNr = { fg = colors.background },
+  LineNr = { fg = colors.dark },
   -- LineNrAbove            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, above the cursor line.
   -- LineNrBelow            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, below the cursor line.
   -- CursorLineNr           |   cterm=bold gui=bold                                                  |   Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
@@ -144,7 +144,7 @@ local highlights = {
   -- MoreMsg                |   ctermfg=14 guifg=NvimLightCyan                                     |   more-prompt
   MoreMsg = { fg = colors.accent },
   -- NonText                |   guifg=NvimDarkGrey4                                                |   '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also hl-EndOfBuffer.
-  NonText = { fg = colors.background, italic = true },
+  NonText = { fg = colors.dark, italic = true },
   -- Normal                 |   guifg=#e0e2ea                                                      |   Normal text.
   Normal = { fg = colors.foreground },
   -- NormalFloat            |   guibg=NvimDarkGrey1                                                |   Normal text in floating windows.
@@ -199,9 +199,9 @@ local highlights = {
   -- SpellRare              |   cterm=undercurl gui=undercurl guisp=NvimLightCyan                  |   Word that is recognized by the spellchecker as one that is hardly ever used. spell Combined with the highlighting used otherwise.
     SpellRare = { link = "Normal" },
   -- StatusLine             |   cterm=reverse guifg=NvimDarkGrey3 guibg=NvimLightGrey3           |   Status line of current window.
-    StatusLine = { link = "Normal" },
+  StatusLine = {},
   -- StatusLineNC           |   cterm=bold,underline guifg=NvimLightGrey2 guibg=NvimDarkGrey4    |   Status lines of not-current windows.
-    StatusLineNC = { link = "Normal" },
+  StatusLineNC = {},
   -- StatusLineTerm         |   links to StatusLine                                                  |   Status line of terminal window.
   -- StatusLineTermNC       |   links to StatusLineNC                                                |   Status line of non-current terminal windows.
   -- TabLine                |   links to StatusLineNC                                                |   Tab pages line, not active tab page label.
@@ -241,11 +241,11 @@ local highlights = {
   -- Repeat           |   links to Statement                                               |   for, do, while, etc.
   -- Label            |   links to Statement                                               |   case, default, etc.
   -- Operator         |   guifg=NvimLightGrey2                                           |   "sizeof", "+", "*", etc.
-  Operator = { fg = colors.punctuation },
+  Operator = { fg = colors.foreground },
   -- Keyword          |   links to Statement                                               |   any other keyword
   -- Exception        |   links to Statement                                               |   try, catch, throw
   -- PreProc          |   guifg=NvimLightGrey2                                           |   generic Preprocessor
-  PreProc = { link = "Statement" },
+  PreProc = { fg = colors.preprocessor},
   -- Include          |   links to PreProc                                                 |   preprocessor #include
   -- Define           |   links to PreProc                                                 |   preprocessor #define
   -- Macro            |   links to PreProc                                                 |   same as Define
@@ -256,11 +256,11 @@ local highlights = {
   -- Structure        |   links to Type                                                    |   struct, union, enum, etc.
   -- Typedef          |   links to Type                                                    |   a typedef
   -- Special          |   ctermfg=14 guifg=NvimLightCyan                                 |   any special symbol
-    Special = { link = "Normal" },
+  Special = { fg = colors.special1 },
   -- SpecialChar      |   links to Special                                                 |   special character in a constant
   -- Tag              |   links to Special                                                 |   you can use CTRL-] on this
   -- Delimiter        |   guifg=NvimLightGrey2                                           |   character that needs attention
-  Delimiter = { fg = colors.punctuation },
+  Delimiter = { fg = colors.foreground },
   -- SpecialComment   |   links to Special                                                 |   special things inside a comment
   -- Debug            |   links to Special                                                 |   debugging statements
   -- Underlined       |   cterm=underline gui=underline                                    |   text that stands out, HTML links
@@ -270,11 +270,11 @@ local highlights = {
   -- Todo             |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Todo = { link = "Normal" },
   -- Added            |   ctermfg=10 guifg=NvimLightGreen                                |   added line in a diff
-    Added = { fg = colors.success },
+  Added = { fg = colors.success },
   -- Changed          |   ctermfg=14 guifg=NvimLightCyan                                 |   changed line in a diff
-    Changed = { fg = colors.info },
+  Changed = { fg = colors.info },
   -- Removed          |   ctermfg=9 guifg=NvimLightRed                                   |   removed line in a diff
-    Removed = { fg = colors.error },
+  Removed = { fg = colors.error },
 
   -- DIAGNOSTIC
   -- DiagnosticError   |   ctermfg=9 guifg=NvimLightRed       |   Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -368,7 +368,7 @@ local highlights = {
   -- @function.method        |                       |   method definitions
   -- @function.method.call   |                       |   method calls
   -- @constructor            |   links to Special    |   constructor calls and definitions
-  ["@constructor.lua"] = { fg = colors.punctuation },
+  ["@constructor.lua"] = { fg = colors.foreground },
   --
   -- @operator                     |   links to Operator   |   symbolic operators (e.g. +, *)
   -- @keyword                      |   links to Keyword    |   keywords not fitting into specific categories
@@ -389,7 +389,7 @@ local highlights = {
   --
   -- @punctuation.delimiter   |   links to Delimiter   |   delimiters (e.g. ;, ., ,)
   -- @punctuation.bracket     |                        |   brackets (e.g. (), {}, [])
-  ["@punctuation.bracket"] = { fg = colors.punctuation },
+  ["@punctuation.bracket"] = { fg = colors.foreground },
   -- @punctuation.special     |   links to Special     |   special symbols (e.g. {} in string interpolation)
   --
   -- @comment                 |   links to Comment           |   line and block comments
