@@ -27,7 +27,6 @@ local colors = {
   comment = "#4C566A", -- inactive
   literal = "#BE9DB8",
   keyword = "#D08770",
-  variable = "#9FC6C5",
   parameter = "#BE9DB8",
   identifier = "#9FC6C5",
   preprocessor = "#BF616A",
@@ -325,7 +324,7 @@ local highlights = {
 
   -- TREESITTER
   -- @variable                     |   guifg=NvimLightGrey2   |   various variable names
-  ["@variable"] = { fg = colors.variable },
+  ["@variable"] = { link = "Normal" },
   -- @variable.builtin             |   links to Special         |   built-in variable names (e.g. this, self)
   -- @variable.parameter           |   links to Special         |   parameters of a function
   ["@variable.parameter"] = { fg = colors.parameter },
@@ -348,7 +347,7 @@ local highlights = {
   -- @string.special.path     |                              |   filenames
   -- @string.special.url      |   links to Underlined        |   URIs (e.g. hyperlinks)
   -- @character               |   links to Character         |   character literals
-  -- @character.special       |   links to Character         |   special characters (e.g. wildcards)
+  -- @character.special       |   links to SpecialChar       |   special characters (e.g. wildcards)
   --
   -- @boolean        |   links to Boolean   |   boolean literals
   -- @number         |   links to Number    |   numeric literals
