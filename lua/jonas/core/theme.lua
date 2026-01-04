@@ -32,7 +32,7 @@ local colors = {
   identifier = "#9FC6C5",
   preprocessor = "#BF616A",
 
-  special1 = "#81A1C1",
+  special1 = "#5E81AC",
   -- special2
   -- special3
 }
