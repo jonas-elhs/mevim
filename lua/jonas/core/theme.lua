@@ -27,7 +27,6 @@ local colors = {
   comment = "#4C566A", -- inactive
   literal = "#BE9DB8",
   keyword = "#D08770",
-  parameter = "#BE9DB8",
   identifier = "#9FC6C5",
   preprocessor = "#BF616A",
 
@@ -222,7 +221,7 @@ local highlights = {
 
   -- SYNTAX
   -- Comment          |   guifg=NvimLightGrey4                                           |   any comment
-  Comment = { fg = colors.comment },
+  Comment = { fg = colors.comment, italic = true },
   -- Constant         |   guifg=NvimLightGrey2                                           |   any constant
   Constant = { fg = colors.literal },
   -- String           |   ctermfg=10 guifg=NvimLightGreen                                |   a string constant: "this is a string"
@@ -327,7 +326,6 @@ local highlights = {
   ["@variable"] = { link = "Normal" },
   -- @variable.builtin             |   links to Special         |   built-in variable names (e.g. this, self)
   -- @variable.parameter           |   links to Special         |   parameters of a function
-  ["@variable.parameter"] = { fg = colors.parameter },
   -- @variable.parameter.builtin   |                            |   special parameters (e.g. _, it)
   -- @variable.member              |                            |   object and struct fields
   -- @constant                     |   links to Constant        |   constant identifiers
