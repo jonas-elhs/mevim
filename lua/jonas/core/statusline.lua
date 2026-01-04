@@ -1,8 +1,9 @@
 -- UTILS
 local filename_overrides = {
   ["minifiles"] = "Mini Files",
-  ["snacks_picker_input"] = "Snacks Picker",
-  ["snacks_notif_history"] = "Snacks Notification History",
+  ["snacks_notif"] = "Notification",
+  ["snacks_picker_input"] = "Picker",
+  ["snacks_notif_history"] = "Notification History",
 }
 
 local function get_center_spacing(left_components, center_component)
