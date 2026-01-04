@@ -110,7 +110,6 @@
         basedpyright
         rust-analyzer
         typescript-go
-        lua-language-server
         bash-language-server
         yaml-language-server
         emmet-language-server
