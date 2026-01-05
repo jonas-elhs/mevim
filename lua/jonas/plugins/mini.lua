@@ -53,6 +53,8 @@ MiniIcons.mock_nvim_web_devicons()
 
 -- mini.surround
 require("mini.surround").setup({
+  silent = true,
+
   mappings = {
     add = "sa",
     delete = "sd",
@@ -61,8 +63,6 @@ require("mini.surround").setup({
     find_left = "",
     highlight = "",
   },
-
-  silent = true,
 })
 
 -- mini.hipatterns
@@ -77,11 +77,11 @@ require("mini.hipatterns").setup({
 
 -- mini.indentscope
 require("mini.indentscope").setup({
+  symbol = "│",
+
   options = {
     try_as_border = true,
   },
-
-  symbol = "│",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -89,6 +89,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "help",
     "snacks_notif",
+    "snacks_dashboard",
   },
   callback = function()
     vim.b.miniindentscope_disable = true
