@@ -13,6 +13,30 @@ Utils.width_more_than = function(min)
   return vim.o.columns > min
 end
 
+---@param foreground string The foreground color to highlight with
+---@param background string The background color to highlight with
+---@param name string The name to put in the highlight group
+Utils.highlight_group = function(foreground, background, name)
+  vim.api.nvim_set_hl(0, "Jonas" .. name, {
+    fg = background,
+    bg = foreground,
+  })
+  vim.api.nvim_set_hl(0, "Jonas" .. name .. "Bold", {
+    fg = background,
+    bg = foreground,
+    bold = true,
+  })
+
+  vim.api.nvim_set_hl(0, "Jonas" .. name .. "Reverse", {
+    fg = foreground,
+    bg = "NONE",
+  })
+  vim.api.nvim_set_hl(0, "Jonas" .. name .. "BoldReverse", {
+    fg = foreground,
+    bg = "NONE",
+    bold = true,
+  })
+end
 ---@param str string The string to remove the highlight groups from
 Utils.remove_highlight_groups_from_string = function(str)
   return str:gsub("%%%#[a-zA-Z_]+#", "")

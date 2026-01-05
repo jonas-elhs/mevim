@@ -35,48 +35,17 @@ local colors = {
   -- special3
 }
 
--- Transparent Background
-for group, value in pairs(vim.api.nvim_get_hl(0, {})) do
-  value.bg = "NONE"
-  vim.api.nvim_set_hl(0, group, value)
-end
-
--- Mode highlights
+-- Custom highlights
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
-  group = vim.api.nvim_create_augroup("JonasCurrentModeHighlight", { clear = true }),
+  group = vim.api.nvim_create_augroup("jonas/current_mode_highlight", { clear = true }),
   callback = function()
     local mode_color = colors[Utils.get_current_mode_type()]
 
-    vim.api.nvim_set_hl(0, "JonasCurrentMode", {
-      fg = colors.background,
-      bg = mode_color,
-    })
-    vim.api.nvim_set_hl(0, "JonasCurrentModeBold", {
-      fg = colors.background,
-      bg = mode_color,
-      bold = true,
-    })
-
-    vim.api.nvim_set_hl(0, "JonasCurrentModeReverse", {
-      fg = mode_color,
-      bg = "NONE",
-    })
-    vim.api.nvim_set_hl(0, "JonasCurrentModeBoldReverse", {
-      fg = mode_color,
-      bg = "NONE",
-      bold = true,
-    })
+    Utils.highlight_group(mode_color, colors.background, "CurrentMode")
   end,
 })
 for color_name, color in pairs(colors) do
-  vim.api.nvim_set_hl(0, "Jonas" .. color_name:gsub("^%l", string.upper), {
-    fg = colors.background,
-    bg = color,
-  })
-  vim.api.nvim_set_hl(0, "Jonas" .. color_name:gsub("^%l", string.upper) .. "Reverse", {
-    fg = color,
-    bg = "NONE",
-  })
+  Utils.highlight_group(color, colors.background, color_name:gsub("^%l", string.upper))
 end
 
 -- stylua: ignore
