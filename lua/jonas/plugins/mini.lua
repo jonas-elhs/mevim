@@ -85,7 +85,6 @@ require("mini.indentscope").setup({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  desc = "Disable mini.indentscope for certain filetypes",
   pattern = {
     "help",
     "snacks_notif",
@@ -96,7 +95,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 vim.api.nvim_create_autocmd("User", {
-  desc = "Disable mini.indentscope in snacks.dashboard",
   pattern = "SnacksDashboardOpened",
   callback = function(args)
     vim.b[args.buf].miniindentscope_disable = true
