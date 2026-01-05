@@ -77,6 +77,10 @@
       url = "github:catgoose/nvim-colorizer.lua";
       flake = false;
     };
+    plugins-colorful-winsep-nvim = {
+      url = "github:nvim-zh/colorful-winsep.nvim";
+      flake = false;
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -153,6 +157,7 @@
         markview-nvim
         live-preview-nvim
         nvim-colorizer-lua
+        colorful-winsep-nvim
         inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
       ];
     };

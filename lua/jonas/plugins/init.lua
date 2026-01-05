@@ -11,6 +11,7 @@ require("jonas.plugins.nvim-lint")
 require("jonas.plugins.live-preview")
 require("jonas.plugins.nvim-colorizer")
 require("jonas.plugins.nvim-treesitter")
+require("jonas.plugins.colorful-winsep")
 
 -- DAP
 --
