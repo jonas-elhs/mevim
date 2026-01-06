@@ -406,41 +406,50 @@ local highlights = {
   -- @tag.delimiter   |                      |   XML-style tag delimiters
 
   -- LSP
-  -- @lsp                      |   cleared                        |
-  -- @lsp.type.class           |   links to @type                 |   Identifiers that declare or reference a class type
-  -- @lsp.type.comment         |   links to @comment              |   Tokens that represent a comment
-  -- @lsp.type.decorator       |   links to @attribute            |   Identifiers that declare or reference decorators and annotations
-  -- @lsp.type.enum            |   links to @type                 |   Identifiers that declare or reference an enumeration type
-  -- @lsp.type.enumMember      |   links to @constant             |   Identifiers that declare or reference an enumeration property, constant, or member
-  -- @lsp.type.event           |   links to @type                 |   Identifiers that declare an event property
-  -- @lsp.type.function        |   links to @function             |   Identifiers that declare a function
-  -- @lsp.type.interface       |   links to @type                 |   Identifiers that declare or reference an interface type
-  -- @lsp.type.keyword         |   links to @keyword              |   Tokens that represent a language keyword
-  -- @lsp.type.macro           |   links to @constant.macro       |   Identifiers that declare a macro
-  -- @lsp.type.method          |   links to @function.method      |   Identifiers that declare a member function or method
-  -- @lsp.type.modifier        |   links to @type.qualifier       |   Tokens that represent a modifier
-  -- @lsp.type.namespace       |   links to @module               |   Identifiers that declare or reference a namespace, module, or package
-  -- @lsp.type.number          |   links to @number               |   Tokens that represent a number literal
-  -- @lsp.type.operator        |   links to @operator             |   Tokens that represent an operator
-  -- @lsp.type.parameter       |   links to @variable.parameter   |   Identifiers that declare or reference a function or method parameters
-  -- @lsp.type.property        |   links to @property             |   Identifiers that declare or reference a member property, member field, or member variable
-  -- @lsp.type.regexp          |   links to @string.regexp        |   Tokens that represent a regular expression literal
-  -- @lsp.type.string          |   links to @string               |   Tokens that represent a string literal
-  -- @lsp.type.struct          |   links to @type                 |   Identifiers that declare or reference a struct type
-  -- @lsp.type.type            |   links to @type                 |   Identifiers that declare or reference a type that is not covered above
-  -- @lsp.type.typeParameter   |   links to @type.definition      |   Identifiers that declare or reference a type parameter
-  -- @lsp.type.variable        |   links to @variable             |   Identifiers that declare or reference a local or global variable
+  -- @lsp                          |   cleared                        |
+  -- @lsp.type.class               |   links to @type                 |   Identifiers that declare or reference a class type
+  -- @lsp.type.comment             |   links to @comment              |   Tokens that represent a comment
+  -- @lsp.type.decorator           |   links to @attribute            |   Identifiers that declare or reference decorators and annotations
+  -- @lsp.type.enum                |   links to @type                 |   Identifiers that declare or reference an enumeration type
+  -- @lsp.type.enumMember          |   links to @constant             |   Identifiers that declare or reference an enumeration property, constant, or member
+  -- @lsp.type.event               |   links to @type                 |   Identifiers that declare an event property
+  -- @lsp.type.function            |   links to @function             |   Identifiers that declare a function
+  -- @lsp.type.interface           |   links to @type                 |   Identifiers that declare or reference an interface type
+  -- @lsp.type.keyword             |   links to @keyword              |   Tokens that represent a language keyword
+  -- @lsp.type.macro               |   links to @constant.macro       |   Identifiers that declare a macro
+  -- @lsp.type.method              |   links to @function.method      |   Identifiers that declare a member function or method
+  -- @lsp.type.modifier            |   links to @type.qualifier       |   Tokens that represent a modifier
+  -- @lsp.type.namespace           |   links to @module               |   Identifiers that declare or reference a namespace, module, or package
+  -- @lsp.type.number              |   links to @number               |   Tokens that represent a number literal
+  -- @lsp.type.operator            |   links to @operator             |   Tokens that represent an operator
+  -- @lsp.type.parameter           |   links to @variable.parameter   |   Identifiers that declare or reference a function or method parameters
+  -- @lsp.type.property            |   links to @property             |   Identifiers that declare or reference a member property, member field, or member variable
+  -- @lsp.type.regexp              |   links to @string.regexp        |   Tokens that represent a regular expression literal
+  -- @lsp.type.string              |   links to @string               |   Tokens that represent a string literal
+  -- @lsp.type.struct              |   links to @type                 |   Identifiers that declare or reference a struct type
+  -- @lsp.type.type                |   links to @type                 |   Identifiers that declare or reference a type that is not covered above
+  -- @lsp.type.typeParameter       |   links to @type.definition      |   Identifiers that declare or reference a type parameter
+  -- @lsp.type.variable            |   links to @variable             |   Identifiers that declare or reference a local or global variable
   --
-  -- @lsp.mod.abstract         |                                   |   Types and member functions that are abstract
-  -- @lsp.mod.async            |                                   |   Functions that are marked async
-  -- @lsp.mod.declaration      |                                   |   Declarations of symbols
-  -- @lsp.mod.defaultLibrary   |                                   |   Symbols that are part of the standard library
-  -- @lsp.mod.definition       |                                   |   Definitions of symbols, for example, in header files
-  -- @lsp.mod.deprecated       |   links to DiagnosticDeprecated   |   Symbols that should no longer be used
-  -- @lsp.mod.documentation    |                                   |   Occurrences of symbols in documentation
-  -- @lsp.mod.modification     |                                   |   Variable references where the variable is assigned to
-  -- @lsp.mod.readonly         |                                   |   Readonly variables and member fields (constants)
-  -- @lsp.mod.static           |                                   |   Class members (static members)
+  -- @lsp.mod.abstract             |                                   |   Types and member functions that are abstract
+  -- @lsp.mod.async                |                                   |   Functions that are marked async
+  -- @lsp.mod.declaration          |                                   |   Declarations of symbols
+  -- @lsp.mod.defaultLibrary       |                                   |   Symbols that are part of the standard library
+  -- @lsp.mod.definition           |                                   |   Definitions of symbols, for example, in header files
+  -- @lsp.mod.deprecated           |   links to DiagnosticDeprecated   |   Symbols that should no longer be used
+  -- @lsp.mod.documentation        |                                   |   Occurrences of symbols in documentation
+  -- @lsp.mod.modification         |                                   |   Variable references where the variable is assigned to
+  -- @lsp.mod.readonly             |                                   |   Readonly variables and member fields (constants)
+  -- @lsp.mod.static               |                                   |   Class members (static members)
+  --
+  -- LspCodeLens                   |   links to NonText
+  -- LspCodeLensSeparator          |   links to LspCodeLens
+  -- LspInlayHint                  |   links to NonText
+  -- LspReferenceRead              |   links to LspReferenceText
+  -- LspReferenceText              |   links to Visual
+  -- LspReferenceWrite             |   links to LspReferenceText
+  -- LspReferenceTarget            |   links to LspReferenceText
+  -- LspSignatureActiveParameter   |   links to Visual
 
   -- PLUGINS
   -- markview
@@ -466,25 +475,3 @@ local highlights = {
 for highlight, spec in pairs(highlights) do
   vim.api.nvim_set_hl(0, highlight, spec)
 end
-
--- MISSING
--- VertSplit      xxx links to WinSeparator
--- VisualNC       xxx cleared
--- RedrawDebugNormal xxx cterm=reverse gui=reverse
--- Normal         xxx guifg=NvimLightGrey2 guibg=NvimDarkGrey2
--- Italic         xxx cleared
--- Bold           xxx cleared
--- None           xxx cleared
---
--- @spell         xxx cleared
--- @namespace     xxx cleared
--- @nospell       xxx cleared
---
--- LspCodeLens    xxx links to NonText
--- LspCodeLensSeparator xxx links to LspCodeLens
--- LspInlayHint   xxx links to NonText
--- LspReferenceRead xxx links to LspReferenceText
--- LspReferenceText xxx links to Visual
--- LspReferenceWrite xxx links to LspReferenceText
--- LspReferenceTarget xxx links to LspReferenceText
--- LspSignatureActiveParameter xxx links to Visual
