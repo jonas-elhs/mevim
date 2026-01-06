@@ -26,11 +26,11 @@ map("i",   "<C-l>",        "<Right>",             { desc = "Move cursor right (I
 
 -- Traverse Through Errors
 map("n",   "[e",           function()
-  vim.diagnostic.jump({count = -1, severity = vim.diagnostic.severity.ERROR })
-end,                                                              { desc = "Go to previous error" })
+  vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+end,                                              { desc = "Go to previous error" })
 map("n",   "]e",           function()
-  vim.diagnostic.jump({count = 1, severity = vim.diagnostic.severity.ERROR })
-end,                                                              { desc = "Go to next error" })
+  vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+end,                                              { desc = "Go to next error" })
 
 -- Split Creation
 map("n",   "<leader>sh",   "<C-w>v",              { desc = "Split left" })
