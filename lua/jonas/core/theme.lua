@@ -233,11 +233,16 @@ local highlights = {
   -- SpecialComment   |   links to Special                                                 |   special things inside a comment
   -- Debug            |   links to Special                                                 |   debugging statements
   -- Underlined       |   cterm=underline gui=underline                                    |   text that stands out, HTML links
+  Underlined = { underline = true},
+  -- Bold             |   cleared                                                          |
+  Bold = { bold = true },
+  -- Italic           |                                                                    |
+  Italic = { italic = true },
   -- Ignore           |   links to Normal                                                  |   left blank, hidden
   -- Error            |   ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed   |   any erroneous construct
-    Error = { link = "Normal" },
+  Error = { fg = colors.background, bg = colors.error },
   -- Todo             |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Todo = { link = "Normal" },
+  Todo = { bold = true },
   -- Added            |   ctermfg=10 guifg=NvimLightGreen                                |   added line in a diff
   Added = { fg = colors.success },
   -- Changed          |   ctermfg=14 guifg=NvimLightCyan                                 |   changed line in a diff
