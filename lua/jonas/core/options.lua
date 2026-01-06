@@ -25,9 +25,8 @@ vim.o.virtualedit = "block"
 
 -- Folding
 vim.o.foldopen = "mark,quickfix,search,tag,undo"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldtext = ""
-vim.o.foldmethod = "expr"
+vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 
 -- Editor
