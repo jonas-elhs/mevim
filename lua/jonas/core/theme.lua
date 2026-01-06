@@ -464,7 +464,7 @@ local highlights = {
   MiniIndentScopeSymbol = { fg = colors.inactive },
   --
   -- snack.picker
-  SnacksPickerMatch = { fg = colors.accent },
+  SnacksPickerMatch = { link = "PmenuMatch" },
   --
   -- snacks.dashboard
   SnacksDashboardKey = { fg = colors.accent },
