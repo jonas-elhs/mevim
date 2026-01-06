@@ -459,6 +459,7 @@ local highlights = {
   MiniHipatternsTodo = { fg = colors.background, bg = colors.info, bold = true },
   MiniHipatternsNote = { fg = colors.background, bg = colors.hint, bold = true },
   MiniHipatternsFixme = { fg = colors.background, bg = colors.error, bold = true },
+  --
   -- mini.indentscope
   MiniIndentScopeSymbol = { fg = colors.inactive },
   --
