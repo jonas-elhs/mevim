@@ -449,6 +449,9 @@ local highlights = {
   -- mini.indentscope
   MiniIndentScopeSymbol = { fg = colors.inactive },
   --
+  -- snack.picker
+  SnacksPickerMatch = { fg = colors.accent },
+  --
   -- snacks.dashboard
   SnacksDashboardKey = { fg = colors.accent },
   SnacksDashboardIcon = { fg = colors.accent },
