@@ -446,11 +446,10 @@ local highlights = {
   -- markview
   --
   -- mini.hipatterns
-  MiniHipatternsFixme = { fg = colors.background, bg = colors.error, bold = true },
   MiniHipatternsHack = { fg = colors.background, bg = colors.warn, bold = true },
   MiniHipatternsTodo = { fg = colors.background, bg = colors.info, bold = true },
   MiniHipatternsNote = { fg = colors.background, bg = colors.hint, bold = true },
-  --
+  MiniHipatternsFixme = { fg = colors.background, bg = colors.error, bold = true },
   -- mini.indentscope
   MiniIndentScopeSymbol = { fg = colors.inactive },
   --

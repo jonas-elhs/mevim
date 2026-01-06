@@ -14,9 +14,9 @@ require("lint").linters_by_ft = {
   html = { "eslint_d" }, -- https://github.com/BenoitZugmeyer/eslint-plugin-html
   yaml = { "eslint_d" }, -- https://github.com/ota-meshi/eslint-plugin-yml
   json = { "eslint_d" }, -- https://github.com/eslint/json
+  svelte = { "eslint_d" }, -- https://github.com/sveltejs/eslint-plugin-svelte
   javascript = { "eslint_d" },
   typescript = { "eslint_d" },
-  svelte = { "eslint_d" }, -- https://github.com/sveltejs/eslint-plugin-svelte
 }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged" }, {

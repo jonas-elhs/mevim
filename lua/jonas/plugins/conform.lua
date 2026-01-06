@@ -15,9 +15,9 @@ require("conform").setup({
     scss = { "prettierd" },
     yaml = { "prettierd" },
     json = { "prettierd" },
+    svelte = { "prettierd" },
     javascript = { "prettierd" },
     typescript = { "prettierd" },
-    svelte = { "prettierd" },
   },
 
   format_on_save = function()
