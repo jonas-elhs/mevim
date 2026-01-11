@@ -1,3 +1,5 @@
+-- max_join_length = 9999,
+
 vim.keymap.set("n", "gs", function()
   require("treesj").toggle()
 end, { desc = "Toggle node under cursor" })
