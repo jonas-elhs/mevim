@@ -1,5 +1,6 @@
 -- LSP Setup
 local servers = {
+  ty = {},
   html = {},
   tsgo = {},
   cssls = {},
@@ -22,14 +23,6 @@ local servers = {
         nixpkgs = {
           expr = [[import (builtins.getFlake "]] .. nixCats.extra("nixdExtras.nixpkgs") .. [[") { }]],
         },
-      },
-    },
-  },
-
-  basedpyright = {
-    settings = {
-      pyright = {
-        disableOrganizeImports = true,
       },
     },
   },

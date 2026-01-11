@@ -104,10 +104,10 @@
         llvmPackages_latest.clang-tools
 
         # Language Servers
+        ty
         nixd
         hyprls
         emmylua-ls
-        basedpyright
         rust-analyzer
         typescript-go
         bash-language-server
