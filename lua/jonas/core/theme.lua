@@ -105,7 +105,7 @@ local highlights = {
   -- CursorLineFold         |   links to FoldColumn                                                  |   Like FoldColumn when 'cursorline' is set for the cursor line.
   -- CursorLineSign         |   links to SignColumn                                                  |   Like SignColumn when 'cursorline' is set for the cursor line.
   -- MatchParen             |   cterm=bold,underline gui=bold guibg=NvimDarkGrey4                  |   Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
-  MatchParen = { bold = true },
+  MatchParen = { fg = colors.accent, bold = true },
   -- ModeMsg                |   ctermfg=10 guifg=NvimLightGreen                                    |   'showmode' message (e.g., "-- INSERT --").
   ModeMsg = {},
   -- MsgArea                |   cleared                                                              |   Area for messages and command-line, see also 'cmdheight'.
