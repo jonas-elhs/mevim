@@ -75,6 +75,9 @@ require("mini.hipatterns").setup({
   },
 })
 
+-- mini.cursorword
+require("mini.cursorword").setup()
+
 -- mini.indentscope
 require("mini.indentscope").setup({
   symbol = "│",
@@ -84,19 +87,21 @@ require("mini.indentscope").setup({
   },
 })
 
+-- Disabling
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "help",
     "snacks_notif",
-    "snacks_dashboard",
   },
   callback = function()
+    vim.b.minicursorword_disable = true
     vim.b.miniindentscope_disable = true
   end,
 })
 vim.api.nvim_create_autocmd("User", {
   pattern = "SnacksDashboardOpened",
   callback = function(args)
+    vim.b[args.buf].minicursorword_disable = true
     vim.b[args.buf].miniindentscope_disable = true
   end,
 })
