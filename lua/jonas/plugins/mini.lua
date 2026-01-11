@@ -1,6 +1,14 @@
 -- mini.move
 require("mini.move").setup()
 
+-- mini.diff
+require("mini.diff").setup({
+  view = {
+    style = "sign",
+    signs = { add = "┃", change = "┃", delete = "┃" },
+  },
+})
+
 -- mini.files
 require("mini.files").setup({
   windows = {

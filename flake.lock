@@ -178,22 +178,6 @@
         "type": "github"
       }
     },
-    "plugins-gitsigns-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767288239,
-        "narHash": "sha256-UkBWSEBQGjT3JCEW+03KTPJSssqWg8bfeCtq38IghNI=",
-        "owner": "lewis6991",
-        "repo": "gitsigns.nvim",
-        "rev": "6bd29494e3f79ff08be1d35bc1926ed23c22ed9a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lewis6991",
-        "repo": "gitsigns.nvim",
-        "type": "github"
-      }
-    },
     "plugins-incline-nvim": {
       "flake": false,
       "locked": {
@@ -410,7 +394,6 @@
         "nvim-treesitter-main": "nvim-treesitter-main",
         "plugins-colorful-winsep-nvim": "plugins-colorful-winsep-nvim",
         "plugins-conform-nvim": "plugins-conform-nvim",
-        "plugins-gitsigns-nvim": "plugins-gitsigns-nvim",
         "plugins-incline-nvim": "plugins-incline-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
         "plugins-markview-nvim": "plugins-markview-nvim",

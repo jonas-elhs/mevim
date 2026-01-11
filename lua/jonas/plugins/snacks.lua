@@ -76,7 +76,7 @@ require("snacks").setup({
   statuscolumn = {
     enabled = true,
 
-    left = {},
+    left = { "git" },
     right = { "sign", "mark", "fold" },
 
     folds = {

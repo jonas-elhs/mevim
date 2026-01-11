@@ -61,10 +61,6 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
-    plugins-gitsigns-nvim = {
-      url = "github:lewis6991/gitsigns.nvim";
-      flake = false;
-    };
     plugins-markview-nvim = {
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
@@ -153,7 +149,6 @@
         snacks-nvim
         incline-nvim
         conform-nvim
-        gitsigns-nvim
         markview-nvim
         live-preview-nvim
         nvim-colorizer-lua

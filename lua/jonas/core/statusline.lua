@@ -60,20 +60,17 @@ local function mode_module()
   })
 end
 local function git_module()
-  local status = vim.b.gitsigns_status_dict
+  local diff = vim.b.minidiff_summary
 
-  if not status then
+  if not diff then
     return ""
   end
 
-  local branch = vim.b.gitsigns_head
-  branch = branch == "main" or branch == "master" and "" or "  " .. branch
+  local added = (diff.add and diff.add > 0) and ("%#Added#  " .. diff.add) or ""
+  local changed = (diff.change and diff.change > 0) and ("%#Changed#  " .. diff.change) or ""
+  local removed = (diff.delete and diff.delete > 0) and ("%#Removed#  " .. diff.delete) or ""
 
-  local added = (status.added and status.added > 0) and ("%#Added#  " .. status.added) or ""
-  local changed = (status.changed and status.changed > 0) and ("%#Changed#  " .. status.changed) or ""
-  local removed = (status.removed and status.removed > 0) and ("%#Removed#  " .. status.removed) or ""
-
-  return branch .. added .. changed .. removed .. "%#Normal#"
+  return added .. changed .. removed .. "%#Normal#"
 end
 local function file_module()
   local name = vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
