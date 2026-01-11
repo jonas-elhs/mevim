@@ -5,7 +5,7 @@ vim.o.relativenumber = true
 
 -- Scrolling
 vim.o.scrolloff = 999
-vim.o.sidescrolloff = 8
+vim.o.sidescrolloff = 999
 
 -- Searching
 vim.o.ignorecase = true
