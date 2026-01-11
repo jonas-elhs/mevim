@@ -1,6 +1,6 @@
 -- UTILS
 local filename_overrides = {
-  ["minifiles"] = "Mini Files",
+  ["minifiles"] = "Files",
   ["snacks_notif"] = "Notification",
   ["snacks_picker_input"] = "Picker",
   ["snacks_notif_history"] = "Notification History",
