@@ -20,4 +20,5 @@ require("colorful-winsep").setup({
     },
   },
 })
+
 vim.api.nvim_set_hl(0, "ColorfulWinSep", { link = "JonasCurrentModeReverse" })
