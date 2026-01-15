@@ -36,6 +36,13 @@ require("mini.files").setup({
 require("jonas.plugins.mini-files-git")
 
 vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesActionRename",
+  callback = function(event)
+    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+  end,
+})
+
+vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",
   callback = function(args)
     local buffer = args.data.buf_id
