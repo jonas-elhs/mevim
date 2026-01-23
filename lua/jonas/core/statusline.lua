@@ -59,6 +59,15 @@ local function mode_module()
     " ",
   })
 end
+local function macro_module()
+  local register = vim.fn.reg_recording()
+
+  if register == "" then
+    return ""
+  end
+
+  return " |  @" .. register
+end
 local function git_module()
   local diff = vim.b.minidiff_summary
 
@@ -129,16 +138,17 @@ local function line_module()
 end
 
 function Statusline()
-  local mode = highlight_module(mode_module())
+  local mode = mode_module()
+  local macro = macro_module()
   local git = Utils.width_more_than(120) and " " .. git_module() or ""
   local file = file_module()
   local diagnostics = Utils.width_more_than(120) and diagnostics_module() .. " " or ""
   local line = Utils.width_more_than(60) and highlight_module(line_module()) or ""
 
-  local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, git }, file) or "%="
+  local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, macro, git }, file) or "%="
   local second_space = Utils.width_more_than(60) and "%=" or ""
 
-  return mode .. git .. first_space .. file .. second_space .. diagnostics .. line
+  return highlight_module(mode .. macro) .. git .. first_space .. file .. second_space .. diagnostics .. line
 end
 
 vim.o.statusline = "%!v:lua.Statusline()"
