@@ -51,6 +51,12 @@ vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.shadafile = "NONE"
 
+-- Line Wrapping
+vim.o.wrap = false
+vim.o.showbreak = "󱞩"
+vim.o.linebreak = true
+vim.o.breakindent = true
+
 -- Disable Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
