@@ -23,7 +23,6 @@ vim.o.softtabstop = 2
 vim.o.smartindent = true
 
 -- Editing
-vim.o.undofile = true
 vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
 
@@ -46,6 +45,11 @@ vim.o.wrap = false
 vim.o.winborder = "rounded"
 vim.o.termguicolors = true
 vim.o.cursorlineopt = "number"
+
+-- Files
+vim.o.undofile = true
+vim.o.swapfile = false
+vim.o.shadafile = "NONE"
 
 -- Disable Netrw
 vim.g.loaded_netrw = 1
