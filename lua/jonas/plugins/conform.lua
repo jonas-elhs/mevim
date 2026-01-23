@@ -25,9 +25,9 @@ require("conform").setup({
   end,
 })
 
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set({ "n", "x" }, "<leader>lf", function()
   require("conform").format()
-end, { desc = "Format buffer" })
+end, { desc = "Format" })
 
 Utils.toggle({
   name = "Auto Format",
