@@ -5,15 +5,15 @@ local map = vim.keymap.set
 map("",    " ",            "<NOP>")
 
 -- Write and Quit
-map("n",   "<leader>w",    "<CMD>write<CR>",              { desc = "Write buffer" })
-map("n",   "<leader>W",    "<CMD>write!<CR>",             { desc = "Force write buffer" })
-map("n",   "<leader>q",    "<CMD>quitall<CR>",            { desc = "Quit neovim" })
-map("n",   "<leader>Q",    "<CMD>quitall!<CR>",           { desc = "Force quit neovim" })
+map("n",   "<leader>w",    "<CMD>write<CR>",              { desc = "Write" })
+map("n",   "<leader>W",    "<CMD>write!<CR>",             { desc = "Force write" })
+map("n",   "<leader>q",    "<CMD>quitall<CR>",            { desc = "Quit" })
+map("n",   "<leader>Q",    "<CMD>quitall!<CR>",           { desc = "Force quit" })
 
 -- Utilities
 map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
-map("n",   "U",            "<C-r>",                       { desc = "Redo previously undone changes" })
-map("n",   "x",            "\"_x",                        { desc = "Delete character under cursor" })
+map("n",   "U",            "<C-r>",                       { desc = "Redo" })
+map("n",   "x",            "\"_x",                        { desc = "Delete character" })
 map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
 
 -- LSP
@@ -26,10 +26,10 @@ map("n",   "<leader>lt",   vim.lsp.buf.type_definition,   { desc = "Type Definti
 map("n",   "<leader>lD",   vim.diagnostic.open_float,     { desc = "Diagnostic popup" })
 
 -- Insert Mode Cursor Movement
-map("i",   "<C-h>",        "<Left>",                      { desc = "Move cursor left (Insert Mode)" })
-map("i",   "<C-j>",        "<Down>",                      { desc = "Move cursor down (Insert Mode)" })
-map("i",   "<C-k>",        "<Up>",                        { desc = "Move cursor up (Insert Mode)" })
-map("i",   "<C-l>",        "<Right>",                     { desc = "Move cursor right (Insert Mode)" })
+map("i",   "<C-h>",        "<Left>",                      { desc = "Left (Insert Mode)" })
+map("i",   "<C-j>",        "<Down>",                      { desc = "Down (Insert Mode)" })
+map("i",   "<C-k>",        "<Up>",                        { desc = "Up (Insert Mode)" })
+map("i",   "<C-l>",        "<Right>",                     { desc = "Right (Insert Mode)" })
 
 -- Split Creation
 map("n",   "<leader>sh",   "<C-w>v",                      { desc = "Split left" })
@@ -39,10 +39,10 @@ map("n",   "<leader>sl",   "<C-w>v<C-w>l",                { desc = "Split right"
 map("n",   "<leader>sx",   "<C-w>c",                      { desc = "Exit split" })
 
 -- Split Movement
-map("n",   "<C-h>",        "<C-w>h",                      { desc = "Focus split left" })
-map("n",   "<C-j>",        "<C-w>j",                      { desc = "Focus split below" })
-map("n",   "<C-k>",        "<C-w>k",                      { desc = "Focus split above" })
-map("n",   "<C-l>",        "<C-w>l",                      { desc = "Focus split right" })
+map("n",   "<C-h>",        "<C-w>h",                      { desc = "Focus left split" })
+map("n",   "<C-j>",        "<C-w>j",                      { desc = "Focus below split" })
+map("n",   "<C-k>",        "<C-w>k",                      { desc = "Focus above split" })
+map("n",   "<C-l>",        "<C-w>l",                      { desc = "Focus right split" })
 
 -- Split Sizing
 map("n",   "<C-Left>",     "<C-w><",                      { desc = "Decrease split width" })
