@@ -180,7 +180,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Inlay Hints
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable()
+
+-- Linked Editing Range
+vim.lsp.linked_editing_range.enable()
 
 -- Path Completion
 vim.lsp.config("path-completion-ls", {
