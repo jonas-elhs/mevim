@@ -41,6 +41,10 @@
       url = "github:mistweaverco/snap.nvim";
       flake = false;
     };
+    plugins-leap-nvim = {
+      url = "git+https://codeberg.org/andyg/leap.nvim";
+      flake = false;
+    };
     plugins-noice-nvim = {
       url = "github:folke/noice.nvim";
       flake = false;
@@ -144,6 +148,7 @@
         nvim-lint
         mini-nvim
         # snap-nvim
+        leap-nvim
         noice-nvim
         treesj-nvim
         snacks-nvim

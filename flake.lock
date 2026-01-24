@@ -194,6 +194,22 @@
         "type": "github"
       }
     },
+    "plugins-leap-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768638615,
+        "narHash": "sha256-XPlcmTzWZA70yzXAPT9wnjpDoHLfYK2u4YXfn3C2tcY=",
+        "ref": "refs/heads/main",
+        "rev": "819388c5546548016b0dab9a72a42aa5a40bf35d",
+        "revCount": 691,
+        "type": "git",
+        "url": "https://codeberg.org/andyg/leap.nvim"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/andyg/leap.nvim"
+      }
+    },
     "plugins-live-preview-nvim": {
       "flake": false,
       "locked": {
@@ -395,6 +411,7 @@
         "plugins-colorful-winsep-nvim": "plugins-colorful-winsep-nvim",
         "plugins-conform-nvim": "plugins-conform-nvim",
         "plugins-incline-nvim": "plugins-incline-nvim",
+        "plugins-leap-nvim": "plugins-leap-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
         "plugins-markview-nvim": "plugins-markview-nvim",
         "plugins-mini-nvim": "plugins-mini-nvim",

@@ -57,7 +57,7 @@ local highlights = {
   -- Conceal                |   guifg=NvimDarkGrey4                                                |   Placeholder characters substituted for concealed text (see 'conceallevel').
     Conceal = { link = "Normal" },
   -- CurSearch              |   ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow   |   Current match for the last search pattern (see 'hlsearch').
-  CurSearch = { fg = colors.background, bg = colors.accent, italic = true },
+  CurSearch = { fg = colors.background, bg = colors.command, italic = true },
   -- Cursor                 |   guifg=bg guibg=fg                                                    |   Character under the cursor.
   -- lCursor                |   guifg=bg guibg=fg                                                    |   Character under the cursor when language-mapping is used (see 'guicursor').
   -- CursorIM               |   links to Cursor                                                      |   Like Cursor, but used when in IME mode.
@@ -154,7 +154,7 @@ local highlights = {
   -- QuickFixLine           |   ctermfg=14 guifg=NvimLightCyan                                     |   Current quickfix item in the quickfix window. Combined with hl-CursorLine when the cursor is there.
     QuickFixLine = { link = "Normal" },
   -- Search                 |   ctermfg=0 ctermbg=11 guifg=NvimLightGrey1 guibg=NvimDarkYellow   |   Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-  Search = { fg = colors.accent, italic = true },
+  Search = { fg = colors.command, italic = true },
   -- SnippetTabstop         |   links to Visual                                                      |   Tabstops in snippets. vim.snippet
   -- SnippetTabstopActive   |   links to SnippetTabstop                                              |   The currently active tabstop. vim.snippet
   -- SpecialKey             |   guifg=NvimDarkGrey4                                                |   Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. hl-Whitespace
