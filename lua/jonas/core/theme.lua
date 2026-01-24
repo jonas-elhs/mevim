@@ -491,6 +491,9 @@ local highlights = {
   SnacksDashboardIcon = { fg = colors.accent },
   SnacksDashboardDesc = { link = "Normal" },
   SnacksDashboardHeader = { fg = colors.accent },
+  --
+  -- colorful-winsep
+  ColorfulWinSep = { link = "JonasCurrentMode" },
 }
 
 for highlight, spec in pairs(highlights) do
