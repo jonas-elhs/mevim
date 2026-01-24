@@ -30,8 +30,8 @@ local function get_center_spacing(left_components, center_component)
   return string.rep(" ", space_count)
 end
 local function highlight_module(content)
-  local separator_highlight = "%#JonasCurrentModeReverse#"
-  local content_highlight = "%#JonasCurrentMode#"
+  local separator_highlight = "%#JonasCurrentMode#"
+  local content_highlight = "%#JonasCurrentModeReverse#"
 
   return table.concat({
     separator_highlight,

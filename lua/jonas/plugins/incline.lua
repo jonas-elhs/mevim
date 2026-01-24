@@ -19,8 +19,8 @@ require("incline").setup({
   render = function(props)
     local focused = props.focused
 
-    local content_highlight = focused and "JonasCurrentMode" or "JonasInactive"
-    local separator_highlight = content_highlight .. "Reverse"
+    local separator_highlight = focused and "JonasCurrentMode" or "JonasInactive"
+    local content_highlight = separator_highlight .. "Reverse"
 
     local modified = vim.bo[props.buf].modified
     local read_only = not vim.bo[props.buf].modifiable or vim.bo[props.buf].readonly

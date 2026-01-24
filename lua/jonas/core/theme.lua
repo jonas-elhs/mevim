@@ -31,22 +31,42 @@ local colors = {
   preprocessor = "#BF616A",
 
   special1 = "#5E81AC",
-  -- special2
-  -- special3
 }
 
--- Custom highlights
+-- Current Mode Highlight
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   group = vim.api.nvim_create_augroup("jonas/current_mode_highlight", { clear = true }),
   callback = function()
     local mode_color = colors[Utils.get_current_mode_type()]
 
-    Utils.highlight_group(mode_color, colors.background, "CurrentMode")
+    vim.api.nvim_set_hl(0, "JonasCurrentMode", {
+      fg = mode_color,
+      bg = "NONE",
+    })
+    vim.api.nvim_set_hl(0, "JonasCurrentModeBold", {
+      fg = mode_color,
+      bg = "NONE",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "JonasCurrentModeReverse", {
+      fg = colors.background,
+      bg = mode_color,
+    })
+    vim.api.nvim_set_hl(0, "JonasCurrentModeBoldReverse", {
+      fg = colors.background,
+      bg = mode_color,
+      bold = true,
+    })
   end,
 })
-for color_name, color in pairs(colors) do
-  Utils.highlight_group(color, colors.background, color_name:gsub("^%l", string.upper))
-end
+vim.api.nvim_set_hl(0, "JonasInactive", {
+  fg = colors.inactive,
+  bg = "NONE",
+})
+vim.api.nvim_set_hl(0, "JonasInactiveReverse", {
+  fg = colors.background,
+  bg = colors.inactive,
+})
 
 -- stylua: ignore
 -- Highlight Groups (https://neovim.io/doc/user/syntax.html#_13.-highlight-command)
@@ -101,7 +121,7 @@ local highlights = {
   -- LineNrAbove            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, above the cursor line.
   -- LineNrBelow            |   links to LineNr                                                      |   Line number for when the 'relativenumber' option is set, below the cursor line.
   -- CursorLineNr           |   cterm=bold gui=bold                                                  |   Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
-  CursorLineNr = { link = "JonasCurrentModeBoldReverse" },
+  CursorLineNr = { link = "JonasCurrentModeBold" },
   -- CursorLineFold         |   links to FoldColumn                                                  |   Like FoldColumn when 'cursorline' is set for the cursor line.
   -- CursorLineSign         |   links to SignColumn                                                  |   Like SignColumn when 'cursorline' is set for the cursor line.
   -- MatchParen             |   cterm=bold,underline gui=bold guibg=NvimDarkGrey4                  |   Character under the cursor or just before it, if it is a paired bracket, and its match. pi_paren.txt
