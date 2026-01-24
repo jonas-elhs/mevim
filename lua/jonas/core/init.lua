@@ -1,3 +1,7 @@
+-- Leader Key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("jonas.core.lsp")
 require("jonas.core.theme")
 require("jonas.core.options")

@@ -1,7 +1,3 @@
--- Leader Key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Columns
 vim.o.number = true
 vim.o.signcolumn = "yes"
