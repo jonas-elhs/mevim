@@ -101,6 +101,9 @@ end, { desc = "Search buffers" })
 vim.keymap.set("n", "<leader>sr", function()
   Snacks.picker.resume()
 end, { desc = "Resume search" })
+vim.keymap.set("n", "<leader>sk", function()
+  Snacks.picker.keymaps()
+end, { desc = "Search keymaps" })
 
 -- BufDelete
 vim.keymap.set("n", "<leader>x", function()
@@ -119,6 +122,9 @@ end, { desc = "Open LazyGit" })
 vim.keymap.set("n", "<leader>m", function()
   Snacks.notifier.show_history()
 end, { desc = "Show notification history" })
+vim.keymap.set("n", "<leader>n", function()
+  Snacks.notifier.hide()
+end, { desc = "Dismiss all notifications" })
 
 -- Explorer
 vim.keymap.set("n", "<leader><leader>", function()
