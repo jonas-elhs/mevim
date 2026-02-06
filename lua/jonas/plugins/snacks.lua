@@ -101,9 +101,9 @@ end, { desc = "Search buffers" })
 vim.keymap.set("n", "<leader>sr", function()
   Snacks.picker.resume()
 end, { desc = "Resume search" })
-vim.keymap.set("n", "<leader>sk", function()
+vim.keymap.set("n", "<leader>sm", function()
   Snacks.picker.keymaps()
-end, { desc = "Search keymaps" })
+end, { desc = "Search mappings" })
 
 -- BufDelete
 vim.keymap.set("n", "<leader>x", function()
