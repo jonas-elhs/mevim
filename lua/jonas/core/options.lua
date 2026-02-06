@@ -19,7 +19,6 @@ vim.o.softtabstop = 2
 vim.o.smartindent = true
 
 -- Editing
-vim.o.clipboard = "unnamedplus"
 vim.o.virtualedit = "block"
 
 -- Folding

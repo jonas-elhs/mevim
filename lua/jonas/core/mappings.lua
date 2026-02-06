@@ -10,6 +10,14 @@ map("n",   "<leader>W",    "<CMD>write!<CR>",             { desc = "Force write"
 map("n",   "<leader>q",    "<CMD>quitall<CR>",            { desc = "Quit" })
 map("n",   "<leader>Q",    "<CMD>quitall!<CR>",           { desc = "Force quit" })
 
+-- Yank, Delete And Paste System Clipboard
+map({ "n", "x" },   "<leader>p",    "\"+p",               { desc = "Paste from clipboard" })
+map({ "n", "x" },   "<leader>P",    "\"+P",               { desc = "Paste from clipboard" })
+map({ "n", "x" },   "<leader>y",    "\"+y",               { desc = "Yank to clipboard" })
+map({ "n", "x" },   "<leader>Y",    "\"+Y",               { desc = "Yank to clipboard" })
+map({ "n", "x" },   "<leader>d",    "\"+d",               { desc = "Cut to clipboard" })
+map({ "n", "x" },   "<leader>D",    "\"+D",               { desc = "Cut to clipboard" })
+
 -- Utilities
 map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
 map("n",   "U",            "<C-r>",                       { desc = "Redo" })
