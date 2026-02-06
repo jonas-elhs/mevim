@@ -6,4 +6,5 @@ if vim.env.PROF then
   })
 end
 
+vim.opt.rtp:append("~/.config/nvim-colors")
 require("jonas")
