@@ -5,7 +5,6 @@ local colors = {
   background = "#242933",
 
   -- Modes
-  normal = "#80B3B2", -- accent
   visual = "#5E81AC",
   insert = "#A3BE8C",
   replace = "#BF616A",
@@ -24,20 +23,19 @@ local colors = {
   fun = "#88C0D0",
   type = "#EBCB8B",
   string = "#A3BE8C",
-  comment = "#4C566A", -- inactive
   literal = "#BE9DB8",
   keyword = "#D08770",
   identifier = "#9FC6C5",
   preprocessor = "#BF616A",
 
-  special1 = "#5E81AC",
+  special = "#5E81AC",
 }
 
 -- Current Mode Highlight
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   group = vim.api.nvim_create_augroup("jonas/current_mode_highlight", { clear = true }),
   callback = function()
-    local mode_color = colors[Utils.get_current_mode_type()]
+    local mode_color = colors[Utils.get_current_mode_type()] or colors.accent
 
     vim.api.nvim_set_hl(0, "JonasCurrentMode", {
       fg = mode_color,
@@ -210,7 +208,7 @@ local highlights = {
 
   -- SYNTAX
   -- Comment          |   guifg=NvimLightGrey4                                           |   any comment
-  Comment = { fg = colors.comment, italic = true },
+  Comment = { fg = colors.inactive, italic = true },
   -- Constant         |   guifg=NvimLightGrey2                                           |   any constant
   Constant = { fg = colors.literal },
   -- String           |   ctermfg=10 guifg=NvimLightGreen                                |   a string constant: "this is a string"
@@ -245,7 +243,7 @@ local highlights = {
   -- Structure        |   links to Type                                                    |   struct, union, enum, etc.
   -- Typedef          |   links to Type                                                    |   a typedef
   -- Special          |   ctermfg=14 guifg=NvimLightCyan                                 |   any special symbol
-  Special = { fg = colors.special1 },
+  Special = { fg = colors.special },
   -- SpecialChar      |   links to Special                                                 |   special character in a constant
   -- Tag              |   links to Special                                                 |   you can use CTRL-] on this
   -- Delimiter        |   guifg=NvimLightGrey2                                           |   character that needs attention
