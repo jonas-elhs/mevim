@@ -3,6 +3,7 @@ local servers = {
   ty = {},
   html = {},
   tsgo = {},
+  tombi = {},
   cssls = {},
   qmlls = {},
   bashls = {},

@@ -110,6 +110,7 @@
         # Language Servers
         ty
         nixd
+        tombi
         hyprls
         emmylua-ls
         rust-analyzer

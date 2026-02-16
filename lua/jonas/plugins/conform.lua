@@ -5,6 +5,7 @@ require("conform").setup({
     nix = { "alejandra" },
     qml = { "qmlformat" },
     rust = { "rustfmt" },
+    toml = { "tombi" },
     python = { "ruff_organize_imports", "ruff_format" },
 
     c = { "clang-format" },
