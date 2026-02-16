@@ -59,21 +59,6 @@
         "type": "github"
       }
     },
-    "nixCats": {
-      "locked": {
-        "lastModified": 1770584904,
-        "narHash": "sha256-9Zaz8lbKF2W9pwXZEnbiGsicHdBoU+dHt3Wv3mCJoZ8=",
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
-        "rev": "538fdde784d2909700d97a8ef307783b33a86fb1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1771177547,
@@ -314,22 +299,6 @@
         "type": "github"
       }
     },
-    "plugins-snap-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1768233937,
-        "narHash": "sha256-yp5ZEo1iwPcCGXLEzPyGKP59k+HUo9oFCGAfl4cv7+E=",
-        "owner": "mistweaverco",
-        "repo": "snap.nvim",
-        "rev": "2dfa910160552e8906875c2bade099bc972658ac",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mistweaverco",
-        "repo": "snap.nvim",
-        "type": "github"
-      }
-    },
     "plugins-treesj-nvim": {
       "flake": false,
       "locked": {
@@ -349,7 +318,6 @@
     "root": {
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-colorful-winsep-nvim": "plugins-colorful-winsep-nvim",
         "plugins-conform-nvim": "plugins-conform-nvim",
@@ -365,8 +333,28 @@
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-snacks-nvim": "plugins-snacks-nvim",
-        "plugins-snap-nvim": "plugins-snap-nvim",
-        "plugins-treesj-nvim": "plugins-treesj-nvim"
+        "plugins-treesj-nvim": "plugins-treesj-nvim",
+        "wrappers": "wrappers"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771192657,
+        "narHash": "sha256-Ibv5WEXiwr6gIEOajD4QE93TYpXUhEYv1VZV8sdU3IQ=",
+        "owner": "BirdeeHub",
+        "repo": "nix-wrapper-modules",
+        "rev": "8ba8703b62c2cc7e642f58ff03bd14a2f836e07a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nix-wrapper-modules",
+        "type": "github"
       }
     }
   },

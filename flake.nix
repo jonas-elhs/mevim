@@ -3,9 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    # Flakes
+    wrappers = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +34,6 @@
     };
     plugins-nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
-      flake = false;
-    };
-    plugins-snap-nvim = {
-      url = "github:mistweaverco/snap.nvim";
       flake = false;
     };
     plugins-leap-nvim = {
@@ -79,186 +78,44 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    inherit (inputs.nixCats) utils;
-    luaPath = ./.;
-    forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
+  outputs = {
+    self,
+    nixpkgs,
+    wrappers,
+    ...
+  } @ inputs: let
+    module = nixpkgs.lib.modules.importApply ./module.nix inputs;
+    wrapper = wrappers.lib.evalModule module;
 
-    extra_pkg_config = {};
-
-    dependencyOverlays = [
-      (utils.standardPluginOverlay inputs)
-    ];
-
-    categoryDefinitions = {pkgs, ...}: {
-      lspsAndRuntimeDeps.all = with pkgs; [
-        # Runtime Dependencys
-        fd
-        fzf
-        lazygit
-        ripgrep
-        stdenv.cc.cc
-
-        # Bundles
-        kdePackages.qtdeclarative
-        llvmPackages_latest.clang-tools
-
-        # Language Servers
-        ty
-        nixd
-        tombi
-        hyprls
-        emmylua-ls
-        rust-analyzer
-        typescript-go
-        bash-language-server
-        yaml-language-server
-        emmet-language-server
-        svelte-language-server
-        tailwindcss-language-server
-        vscode-langservers-extracted
-
-        # Formatters
-        ruff
-        shfmt
-        stylua
-        rustfmt
-        alejandra
-        prettierd
-
-        # Linters
-        # ruff
-        statix
-        selene
-        clippy
-        cppcheck
-        eslint_d
-        stylelint
-        shellcheck
-      ];
-
-      startupPlugins.all = with pkgs.neovimPlugins; [
-        nui-nvim
-        plenary-nvim
-        nvim-lspconfig
-
-        nvim-lint
-        mini-nvim
-        # snap-nvim
-        leap-nvim
-        noice-nvim
-        treesj-nvim
-        snacks-nvim
-        incline-nvim
-        conform-nvim
-        markview-nvim
-        live-preview-nvim
-        nvim-colorizer-lua
-        colorful-winsep-nvim
-        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      ];
+    eachSystem = f:
+      nixpkgs.lib.genAttrs nixpkgs.lib.platforms.all
+      (system: f nixpkgs.legacyPackages.${system});
+  in {
+    overlays = {
+      neovim = final: prev: {neovim = wrapper.config.wrap {pkgs = final;};};
+      default = self.overlays.neovim;
     };
 
-    packageDefinitions = {
-      nvim = {pkgs, ...}: {
-        categories = {
-          all = true;
-        };
-
-        settings = {
-          wrapRc = true;
-          configDirName = "nixCats-nvim";
-          aliases = [];
-
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
-        };
-
-        extra = {
-          nixdExtras = {inherit nixpkgs;};
-        };
-      };
-
-      regularCats = {pkgs, ...}: {
-        categories = {
-          all = true;
-        };
-
-        settings = {
-          wrapRc = false;
-          configDirName = "nixCats-nvim";
-          aliases = [];
-
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
-        };
-
-        extra = {
-          nixdExtras = {inherit nixpkgs;};
-        };
-      };
+    wrapperModules = {
+      neovim = module;
+      default = self.wrapperModules.neovim;
     };
 
-    defaultPackageName = "nvim";
-  in
-    forEachSystem (system: let
-      nixCatsBuilder =
-        utils.baseBuilder luaPath {
-          inherit nixpkgs system dependencyOverlays extra_pkg_config;
-        }
-        categoryDefinitions
-        packageDefinitions;
-      defaultPackage = nixCatsBuilder defaultPackageName;
-      pkgs = import nixpkgs {inherit system;};
-    in {
-      packages = utils.mkAllWithDefault defaultPackage;
+    wrappers = {
+      neovim = wrapper.config;
+      default = self.wrappers.neovim;
+    };
 
-      devShells = {
-        default = pkgs.mkShell {
-          name = defaultPackageName;
-          packages = [defaultPackage];
-          inputsFrom = [];
-          shellHook = ''
-          '';
+    packages = eachSystem (
+      pkgs: {
+        neovim = wrapper.config.wrap {inherit pkgs;};
+        dynamic = wrapper.config.wrap {
+          inherit pkgs;
+          settings.dynamic = true;
         };
-      };
-    })
-    // (let
-      nixosModule = utils.mkNixosModules {
-        moduleNamespace = [defaultPackageName];
-        inherit
-          defaultPackageName
-          dependencyOverlays
-          luaPath
-          categoryDefinitions
-          packageDefinitions
-          extra_pkg_config
-          nixpkgs
-          ;
-      };
-      homeModule = utils.mkHomeModules {
-        moduleNamespace = [defaultPackageName];
-        inherit
-          defaultPackageName
-          dependencyOverlays
-          luaPath
-          categoryDefinitions
-          packageDefinitions
-          extra_pkg_config
-          nixpkgs
-          ;
-      };
-    in {
-      overlays =
-        utils.makeOverlays luaPath {
-          inherit nixpkgs dependencyOverlays extra_pkg_config;
-        }
-        categoryDefinitions
-        packageDefinitions
-        defaultPackageName;
 
-      nixosModules.default = nixosModule;
-      homeModules.default = homeModule;
-
-      inherit utils nixosModule homeModule;
-      inherit (utils) templates;
-    });
+        default = self.packages.${pkgs.stdenv.system}.neovim;
+      }
+    );
+  };
 }

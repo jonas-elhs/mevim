@@ -22,7 +22,7 @@ local servers = {
     settings = {
       nixd = {
         nixpkgs = {
-          expr = [[import (builtins.getFlake "]] .. nixCats.extra("nixdExtras.nixpkgs") .. [[") { }]],
+          -- expr = [[import (builtins.getFlake "]] .. nixCats.extra("nixdExtras.nixpkgs") .. [[") { }]],
         },
       },
     },
