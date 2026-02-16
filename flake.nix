@@ -10,10 +10,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim-treesitter-main = {
-      url = "github:iofq/nvim-treesitter-main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Plugins
     plugins-nui-nvim = {
@@ -159,7 +155,7 @@
         live-preview-nvim
         nvim-colorizer-lua
         colorful-winsep-nvim
-        inputs.nvim-treesitter-main.packages.${pkgs.stdenv.hostPlatform.system}.nvim-treesitter.withAllGrammars
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       ];
     };
 
