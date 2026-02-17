@@ -33,8 +33,6 @@ require("mini.files").setup({
   },
 })
 
-require("jonas.plugins.mini-files-git")
-
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesActionRename",
   callback = function(event)
