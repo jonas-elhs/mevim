@@ -26,12 +26,8 @@ map("x",   "p",            "\"_p",                        { desc = "Overpaste se
 
 -- LSP
 map("n",   "<leader>lr",   vim.lsp.buf.rename,            { desc = "Rename" })
-map("n",   "<leader>lR",   vim.lsp.buf.references,        { desc = "References" })
-map("n",   "<leader>ld",   vim.lsp.buf.definition,        { desc = "Definition" })
 map("n",   "<leader>la",   vim.lsp.buf.code_action,       { desc = "Code Actions" })
-map("n",   "<leader>li",   vim.lsp.buf.implementation,    { desc = "Implementation" })
-map("n",   "<leader>lt",   vim.lsp.buf.type_definition,   { desc = "Type Defintion" })
-map("n",   "<leader>lD",   vim.diagnostic.open_float,     { desc = "Diagnostic popup" })
+map("n",   "<leader>ld",   vim.diagnostic.open_float,     { desc = "Diagnostic popup" })
 
 -- Insert Mode Cursor Movement
 map("i",   "<C-h>",        "<Left>",                      { desc = "Left (Insert Mode)" })

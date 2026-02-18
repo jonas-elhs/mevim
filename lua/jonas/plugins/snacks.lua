@@ -86,47 +86,33 @@ require("snacks").setup({
 })
 
 -- Picker
-vim.keymap.set("n", "<leader>sf", function()
-  Snacks.picker.files()
-end, { desc = "Search files" })
-vim.keymap.set("n", "<leader>sg", function()
-  Snacks.picker.grep()
-end, { desc = "Search text" })
-vim.keymap.set("n", "<leader>sc", function()
-  Snacks.picker.grep_word()
-end, { desc = "Search word under cursor" })
-vim.keymap.set("n", "<leader>sb", function()
-  Snacks.picker.buffers()
-end, { desc = "Search buffers" })
-vim.keymap.set("n", "<leader>sr", function()
-  Snacks.picker.resume()
-end, { desc = "Resume search" })
-vim.keymap.set("n", "<leader>sm", function()
-  Snacks.picker.keymaps()
-end, { desc = "Search mappings" })
+local map = vim.keymap.set
+
+map("n", "<leader>sg", Snacks.picker.grep, { desc = "Search text" })
+map("n", "<leader>sf", Snacks.picker.files, { desc = "Search files" })
+map("n", "<leader>sr", Snacks.picker.resume, { desc = "Resume search" })
+map("n", "<leader>sm", Snacks.picker.keymaps, { desc = "Search mappings" })
+map("n", "<leader>sb", Snacks.picker.buffers, { desc = "Search buffers" })
+map("n", "<leader>sc", Snacks.picker.grep_word, { desc = "Search word under cursor" })
+
+map("n", "gr", Snacks.picker.lsp_references, { desc = "LSP references" })
+map("n", "gd", Snacks.picker.lsp_definitions, { desc = "LSP definitions" })
+map("n", "gi", Snacks.picker.lsp_implementations, { desc = "LSP implementations" })
+map("n", "gt", Snacks.picker.lsp_type_definitions, { desc = "LSP type definitions" })
+map("n", "<leader>ls", Snacks.picker.lsp_symbols, { desc = "LSP symbols" })
 
 -- BufDelete
-vim.keymap.set("n", "<leader>x", function()
-  Snacks.bufdelete.delete()
-end, { desc = "Exit open buffer" })
-vim.keymap.set("n", "<leader>X", function()
+map("n", "<leader>x", Snacks.bufdelete.delete, { desc = "Exit open buffer" })
+map("n", "<leader>X", function()
   Snacks.bufdelete.delete({ force = true })
 end, { desc = "Force exit open buffer" })
 
 -- LazyGit
-vim.keymap.set("n", "<leader>g", function()
-  Snacks.lazygit.open()
-end, { desc = "Open LazyGit" })
+map("n", "<leader>g", Snacks.lazygit.open, { desc = "Open LazyGit" })
 
 -- Notifier
-vim.keymap.set("n", "<leader>m", function()
-  Snacks.notifier.show_history()
-end, { desc = "Show notification history" })
-vim.keymap.set("n", "<leader>n", function()
-  Snacks.notifier.hide()
-end, { desc = "Dismiss all notifications" })
+map("n", "<leader>n", Snacks.notifier.hide, { desc = "Dismiss all notifications" })
+map("n", "<leader>m", Snacks.notifier.show_history, { desc = "Show notification history" })
 
 -- Explorer
-vim.keymap.set("n", "<leader><leader>", function()
-  Snacks.explorer.open()
-end)
+map("n", "<leader><leader>", Snacks.explorer.open)
