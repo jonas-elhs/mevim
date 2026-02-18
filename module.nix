@@ -73,7 +73,7 @@ in {
       markview-nvim
       live-preview-nvim
       nvim-colorizer-lua
-      # colorful-winsep-nvim
+      colorful-winsep-nvim
     ];
 
     extraPackages = with pkgs; [

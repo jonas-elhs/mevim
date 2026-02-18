@@ -2,10 +2,6 @@ require("colorful-winsep").setup({
   border = "rounded",
   animate = {
     enabled = "progressive",
-    progressive = {
-      vertical_delay = 10,
-      horizontal_delay = 1,
-    },
   },
   indicator_for_2wins = {
     symbols = {
