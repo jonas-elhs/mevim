@@ -1,3 +1,31 @@
+---@param colors {
+---  accent: string,
+---  inactive: string,
+---  background: string,
+---  foreground: string,
+---  background_light: string,
+---
+---  visual: string,
+---  insert: string,
+---  replace: string,
+---  command: string,
+---  terminal: string,
+---
+---  warn: string,
+---  info: string,
+---  hint: string,
+---  error: string,
+---  success: string,
+---  special: string,
+---
+---  fun: string,
+---  type: string,
+---  string: string,
+---  literal: string,
+---  keyword: string,
+---  identifier: string,
+---  preprocessor: string,
+---}
 local function apply_highlights(colors)
   -- stylua: ignore
   -- Highlight Groups (https://neovim.io/doc/user/syntax.html#_13.-highlight-command)
@@ -44,7 +72,7 @@ local function apply_highlights(colors)
     -- WinSeparator           |   links to Normal                                                      |   Separators between window splits.
     WinSeparator = { fg = colors.inactive },
     -- Folded                 |   guifg=NvimLightGrey4 guibg=NvimDarkGrey1                         |   Line used for closed folds.
-    Folded = { bg = colors.inactive },
+    Folded = { bg = colors.background_light },
     -- FoldColumn             |   links to SignColumn                                                  |   'foldcolumn'
     -- SignColumn             |   guifg=NvimDarkGrey4                                                |   Column where signs are displayed.
     SignColumn = {},
@@ -428,6 +456,18 @@ local function apply_highlights(colors)
     --
     -- colorful-winsep
     ColorfulWinSep = { link = "JonasCurrentMode" },
+    --
+    -- nvim-dap-view
+    DapLogPoint = { fg = colors.inactive },
+    DapBreakpoint = { fg = colors.error },
+    DapStoppedLine = { link = "Visual" },
+    DapBreakpointRejected = {},
+    DapBreakpointCondition = { fg = colors.special },
+
+    NvimDapViewFileName = { fg = colors.special },
+    NvimDapViewSeparator = { link = "Normal" },
+    NvimDapViewLineNumber = { link = "NvimDapViewFileName" },
+    NvimDapViewTabSelected = { fg = colors.accent, bold = true },
   }
 
   for highlight, spec in pairs(groups) do

@@ -62,18 +62,21 @@ in {
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
 
       # Plugins
-      nvim-lint
+      nvim-dap
       mini-nvim
+      nvim-lint
       leap-nvim
       noice-nvim
       treesj-nvim
       snacks-nvim
       incline-nvim
       conform-nvim
+      nvim-dap-view
       markview-nvim
       live-preview-nvim
       nvim-colorizer-lua
       colorful-winsep-nvim
+      nvim-dap-virtual-text
     ];
 
     extraPackages = with pkgs; [
@@ -119,6 +122,15 @@ in {
       eslint_d
       stylelint
       shellcheck
+
+      # Debug Adapters
+      vscode-extensions.vadimcn.vscode-lldb
     ];
+
+    info = {
+      codelldb = {
+        executablePath = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+      };
+    };
   };
 }
