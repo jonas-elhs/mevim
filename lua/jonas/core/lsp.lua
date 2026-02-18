@@ -193,7 +193,7 @@ vim.lsp.config("path-completion-ls", {
 
     return {
       request = function(method, params, callback)
-        if method == vim.lsp.protocol.Methods.initialize then
+        if method == "initialize" then
           callback(nil, {
             capabilities = {
               completionProvider = {},
@@ -203,7 +203,7 @@ vim.lsp.config("path-completion-ls", {
               version = "1.0.0",
             },
           })
-        elseif method == vim.lsp.protocol.Methods.textDocument_completion then
+        elseif method == "textDocument/completion" then
           local candidates = {}
 
           local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.charachter)
