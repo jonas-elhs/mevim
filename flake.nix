@@ -28,6 +28,10 @@
       flake = false;
     };
 
+    plugins-nvim-dap = {
+      url = "github:mfussenegger/nvim-dap";
+      flake = false;
+    };
     plugins-mini-nvim = {
       url = "github:nvim-mini/mini.nvim";
       flake = false;
@@ -60,6 +64,10 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
+    plugins-nvim-dap-view = {
+      url = "github:igorlfs/nvim-dap-view";
+      flake = false;
+    };
     plugins-markview-nvim = {
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
@@ -74,6 +82,10 @@
     };
     plugins-colorful-winsep-nvim = {
       url = "github:nvim-zh/colorful-winsep.nvim";
+      flake = false;
+    };
+    plugins-nvim-dap-virtual-text = {
+      url = "github:theHamsta/nvim-dap-virtual-text";
       flake = false;
     };
   };
