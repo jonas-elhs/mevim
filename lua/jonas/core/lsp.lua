@@ -206,11 +206,10 @@ vim.lsp.config("path-completion-ls", {
         elseif method == "textDocument/completion" then
           local candidates = {}
 
-          local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.charachter)
-          local word_to_cursor = line_to_cursor:match("(%S+)$") or ""
-          local match = word_to_cursor:match("^([~%.]?[%.]?/[%w_%-/%.]*)$")
+          local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.character)
+          local match = line_to_cursor:match("([~%.]?[%.]?/.*)")
 
-          if match ~= nil then
+          if match then
             local path = vim.fs.normalize(match)
 
             if not vim.uv.fs_stat(path) then
@@ -222,7 +221,7 @@ vim.lsp.config("path-completion-ls", {
                 candidates[#candidates + 1] = {
                   label = name,
                   kind = type == "file" and vim.lsp.protocol.CompletionItemKind["File"]
-                    or vim.lsp.protocol.CompletionItemKind["Folder"],
+                    or vim.lsp.protocol.CompletionItemKind["Folder"], -- Todo: handle symlinks: possibly files or folders
                 }
               end
             end
