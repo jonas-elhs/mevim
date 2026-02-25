@@ -23,6 +23,7 @@
 ---  string: string,
 ---  literal: string,
 ---  keyword: string,
+---  parameter: string,
 ---  identifier: string,
 ---  preprocessor: string,
 ---}
@@ -282,6 +283,7 @@ local function apply_highlights(colors)
     ["@variable"] = { link = "Normal" },
     -- @variable.builtin             |   links to Special         |   built-in variable names (e.g. this, self)
     -- @variable.parameter           |   links to Special         |   parameters of a function
+    ["@variable.parameter"] = { fg = colors.parameter },
     -- @variable.parameter.builtin   |                            |   special parameters (e.g. _, it)
     -- @variable.member              |                            |   object and struct fields
     -- @constant                     |   links to Constant        |   constant identifiers
