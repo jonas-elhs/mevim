@@ -29,23 +29,6 @@ local function get_center_spacing(left_components, center_component)
 
   return string.rep(" ", space_count)
 end
-local function highlight_module(content)
-  local separator_highlight = "%#JonasCurrentMode#"
-  local content_highlight = "%#JonasCurrentModeReverse#"
-
-  return table.concat({
-    separator_highlight,
-    "",
-
-    content_highlight,
-    content,
-
-    separator_highlight,
-    "",
-
-    "%#Normal#",
-  })
-end
 
 -- MODULES
 local function mode_module()
@@ -143,12 +126,12 @@ function Statusline()
   local git = Utils.width_more_than(120) and " " .. git_module() or ""
   local file = file_module()
   local diagnostics = Utils.width_more_than(120) and diagnostics_module() .. " " or ""
-  local line = Utils.width_more_than(60) and highlight_module(line_module()) or ""
+  local line = Utils.width_more_than(60) and Utils.highlight_module(line_module()) or ""
 
   local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, macro, git }, file) or "%="
   local second_space = Utils.width_more_than(60) and "%=" or ""
 
-  return highlight_module(mode .. macro) .. git .. first_space .. file .. second_space .. diagnostics .. line
+  return Utils.highlight_module(mode .. macro) .. git .. first_space .. file .. second_space .. diagnostics .. line
 end
 
 vim.o.statusline = "%!v:lua.Statusline()"
