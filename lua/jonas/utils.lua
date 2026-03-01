@@ -5,20 +5,24 @@ Utils.setup = function()
 end
 
 ---@param max number The maximum width to check against
+---@return boolean
 Utils.width_less_than = function(max)
   return vim.o.columns <= max
 end
 ---@param min number The minimum width to check against
+---@return boolean
 Utils.width_more_than = function(min)
   return vim.o.columns > min
 end
 
 ---@param str string The string to remove the highlight groups from
+---@return string
 Utils.remove_highlight_groups_from_string = function(str)
-  return str:gsub("%%%#[a-zA-Z_]+#", "")
+  return (str:gsub("%%%#[a-zA-Z_]+#", ""))
 end
 ---@param highlight_group string The name of the highlight group to extend
 ---@param values table The highlight values to extend the group with
+---@return table
 Utils.extend_highlight = function(highlight_group, values)
   return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
 end
@@ -82,9 +86,11 @@ Utils.mode_map = {
   ["!"]      = { "normal", "SHELL" },
   ["t"]      = { "terminal", "TERMINAL" },
 }
+---@return string
 Utils.get_current_mode_type = function()
   return Utils.mode_map[vim.api.nvim_get_mode().mode][1]
 end
+---@return string
 Utils.get_current_mode_name = function()
   return Utils.mode_map[vim.api.nvim_get_mode().mode][2]
 end
@@ -97,6 +103,7 @@ end
 ---@field keymap? string The keymap to toggle the option
 
 ---@param options ToggleOptions
+---@return void
 Utils.toggle = function(options)
   vim.api.nvim_create_user_command("Toggle" .. options.command, function()
     local enabled = options.enabled()
