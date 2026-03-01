@@ -24,6 +24,12 @@ map("n",   "U",            "<C-r>",                       { desc = "Redo" })
 map("n",   "x",            "\"_x",                        { desc = "Delete character" })
 map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
 
+-- Tabs
+map("n",   "<leader>tn",   "<CMD>tabnew<CR>",             { desc = "New tab" })
+map("n",   "<leader>tx",   "<CMD>tabclose<CR>",           { desc = "Close tab" })
+map("n",   "[t",           "<CMD>tabprevious<CR>",            { desc = "Previous tab" })
+map("n",   "]t",           "<CMD>tabnext<CR>",            { desc = "Next tab" })
+
 -- LSP
 map("n",   "<leader>lr",   vim.lsp.buf.rename,            { desc = "Rename" })
 map("n",   "<leader>la",   vim.lsp.buf.code_action,       { desc = "Code Actions" })
