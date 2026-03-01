@@ -5,6 +5,7 @@ vim.g.maplocalleader = " "
 require("jonas.core.lsp")
 require("jonas.core.theme")
 require("jonas.core.options")
+require("jonas.core.tabline")
 require("jonas.core.mappings")
 require("jonas.core.statusline")
 require("jonas.core.autocommands")

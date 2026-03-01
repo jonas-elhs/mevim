@@ -22,6 +22,26 @@ end
 Utils.extend_highlight = function(highlight_group, values)
   return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
 end
+---@param content string Content of module
+---@param inactive bool|nil Whether the module is inactive
+---@return string
+Utils.highlight_module = function(content, inactive)
+  local separator_highlight = inactive and "%#JonasInactive#" or "%#JonasCurrentMode#"
+  local content_highlight = inactive and "%#JonasInactiveReverse#" or "%#JonasCurrentModeReverse#"
+
+  return table.concat({
+    separator_highlight,
+    "",
+
+    content_highlight,
+    content,
+
+    separator_highlight,
+    "",
+
+    "%#Normal#",
+  })
+end
 
 -- stylua: ignore
 Utils.mode_map = {
