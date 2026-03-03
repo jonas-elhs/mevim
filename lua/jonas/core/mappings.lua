@@ -27,8 +27,10 @@ map("x",   "p",            "\"_p",                        { desc = "Overpaste se
 -- Tabs
 map("n",   "<leader>tn",   "<CMD>tabnew<CR>",             { desc = "New tab" })
 map("n",   "<leader>tx",   "<CMD>tabclose<CR>",           { desc = "Close tab" })
-map("n",   "[t",           "<CMD>tabprevious<CR>",            { desc = "Previous tab" })
+map("n",   "[t",           "<CMD>tabprevious<CR>",        { desc = "Previous tab" })
 map("n",   "]t",           "<CMD>tabnext<CR>",            { desc = "Next tab" })
+map("n",   "<leader>th",   "<CMD>tabmove -<CR>",          { desc = "Move tab left" })
+map("n",   "<leader>tl",   "<CMD>tabmove +<CR>",          { desc = "Move tab right" })
 
 -- LSP
 map("n",   "<leader>lr",   vim.lsp.buf.rename,            { desc = "Rename" })
