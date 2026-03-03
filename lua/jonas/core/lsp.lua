@@ -38,7 +38,7 @@ end
 vim.o.complete = "o"
 vim.o.pumheight = 8
 vim.o.pumborder = "rounded"
-vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
+vim.o.completeopt = "fuzzy,menuone,popup,noinsert,noselect"
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
