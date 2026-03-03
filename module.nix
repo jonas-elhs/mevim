@@ -124,16 +124,14 @@ in {
       shellcheck
 
       # Debug Adapters
-      vscode-extensions.vadimcn.vscode-lldb
     ];
 
     info = {
       nixd = {
         nixpkgs = "import ${builtins.path {inherit (pkgs) path;}} {}";
       };
-      codelldb = {
-        executablePath = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-      };
+      codelldb.executable = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+      debugpy.pythonExecutable = "${pkgs.python3.withPackages (packages: with packages; [debugpy])}/bin/python3";
     };
   };
 }
