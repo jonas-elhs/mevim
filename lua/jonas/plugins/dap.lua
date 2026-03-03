@@ -4,7 +4,67 @@ local dap = require("dap")
 -- C, C++, Rust
 dap.adapters.codelldb = {
   type = "executable",
-  command = nix.info.codelldb.executablePath,
+  command = nix.info.codelldb.executable,
+}
+
+-- Python
+dap.adapters.python = function(callback, config)
+  if config.request == "attach" then
+    local port = (config.connect or config).port
+    local host = (config.connect or config).host or "127.0.0.1"
+
+    callback({
+      type = "server",
+      port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+      host = host,
+    })
+  else
+    callback({
+      type = "executable",
+      command = nix.info.debugpy.pythonExecutable,
+      args = { "-m", "debugpy.adapter" },
+    })
+  end
+end
+dap.configurations.python = {
+  {
+    type = "python",
+    request = "launch",
+    name = "Launch file",
+
+    program = "${file}",
+    pythonPath = function()
+      local cwd = vim.fn.getcwd()
+      if vim.uv.fs_stat(cwd .. "/venv/bin/python") then
+        return cwd .. "/venv/bin/python"
+      elseif vim.uv.fs_stat(cwd .. "/.venv/bin/python") then
+        return cwd .. "/.venv/bin/python"
+      else
+        return "python"
+      end
+    end,
+  },
+  {
+    type = "python",
+    request = "launch",
+    name = "Launch file with args",
+
+    args = function()
+      local input = vim.fn.input("Program Arguments")
+      return vim.split(input, "%s+", { trimempty = true })
+    end,
+    program = "${file}",
+    pythonPath = function()
+      local cwd = vim.fn.getcwd()
+      if vim.uv.fs_stat(cwd .. "/venv/bin/python") then
+        return cwd .. "/venv/bin/python"
+      elseif vim.uv.fs_stat(cwd .. "/.venv/bin/python") then
+        return cwd .. "/.venv/bin/python"
+      else
+        return "python"
+      end
+    end,
+  },
 }
 
 -- Signs
