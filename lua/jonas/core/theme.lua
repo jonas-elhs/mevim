@@ -459,13 +459,14 @@ local function apply_highlights(colors)
     -- colorful-winsep
     ColorfulWinSep = { link = "JonasCurrentMode" },
     --
-    -- nvim-dap-view
-    DapLogPoint = { fg = colors.inactive },
+    -- nvim-dap
+    DapLogPoint = { fg = colors.special },
     DapBreakpoint = { fg = colors.error },
     DapStoppedLine = { link = "Visual" },
     DapBreakpointRejected = {},
-    DapBreakpointCondition = { fg = colors.special },
-
+    DapBreakpointCondition = { link = "DapBreakpoint" },
+    --
+    -- nvim-dap-view
     NvimDapViewFileName = { fg = colors.special },
     NvimDapViewSeparator = { link = "Normal" },
     NvimDapViewLineNumber = { link = "NvimDapViewFileName" },
