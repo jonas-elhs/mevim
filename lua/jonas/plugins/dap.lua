@@ -21,11 +21,11 @@ dap.adapters.python = function(callback, config)
   else
     callback({
       type = "executable",
-      command = nix.info.debugpy.pythonExecutable,
-      args = { "-m", "debugpy.adapter" },
+      command = "debugpy-adapter",
     })
   end
 end
+
 dap.configurations.python = {
   {
     type = "python",
