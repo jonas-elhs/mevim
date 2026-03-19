@@ -72,6 +72,10 @@
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
     };
+    plugins-filepaths_ls-nvim = {
+      url = "github:antonk52/filepaths_ls.nvim";
+      flake = false;
+    };
     plugins-live-preview-nvim = {
       url = "github:brianhuster/live-preview.nvim";
       flake = false;

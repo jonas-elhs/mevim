@@ -27,6 +27,12 @@ local servers = {
       },
     },
   },
+
+  filepaths_ls = {
+    settings = {
+      insert_dir_trailing_slash = true,
+    },
+  },
 }
 
 for server, config in pairs(servers) do
@@ -185,66 +191,3 @@ vim.lsp.inlay_hint.enable()
 
 -- Linked Editing Range
 vim.lsp.linked_editing_range.enable()
-
--- Path Completion
-vim.lsp.config("path-completion-ls", {
-  cmd = function(dispatchers)
-    local closing = false
-
-    return {
-      request = function(method, params, callback)
-        if method == "initialize" then
-          callback(nil, {
-            capabilities = {
-              completionProvider = {},
-            },
-            serverInfo = {
-              name = "path-completion-ls",
-              version = "1.0.0",
-            },
-          })
-        elseif method == "textDocument/completion" then
-          local candidates = {}
-
-          local line_to_cursor = vim.api.nvim_get_current_line():sub(1, params.position.character)
-          local match = line_to_cursor:match("([~%.]?[%.]?/.*)")
-
-          if match then
-            local path = vim.fs.normalize(match)
-
-            if not vim.uv.fs_stat(path) then
-              path = vim.fs.dirname(path)
-            end
-
-            if vim.uv.fs_stat(path) then
-              for name, type in vim.fs.dir(path) do
-                candidates[#candidates + 1] = {
-                  label = name,
-                  kind = type == "file" and vim.lsp.protocol.CompletionItemKind["File"]
-                    or vim.lsp.protocol.CompletionItemKind["Folder"], -- Todo: handle symlinks: possibly files or folders
-                }
-              end
-            end
-          end
-
-          callback(nil, {
-            items = candidates,
-            isIncomplete = #candidates > 0,
-          })
-        end
-      end,
-      notify = function(method)
-        if method == "exit" then
-          dispatchers.on_exit(0, 15)
-        end
-      end,
-      is_closing = function()
-        return closing
-      end,
-      terminate = function()
-        closing = true
-      end,
-    }
-  end,
-})
-vim.lsp.enable("path-completion-ls")

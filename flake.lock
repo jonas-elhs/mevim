@@ -107,6 +107,22 @@
         "type": "github"
       }
     },
+    "plugins-filepaths_ls-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773313075,
+        "narHash": "sha256-mCADczx8AMsGpWm0+oDoVmCq/0/HaeFM3fvexmvGkM0=",
+        "owner": "antonk52",
+        "repo": "filepaths_ls.nvim",
+        "rev": "c5ebc0aa1cb0c7dc4509be834ca54f2c8364c11b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antonk52",
+        "repo": "filepaths_ls.nvim",
+        "type": "github"
+      }
+    },
     "plugins-incline-nvim": {
       "flake": false,
       "locked": {
@@ -369,6 +385,7 @@
         "nixpkgs": "nixpkgs",
         "plugins-colorful-winsep-nvim": "plugins-colorful-winsep-nvim",
         "plugins-conform-nvim": "plugins-conform-nvim",
+        "plugins-filepaths_ls-nvim": "plugins-filepaths_ls-nvim",
         "plugins-incline-nvim": "plugins-incline-nvim",
         "plugins-leap-nvim": "plugins-leap-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",

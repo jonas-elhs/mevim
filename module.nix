@@ -73,6 +73,7 @@ in {
       conform-nvim
       nvim-dap-view
       markview-nvim
+      filepaths_ls-nvim
       live-preview-nvim
       nvim-colorizer-lua
       colorful-winsep-nvim
