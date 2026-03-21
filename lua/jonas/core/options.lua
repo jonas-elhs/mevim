@@ -38,6 +38,8 @@ vim.o.updatetime = 50
 -- UI
 vim.o.wrap = false
 vim.o.winborder = "rounded"
+vim.o.splitbelow = true
+vim.o.splitright = true
 vim.o.termguicolors = true
 vim.o.cursorlineopt = "number"
 

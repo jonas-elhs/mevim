@@ -139,6 +139,22 @@
         "type": "github"
       }
     },
+    "plugins-jj-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773914813,
+        "narHash": "sha256-UuNcOfgsWuHu9hx6NT/FbQ0E8T6nRY1X6O6CDRtH8Sk=",
+        "owner": "NicolasGB",
+        "repo": "jj.nvim",
+        "rev": "a6e163bcc3a6b75e5b6d4190b64ed4b39f8ddb0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NicolasGB",
+        "repo": "jj.nvim",
+        "type": "github"
+      }
+    },
     "plugins-leap-nvim": {
       "flake": false,
       "locked": {
@@ -387,6 +403,7 @@
         "plugins-conform-nvim": "plugins-conform-nvim",
         "plugins-filepaths_ls-nvim": "plugins-filepaths_ls-nvim",
         "plugins-incline-nvim": "plugins-incline-nvim",
+        "plugins-jj-nvim": "plugins-jj-nvim",
         "plugins-leap-nvim": "plugins-leap-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
         "plugins-markview-nvim": "plugins-markview-nvim",

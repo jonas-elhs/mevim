@@ -62,6 +62,7 @@ in {
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
 
       # Plugins
+      # jj-nvim
       nvim-dap
       mini-nvim
       nvim-lint

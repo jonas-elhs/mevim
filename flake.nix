@@ -28,6 +28,10 @@
       flake = false;
     };
 
+    plugins-jj-nvim = {
+      url = "github:NicolasGB/jj.nvim";
+      flake = false;
+    };
     plugins-nvim-dap = {
       url = "github:mfussenegger/nvim-dap";
       flake = false;

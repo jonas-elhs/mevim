@@ -1,3 +1,4 @@
+require("jonas.plugins.jj")
 require("jonas.plugins.dap")
 require("jonas.plugins.mini")
 -- require("jonas.plugins.snap") -- TODO: flake
