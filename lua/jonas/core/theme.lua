@@ -369,6 +369,7 @@ local function apply_highlights(colors)
     -- @markup.heading.5        |                                           |   and so forth
     -- @markup.heading.6        |                                           |   six levels ought to be enough for anybody
     -- @markup.quote            |                                           |   block quotes
+    ["@markup.quote"] = { link = "Normal" },
     -- @markup.math             |                                           |   math environments (e.g. $ ... $ in LaTeX)
     -- @markup.link             |   links to Underlined                     |   text references, footnotes, citations, etc.
     -- @markup.link.label       |                                           |   link, reference descriptions
@@ -437,6 +438,43 @@ local function apply_highlights(colors)
 
     -- PLUGINS
     -- markview
+    MarkviewCode = { bg = colors.background_light },
+    MarkviewInlineCode = { bg = colors.background_light, fg = colors.special },
+    -- color 0
+    MarkviewPalette0 = { fg = colors.inactive },
+    MarkviewPalette0Sign = { link = "MarkviewPalette0" },
+    MarkviewPalette0Fg = { link = "MarkviewPalette0" },
+    MarkviewPalette0Bg = {},
+    -- color 1
+    MarkviewPalette1 = { fg = colors.error },
+    MarkviewPalette1Sign = { link = "MarkviewPalette1" },
+    MarkviewPalette1Fg = { link = "MarkviewPalette1" },
+    MarkviewPalette1Bg = {},
+    -- color 2
+    MarkviewPalette2 = { fg = colors.warn },
+    MarkviewPalette2Sign = { link = "MarkviewPalette2" },
+    MarkviewPalette2Fg = { link = "MarkviewPalette2" },
+    MarkviewPalette2Bg = {},
+    -- color 3
+    MarkviewPalette3 = { fg = colors.special },
+    MarkviewPalette3Sign = { link = "MarkviewPalette3" },
+    MarkviewPalette3Fg = { link = "MarkviewPalette3" },
+    MarkviewPalette3Bg = {},
+    -- color 4
+    MarkviewPalette4 = { fg = colors.success },
+    MarkviewPalette4Sign = { link = "MarkviewPalette4" },
+    MarkviewPalette4Fg = { link = "MarkviewPalette4" },
+    MarkviewPalette4Bg = {},
+    -- color 5
+    MarkviewPalette5 = { fg = colors.info },
+    MarkviewPalette5Sign = { link = "MarkviewPalette5" },
+    MarkviewPalette5Fg = { link = "MarkviewPalette5" },
+    MarkviewPalette5Bg = {},
+    -- color 6
+    MarkviewPalette6 = { fg = colors.inactive },
+    MarkviewPalette6Sign = { link = "MarkviewPalette6" },
+    MarkviewPalette6Fg = { link = "MarkviewPalette6" },
+    MarkviewPalette6Bg = {},
     --
     -- mini.hipatterns
     MiniHipatternsHack = { fg = colors.background, bg = colors.warn, bold = true },
