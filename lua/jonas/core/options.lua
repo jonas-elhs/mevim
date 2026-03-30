@@ -1,7 +1,6 @@
 -- Columns
 vim.o.number = true
 vim.o.signcolumn = "yes"
-vim.o.relativenumber = true
 
 -- Scrolling
 vim.o.scrolloff = 999

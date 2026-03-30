@@ -23,20 +23,12 @@ autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursorline_group,
   callback = function()
     vim.wo.cursorline = true
-
-    if vim.wo.number then
-      vim.wo.relativenumber = true
-    end
   end,
 })
 autocmd({ "WinLeave" }, {
   group = cursorline_group,
   callback = function()
     vim.wo.cursorline = false
-
-    if vim.wo.number then
-      vim.wo.relativenumber = false
-    end
   end,
 })
 
