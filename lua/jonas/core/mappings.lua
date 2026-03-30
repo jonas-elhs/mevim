@@ -32,6 +32,10 @@ map("n",   "]t",           "<CMD>tabnext<CR>",            { desc = "Next tab" })
 map("n",   "<leader>th",   "<CMD>tabmove -<CR>",          { desc = "Move tab left" })
 map("n",   "<leader>tl",   "<CMD>tabmove +<CR>",          { desc = "Move tab right" })
 
+for i=1,9 do
+  map("n", "<leader>t" .. i, "<CMD>tabnext " .. i .. "<CR>", { desc = "Go to tab " .. i })
+end
+
 -- LSP
 map("n",   "<leader>lr",   vim.lsp.buf.rename,            { desc = "Rename" })
 map("n",   "<leader>la",   vim.lsp.buf.code_action,       { desc = "Code Actions" })
