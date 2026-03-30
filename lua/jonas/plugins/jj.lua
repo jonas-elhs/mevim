@@ -1,10 +1,12 @@
 vim.opt.rtp:prepend("/home/jonas/dev/jj.nvim/")
 
 require("jj").setup({
-  window = {
-    type = "floating",
-    width = 0.85,
-    height = 0.8,
+  terminal = {
+    window = {
+      type = "floating",
+      width = 0.85,
+      height = 0.8,
+    },
   },
 
   cmd = {
