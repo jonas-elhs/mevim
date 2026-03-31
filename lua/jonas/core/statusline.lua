@@ -70,14 +70,14 @@ local function file_module()
   name = filename_overrides[filetype] or name ~= "" and name or filetype ~= "" and filetype or "[No Name]"
 
   local icon = MiniIcons and MiniIcons.get("file", name) or ""
-  local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾"
+  local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾" or ""
 
   return table.concat({
-    (Utils.width_more_than(35) and icon) and icon .. "  " or "",
+    Utils.width_more_than(35) and icon .. "  ",
 
     name,
 
-    (Utils.width_more_than(50) and flags) and " " .. flags or "",
+    Utils.width_more_than(50) and " " .. flags,
   })
 end
 local function diagnostics_module()

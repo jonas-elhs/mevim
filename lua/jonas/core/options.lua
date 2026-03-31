@@ -33,6 +33,7 @@ vim.o.listchars = "tab:» ,trail:·,extends:…,precedes:…,nbsp:␣"
 vim.o.fillchars = "eob: ,foldopen:,foldclose:,fold: ,"
 vim.o.laststatus = 3
 vim.o.updatetime = 50
+vim.o.showtabline = 2
 
 -- UI
 vim.o.wrap = false

@@ -118,4 +118,14 @@ Utils.toggle = function(options)
   end
 end
 
+---@param array table
+Utils.build_index_map = function(array)
+  local map = {}
+
+  for index, element in ipairs(array) do
+    map[element] = index
+  end
+  return map
+end
+
 return Utils
