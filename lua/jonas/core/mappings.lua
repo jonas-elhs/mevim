@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local unmap = vim.keymap.del
 
 -- stylua: ignore start
 
@@ -40,6 +41,13 @@ end
 map("n",   "<leader>lr",   vim.lsp.buf.rename,            { desc = "Rename" })
 map("n",   "<leader>la",   vim.lsp.buf.code_action,       { desc = "Code Actions" })
 map("n",   "<leader>ld",   vim.diagnostic.open_float,     { desc = "Diagnostic popup" })
+
+unmap("n", "grn")
+unmap("n", "grx")
+unmap("n", "grr")
+unmap("n", "gri")
+unmap("n", "grt")
+unmap({ "n", "x" }, "gra")
 
 -- Insert Mode Cursor Movement
 map("i",   "<C-h>",        "<Left>",                      { desc = "Left (Insert Mode)" })
