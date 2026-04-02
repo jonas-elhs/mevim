@@ -22,6 +22,43 @@ require("snacks").setup({
     enabled = true,
 
     sources = {
+      files = {
+        hidden = true,
+        ignored = true,
+        exclude = {
+          "**/.jj/*",
+          "**/.git/*",
+          "**/node_modules/*",
+          "**/.yarn/cache/*",
+          "**/.yarn/install/*",
+          "**/.yarn/releases/*",
+          "**/.pnpm-store/*",
+          "**/idea/*",
+          "**/.DS_Store",
+          "build/*",
+          "dist/*",
+          "**/target/*",
+        },
+      },
+      grep = {
+        hidden = true,
+        ignored = true,
+        exclude = {
+          "**/.jj/*",
+          "**/.git/*",
+          "**/node_modules/*",
+          "**/.yarn/cache/*",
+          "**/.yarn/install/*",
+          "**/.yarn/releases/*",
+          "**/.pnpm-store/*",
+          "**/idea/*",
+          "**/.DS_Store",
+          "build/*",
+          "dist/*",
+          "**/target/*",
+        },
+      },
+
       explorer = {
         layout = {
           auto_hide = { "input" },
@@ -97,6 +134,7 @@ map("n", "<leader>sc", Snacks.picker.grep_word, { desc = "Search word under curs
 
 map("n", "gr", Snacks.picker.lsp_references, { desc = "LSP references" })
 map("n", "gd", Snacks.picker.lsp_definitions, { desc = "LSP definitions" })
+map("n", "gD", Snacks.picker.lsp_declarations, { desc = "LSP declarations" })
 map("n", "gi", Snacks.picker.lsp_implementations, { desc = "LSP implementations" })
 map("n", "gt", Snacks.picker.lsp_type_definitions, { desc = "LSP type definitions" })
 map("n", "<leader>ls", Snacks.picker.lsp_symbols, { desc = "LSP symbols" })
