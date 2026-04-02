@@ -180,11 +180,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Disable Document Colors
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
-    vim.lsp.document_color.enable(false)
-  end,
-})
+vim.lsp.document_color.enable(false)
 
 -- Inlay Hints
 vim.lsp.inlay_hint.enable()
