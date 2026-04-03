@@ -320,6 +320,7 @@ local function apply_highlights(colors)
     --
     -- @function               |   links to Function   |   function definitions
     -- @function.builtin       |   links to Special    |   built-in functions
+    ["@function.builtin"] = { link = "@function" },
     -- @function.call          |                       |   function calls
     -- @function.macro         |                       |   preprocessor macros
     -- @function.method        |                       |   method definitions
