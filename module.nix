@@ -134,6 +134,7 @@ in {
         nixpkgs = "import ${builtins.path {inherit (pkgs) path;}} {}";
       };
       codelldb.executable = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+      config.path = config.settings.unwrappedConfig;
     };
   };
 }

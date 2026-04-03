@@ -13,7 +13,6 @@ local servers = {
   eslint = {},
   clangd = {},
   svelte = {},
-  emmylua_ls = {}, -- TODO: disable keywordCompletions
   tailwindcss = {},
   rust_analyzer = {},
   emmet_language_server = {},
@@ -25,6 +24,45 @@ local servers = {
           expr = nix.info.nixd.nixpkgs,
         },
       },
+    },
+  },
+
+  emmylua_ls = { -- TODO: disable keywordCompletions
+    on_init = function(client)
+      if client.workspace_folders then
+        local path = client.workspace_folders[1].name
+
+        if
+          path ~= nix.info.config.path
+          and (
+            vim.uv.fs_stat(path .. "/.luarc.json")
+            or vim.uv.fs_stat(path .. "/.luarc.jsonc")
+            or vim.uv.fs_stat(path .. "/.emmyrc.json")
+            or vim.uv.fs_stat(path .. "/.emmyrc.lua")
+          )
+        then
+          return
+        end
+      end
+
+      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+        runtime = {
+          version = "LuaJIT",
+          requirePath = { "lua/?.lua", "lua/?/init.lua" },
+        },
+        diagnostics = {
+          globals = { "Utils", "MiniIcons", "MiniFiles" },
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+          -- library = vim.tbl_filter(function(path)
+          --   return not path:match(vim.fn.stdpath("config") .. "/?a?f?t?e?r?")
+          -- end, vim.api.nvim_get_runtime_file("", true)),
+        },
+      })
+    end,
+    settings = {
+      Lua = {},
     },
   },
 
