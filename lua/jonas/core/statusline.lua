@@ -65,10 +65,7 @@ local function git_module()
   return added .. changed .. removed .. "%#Normal#"
 end
 local function file_module()
-  local name = vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
-  local filetype = vim.bo.filetype
-  name = filename_overrides[filetype] or name ~= "" and name or filetype ~= "" and filetype or "[No Name]"
-
+  local name = Utils.get_buf_name(0)
   local icon = MiniIcons and MiniIcons.get("file", name) or ""
   local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾" or ""
 

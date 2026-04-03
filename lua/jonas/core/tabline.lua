@@ -37,31 +37,33 @@ function _G.TablineArrowRightAction()
 end
 
 -- Utils
+local fname_overrides = {
+  [""] = "[No Name]",
+  ["health://"] = "checkhealth",
+}
 local function get_unique_names(bufs)
   -- Get absolute paths
   local paths = {}
   for _, buf in ipairs(bufs) do
     local name = vim.api.nvim_buf_get_name(buf)
-    if name == "" then
-      name = "[No Name]"
-    end
+    name = fname_overrides[name] or name
 
-    paths[buf] = vim.fn.fnamemodify(name, ":~:.")
+    paths[buf] = vim.fn.fnamemodify(name, ":~")
   end
 
   -- Split paths
   local split_paths = {}
   for buf, path in pairs(paths) do
-    local parts = vim.split(path, "/", { plain = true })
+    local parts = vim.split(path, "/", { plain = true, trimempty = true })
     split_paths[buf] = parts
   end
 
   -- Start with only filename
   local result = {}
   local depth = {}
-  for bufnr, parts in pairs(split_paths) do
-    depth[bufnr] = 1
-    result[bufnr] = parts[#parts]
+  for buf, parts in pairs(split_paths) do
+    depth[buf] = 1
+    result[buf] = parts[#parts]
   end
 
   -- Resolve duplicates
@@ -143,10 +145,6 @@ local function get_bufs()
 end
 local function build_buf_label(buf, current_buf, buf_names)
   local name = buf_names[buf]
-  -- local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
-  -- if name == "" then
-  --   name = "[No Name]"
-  -- end
   local icon = MiniIcons and MiniIcons.get("file", name) or ""
   local flag = vim.bo[buf].modified and "" or (not vim.bo[buf].modifiable or vim.bo[buf].readonly) and "󰌾"
 

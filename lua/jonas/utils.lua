@@ -128,4 +128,22 @@ Utils.build_index_map = function(array)
   return map
 end
 
+local filename_overrides = {
+  [""] = "[No Name]",
+  ["minifiles"] = "Files",
+  ["snacks_notif"] = "Notification",
+  ["snacks_picker_input"] = "Picker",
+  ["snacks_notif_history"] = "Notification History",
+}
+---@param buf number Whose name to retrieve
+---@param full boolean Get the full path or only the tail
+---@return string #Buffer name
+Utils.get_buf_name = function(buf, full)
+  local filename_modifiers = full and ":~" or ":t"
+  local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), filename_modifiers)
+  local filetype = vim.bo.filetype
+
+  return filename_overrides[filetype] or name ~= "" and name or filetype
+end
+
 return Utils
