@@ -37,6 +37,7 @@ vim.o.showtabline = 2
 
 -- UI
 vim.o.wrap = false
+vim.o.cmdheight = 0
 vim.o.winborder = "rounded"
 vim.o.splitbelow = true
 vim.o.splitright = true

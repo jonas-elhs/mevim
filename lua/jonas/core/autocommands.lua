@@ -2,7 +2,9 @@ local group = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Enable Tree-Sitter
+local treesitter = group("jonas/treesitter", {})
 autocmd("FileType", {
+  group = treesitter,
   callback = function()
     local started = pcall(vim.treesitter.start)
 
@@ -18,26 +20,43 @@ autocmd("FileType", {
 })
 
 -- Current window only
-local cursorline_group = group("jonas/currentwindow", {})
+local cursorline = group("jonas/currentwindow", {})
 autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
-  group = cursorline_group,
+  group = cursorline,
   callback = function()
     vim.wo.cursorline = true
   end,
 })
 autocmd({ "WinLeave" }, {
-  group = cursorline_group,
+  group = cursorline,
   callback = function()
     vim.wo.cursorline = false
   end,
 })
 
 -- Highlight Yank Region
-local yank_highlight_group = group("jonas/yank_highlight", {})
+local yank_highlight = group("jonas/yank_highlight", {})
 autocmd({ "TextYankPost" }, {
-  group = yank_highlight_group,
+  group = yank_highlight,
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- Lsp Progress
+local lsp_progress = group("jonas/lsp_progress", {})
+autocmd("LspProgress", {
+  group = lsp_progress,
+  callback = function(ev)
+    local value = ev.data.params.value
+    vim.api.nvim_echo({ { value.message or "done" } }, false, {
+      id = "lsp." .. ev.data.client_id,
+      kind = "progress",
+      source = "vim.lsp",
+      title = value.title,
+      status = value.kind ~= "end" and "running" or "success",
+      percent = value.percentage,
+    })
   end,
 })
 

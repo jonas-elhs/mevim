@@ -48,10 +48,6 @@
       url = "git+https://codeberg.org/andyg/leap.nvim";
       flake = false;
     };
-    plugins-noice-nvim = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
     plugins-treesj-nvim = {
       url = "github:Wansmer/treesj";
       flake = false;

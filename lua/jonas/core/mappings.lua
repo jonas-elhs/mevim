@@ -6,8 +6,8 @@ local unmap = vim.keymap.del
 map("",    " ",            "<NOP>")
 
 -- Write and Quit
-map("n",   "<leader>w",    "<CMD>write<CR>",              { desc = "Write" })
-map("n",   "<leader>W",    "<CMD>write!<CR>",             { desc = "Force write" })
+map("n",   "<leader>w",    "<CMD>silent write<CR>",       { desc = "Write" })
+map("n",   "<leader>W",    "<CMD>silent write!<CR>",      { desc = "Force write" })
 map("n",   "<leader>q",    "<CMD>quitall<CR>",            { desc = "Quit" })
 map("n",   "<leader>Q",    "<CMD>quitall!<CR>",           { desc = "Force quit" })
 

@@ -219,22 +219,6 @@
         "type": "github"
       }
     },
-    "plugins-noice-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1762187624,
-        "narHash": "sha256-FKzhFVmPxshDV4mWpD3LofjRpd6pXesf9QQei1s5rAo=",
-        "owner": "folke",
-        "repo": "noice.nvim",
-        "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "noice.nvim",
-        "type": "github"
-      }
-    },
     "plugins-nui-nvim": {
       "flake": false,
       "locked": {
@@ -408,7 +392,6 @@
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
         "plugins-markview-nvim": "plugins-markview-nvim",
         "plugins-mini-nvim": "plugins-mini-nvim",
-        "plugins-noice-nvim": "plugins-noice-nvim",
         "plugins-nui-nvim": "plugins-nui-nvim",
         "plugins-nvim-colorizer-lua": "plugins-nvim-colorizer-lua",
         "plugins-nvim-dap": "plugins-nvim-dap",
