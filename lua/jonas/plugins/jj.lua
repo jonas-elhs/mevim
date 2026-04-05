@@ -4,8 +4,8 @@ require("jj").setup({
   terminal = {
     window = {
       type = "floating",
-      width = 0.85,
-      height = 0.8,
+      floating_width = 0.85,
+      floating_height = 0.8,
     },
   },
 
