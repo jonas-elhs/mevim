@@ -5,7 +5,6 @@ local servers = {
   tsgo = {},
   tombi = {},
   cssls = {},
-  qmlls = {},
   bashls = {},
   hyprls = {},
   yamlls = {},
@@ -25,6 +24,10 @@ local servers = {
         },
       },
     },
+  },
+
+  qmlls = {
+    cmd = { "qmlls", "-E" },
   },
 
   emmylua_ls = { -- TODO: disable keywordCompletions
