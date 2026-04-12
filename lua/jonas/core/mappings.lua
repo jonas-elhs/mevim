@@ -19,14 +19,6 @@ map({ "n", "x" },   "<leader>Y",    "\"+Y",               { desc = "Yank to clip
 map({ "n", "x" },   "<leader>d",    "\"+d",               { desc = "Cut to clipboard" })
 map({ "n", "x" },   "<leader>D",    "\"+D",               { desc = "Cut to clipboard" })
 
--- Utilities
-map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
-map("n",   "U",            "<C-r>",                       { desc = "Redo" })
-map("n",   "x",            "\"_x",                        { desc = "Delete character" })
-map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
-map("n",   "j",            "gj",                          { desc = "Down" })
-map("n",   "k",            "gk",                          { desc = "Down" })
-
 -- Tabs
 map("n",   "<leader>tn",   "<CMD>tabnew<CR>",             { desc = "New tab" })
 map("n",   "<leader>tx",   "<CMD>tabclose<CR>",           { desc = "Close tab" })
@@ -83,5 +75,18 @@ end,                                              { desc = "Go to previous error
 map("n",   "]e",           function()
   vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
 end,                                              { desc = "Go to next error" })
+
+-- Misc
+map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
+map("n",   "U",            "<C-r>",                       { desc = "Redo" })
+map("n",   "x",            "\"_x",                        { desc = "Delete character" })
+map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
+map("n",   "j",            "gj",                          { desc = "Down" })
+map("n",   "k",            "gk",                          { desc = "Down" })
+map("n",   "<leader>R",    function()
+  local session = vim.fn.stdpath("state") .. "/restart_session.vim"
+  vim.cmd("mksession! " .. session)
+  vim.cmd("restart source " .. session)
+end, { desc = "Restart Neovim" })
 
 -- stylua: ignore end
