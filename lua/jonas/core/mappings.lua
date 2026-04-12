@@ -83,6 +83,7 @@ map("n",   "x",            "\"_x",                        { desc = "Delete chara
 map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
 map("n",   "j",            "gj",                          { desc = "Down" })
 map("n",   "k",            "gk",                          { desc = "Down" })
+map("n",   "J",            "mzJ`z",                       { desc = "Join line" })
 map("n",   "<leader>R",    function()
   local session = vim.fn.stdpath("state") .. "/restart_session.vim"
   vim.cmd("mksession! " .. session)
