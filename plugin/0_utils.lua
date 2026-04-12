@@ -1,9 +1,5 @@
 local Utils = {}
 
-Utils.setup = function()
-  _G.Utils = Utils
-end
-
 ---@param max number The maximum width to check against
 ---@return boolean
 Utils.width_less_than = function(max)
@@ -48,7 +44,7 @@ Utils.highlight_module = function(content, inactive)
 end
 
 -- stylua: ignore
-Utils.mode_map = {
+local mode_map = {
   ["n"]      = { "normal", "NORMAL" },
   ["no"]     = { "normal", "O-PENDING" },
   ["nov"]    = { "normal", "O-PENDING" },
@@ -88,11 +84,11 @@ Utils.mode_map = {
 }
 ---@return string
 Utils.get_current_mode_type = function()
-  return Utils.mode_map[vim.api.nvim_get_mode().mode][1]
+  return mode_map[vim.api.nvim_get_mode().mode][1]
 end
 ---@return string
 Utils.get_current_mode_name = function()
-  return Utils.mode_map[vim.api.nvim_get_mode().mode][2]
+  return mode_map[vim.api.nvim_get_mode().mode][2]
 end
 
 ---@class ToggleOptions
@@ -146,4 +142,4 @@ Utils.get_buf_name = function(buf, full)
   return filename_overrides[filetype] or name ~= "" and name or filetype
 end
 
-return Utils
+_G.Utils = Utils
