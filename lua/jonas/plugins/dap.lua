@@ -174,6 +174,13 @@ require("dap-view").setup({
       align = true,
     },
   },
+
+  virtual_text = {
+    enabled = true,
+    format = function(variable, _, _)
+      return " = " .. variable.value:gsub("%s+", " ")
+    end,
+  },
 })
 
 map("n", "<leader>bu", function()
@@ -191,6 +198,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end, { buffer = args.buf })
   end,
 })
-
--- nvim-dap-virtual-text
-require("nvim-dap-virtual-text").setup()

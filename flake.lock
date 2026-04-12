@@ -270,32 +270,16 @@
     "plugins-nvim-dap-view": {
       "flake": false,
       "locked": {
-        "lastModified": 1775231100,
-        "narHash": "sha256-Pt5BUeaw8JD0yUwB787WArfEtPryHsWMfbKTvivdScM=",
+        "lastModified": 1775927702,
+        "narHash": "sha256-K/l4FLWtqPnL3ExyqzdwbjoChGTpRgagKV+xTEl8114=",
         "owner": "igorlfs",
         "repo": "nvim-dap-view",
-        "rev": "e57ac4051aa56293e89991ab93bc148de35321ca",
+        "rev": "64e2d57788ef93469af1e0319311f669a3126cd3",
         "type": "github"
       },
       "original": {
         "owner": "igorlfs",
         "repo": "nvim-dap-view",
-        "type": "github"
-      }
-    },
-    "plugins-nvim-dap-virtual-text": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748181918,
-        "narHash": "sha256-8hsk+EwnvoHCNhb0dcL9e4hQg9I+t/5Cy9ZoZgcz4fU=",
-        "owner": "theHamsta",
-        "repo": "nvim-dap-virtual-text",
-        "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "theHamsta",
-        "repo": "nvim-dap-virtual-text",
         "type": "github"
       }
     },
@@ -396,7 +380,6 @@
         "plugins-nvim-colorizer-lua": "plugins-nvim-colorizer-lua",
         "plugins-nvim-dap": "plugins-nvim-dap",
         "plugins-nvim-dap-view": "plugins-nvim-dap-view",
-        "plugins-nvim-dap-virtual-text": "plugins-nvim-dap-virtual-text",
         "plugins-nvim-lint": "plugins-nvim-lint",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",

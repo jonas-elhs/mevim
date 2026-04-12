@@ -88,10 +88,6 @@
       url = "github:nvim-zh/colorful-winsep.nvim";
       flake = false;
     };
-    plugins-nvim-dap-virtual-text = {
-      url = "github:theHamsta/nvim-dap-virtual-text";
-      flake = false;
-    };
   };
 
   outputs = {

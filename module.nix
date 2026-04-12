@@ -77,7 +77,6 @@ in {
       live-preview-nvim
       nvim-colorizer-lua
       colorful-winsep-nvim
-      nvim-dap-virtual-text
     ];
 
     extraPackages = with pkgs; [
