@@ -24,6 +24,8 @@ map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove searc
 map("n",   "U",            "<C-r>",                       { desc = "Redo" })
 map("n",   "x",            "\"_x",                        { desc = "Delete character" })
 map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
+map("n",   "j",            "gj",                          { desc = "Down" })
+map("n",   "k",            "gk",                          { desc = "Down" })
 
 -- Tabs
 map("n",   "<leader>tn",   "<CMD>tabnew<CR>",             { desc = "New tab" })
