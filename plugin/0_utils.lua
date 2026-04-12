@@ -142,4 +142,13 @@ Utils.get_buf_name = function(buf, full)
   return filename_overrides[filetype] or name ~= "" and name or filetype
 end
 
+--- Disable semi auto complete
+Utils.disable_semi_autocomplete = function()
+  if vim.g.insert_completing and not vim.g.auto_completing then
+    vim.o.autocomplete = false
+  end
+
+  vim.g.insert_completing = false
+end
+
 _G.Utils = Utils

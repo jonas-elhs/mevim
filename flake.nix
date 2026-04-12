@@ -14,6 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    blink-pairs = {
+      url = "github:saghen/blink.pairs";
+    };
+
     # Plugins
     plugins-nui-nvim = {
       url = "github:MunifTanjim/nui.nvim";

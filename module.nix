@@ -62,6 +62,7 @@ in {
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
 
       # Plugins
+      inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.default
       # jj-nvim
       nvim-dap
       mini-nvim

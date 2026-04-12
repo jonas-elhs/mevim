@@ -136,24 +136,17 @@ vim.api.nvim__complete_set = function(index, opts)
   return windata
 end
 
--- Semi Automatic Complete (Continue completing until manual cancel or <Space>)
-function disable_pseude_autocomplete()
-  if vim.g.insert_completing and not vim.g.auto_completing then
-    vim.o.autocomplete = false
-  end
-
-  vim.g.insert_completing = false
-end
+-- Semi Auto Complete (Continue completing until manual cancel or <Space>)
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function()
-    disable_pseude_autocomplete()
+    Utils.disable_semi_autocomplete()
   end,
 })
-vim.keymap.set("i", "<Space>", function()
-  disable_pseude_autocomplete()
-
-  return "<Space>"
-end, { expr = true })
+vim.on_key(function(key, _)
+  if key == " " then
+    Utils.disable_semi_autocomplete()
+  end
+end)
 
 vim.keymap.set("i", "<C-Space>", function()
   vim.o.autocomplete = true
@@ -161,11 +154,6 @@ vim.keymap.set("i", "<C-Space>", function()
 
   vim.lsp.completion.get()
 end)
-vim.keymap.set("i", "<CR>", function()
-  disable_pseude_autocomplete()
-
-  return vim.fn.pumvisible() == 1 and "<C-Y>" or "<CR>"
-end, { expr = true })
 
 Utils.toggle({
   name = "Auto Complete",
