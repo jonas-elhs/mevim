@@ -1,11 +1,4 @@
 -- UTILS
-local filename_overrides = {
-  ["minifiles"] = "Files",
-  ["snacks_notif"] = "Notification",
-  ["snacks_picker_input"] = "Picker",
-  ["snacks_notif_history"] = "Notification History",
-}
-
 local function get_center_spacing(left_components, center_component)
   -- Get visible width (without highlight groups) of left componenents
   local left_width = 0
@@ -70,11 +63,11 @@ local function file_module()
   local flags = vim.bo[0].modified and "" or (not vim.bo[0].modifiable or vim.bo[0].readonly) and "󰌾" or ""
 
   return table.concat({
-    Utils.width_more_than(35) and icon .. "  ",
+    Utils.width_more_than(35) and icon .. "  " or "",
 
     name,
 
-    Utils.width_more_than(50) and " " .. flags,
+    Utils.width_more_than(50) and " " .. flags or "",
   })
 end
 local function diagnostics_module()
