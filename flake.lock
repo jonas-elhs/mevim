@@ -235,22 +235,6 @@
         "type": "github"
       }
     },
-    "plugins-nvim-colorizer-lua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1774610549,
-        "narHash": "sha256-gB40s09NNw9sc42J6dcxCXNQXbB2K3gJ8rDFq4eSTzs=",
-        "owner": "catgoose",
-        "repo": "nvim-colorizer.lua",
-        "rev": "c8c2c19436d33165ec34fa90c975bc0a739fe3fb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catgoose",
-        "repo": "nvim-colorizer.lua",
-        "type": "github"
-      }
-    },
     "plugins-nvim-dap": {
       "flake": false,
       "locked": {
@@ -377,7 +361,6 @@
         "plugins-markview-nvim": "plugins-markview-nvim",
         "plugins-mini-nvim": "plugins-mini-nvim",
         "plugins-nui-nvim": "plugins-nui-nvim",
-        "plugins-nvim-colorizer-lua": "plugins-nvim-colorizer-lua",
         "plugins-nvim-dap": "plugins-nvim-dap",
         "plugins-nvim-dap-view": "plugins-nvim-dap-view",
         "plugins-nvim-lint": "plugins-nvim-lint",

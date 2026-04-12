@@ -80,10 +80,6 @@
       url = "github:brianhuster/live-preview.nvim";
       flake = false;
     };
-    plugins-nvim-colorizer-lua = {
-      url = "github:catgoose/nvim-colorizer.lua";
-      flake = false;
-    };
     plugins-colorful-winsep-nvim = {
       url = "github:nvim-zh/colorful-winsep.nvim";
       flake = false;
