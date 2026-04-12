@@ -80,6 +80,10 @@
       url = "github:brianhuster/live-preview.nvim";
       flake = false;
     };
+    plugins-tiny-cmdline-nvim = {
+      url = "github:rachartier/tiny-cmdline.nvim";
+      flake = false;
+    };
     plugins-colorful-winsep-nvim = {
       url = "github:nvim-zh/colorful-winsep.nvim";
       flake = false;

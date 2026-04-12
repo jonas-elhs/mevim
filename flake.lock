@@ -331,6 +331,22 @@
         "type": "github"
       }
     },
+    "plugins-tiny-cmdline-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775905242,
+        "narHash": "sha256-tD1DrY4mpPf5Qo9jZEBqSxOOqzk2Ssl1srH4mu+cN5g=",
+        "owner": "rachartier",
+        "repo": "tiny-cmdline.nvim",
+        "rev": "ad58747b955d0743ccfd56e97da1a4c1fac89f58",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-cmdline.nvim",
+        "type": "github"
+      }
+    },
     "plugins-treesj-nvim": {
       "flake": false,
       "locked": {
@@ -367,6 +383,7 @@
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-snacks-nvim": "plugins-snacks-nvim",
+        "plugins-tiny-cmdline-nvim": "plugins-tiny-cmdline-nvim",
         "plugins-treesj-nvim": "plugins-treesj-nvim",
         "wrappers": "wrappers"
       }

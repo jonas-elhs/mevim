@@ -75,6 +75,7 @@ in {
       markview-nvim
       filepaths_ls-nvim
       live-preview-nvim
+      tiny-cmdline-nvim
       colorful-winsep-nvim
     ];
 
