@@ -43,23 +43,6 @@ autocmd({ "TextYankPost" }, {
   end,
 })
 
--- Lsp Progress
-local lsp_progress = group("jonas/lsp_progress", {})
-autocmd("LspProgress", {
-  group = lsp_progress,
-  callback = function(ev)
-    local value = ev.data.params.value
-    vim.api.nvim_echo({ { value.message or "done" } }, false, {
-      id = "lsp." .. ev.data.client_id,
-      kind = "progress",
-      source = "vim.lsp",
-      title = value.title,
-      status = value.kind ~= "end" and "running" or "success",
-      percent = value.percentage,
-    })
-  end,
-})
-
 -- https://www.reddit.com/r/neovim/comments/1qu6060/how_can_i_disable_the_feature_that_gets_rid_of/
 -- Don't get rid of autoindent when switching to normal mode or moving cursor
 local function apply_ts_indent_if_blank()

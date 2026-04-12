@@ -77,10 +77,6 @@ require("snacks").setup({
     trash = false,
   },
 
-  notifier = {
-    enabled = true,
-  },
-
   dashboard = {
     enabled = true,
     preset = {
