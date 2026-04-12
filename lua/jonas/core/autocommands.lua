@@ -85,11 +85,11 @@ local function apply_ts_indent_if_blank()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("$", true, false, true), "n", true)
 end
 -- apply indent on InsertLeave
-vim.api.nvim_create_autocmd("InsertLeave", {
+autocmd("InsertLeave", {
   callback = apply_ts_indent_if_blank,
 })
 -- apply indent in insert cursor move
-vim.api.nvim_create_autocmd("CursorMovedI", {
+autocmd("CursorMovedI", {
   callback = function()
     -- stoe the line we're leaving
     local buf = vim.api.nvim_get_current_buf()
@@ -110,5 +110,16 @@ vim.api.nvim_create_autocmd("CursorMovedI", {
     end
     -- store current line for future
     vim.b.previous_insert_line = current_line
+  end,
+})
+
+-- Resize splits if window is resized
+local resize = group("jonas/resize_splits", {})
+autocmd("VimResized", {
+  group = resize,
+  callback = function()
+    local current = vim.api.nvim_get_current_tabpage()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current)
   end,
 })
