@@ -123,3 +123,24 @@ autocmd("VimResized", {
     vim.cmd("tabnext " .. current)
   end,
 })
+
+-- Easy close
+local close = group("jonas/easy_close", {})
+autocmd("FileType", {
+  group = close,
+  pattern = {
+    "qf",
+    "help",
+    "notify",
+    "startuptime",
+    "checkhealth",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<CMD>close<CR>", {
+      buf = event.buf,
+      silent = true,
+      desc = "Close Buffer",
+    })
+  end,
+})
