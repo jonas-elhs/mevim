@@ -8,15 +8,19 @@ require("lint").linters_by_ft = {
   c = { "cppcheck" },
   cpp = { "cppcheck" },
 
-  css = { "stylelint" },
   scss = { "stylelint" },
 
-  html = { "eslint_d" }, -- https://github.com/BenoitZugmeyer/eslint-plugin-html
-  yaml = { "eslint_d" }, -- https://github.com/ota-meshi/eslint-plugin-yml
-  json = { "eslint_d" }, -- https://github.com/eslint/json
-  svelte = { "eslint_d" }, -- https://github.com/sveltejs/eslint-plugin-svelte
-  javascript = { "eslint_d" },
-  typescript = { "eslint_d" },
+  vue = { "biomejs" },
+  css = { "biomejs" },
+  html = { "biomejs" }, -- NOTE: disabled by default as it is still experimental
+  -- yaml = { "biomejs" },
+  json = { "biomejs" },
+  jsonc = { "biomejs" },
+  svelte = { "biomejs" },
+  javascript = { "biomejs" },
+  typescript = { "biomejs" },
+  javascriptreact = { "biomejs" },
+  typescriptreact = { "biomejs" },
 }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged" }, {

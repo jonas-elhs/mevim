@@ -109,18 +109,17 @@ in {
 
       # Formatters
       ruff
+      biome
       shfmt
       stylua
       rustfmt
       alejandra
-      prettierd
 
       # Linters
       statix
       selene
       clippy
       cppcheck
-      eslint_d
       stylelint
       shellcheck
 
