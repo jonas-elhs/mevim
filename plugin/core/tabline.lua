@@ -1,8 +1,9 @@
 local tabline_data = {
-  first_index = 1,
-  last_index = 999,
-  current_index = -1,
   anchor = "first",
+  anchor_index = 1,
+  current_index = -1,
+  last_visible_index = 999,
+  first_visible_index = 1,
 }
 local left_arrow = "%#JonasInactive#%@v:lua.TablineArrowLeftAction@%T "
 local right_arrow = " %#JonasInactive#%@v:lua.TablineArrowRightAction@%T"
@@ -16,22 +17,22 @@ function _G.TablineBufferAction(buf, _, button, _)
   end
 end
 function _G.TablineArrowLeftAction()
-  if tabline_data.current_index == tabline_data.last_index then
+  if tabline_data.current_index == tabline_data.last_visible_index then
     vim.cmd.bprevious()
   end
 
-  tabline_data.first_index = tabline_data.first_index - 1
   tabline_data.anchor = "first"
+  tabline_data.anchor_index = tabline_data.first_visible_index - 1
 
   vim.cmd.redrawtabline()
 end
 function _G.TablineArrowRightAction()
-  if tabline_data.current_index == tabline_data.first_index then
+  if tabline_data.current_index == tabline_data.first_visible_index then
     vim.cmd.bnext()
   end
 
-  tabline_data.last_index = tabline_data.last_index + 1
   tabline_data.anchor = "last"
+  tabline_data.anchor_index = tabline_data.last_visible_index + 1
 
   vim.cmd.redrawtabline()
 end
@@ -112,34 +113,35 @@ local function get_bufs()
     :totable()
   local all_bufs_index_map = Utils.build_index_map(all_bufs)
 
+  -- Get buffer slice ending at anchor
+  local slice = {
+    unpack(
+      all_bufs,
+      tabline_data.anchor == "first" and tabline_data.anchor_index or 1,
+      tabline_data.anchor == "last" and tabline_data.anchor_index or nil
+    ),
+  }
+
   -- Get current buf
   local current_buf = vim.api.nvim_get_current_buf()
-  tabline_data.current_index = all_bufs_index_map[current_buf] or tabline_data.first_index
+  tabline_data.current_index = all_bufs_index_map[current_buf] or tabline_data.anchor_index
 
-  -- Make sure 'last_index' is in bounds
-  tabline_data.first_index = math.max(1, tabline_data.first_index)
-  tabline_data.last_index = math.min(#all_bufs, tabline_data.last_index)
+  -- Make sure indices are in bounds
+  tabline_data.first_visible_index = math.max(1, tabline_data.first_visible_index)
+  tabline_data.last_visible_index = math.min(#all_bufs, tabline_data.last_visible_index)
 
-  -- Make sure current buffer is visible and adjust indices/anchor accordingly
-  if tabline_data.current_index <= tabline_data.first_index then
-    tabline_data.first_index = tabline_data.current_index
-    tabline_data.anchor = "first"
-  elseif tabline_data.current_index >= tabline_data.last_index then
-    tabline_data.last_index = tabline_data.current_index
-    tabline_data.anchor = "last"
-  end
-
-  -- Get visible subset of buffers
-  local visible_bufs = {}
-  for index = math.max(tabline_data.first_index, 1), math.min(tabline_data.last_index, #all_bufs) do
-    visible_bufs[#visible_bufs + 1] = all_bufs[index]
+  if tabline_data.anchor == "first" then
+    tabline_data.anchor_index = math.max(1, tabline_data.anchor_index)
+    tabline_data.first_visible_index = tabline_data.anchor_index
+  else
+    tabline_data.anchor_index = math.min(#all_bufs, tabline_data.anchor_index)
+    tabline_data.last_visible_index = tabline_data.anchor_index
   end
 
   return {
     all = all_bufs,
+    bufs = slice,
     names = get_unique_names(all_bufs),
-    indices = all_bufs_index_map,
-    visible = visible_bufs,
     current = current_buf,
   }
 end
@@ -150,48 +152,84 @@ local function build_buf_label(buf, current_buf, buf_names)
 
   local label =
     Utils.highlight_module(" " .. icon .. " " .. name .. " " .. (flag and flag .. " " or ""), buf ~= current_buf)
+  local clickable = "%" .. buf .. "@v:lua.TablineBufferAction@" .. label .. "%T"
+
   -- spacing (2) + icon (1) + spacing (1) + name + flag spacing (1) + flag(1) + spacing (2)
   local label_len = name:len() + 6 + (flag and 2 or 0)
 
-  return label, label_len
+  return clickable, label_len
 end
 
 -- Sections
 local function buffer_section(tabs_width)
   local max_width = vim.o.columns - tabs_width - (tabs_width ~= 0 and 20 or 0)
   local bufs = get_bufs()
+  local show_left_arrow = tabline_data.first_visible_index ~= 1
+  local show_right_arrow = tabline_data.last_visible_index ~= #bufs.all
 
-  local width = 0
+  if tabline_data.anchor == "last" then
+    bufs.bufs = vim.iter(bufs.bufs):rev():totable()
+  end
+
+  local width = (show_left_arrow and 2 or 0) + (show_right_arrow and 2 or 0)
   local labels = {}
-  for _, buf in ipairs(bufs.visible) do
+  for i, buf in ipairs(bufs.bufs) do
     local label, label_len = build_buf_label(buf, bufs.current, bufs.names)
 
     width = width + label_len + 1 -- Spacing before next label
 
-    -- If tabline is to large either stop stop appending new buffers (anchor == "first")
-    -- or remove buffers from the beginning (anchor == "last")
     if width > max_width then
+      -- Adjust anchor when moving to non-visible buffer
+      local updated = false
       if tabline_data.anchor == "first" then
-        -- Last visible label is previous one
-        tabline_data.last_index = bufs.indices[buf] - 1
-        break
-      end
-      if tabline_data.anchor == "last" then
-        while width > max_width do
-          width = width - vim.api.nvim_eval_statusline(table.remove(labels, 1), { use_tabline = true }).width - 1
-          -- First visible label is after previous one
-          tabline_data.first_index = tabline_data.first_index + 1
+        if tabline_data.current_index >= i then
+          -- Jumped to other side
+          tabline_data.anchor = "last"
+          updated = true
+        elseif tabline_data.current_index < tabline_data.anchor_index then
+          -- Moved to the left of the first visible buffer
+          updated = true
+        end
+      else
+        if (#bufs.bufs - tabline_data.current_index) >= i - 1 then
+          -- Jumped to other side
+          tabline_data.anchor = "first"
+          updated = true
+        elseif tabline_data.current_index > tabline_data.anchor_index then
+          -- Moved to the right of the last visible buffer
+          updated = true
         end
       end
+
+      if updated then
+        tabline_data.anchor_index = tabline_data.current_index
+
+        if tabline_data.anchor == "first" then
+          tabline_data.first_visible_index = tabline_data.anchor_index
+        else
+          tabline_data.last_visible_index = tabline_data.anchor_index
+        end
+
+        return buffer_section(tabs_width)
+      end
+
+      break
     end
 
-    -- Make labels clickable
-    labels[#labels + 1] = "%" .. buf .. "@v:lua.TablineBufferAction@" .. label .. "%T"
+    labels[#labels + 1] = label
   end
 
-  return (tabline_data.first_index ~= 1 and left_arrow or "")
-    .. table.concat(labels, " ")
-    .. (tabline_data.last_index ~= #bufs.all and right_arrow or "")
+  if tabline_data.anchor == "first" then
+    tabline_data.last_visible_index = #labels
+  else
+    tabline_data.first_visible_index = (#bufs.bufs - #labels + 1)
+  end
+
+  if tabline_data.anchor == "last" then
+    labels = vim.iter(labels):rev():totable()
+  end
+
+  return (show_left_arrow and left_arrow or "") .. table.concat(labels, " ") .. (show_right_arrow and right_arrow or "")
 end
 
 local function tab_section()
@@ -218,7 +256,7 @@ function _G.Tabline()
   local tabs_width = vim.api.nvim_eval_statusline(tabs, { use_tabline = true }).width
   local buffers = buffer_section(tabs_width)
 
-  return buffers .. "%=" .. tabs
+  return buffers .. tabs or ""
 end
 
 vim.o.tabline = "%!v:lua.Tabline()"
