@@ -42,7 +42,21 @@ local function macro_module()
     return ""
   end
 
-  return " |  @" .. register
+  return " |  @" .. register .. " "
+end
+local function search_module()
+  if vim.v.hlsearch == 0 then
+    return ""
+  end
+
+  local ok, searchcount = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 500 })
+  if not ok or next(searchcount) == nil then
+    return ""
+  end
+
+  local total = math.min(searchcount.total, searchcount.maxcount)
+
+  return " |  " .. searchcount.current .. "/" .. total
 end
 local function git_module()
   local diff = vim.b.minidiff_summary
@@ -113,15 +127,22 @@ end
 function Statusline()
   local mode = mode_module()
   local macro = macro_module()
+  local search = search_module()
   local git = Utils.width_more_than(120) and " " .. git_module() or ""
   local file = file_module()
   local diagnostics = Utils.width_more_than(120) and diagnostics_module() .. " " or ""
   local line = Utils.width_more_than(60) and Utils.highlight_module(line_module()) or ""
 
-  local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, macro, git }, file) or "%="
+  local first_space = Utils.width_more_than(60) and get_center_spacing({ mode, macro, search, git }, file) or "%="
   local second_space = Utils.width_more_than(60) and "%=" or ""
 
-  return Utils.highlight_module(mode .. macro) .. git .. first_space .. file .. second_space .. diagnostics .. line
+  return Utils.highlight_module(mode .. macro .. search)
+    .. git
+    .. first_space
+    .. file
+    .. second_space
+    .. diagnostics
+    .. line
 end
 
 vim.o.statusline = "%!v:lua.Statusline()"

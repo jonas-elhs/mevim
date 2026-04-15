@@ -11,6 +11,8 @@ local IGNORED_KINDS = {
   [""] = true,
   empty = true,
   bufwrite = true,
+  search_cmd = true,
+  search_count = true,
 }
 
 local SKIP_PATTERNS = {
