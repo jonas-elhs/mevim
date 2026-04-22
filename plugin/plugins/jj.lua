@@ -29,4 +29,5 @@ end)
 vim.keymap.set("n", "<leader>jP", "<CMD>J push<CR>")
 vim.keymap.set("n", "<leader>jS", "<CMD>J split<CR>")
 vim.keymap.set("n", "<leader>jD", "<CMD>J diff<CR>")
+vim.keymap.set("n", "<leader>jc", "<CMD>J commit<CR>")
 -- TODO: bookmarks
