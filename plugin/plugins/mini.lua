@@ -170,6 +170,7 @@ require("mini.indentscope").setup({
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "help",
+    "pager",
     "snacks_notif",
   },
   callback = function()
