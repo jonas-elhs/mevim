@@ -52,6 +52,16 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesWindowOpen",
+  callback = function(args)
+    local win = args.data.win_id
+
+    vim.wo[win].scrolloff = 0
+    vim.wo[win].scrolloffpad = 0
+  end,
+})
+
 vim.keymap.set("n", "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
 end, { desc = "Explore current directory" })
