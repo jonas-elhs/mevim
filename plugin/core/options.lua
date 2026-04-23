@@ -37,7 +37,6 @@ vim.o.updatetime = 50
 vim.o.showtabline = 2
 
 -- UI
-vim.o.wrap = false
 vim.o.cmdheight = 0
 vim.o.winborder = "rounded"
 vim.o.splitbelow = true
@@ -52,7 +51,6 @@ vim.o.shadafile = "NONE"
 
 -- Line Wrapping
 vim.o.wrap = false
-vim.o.showbreak = "󱞩"
 vim.o.linebreak = true
 vim.o.breakindent = true
 
