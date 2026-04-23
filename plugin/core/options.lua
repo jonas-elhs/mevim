@@ -4,6 +4,7 @@ vim.o.signcolumn = "yes"
 
 -- Scrolling
 vim.o.scrolloff = 999
+vim.o.scrolloffpad = 1
 vim.o.sidescrolloff = 8
 
 -- Searching
