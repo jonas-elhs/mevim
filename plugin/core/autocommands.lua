@@ -9,11 +9,13 @@ autocmd("FileType", {
     local started = pcall(vim.treesitter.start)
 
     if not started then
+      vim.wo.foldmethod = "indent"
+      vim.bo.indentexpr = ""
       return
     end
 
-    vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    vim.o.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldmethod = "expr"
 
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
@@ -74,6 +76,10 @@ autocmd("InsertLeave", {
 -- apply indent in insert cursor move
 autocmd("CursorMovedI", {
   callback = function()
+    if vim.wo.foldmethod ~= "expr" then
+      return
+    end
+
     -- stoe the line we're leaving
     local buf = vim.api.nvim_get_current_buf()
     local prev_line = vim.b.previous_insert_line or 0
@@ -113,14 +119,13 @@ autocmd("FileType", {
   group = close,
   pattern = {
     "qf",
+    "msg",
     "help",
-    "notify",
-    "startuptime",
     "checkhealth",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<CMD>close<CR>", {
+    vim.keymap.set({ "n", "v" }, "q", "<CMD>close<CR>", {
       buf = event.buf,
       silent = true,
       desc = "Close Buffer",
@@ -139,5 +144,42 @@ autocmd("BufWritePre", {
 
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+-- Disabling
+autocmd("FileType", {
+  pattern = {
+    "msg",
+    "fyler",
+  },
+  callback = function()
+    vim.wo.scrolloffpad = 0
+  end,
+})
+autocmd("User", {
+  pattern = "MiniFilesWindowOpen",
+  callback = function(args)
+    local win = args.data.win_id
+
+    vim.wo[win].scrolloff = 0
+    vim.wo[win].scrolloffpad = 0
+  end,
+})
+autocmd("FileType", {
+  pattern = {
+    "help",
+    "pager",
+  },
+  callback = function()
+    vim.b.minicursorword_disable = true
+    vim.b.miniindentscope_disable = true
+  end,
+})
+autocmd("User", {
+  pattern = "SnacksDashboardOpened",
+  callback = function(args)
+    vim.b[args.buf].minicursorword_disable = true
+    vim.b[args.buf].miniindentscope_disable = true
   end,
 })

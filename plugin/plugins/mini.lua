@@ -52,16 +52,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "MiniFilesWindowOpen",
-  callback = function(args)
-    local win = args.data.win_id
-
-    vim.wo[win].scrolloff = 0
-    vim.wo[win].scrolloffpad = 0
-  end,
-})
-
 vim.keymap.set("n", "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
 end, { desc = "Explore current directory" })
@@ -174,24 +164,4 @@ require("mini.indentscope").setup({
   options = {
     try_as_border = true,
   },
-})
-
--- Disabling
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "help",
-    "pager",
-    "snacks_notif",
-  },
-  callback = function()
-    vim.b.minicursorword_disable = true
-    vim.b.miniindentscope_disable = true
-  end,
-})
-vim.api.nvim_create_autocmd("User", {
-  pattern = "SnacksDashboardOpened",
-  callback = function(args)
-    vim.b[args.buf].minicursorword_disable = true
-    vim.b[args.buf].miniindentscope_disable = true
-  end,
 })
