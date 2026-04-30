@@ -214,6 +214,22 @@
         "type": "github"
       }
     },
+    "plugins-fyler-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775381720,
+        "narHash": "sha256-zX0l3SnK/0HUZ8LhocmUlq3Yj6POHWeRQZdPcIzQC4Y=",
+        "owner": "A7Lavinraj",
+        "repo": "fyler.nvim",
+        "rev": "e87911e6c21d099225063f5aa672e00f6dbb5976",
+        "type": "github"
+      },
+      "original": {
+        "owner": "A7Lavinraj",
+        "repo": "fyler.nvim",
+        "type": "github"
+      }
+    },
     "plugins-incline-nvim": {
       "flake": false,
       "locked": {
@@ -462,6 +478,7 @@
         "plugins-colorful-winsep-nvim": "plugins-colorful-winsep-nvim",
         "plugins-conform-nvim": "plugins-conform-nvim",
         "plugins-filepaths_ls-nvim": "plugins-filepaths_ls-nvim",
+        "plugins-fyler-nvim": "plugins-fyler-nvim",
         "plugins-incline-nvim": "plugins-incline-nvim",
         "plugins-jj-nvim": "plugins-jj-nvim",
         "plugins-leap-nvim": "plugins-leap-nvim",

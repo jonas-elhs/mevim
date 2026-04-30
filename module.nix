@@ -68,6 +68,7 @@ in {
       mini-nvim
       nvim-lint
       leap-nvim
+      fyler-nvim
       treesj-nvim
       snacks-nvim
       incline-nvim

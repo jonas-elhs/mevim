@@ -58,23 +58,11 @@ require("snacks").setup({
           "**/target/*",
         },
       },
-
-      explorer = {
-        layout = {
-          auto_hide = { "input" },
-          layout = { width = vim.o.columns / 5, position = "right" },
-        },
-      },
     },
   },
 
   bigfile = {
     enabled = true,
-  },
-
-  explorer = {
-    replace_netrw = false,
-    trash = false,
   },
 
   dashboard = {
@@ -147,6 +135,3 @@ map("n", "<leader>g", Snacks.lazygit.open, { desc = "Open LazyGit" })
 -- Notifier
 map("n", "<leader>n", Snacks.notifier.hide, { desc = "Dismiss all notifications" })
 map("n", "<leader>m", Snacks.notifier.show_history, { desc = "Show notification history" })
-
--- Explorer
-map("n", "<leader><leader>", Snacks.explorer.open)
