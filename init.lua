@@ -1,4 +1,4 @@
-if vim.env.PROF then
+if vim.env.PROFILE then
   require("snacks.profiler").startup({
     startup = {
       event = "UIEnter",
