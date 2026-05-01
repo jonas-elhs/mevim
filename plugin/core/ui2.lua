@@ -99,7 +99,7 @@ local function override_msg_win()
   width = math.max(MIN_MSG_WIDTH, math.min(MAX_MSG_WIDTH, width))
 
   -- Configure window
-  vim.api.nvim_win_set_config(win, {
+  pcall(vim.api.nvim_win_set_config, win, {
     relative = "editor",
     anchor = "NE",
     row = 1,
@@ -124,7 +124,7 @@ local function override_pager_win()
   end
 
   local height = vim.api.nvim_win_get_height(win)
-  vim.api.nvim_win_set_config(win, {
+  pcall(vim.api.nvim_win_set_config, win, {
     border = "rounded",
     height = height,
     style = "minimal",
@@ -143,7 +143,7 @@ local function override_dialog_win()
   end
 
   local height = vim.api.nvim_win_get_height(win)
-  vim.api.nvim_win_set_config(win, {
+  pcall(vim.api.nvim_win_set_config, win, {
     border = "rounded",
     height = height,
     style = "minimal",
