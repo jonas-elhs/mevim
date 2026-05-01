@@ -50,10 +50,10 @@ map("i",   "<C-k>",        "<Up>",                        { desc = "Up (Insert M
 map("i",   "<C-l>",        "<Right>",                     { desc = "Right (Insert Mode)" })
 
 -- Split Creation
-map("n",   "<leader>sh",   "<C-w>v<C-w>h",                { desc = "Split left" })
-map("n",   "<leader>sj",   "<C-w>s",                      { desc = "Split down" })
-map("n",   "<leader>sk",   "<C-w>s<C-w>k",                { desc = "Split up" })
-map("n",   "<leader>sl",   "<C-w>v",                      { desc = "Split right" })
+map("n",   "<leader>sh",   "<CMD>leftabove vsplit<CR>",   { desc = "Split left" })
+map("n",   "<leader>sj",   "<CMD>rightbelow split<CR>",   { desc = "Split down" })
+map("n",   "<leader>sk",   "<CMD>leftabove split<CR>",    { desc = "Split up" })
+map("n",   "<leader>sl",   "<CMD>rightbelow vsplit<CR>",  { desc = "Split right" })
 map("n",   "<leader>sx",   "<C-w>c",                      { desc = "Exit split" })
 
 -- Split Movement
