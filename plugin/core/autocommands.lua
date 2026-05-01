@@ -1,10 +1,7 @@
-local group = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Enable Tree-Sitter
-local treesitter = group("jonas/treesitter", {})
 autocmd("FileType", {
-  group = treesitter,
   callback = function()
     local started = pcall(vim.treesitter.start)
 
@@ -22,24 +19,19 @@ autocmd("FileType", {
 })
 
 -- Current window only
-local cursorline = group("jonas/currentwindow", {})
 autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
-  group = cursorline,
   callback = function()
     vim.wo.cursorline = true
   end,
 })
 autocmd({ "WinLeave" }, {
-  group = cursorline,
   callback = function()
     vim.wo.cursorline = false
   end,
 })
 
 -- Highlight Yank Region
-local yank_highlight = group("jonas/yank_highlight", {})
 autocmd({ "TextYankPost" }, {
-  group = yank_highlight,
   callback = function()
     vim.hl.on_yank()
   end,
@@ -103,9 +95,7 @@ autocmd("CursorMovedI", {
 })
 
 -- Resize splits if window is resized
-local resize = group("jonas/resize_splits", {})
 autocmd("VimResized", {
-  group = resize,
   callback = function()
     local current = vim.api.nvim_get_current_tabpage()
     vim.cmd("tabdo wincmd =")
@@ -114,9 +104,7 @@ autocmd("VimResized", {
 })
 
 -- Easy close
-local close = group("jonas/easy_close", {})
 autocmd("FileType", {
-  group = close,
   pattern = {
     "qf",
     "msg",
@@ -134,9 +122,7 @@ autocmd("FileType", {
 })
 
 -- Create parent dir if it doesn't exist
-local parent_dir = group("jonas/create_parent_dir", {})
 autocmd("BufWritePre", {
-  group = parent_dir,
   callback = function(event)
     if event.match:match("^%w%w+://") then
       return
