@@ -20,7 +20,7 @@ local servers = {
     settings = {
       nixd = {
         nixpkgs = {
-          expr = nix.info.nixd.nixpkgs,
+          expr = Nix.info.nixd.nixpkgs,
         },
       },
     },
@@ -36,7 +36,7 @@ local servers = {
         local path = client.workspace_folders[1].name
 
         if
-          path ~= nix.info.config.path
+          path ~= Nix.info.config.path
           and (
             vim.uv.fs_stat(path .. "/.luarc.json")
             or vim.uv.fs_stat(path .. "/.luarc.jsonc")

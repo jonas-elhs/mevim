@@ -1,31 +1,31 @@
-local Utils = {}
+local M = {}
 
 ---@param max number The maximum width to check against
 ---@return boolean
-Utils.width_less_than = function(max)
+function M.width_less_than(max)
   return vim.o.columns <= max
 end
 ---@param min number The minimum width to check against
 ---@return boolean
-Utils.width_more_than = function(min)
+function M.width_more_than(min)
   return vim.o.columns > min
 end
 
 ---@param str string The string to remove the highlight groups from
 ---@return string
-Utils.remove_highlight_groups_from_string = function(str)
+function M.remove_highlight_groups_from_string(str)
   return (str:gsub("%%%#[a-zA-Z_]+#", ""))
 end
 ---@param highlight_group string The name of the highlight group to extend
 ---@param values table The highlight values to extend the group with
 ---@return table
-Utils.extend_highlight = function(highlight_group, values)
+function M.extend_highlight(highlight_group, values)
   return vim.tbl_extend("keep", values, vim.api.nvim_get_hl(0, { name = highlight_group }))
 end
 ---@param content string Content of module
 ---@param inactive bool|nil Whether the module is inactive
 ---@return string
-Utils.highlight_module = function(content, inactive)
+function M.highlight_module(content, inactive)
   local separator_highlight = inactive and "%#JonasInactive#" or "%#JonasCurrentMode#"
   local content_highlight = inactive and "%#JonasInactiveReverse#" or "%#JonasCurrentModeReverse#"
 
@@ -83,11 +83,11 @@ local mode_map = {
   ["t"]      = { "terminal", "TERMINAL" },
 }
 ---@return string
-Utils.get_current_mode_type = function()
+function M.get_current_mode_type()
   return mode_map[vim.api.nvim_get_mode().mode][1]
 end
 ---@return string
-Utils.get_current_mode_name = function()
+function M.get_current_mode_name()
   return mode_map[vim.api.nvim_get_mode().mode][2]
 end
 
@@ -100,7 +100,7 @@ end
 
 ---@param options ToggleOptions
 ---@return void
-Utils.toggle = function(options)
+function M.toggle(options)
   vim.api.nvim_create_user_command("Toggle" .. options.command, function()
     local enabled = options.enabled()
 
@@ -115,7 +115,7 @@ Utils.toggle = function(options)
 end
 
 ---@param array table
-Utils.build_index_map = function(array)
+function M.build_index_map(array)
   local map = {}
 
   for index, element in ipairs(array) do
@@ -134,7 +134,7 @@ local filename_overrides = {
 ---@param buf number Whose name to retrieve
 ---@param full boolean Get the full path or only the tail
 ---@return string #Buffer name
-Utils.get_buf_name = function(buf, full)
+function M.get_buf_name(buf, full)
   local filename_modifiers = full and ":~" or ":t"
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), filename_modifiers)
   local filetype = vim.bo.filetype
@@ -143,7 +143,7 @@ Utils.get_buf_name = function(buf, full)
 end
 
 --- Disable semi auto complete
-Utils.disable_semi_autocomplete = function()
+function M.disable_semi_autocomplete()
   if vim.g.insert_completing and not vim.g.auto_completing then
     vim.o.autocomplete = false
   end
@@ -151,4 +151,17 @@ Utils.disable_semi_autocomplete = function()
   vim.g.insert_completing = false
 end
 
-_G.Utils = Utils
+--- Get tracked buffers in window
+function M.get_tracked_bufs(win)
+  if vim.api.nvim_win_is_valid(win) then
+    local ok, bufs = pcall(vim.api.nvim_win_get_var, win, "tracked_bufs")
+
+    if ok and type(bufs) == "table" then
+      return bufs
+    end
+  end
+
+  return {}
+end
+
+return M

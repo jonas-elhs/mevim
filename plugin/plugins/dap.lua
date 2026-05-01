@@ -4,7 +4,7 @@ local dap = require("dap")
 -- C, C++, Rust
 dap.adapters.codelldb = {
   type = "executable",
-  command = nix.info.codelldb.executable,
+  command = Nix.info.codelldb.executable,
 }
 
 -- Python
