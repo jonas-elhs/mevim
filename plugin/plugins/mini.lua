@@ -27,7 +27,7 @@ require("mini.files").setup({
     reset = "",
     reveal_cwd = "@",
     show_help = "?",
-    synchronize = "=",
+    synchronize = "<leader>w",
     trim_left = "",
     trim_right = "",
   },
