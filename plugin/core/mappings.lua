@@ -89,5 +89,11 @@ map("n",   "<leader>R",    function()
   vim.cmd("mksession! " .. session)
   vim.cmd("restart source " .. session)
 end, { desc = "Restart Neovim" })
+map("n", "<leader>n", function()
+  local win = require("vim._core.ui2").wins.msg
+  if not vim.api.nvim_win_is_valid(win) then return end
+  vim.api.nvim_win_close(win, false)
+end,               { desc = "Dismiss messages" })
+map("n", "<leader>m", "<CMD>messages<CR>",                { desc = "Show messages" })
 
 -- stylua: ignore end

@@ -131,7 +131,3 @@ end, { desc = "Force exit open buffer" })
 
 -- LazyGit
 map("n", "<leader>g", Snacks.lazygit.open, { desc = "Open LazyGit" })
-
--- Notifier
-map("n", "<leader>n", Snacks.notifier.hide, { desc = "Dismiss all notifications" })
-map("n", "<leader>m", Snacks.notifier.show_history, { desc = "Show notification history" })
