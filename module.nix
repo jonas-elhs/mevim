@@ -71,7 +71,6 @@ in {
       fyler-nvim
       treesj-nvim
       snacks-nvim
-      incline-nvim
       conform-nvim
       nvim-dap-view
       markview-nvim

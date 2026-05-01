@@ -151,17 +151,4 @@ function M.disable_semi_autocomplete()
   vim.g.insert_completing = false
 end
 
---- Get tracked buffers in window
-function M.get_tracked_bufs(win)
-  if vim.api.nvim_win_is_valid(win) then
-    local ok, bufs = pcall(vim.api.nvim_win_get_var, win, "tracked_bufs")
-
-    if ok and type(bufs) == "table" then
-      return bufs
-    end
-  end
-
-  return {}
-end
-
 return M

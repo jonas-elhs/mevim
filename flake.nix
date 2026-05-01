@@ -64,10 +64,6 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
-    plugins-incline-nvim = {
-      url = "github:b0o/incline.nvim";
-      flake = false;
-    };
     plugins-conform-nvim = {
       url = "github:stevearc/conform.nvim";
       flake = false;

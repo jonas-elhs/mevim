@@ -123,11 +123,5 @@ map("n", "gi", Snacks.picker.lsp_implementations, { desc = "LSP implementations"
 map("n", "gt", Snacks.picker.lsp_type_definitions, { desc = "LSP type definitions" })
 map("n", "<leader>ls", Snacks.picker.lsp_symbols, { desc = "LSP symbols" })
 
--- BufDelete
-map("n", "<leader>x", Snacks.bufdelete.delete, { desc = "Exit open buffer" })
-map("n", "<leader>X", function()
-  Snacks.bufdelete.delete({ force = true })
-end, { desc = "Force exit open buffer" })
-
 -- LazyGit
 map("n", "<leader>g", Snacks.lazygit.open, { desc = "Open LazyGit" })
