@@ -9,8 +9,6 @@ require("blink.pairs").setup({
 -- Restore completion keymaps with blink.pairs backup
 local rule_lib = require("blink.pairs.rule")
 vim.keymap.set("i", "<CR>", function()
-  Utils.disable_semi_autocomplete()
-
   if vim.fn.pumvisible() == 1 then
     -- Accept selected completion item
     return "<C-y>"

@@ -58,9 +58,6 @@ local servers = {
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
-          -- library = vim.tbl_filter(function(path)
-          --   return not path:match(vim.fn.stdpath("config") .. "/?a?f?t?e?r?")
-          -- end, vim.api.nvim_get_runtime_file("", true)),
         },
       })
     end,
@@ -143,7 +140,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   end,
 })
 vim.on_key(function(key, _)
-  if key == " " then
+  if key == " " or key == "\n" then
     Utils.disable_semi_autocomplete()
   end
 end)
@@ -183,18 +180,11 @@ vim.diagnostic.config({
   },
 
   virtual_text = {
-    spacing = 2,
-    source = "if_many",
     prefix = "",
+    source = "if_many",
+    spacing = 2,
   },
 })
-
-local virtual_lines_config = {
-  current_line = true,
-  format = function(diagnostic)
-    return diagnostic.message
-  end,
-}
 
 Utils.toggle({
   name = "Detailed Diagnostics",
@@ -202,22 +192,25 @@ Utils.toggle({
   keymap = "<leader>td",
 
   toggle = function(enabled)
-    local config = vim.diagnostic.config() or {}
+    local config = vim.diagnostic.config()
 
     if enabled then
       config.virtual_lines = false
       config.virtual_text.current_line = nil
     else
-      config.virtual_lines = virtual_lines_config
+      config.virtual_lines = {
+        current_line = true,
+        format = function(diagnostic)
+          return diagnostic.message
+        end,
+      }
       config.virtual_text.current_line = false
     end
 
     vim.diagnostic.config(config)
   end,
   enabled = function()
-    local config = vim.diagnostic.config() or {}
-
-    return type(config.virtual_lines) == "table" and config.virtual_lines.current_line == true
+    return type(vim.diagnostic.config().virtual_lines) == "table"
   end,
 })
 Utils.toggle({
