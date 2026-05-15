@@ -510,6 +510,10 @@ local function apply_highlights(colors)
     NvimDapViewSeparator = { link = "Normal" },
     NvimDapViewLineNumber = { link = "NvimDapViewFileName" },
     NvimDapViewTabSelected = { fg = colors.accent, bold = true },
+    --
+    -- fyler
+    FylerIndentMarker = { fg = colors.inactive },
+    FylerFSDirectoryIcon = { link = "MiniIconsAzure" }
   }
 
   for highlight, spec in pairs(groups) do

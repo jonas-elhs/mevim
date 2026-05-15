@@ -14,11 +14,6 @@ require("fyler").setup({
       icon = {
         directory_expanded = "󰉖",
       },
-      indentscope = {
-        markers = {
-          { "│", "FylerIndentMarker" },
-        },
-      },
       win = {
         kind = "split_right_most",
         kinds = {
