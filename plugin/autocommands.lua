@@ -144,7 +144,7 @@ autocmd("FileType", {
   end,
 })
 autocmd("User", {
-  pattern = "MiniFilesWindowOpen",
+  pattern = "MiniFilesWindowUpdate",
   callback = function(args)
     local win = args.data.win_id
 
