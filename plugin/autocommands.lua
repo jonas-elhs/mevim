@@ -31,9 +31,9 @@ autocmd({ "WinLeave" }, {
 })
 
 -- Highlight Yank Region
-autocmd({ "TextYankPost" }, {
+autocmd({ "TextPutPost", "TextYankPost" }, {
   callback = function()
-    vim.hl.on_yank()
+    vim.hl.hl_op({ higroup = "Visual" })
   end,
 })
 
