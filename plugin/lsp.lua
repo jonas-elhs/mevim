@@ -35,20 +35,12 @@ local servers = {
       if client.workspace_folders then
         local path = client.workspace_folders[1].name
 
-        if
-          path ~= Nix.info.config.path
-          and (
-            vim.uv.fs_stat(path .. "/.luarc.json")
-            or vim.uv.fs_stat(path .. "/.luarc.jsonc")
-            or vim.uv.fs_stat(path .. "/.emmyrc.json")
-            or vim.uv.fs_stat(path .. "/.emmyrc.lua")
-          )
-        then
+        if path ~= Nix.info.config.path then
           return
         end
       end
 
-      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+      client.config.settings.emmylua = vim.tbl_deep_extend("force", client.config.settings.emmylua, {
         runtime = {
           version = "LuaJIT",
           requirePath = { "lua/?.lua", "lua/?/init.lua" },
@@ -61,9 +53,6 @@ local servers = {
         },
       })
     end,
-    settings = {
-      Lua = {},
-    },
   },
 
   filepaths_ls = {
