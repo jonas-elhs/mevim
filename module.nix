@@ -117,7 +117,6 @@ in {
 
       # Linters
       statix
-      selene
       clippy
       cppcheck
       stylelint

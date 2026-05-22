@@ -1,6 +1,5 @@
 require("lint").linters_by_ft = {
   sh = { "shellcheck", "bash" },
-  lua = { "selene" },
   nix = { "nix", "statix" },
   rust = { "clippy" },
   python = { "ruff" },
