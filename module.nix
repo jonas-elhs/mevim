@@ -80,7 +80,7 @@ in {
       colorful-winsep-nvim
     ];
 
-    extraPackages = with pkgs; [
+    runtimePkgs = with pkgs; [
       # Runtime Dependencies
       fd
       fzf
