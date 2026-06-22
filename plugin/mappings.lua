@@ -11,7 +11,7 @@ map("n",   "<leader>W",    "<CMD>silent write!<CR>",      { desc = "Force write"
 map("n",   "<leader>q",    "<CMD>quitall<CR>",            { desc = "Quit" })
 map("n",   "<leader>Q",    "<CMD>quitall!<CR>",           { desc = "Force quit" })
 
--- Yank, Delete And Paste System Clipboard
+-- System Clipboard
 map({ "n", "x" },   "<leader>p",    "\"+p",               { desc = "Paste from clipboard" })
 map({ "n", "x" },   "<leader>P",    "\"+P",               { desc = "Paste from clipboard" })
 map({ "n", "x" },   "<leader>y",    "\"+y",               { desc = "Yank to clipboard" })
@@ -49,34 +49,34 @@ map("i",   "<C-j>",        "<Down>",                      { desc = "Down (Insert
 map("i",   "<C-k>",        "<Up>",                        { desc = "Up (Insert Mode)" })
 map("i",   "<C-l>",        "<Right>",                     { desc = "Right (Insert Mode)" })
 
--- Split Creation
+-- Splits
 map("n",   "<leader>sh",   "<CMD>leftabove vsplit<CR>",   { desc = "Split left" })
 map("n",   "<leader>sj",   "<CMD>rightbelow split<CR>",   { desc = "Split down" })
 map("n",   "<leader>sk",   "<CMD>leftabove split<CR>",    { desc = "Split up" })
 map("n",   "<leader>sl",   "<CMD>rightbelow vsplit<CR>",  { desc = "Split right" })
 map("n",   "<leader>sx",   "<C-w>c",                      { desc = "Exit split" })
 
--- Split Movement
 map("n",   "<C-h>",        "<C-w>h",                      { desc = "Focus left split" })
 map("n",   "<C-j>",        "<C-w>j",                      { desc = "Focus below split" })
 map("n",   "<C-k>",        "<C-w>k",                      { desc = "Focus above split" })
 map("n",   "<C-l>",        "<C-w>l",                      { desc = "Focus right split" })
 
--- Split Sizing
 map("n",   "<C-Left>",     "<C-w><",                      { desc = "Decrease split width" })
 map("n",   "<C-Down>",     "<C-w>-",                      { desc = "Decrease split heigth" })
 map("n",   "<C-Up>",       "<C-w>+",                      { desc = "Increase split height" })
 map("n",   "<C-Right>",    "<C-w>>",                      { desc = "Increase split width" })
 
 -- Traverse Errors
-map("n",   "[e",           function()
+map("n",   "[e",   function()
   vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
-end,                                              { desc = "Go to previous error" })
-map("n",   "]e",           function()
+end,                                                      { desc = "Go to previous error" })
+map("n",   "]e",   function()
   vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
-end,                                              { desc = "Go to next error" })
+end,                                                      { desc = "Go to next error" })
 
--- Misc
+-- Utils
+map("n",   "H",            "0",                           { desc = "Goto start of line" })
+map("n",   "L",            "$",                           { desc = "Goto end of line" })
 map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
 map("n",   "U",            "<C-r>",                       { desc = "Redo" })
 map("n",   "x",            "\"_x",                        { desc = "Delete character" })
