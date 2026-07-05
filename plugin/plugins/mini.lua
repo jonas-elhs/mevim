@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 -- mini.move
 require("mini.move").setup()
 
@@ -8,6 +10,68 @@ require("mini.diff").setup({
     signs = { add = "┃", change = "┃", delete = "┃" },
   },
 })
+
+-- mini.extra
+require("mini.extra").setup()
+
+-- mini.pick
+require("mini.pick").setup({
+  mappings = {
+    caret_left = "<C-h>",
+    caret_right = "<C-l>",
+
+    move_down = "<C-j>",
+    move_up = "<C-k>",
+
+    scroll_left = "",
+    scroll_right = "",
+  },
+
+  window = {
+    config = function()
+      local height = math.floor(0.8 * vim.o.lines)
+      local width = math.floor(0.7 * vim.o.columns)
+
+      return {
+        anchor = "NW",
+        height = height,
+        width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+      }
+    end,
+
+    prompt_prefix = "󰁔 ",
+  },
+})
+
+map("n", "<leader>sg", MiniPick.builtin.grep_live, { desc = "Search text" })
+map("n", "<leader>sf", MiniPick.builtin.files, { desc = "Search files" })
+map("n", "<leader>sr", MiniPick.builtin.resume, { desc = "Resume search" })
+map("n", "<leader>sb", MiniPick.builtin.buffers, { desc = "Search buffers" })
+map("n", "<leader>sm", MiniExtra.pickers.keymaps, { desc = "Search mappings" })
+map("n", "<leader>sc", function()
+  MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") })
+end, { desc = "Search word under cursor" })
+
+map("n", "gr", function()
+  MiniExtra.pickers.lsp({ scope = "references" })
+end, { desc = "LSP references" })
+map("n", "gd", function()
+  MiniExtra.pickers.lsp({ scope = "definition" })
+end, { desc = "LSP definitions" })
+map("n", "gD", function()
+  MiniExtra.pickers.lsp({ scope = "declaration" })
+end, { desc = "LSP declarations" })
+map("n", "gi", function()
+  MiniExtra.pickers.lsp({ scope = "implementation" })
+end, { desc = "LSP implementations" })
+map("n", "gt", function()
+  MiniExtra.pickers.lsp({ scope = "type_definition" })
+end, { desc = "LSP type definitions" })
+map("n", "<leader>ls", function()
+  MiniExtra.pickers.lsp({ scope = "document_symbol" })
+end, { desc = "LSP symbols" })
 
 -- mini.files
 require("mini.files").setup({
@@ -45,17 +109,17 @@ vim.api.nvim_create_autocmd("User", {
   callback = function(args)
     local buffer = args.data.buf_id
 
-    vim.keymap.set("n", "<C-H>", "<Left>", { buffer = buffer })
-    vim.keymap.set("n", "<C-J>", "<Down>", { buffer = buffer })
-    vim.keymap.set("n", "<C-K>", "<Up>", { buffer = buffer })
-    vim.keymap.set("n", "<C-L>", "<Right>", { buffer = buffer })
+    map("n", "<C-H>", "<Left>", { buffer = buffer })
+    map("n", "<C-J>", "<Down>", { buffer = buffer })
+    map("n", "<C-K>", "<Up>", { buffer = buffer })
+    map("n", "<C-L>", "<Right>", { buffer = buffer })
   end,
 })
 
-vim.keymap.set("n", "<leader>e", function()
+map("n", "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
 end, { desc = "Explore current directory" })
-vim.keymap.set("n", "<leader>E", function()
+map("n", "<leader>E", function()
   MiniFiles.open(vim.uv.cwd(), true)
 end, { desc = "Explore current working directory" })
 

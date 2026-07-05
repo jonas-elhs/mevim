@@ -121,7 +121,7 @@ local function apply_highlights(colors)
     -- PmenuThumb             |   guibg=NvimDarkGrey4                                                |   Popup menu: Thumb of the scrollbar.
     PmenuThumb = { bg = colors.foreground },
     -- PmenuMatch             |   cterm=bold gui=bold                                                  |   Popup menu: Matched text in normal item. Combined with hl-Pmenu.
-    PmenuMatch = { fg = colors.accent, italic = true },
+    PmenuMatch = { fg = colors.accent, bold = true },
     -- PmenuMatchSel          |   cterm=bold gui=bold                                                  |   Popup menu: Matched text in selected item. Combined with hl-PmenuMatch and hl-PmenuSel.
     PmenuMatchSel = { link = "PmenuMatch" },
     -- PmenuBorder            |   links to Pmenu                                                       |   Popup menu: border of popup menu.
@@ -476,6 +476,11 @@ local function apply_highlights(colors)
     MarkviewPalette6Sign = { link = "MarkviewPalette6" },
     MarkviewPalette6Fg = { link = "MarkviewPalette6" },
     MarkviewPalette6Bg = {},
+    -- mini.pick
+    MiniPickPrompt = { link = "Normal" },
+    MiniPickBorderText = { link = "Normal" },
+    MiniPickMatchRanges = { link = "PmenuMatch" },
+    MiniPickMatchCurrent = { fg = colors.background, bg = colors.foreground },
     --
     -- mini.hipatterns
     MiniHipatternsHack = { fg = colors.background, bg = colors.warn, bold = true },
@@ -485,9 +490,6 @@ local function apply_highlights(colors)
     --
     -- mini.indentscope
     MiniIndentScopeSymbol = { fg = colors.inactive },
-    --
-    -- snack.picker
-    SnacksPickerMatch = { link = "PmenuMatch" },
     --
     -- snacks.dashboard
     SnacksDashboardKey = { fg = colors.accent },
