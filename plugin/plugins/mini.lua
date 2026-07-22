@@ -45,8 +45,9 @@ require("mini.pick").setup({
   },
 })
 
-map("n", "<leader>sg", MiniPick.builtin.grep_live, { desc = "Search text" })
-map("n", "<leader>sf", MiniPick.builtin.files, { desc = "Search files" })
+map("n", "<leader><leader>", MiniPick.builtin.files, { desc = "Search files" })
+map("n", "<leader>/", MiniPick.builtin.grep_live, { desc = "Search text" })
+
 map("n", "<leader>sr", MiniPick.builtin.resume, { desc = "Resume search" })
 map("n", "<leader>sb", MiniPick.builtin.buffers, { desc = "Search buffers" })
 map("n", "<leader>sm", MiniExtra.pickers.keymaps, { desc = "Search mappings" })

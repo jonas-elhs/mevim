@@ -35,14 +35,12 @@ require("snacks").setup({
  ███████████ ███    ███ █████████ █████ █████ ████ █████  
 ██████  █████████████████████ ████ █████ █████ ████ ██████ 
                                                                      ]],
-      -- stylua: ignore
       keys = {
-        { icon = "󰍉",   desc = "Find Files",      key = "f",   action = "<CMD>Pick files<CR>", },
-        { icon = "",   desc = "New File",        key = "n",   action = "<CMD>ene | startinsert<CR>", },
-        { icon = "󰦨",   desc = "Find Text",       key = "g",   action = "<CMD>Pick grep_liveCR>", },
-        { icon = "",   desc = "Explore Files",   key = "e",   action = "<CMD>lua MiniFiles.open()<CR>" },
-        { icon = "",   desc = "Config",          key = "c",   action = "<CMD>lua vim.cmd.cd(vim.fn.stdpath('config')); Snacks.picker.files()<CR>", },
-        { icon = "󰈆",   desc = "Quit",            key = "q",   action = "<CMD>qa<CR>" },
+        { icon = "󰍉", desc = "Find Files", key = "<Space>", action = "<CMD>Pick files<CR>" },
+        { icon = "󰦨", desc = "Find Text", key = "/", action = "<CMD>Pick grep_liveCR>" },
+        { icon = "", desc = "Explore Files", key = "e", action = "<CMD>lua MiniFiles.open()<CR>" },
+        { icon = "", desc = "New File", key = "n", action = "<CMD>ene | startinsert<CR>" },
+        { icon = "󰈆", desc = "Quit", key = "q", action = "<CMD>qa<CR>" },
       },
     },
     sections = {
