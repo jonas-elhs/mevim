@@ -72,6 +72,7 @@ in {
       treesj-nvim
       snacks-nvim
       conform-nvim
+      mini-diff-jj
       nvim-dap-view
       markview-nvim
       filepaths_ls-nvim

@@ -5,6 +5,10 @@ require("mini.move").setup()
 
 -- mini.diff
 require("mini.diff").setup({
+  source = {
+    require("mini.diff.jj"),
+    require("mini.diff").gen_source.git(),
+  },
   view = {
     style = "sign",
     signs = { add = "┃", change = "┃", delete = "┃" },

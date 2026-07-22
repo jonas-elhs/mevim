@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "plugins-mini-diff-jj": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783765523,
+        "narHash": "sha256-9UMoEGeW8MtKslQ4PlJXxv28Hx6aKODzXGR35JKishc=",
+        "ref": "refs/heads/master",
+        "rev": "0c43dea746088ce07c1c60f2b3c50e0aa7ff11c2",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://tangled.org/ronshavit.com/mini.diff.jj"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://tangled.org/ronshavit.com/mini.diff.jj"
+      }
+    },
     "plugins-mini-nvim": {
       "flake": false,
       "locked": {
@@ -429,6 +445,7 @@
         "plugins-leap-nvim": "plugins-leap-nvim",
         "plugins-live-preview-nvim": "plugins-live-preview-nvim",
         "plugins-markview-nvim": "plugins-markview-nvim",
+        "plugins-mini-diff-jj": "plugins-mini-diff-jj",
         "plugins-mini-nvim": "plugins-mini-nvim",
         "plugins-nui-nvim": "plugins-nui-nvim",
         "plugins-nvim-dap": "plugins-nvim-dap",

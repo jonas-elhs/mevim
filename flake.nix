@@ -68,6 +68,10 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
+    plugins-mini-diff-jj = {
+      url = "git+https://tangled.org/ronshavit.com/mini.diff.jj";
+      flake = false;
+    };
     plugins-nvim-dap-view = {
       url = "github:igorlfs/nvim-dap-view";
       flake = false;
