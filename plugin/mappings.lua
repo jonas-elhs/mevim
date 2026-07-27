@@ -56,15 +56,28 @@ map("n",   "<leader>sk",   "<CMD>leftabove split<CR>",    { desc = "Split up" })
 map("n",   "<leader>sl",   "<CMD>rightbelow vsplit<CR>",  { desc = "Split right" })
 map("n",   "<leader>sx",   "<C-w>c",                      { desc = "Exit split" })
 
-map("n",   "<C-h>",        "<C-w>h",                      { desc = "Focus left split" })
-map("n",   "<C-j>",        "<C-w>j",                      { desc = "Focus below split" })
-map("n",   "<C-k>",        "<C-w>k",                      { desc = "Focus above split" })
-map("n",   "<C-l>",        "<C-w>l",                      { desc = "Focus right split" })
+local function focus_or_create_split(direction)
+  return function()
+    local old_win = vim.api.nvim_get_current_win()
+    vim.cmd.wincmd(direction)
+    local new_win = vim.api.nvim_get_current_win()
 
-map("n",   "<C-Left>",     "<C-w><",                      { desc = "Decrease split width" })
-map("n",   "<C-Down>",     "<C-w>-",                      { desc = "Decrease split heigth" })
-map("n",   "<C-Up>",       "<C-w>+",                      { desc = "Increase split height" })
-map("n",   "<C-Right>",    "<C-w>>",                      { desc = "Increase split width" })
+    if old_win == new_win then
+      local split_cmds = {
+        h = "leftabove vsplit",
+        j = "rightbelow split",
+        k = "leftabove split",
+        l = "rightbelow vsplit",
+      }
+      vim.cmd(split_cmds[direction])
+    end
+  end
+end
+
+map("n",   "<C-h>",        focus_or_create_split("h"),   { desc = "Focus left split" })
+map("n",   "<C-j>",        focus_or_create_split("j"),   { desc = "Focus below split" })
+map("n",   "<C-k>",        focus_or_create_split("k"),   { desc = "Focus above split" })
+map("n",   "<C-l>",        focus_or_create_split("l"),   { desc = "Focus right split" })
 
 -- Traverse Errors
 map("n",   "[e",   function()
