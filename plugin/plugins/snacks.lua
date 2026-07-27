@@ -37,7 +37,7 @@ require("snacks").setup({
                                                                      ]],
       keys = {
         { icon = "󰍉", desc = "Find Files", key = "<Space>", action = "<CMD>Pick files<CR>" },
-        { icon = "󰦨", desc = "Find Text", key = "/", action = "<CMD>Pick grep_liveCR>" },
+        { icon = "󰦨", desc = "Find Text", key = "/", action = "<CMD>Pick grep_live<CR>" },
         { icon = "", desc = "Explore Files", key = "e", action = "<CMD>lua MiniFiles.open()<CR>" },
         { icon = "", desc = "New File", key = "n", action = "<CMD>ene | startinsert<CR>" },
         { icon = "󰈆", desc = "Quit", key = "q", action = "<CMD>qa<CR>" },
