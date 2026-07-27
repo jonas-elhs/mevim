@@ -73,12 +73,41 @@ vim.o.pumheight = 10
 vim.o.pumborder = "rounded"
 vim.o.completeopt = "fuzzy,menuone,popup,noinsert,noselect"
 
+local hlgroups = {
+  "Normal", -- "Text",
+  "@function.method", -- "Method",
+  "Function", -- "Function",
+  "@constructor", -- "Constructor",
+  "Identifier", -- "Field",
+  "Identifier", -- "Variable",
+  "Structure", -- "Class",
+  "Structure", -- "Interface",
+  "@module", -- "Module",
+  "Identifier", -- "Property",
+  "Constant", -- "Unit",
+  "Constant", -- "Value",
+  "Structure", -- "Enum",
+  "Keyword", -- "Keyword",
+  "Special", -- "Snippet",
+  "", -- "Color",
+  "Directory", -- "File",
+  "Identifier", -- "Reference",
+  "Directory", -- "Folder",
+  "Constant", -- "EnumMember",
+  "Constant", -- "Constant",
+  "Structure", -- "Struct",
+  "", -- "Event",
+  "Operator", -- "Operator",
+  "Type", -- "TypeParameter",
+}
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     vim.lsp.completion.enable(true, event.data.client_id, event.buf, {
       convert = function(item)
         return {
-          abbr = MiniIcons.get("lsp", vim.lsp.protocol.CompletionItemKind[item.kind]) .. " " .. item.label,
+          menu = "",
+          kind_hlgroup = hlgroups[item.kind],
         }
       end,
     })
