@@ -11,10 +11,10 @@ autocmd("FileType", {
       return
     end
 
-    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldexpr = vim.treesitter.foldexpr
     vim.wo.foldmethod = "expr"
 
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.bo.indentexpr = require("nvim-treesitter").indentexpr
   end,
 })
 
@@ -38,7 +38,6 @@ autocmd({ "TextPutPost", "TextYankPost" }, {
 })
 
 -- https://www.reddit.com/r/neovim/comments/1qu6060/how_can_i_disable_the_feature_that_gets_rid_of/
--- Don't get rid of autoindent when switching to normal mode or moving cursor
 local function apply_ts_indent_if_blank()
   local buf = vim.api.nvim_get_current_buf()
   local lnum = vim.api.nvim_win_get_cursor(0)[1]
@@ -54,7 +53,7 @@ local function apply_ts_indent_if_blank()
   -- get indent from indentexpr (Tree-sitter or fallback)
   local old_lnum = vim.v.lnum
   vim.v.lnum = lnum
-  local indent = vim.fn.eval(vim.bo.indentexpr)
+  local indent = type(vim.bo.indentexpr) == "function" and vim.bo.indentexpr() or vim.fn.eval(vim.bo.indentexpr)
   vim.v.lnum = old_lnum
   if indent > 0 then
     vim.api.nvim_buf_set_lines(buf, lnum - 1, lnum, false, { string.rep(" ", indent) })
@@ -82,7 +81,7 @@ autocmd("CursorMovedI", {
       if line == "" then
         local old_lnum = vim.v.lnum
         vim.v.lnum = prev_line
-        local indent = vim.fn.eval(vim.bo.indentexpr)
+        local indent = type(vim.bo.indentexpr) == "function" and vim.bo.indentexpr() or vim.fn.eval(vim.bo.indentexpr)
         vim.v.lnum = old_lnum
         if indent > 0 then
           vim.api.nvim_buf_set_lines(buf, prev_line - 1, prev_line, false, { string.rep(" ", indent) })
