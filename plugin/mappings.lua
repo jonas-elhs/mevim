@@ -88,9 +88,10 @@ map("n",   "]e",   function()
 end,                                                      { desc = "Go to next error" })
 
 -- Utils
-map("n",   "H",            "0",                           { desc = "Goto start of line" })
-map("n",   "L",            "$",                           { desc = "Goto end of line" })
+map({ "n", "o" },   "H",   "0",                           { desc = "Goto start of line" })
+map({ "n", "o" },   "L",   "$",                           { desc = "Goto end of line" })
 map("n",   "<ESC>",        "<CMD>nohl<CR>",               { desc = "Remove search highlights" })
+map("t",   "<ESC>",        "<C-\\><C-n>",                 { desc = "Remove search highlights" })
 map("n",   "U",            "<C-r>",                       { desc = "Redo" })
 map("n",   "x",            "\"_x",                        { desc = "Delete character" })
 map("x",   "p",            "\"_p",                        { desc = "Overpaste selection" })
