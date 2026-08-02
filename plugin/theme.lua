@@ -1,33 +1,47 @@
----@param colors {
----  accent: string,
----  inactive: string,
----  background: string,
----  foreground: string,
----  background_light: string,
----
----  visual: string,
----  insert: string,
----  replace: string,
----  command: string,
----  terminal: string,
----
----  warn: string,
----  info: string,
----  hint: string,
----  error: string,
----  success: string,
----  special: string,
----
----  fun: string,
----  type: string,
----  string: string,
----  literal: string,
----  keyword: string,
----  parameter: string,
----  identifier: string,
----  preprocessor: string,
+local colors_found, colors = pcall(require, "colors")
+if not colors_found then
+  colors = {
+    -- Basics
+    accent = "#80B3B2",
+    inactive = "#4C566A",
+    background = "#242933",
+    foreground = "#C0C8D8",
+    background_light = "#3B4252",
+
+    -- Modes
+    visual = "#5E81AC",
+    insert = "#A3BE8C",
+    replace = "#BF616A",
+    command = "#EBCB8B",
+    terminal = "#B48EAD",
+
+    -- State
+    warn = "#E7C173",
+    info = "#8FBCBB",
+    hint = "#5E81AC",
+    error = "#B74E58",
+    success = "#97B67C",
+    special = "#5E81AC",
+
+    -- Syntax
+    fun = "#88C0D0",
+    type = "#EBCB8B",
+    string = "#A3BE8C",
+    literal = "#BE9DB8",
+    keyword = "#D08770",
+    parameter = "#81A1C1",
+    identifier = "#9FC6C5",
+    preprocessor = "#BF616A",
+  }
+end
+---@cast colors {
+---  accent: string, inactive: string, background: string, foreground: string, background_light: string,
+---  visual: string, insert: string, replace: string, command: string, terminal: string,
+---  warn: string, info: string, hint: string, error: string, success: string, special: string,
+---  fun: string, type: string, string: string, literal: string, keyword: string, parameter: string, identifier: string, preprocessor: string,
 ---}
-local function apply_highlights(colors)
+
+local function set_hlgroups()
   -- stylua: ignore
   -- Highlight Groups (https://neovim.io/doc/user/syntax.html#_13.-highlight-command)
   local groups = {
@@ -522,13 +536,12 @@ local function apply_highlights(colors)
     vim.api.nvim_set_hl(0, highlight, spec)
   end
 end
-apply_highlights(require("colors"))
+
+set_hlgroups()
 
 -- Current Mode Highlights
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
-  group = vim.api.nvim_create_augroup("jonas/current_mode_highlight", {}),
   callback = function()
-    local colors = require("colors")
     local mode_color = colors[Utils.get_current_mode_type()] or colors.accent
 
     vim.api.nvim_set_hl(0, "JonasCurrentMode", {
@@ -553,19 +566,22 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
 })
 
 -- Update theme when color file changes
-vim.uv
-  .new_fs_event()
-  :start(vim.fs.abspath("~/.config/nvim-colors/lua/colors.lua"), {}, function(err, _filename, _events)
-    if err then
-      return
-    end
+if colors_found then
+  vim.uv
+    .new_fs_event()
+    :start(vim.fs.abspath("~/.config/nvim-colors/lua/colors.lua"), {}, function(err, _filename, _events)
+      if err then
+        return
+      end
 
-    vim.schedule(function()
-      package.loaded["colors"] = nil
+      vim.schedule(function()
+        package.loaded["colors"] = nil
 
-      apply_highlights(require("colors"))
+        colors = require("colors")
+        set_hlgroups()
 
-      vim.cmd.redraw()
-      vim.cmd.doautocmd("ModeChanged") -- Trigger current mode highlights to update
+        vim.cmd.redraw()
+        vim.cmd.doautocmd("ModeChanged") -- Trigger current mode highlights to update
+      end)
     end)
-  end)
+end
