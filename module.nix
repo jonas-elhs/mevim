@@ -63,7 +63,7 @@ in {
 
       # Plugins
       inputs.blink-pairs.packages.${pkgs.stdenv.hostPlatform.system}.default
-      # jj-nvim
+      jj-nvim
       nvim-dap
       mini-nvim
       nvim-lint

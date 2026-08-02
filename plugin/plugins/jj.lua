@@ -1,5 +1,3 @@
-vim.opt.rtp:prepend("/home/jonas/dev/jj.nvim/")
-
 require("jj").setup({
   terminal = {
     window = {
