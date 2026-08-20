@@ -8,13 +8,6 @@ if not colors_found then
     foreground = "#C0C8D8",
     background_light = "#3B4252",
 
-    -- Modes
-    visual = "#5E81AC",
-    insert = "#A3BE8C",
-    replace = "#BF616A",
-    command = "#EBCB8B",
-    terminal = "#B48EAD",
-
     -- State
     warn = "#E7C173",
     info = "#8FBCBB",
@@ -23,22 +16,29 @@ if not colors_found then
     success = "#97B67C",
     special = "#5E81AC",
 
+    -- Modes
+    mode_visual = "#5E81AC",
+    mode_insert = "#A3BE8C",
+    mode_replace = "#BF616A",
+    mode_command = "#EBCB8B",
+    mode_terminal = "#B48EAD",
+
     -- Syntax
-    fun = "#88C0D0",
-    type = "#EBCB8B",
-    string = "#A3BE8C",
-    literal = "#BE9DB8",
-    keyword = "#D08770",
-    parameter = "#81A1C1",
-    identifier = "#9FC6C5",
-    preprocessor = "#BF616A",
+    syntax_fun = "#88C0D0",
+    syntax_type = "#EBCB8B",
+    syntax_string = "#A3BE8C",
+    syntax_literal = "#BE9DB8",
+    syntax_keyword = "#D08770",
+    syntax_parameter = "#81A1C1",
+    syntax_identifier = "#9FC6C5",
+    syntax_preprocessor = "#BF616A",
   }
 end
 ---@cast colors {
 ---  accent: string, inactive: string, background: string, foreground: string, background_light: string,
----  visual: string, insert: string, replace: string, command: string, terminal: string,
 ---  warn: string, info: string, hint: string, error: string, success: string, special: string,
----  fun: string, type: string, string: string, literal: string, keyword: string, parameter: string, identifier: string, preprocessor: string,
+---  mode_visual: string, mode_insert: string, mode_replace: string, mode_command: string, mode_terminal: string,
+---  syntax_fun: string, syntax_type: string, syntax_string: string, syntax_literal: string, syntax_keyword: string, syntax_parameter: string, syntax_identifier: string, syntax_preprocessor: string,
 ---}
 
 local function set_hlgroups()
@@ -54,7 +54,7 @@ local function set_hlgroups()
     -- Conceal                |   guifg=NvimDarkGrey4                                                |   Placeholder characters substituted for concealed text (see 'conceallevel').
       Conceal = { link = "Normal" },
     -- CurSearch              |   ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow   |   Current match for the last search pattern (see 'hlsearch').
-    CurSearch = { fg = colors.background, bg = colors.command, italic = true },
+    CurSearch = { fg = colors.background, bg = colors.mode_command, italic = true },
     -- Cursor                 |   guifg=bg guibg=fg                                                    |   Character under the cursor.
     -- lCursor                |   guifg=bg guibg=fg                                                    |   Character under the cursor when language-mapping is used (see 'guicursor').
     -- CursorIM               |   links to Cursor                                                      |   Like Cursor, but used when in IME mode.
@@ -151,7 +151,7 @@ local function set_hlgroups()
     -- QuickFixLine           |   ctermfg=14 guifg=NvimLightCyan                                     |   Current quickfix item in the quickfix window. Combined with hl-CursorLine when the cursor is there.
       QuickFixLine = { link = "Normal" },
     -- Search                 |   ctermfg=0 ctermbg=11 guifg=NvimLightGrey1 guibg=NvimDarkYellow   |   Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-    Search = { fg = colors.command, italic = true },
+    Search = { fg = colors.mode_command, italic = true },
     -- SnippetTabstop         |   links to Visual                                                      |   Tabstops in snippets. vim.snippet
     -- SnippetTabstopActive   |   links to SnippetTabstop                                              |   The currently active tabstop. vim.snippet
     -- SpecialKey             |   guifg=NvimDarkGrey4                                                |   Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. hl-Whitespace
@@ -189,20 +189,20 @@ local function set_hlgroups()
     -- Comment          |   guifg=NvimLightGrey4                                           |   any comment
     Comment = { fg = colors.inactive, italic = true },
     -- Constant         |   guifg=NvimLightGrey2                                           |   any constant
-    Constant = { fg = colors.literal },
+    Constant = { fg = colors.syntax_literal },
     -- String           |   ctermfg=10 guifg=NvimLightGreen                                |   a string constant: "this is a string"
-    String = { fg = colors.string },
+    String = { fg = colors.syntax_string },
     -- Character        |   links to Constant                                                |   a character constant: 'c', '\n'
     Character = { link = "String" },
     -- Number           |   links to Constant                                                |   a number constant: 234, 0xff
     -- Boolean          |   links to Constant                                                |   a boolean constant: TRUE, false
     -- Float            |   links to Number                                                  |   a floating point constant: 2.3e10
     -- Identifier       |   ctermfg=12 guifg=NvimLightBlue                                 |   any variable name
-    Identifier = { fg = colors.identifier },
+    Identifier = { fg = colors.syntax_identifier },
     -- Function         |   ctermfg=14 guifg=NvimLightCyan                                 |   function name (also: methods for classes)
-    Function = { fg = colors.fun },
+    Function = { fg = colors.syntax_fun },
     -- Statement        |   cterm=bold gui=bold guifg=NvimLightGrey2                       |   any statement
-    Statement = { fg = colors.keyword },
+    Statement = { fg = colors.syntax_keyword },
     -- Conditional      |   links to Statement                                               |   if, then, else, endif, switch, etc.
     -- Repeat           |   links to Statement                                               |   for, do, while, etc.
     -- Label            |   links to Statement                                               |   case, default, etc.
@@ -211,13 +211,13 @@ local function set_hlgroups()
     -- Keyword          |   links to Statement                                               |   any other keyword
     -- Exception        |   links to Statement                                               |   try, catch, throw
     -- PreProc          |   guifg=NvimLightGrey2                                           |   generic Preprocessor
-    PreProc = { fg = colors.preprocessor},
+    PreProc = { fg = colors.syntax_preprocessor},
     -- Include          |   links to PreProc                                                 |   preprocessor #include
     -- Define           |   links to PreProc                                                 |   preprocessor #define
     -- Macro            |   links to PreProc                                                 |   same as Define
     -- PreCondit        |   links to PreProc                                                 |   preprocessor #if, #else, #endif, etc.
     -- Type             |   guifg=NvimLightGrey2                                           |   int, long, char, etc.
-    Type = { fg = colors.type },
+    Type = { fg = colors.syntax_type },
     -- StorageClass     |   links to Type                                                    |   static, register, volatile, etc.
     -- Structure        |   links to Type                                                    |   struct, union, enum, etc.
     -- Typedef          |   links to Type                                                    |   a typedef
@@ -297,7 +297,7 @@ local function set_hlgroups()
     ["@variable"] = { link = "Normal" },
     -- @variable.builtin             |   links to Special         |   built-in variable names (e.g. this, self)
     -- @variable.parameter           |   links to Special         |   parameters of a function
-    ["@variable.parameter"] = { fg = colors.parameter },
+    ["@variable.parameter"] = { fg = colors.syntax_parameter },
     -- @variable.parameter.builtin   |                            |   special parameters (e.g. _, it)
     -- @variable.member              |                            |   object and struct fields
     -- @constant                     |   links to Constant        |   constant identifiers
@@ -542,7 +542,7 @@ set_hlgroups()
 -- Current Mode Highlights
 vim.api.nvim_create_autocmd({ "VimEnter", "ModeChanged" }, {
   callback = function()
-    local mode_color = colors[Utils.get_current_mode_type()] or colors.accent
+    local mode_color = colors["mode_" .. Utils.get_current_mode_type()] or colors.accent
 
     vim.api.nvim_set_hl(0, "JonasCurrentMode", {
       fg = mode_color,
