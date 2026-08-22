@@ -253,12 +253,12 @@ ui2.enable({
       verbose = "pager",
       wildlist = "msg",
     },
-    cmd = { height = 0.5 },
-    dialog = { height = 0.5 },
-    msg = { height = 0.5, timeout = 3000 },
+    msg = { height = 0.5 },
     pager = { height = 0.8 },
+    dialog = { height = 0.5 },
   },
 })
+vim.o.messagesopt = "hit-enter,history:500,progress:c,timeout:3000"
 
 -- ── LSP progress ─────────────────────────────────────────────────────
 
