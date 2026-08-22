@@ -13,14 +13,14 @@ function M.set_winbar(win)
   vim.wo[win].winbar = "%{%v:lua.require'jonas.bufferline'.render(" .. win .. ")%}"
 end
 
-function M.set_win_data(win, data)
+function M.set_bufferline_state(win, data)
   if api.nvim_win_is_valid(win) then
-    vim.w[win].jonas_bufferline_data = data
+    vim.w[win].jonas_bufferline_state = data
   end
 end
-function M.get_win_data(win)
+function M.get_bufferline_state(win)
   if api.nvim_win_is_valid(win) then
-    local data = vim.w[win].jonas_bufferline_data
+    local data = vim.w[win].jonas_bufferline_state
 
     if type(data) == "table" then
       return data
@@ -47,20 +47,20 @@ function M.add_buf_to_win(win, buf)
     return
   end
 
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
   if data.bufs == {} then
     data.bufs = { buf }
-    M.set_win_data(win, data)
+    M.set_bufferline_state(win, data)
   else
     if not vim.tbl_contains(data.bufs, buf) then
       data.bufs[#data.bufs + 1] = buf
-      M.set_win_data(win, data)
+      M.set_bufferline_state(win, data)
     end
   end
 end
 function M.buf_orphaned(buf)
   for _, win in ipairs(api.nvim_list_wins()) do
-    if vim.list_contains(M.get_win_data(win).bufs, buf) then
+    if vim.list_contains(M.get_bufferline_state(win).bufs, buf) then
       return false
     end
   end
@@ -72,11 +72,11 @@ function M.remove_buf_from_win(win, buf, forceDelete, dontDelete)
     return
   end
 
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
   data.bufs = vim.tbl_filter(function(b)
     return b ~= buf
   end, data.bufs)
-  M.set_win_data(win, data)
+  M.set_bufferline_state(win, data)
 
   if not dontDelete and api.nvim_buf_is_valid(buf) and M.buf_orphaned(buf) then
     api.nvim_buf_delete(buf, { force = forceDelete or false })
@@ -97,32 +97,32 @@ function M.buffer_click(minwid, clicks, button, mods)
 end
 
 function M.arrow_left_click(win)
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
 
   data.anchor = "first"
   data.anchor_index = data.first_visible_index - 1
-  M.set_win_data(win, data)
+  M.set_bufferline_state(win, data)
 
   if data.current_index == data.last_visible_index then
     api.nvim_win_set_buf(win, data.bufs[data.first_visible_index])
     M.render(win)
-    data = M.get_win_data(win)
+    data = M.get_bufferline_state(win)
     api.nvim_win_set_buf(win, data.bufs[data.last_visible_index])
   end
 
   vim.cmd("redrawstatus!")
 end
 function M.arrow_right_click(win)
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
 
   data.anchor = "last"
   data.anchor_index = data.last_visible_index + 1
-  M.set_win_data(win, data)
+  M.set_bufferline_state(win, data)
 
   if data.current_index == data.first_visible_index then
     api.nvim_win_set_buf(win, data.bufs[data.last_visible_index])
     M.render(win)
-    data = M.get_win_data(win)
+    data = M.get_bufferline_state(win)
     api.nvim_win_set_buf(win, data.bufs[data.first_visible_index])
   end
 
@@ -227,7 +227,7 @@ local function get_bufs(win, bufferline_data)
     ),
   }
 
-  M.set_win_data(win, bufferline_data)
+  M.set_bufferline_state(win, bufferline_data)
 
   return {
     all = bufferline_data.bufs,
@@ -257,10 +257,10 @@ function M.render(win)
     return ""
   end
 
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
   local max_width = api.nvim_win_get_width(win)
   local bufs = get_bufs(win, data)
-  data = M.get_win_data(win)
+  data = M.get_bufferline_state(win)
   local show_left_arrow = data.first_visible_index ~= 1
   local show_right_arrow = data.last_visible_index ~= #bufs.all
 
@@ -308,7 +308,7 @@ function M.render(win)
         else
           data.last_visible_index = data.anchor_index
         end
-        M.set_win_data(win, data)
+        M.set_bufferline_state(win, data)
 
         return M.render()
       end
@@ -328,7 +328,7 @@ function M.render(win)
     data.first_visible_index = (data.last_visible_index - #labels + 1)
   end
 
-  M.set_win_data(win, data)
+  M.set_bufferline_state(win, data)
 
   local left_arrow = "%#JonasInactive#%" .. win .. "@v:lua.require'jonas.bufferline'.arrow_left_click@%T "
   local right_arrow = "%=%#JonasInactive#%" .. win .. "@v:lua.require'jonas.bufferline'.arrow_right_click@%T "
@@ -340,7 +340,7 @@ end
 function M.cycle_bufs(offset, opts)
   opts = opts or {}
   local win = opts.win or api.nvim_get_current_win()
-  local data = opts.data or M.get_win_data(win)
+  local data = opts.data or M.get_bufferline_state(win)
 
   local index = ((data.current_index - 1 + offset) % #data.bufs) + 1
   api.nvim_win_set_buf(win, data.bufs[index])
@@ -351,7 +351,7 @@ end
 function M.open_buf_at(index, opts)
   opts = opts or {}
   local win = opts.win or api.nvim_get_current_win()
-  local data = M.get_win_data(win)
+  local data = M.get_bufferline_state(win)
 
   local buf_index = data.first_visible_index + index - 1
   if buf_index <= data.last_visible_index then
@@ -362,8 +362,8 @@ end
 function M.close_buf(force, opts)
   opts = opts or {}
   local win = opts.win or api.nvim_get_current_win()
-  local bufs = M.get_win_data(win).bufs
-  local current_index = M.get_win_data(win).current_index
+  local bufs = M.get_bufferline_state(win).bufs
+  local current_index = M.get_bufferline_state(win).current_index
   local buf = opts.buf or bufs[current_index]
 
   if buf == api.nvim_win_get_buf(win) then
@@ -381,7 +381,7 @@ end
 
 function M.close_split(force)
   local win = api.nvim_get_current_win()
-  local bufs = M.get_win_data(win).bufs
+  local bufs = M.get_bufferline_state(win).bufs
 
   local ok = pcall(vim.cmd, "close")
   if not ok then

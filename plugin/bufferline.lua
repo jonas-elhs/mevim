@@ -1,3 +1,4 @@
+-- TODO: Restore buffers after restart
 -- inspired by https://github.com/e-sigs/winbuf.nvim
 
 local bufferline = require("jonas.bufferline")
