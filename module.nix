@@ -98,8 +98,8 @@ in {
       tombi
       hyprls
       emmylua-ls
+      typescript
       rust-analyzer
-      typescript-go
       bash-language-server
       yaml-language-server
       emmet-language-server
