@@ -98,11 +98,6 @@ map("x",   "p",            "\"_p",                        { desc = "Overpaste se
 map("n",   "j",            "gj",                          { desc = "Down" })
 map("n",   "k",            "gk",                          { desc = "Down" })
 map("n",   "J",            "mzJ`z",                       { desc = "Join line" })
-map("n",   "<leader>R",    function()
-  local session = vim.fn.stdpath("state") .. "/restart_session.vim"
-  vim.cmd("mksession! " .. session)
-  vim.cmd("restart source " .. session)
-end, { desc = "Restart Neovim" })
 map("n", "<leader>n", function()
   local win = require("vim._core.ui2").wins.msg
   if not vim.api.nvim_win_is_valid(win) then return end
