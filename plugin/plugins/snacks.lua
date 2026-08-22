@@ -40,6 +40,7 @@ require("snacks").setup({
         { icon = "󰦨", desc = "Find Text", key = "/", action = "<CMD>Pick grep_live<CR>" },
         { icon = "", desc = "Explore Files", key = "e", action = "<CMD>lua MiniFiles.open()<CR>" },
         { icon = "", desc = "New File", key = "n", action = "<CMD>ene | startinsert<CR>" },
+        { icon = "", desc = "JJ Log", key = "l", action = "<CMD>J log<CR>" },
         { icon = "󰈆", desc = "Quit", key = "q", action = "<CMD>qa<CR>" },
       },
     },
