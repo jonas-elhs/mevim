@@ -104,5 +104,30 @@ map("n", "<leader>n", function()
   vim.api.nvim_win_close(win, false)
 end,               { desc = "Dismiss messages" })
 map("n", "<leader>m", "<CMD>messages<CR>",                { desc = "Show messages" })
-
 -- stylua: ignore end
+
+-- :h edit-repeat
+local last ---@type vim.event.cmdatom.data?
+vim.api.nvim_create_autocmd("CmdAtom", {
+  callback = function(ev)
+    local is_redo_or_undo = ev.data.changed and (ev.data.undoseq or 0) <= (vim.b[ev.buf].maxseq or 0)
+    vim.b[ev.buf].maxseq = math.max(vim.b[ev.buf].maxseq or 0, ev.data.undoseq or 0)
+    if ev.data.changed and not is_redo_or_undo and ev.data.lhs ~= "." then
+      last = ev.data
+    end
+  end,
+})
+map("n", ".", function()
+  -- Multicursors: degrade to builtin "." (cascades).
+  local mc = vim.api.nvim_create_namespace("nvim.multicursor")
+  if #vim.api.nvim_buf_get_extmarks(0, mc, 0, -1, { limit = 1 }) > 0 then
+    vim.api.nvim_feedkeys(".", "n", false)
+    return
+  end
+  -- CmdAtom is deferred; schedule the replay, in case "." follows an edit.
+  vim.schedule(function()
+    if last then
+      vim.api.nvim_feedkeys(last.keys or last.lhs, last.keys and "n" or "m", false)
+    end
+  end)
+end)
